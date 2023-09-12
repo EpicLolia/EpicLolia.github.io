@@ -22,12 +22,12 @@
     <meta name="description" content="条款41 了解隐式接口和编译期多态 template 带来的是编译期多态（compile-time polymorphism），virtual带来运行期多态（哪个virtual 函数该被绑定） 显式接口（explicit interface），通常由函数签名式（名称、参数类型、返回类型）构成 隐式接口（implicit interface），由有效表达式（valid expressions）组成。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Effective C++】7 模板与泛型编程">
-<meta property="og:url" content="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete%20(copy)/index.html">
+<meta property="og:url" content="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%917%20%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Lolia&#39;s blogs">
 <meta property="og:description" content="条款41 了解隐式接口和编译期多态 template 带来的是编译期多态（compile-time polymorphism），virtual带来运行期多态（哪个virtual 函数该被绑定） 显式接口（explicit interface），通常由函数签名式（名称、参数类型、返回类型）构成 隐式接口（implicit interface），由有效表达式（valid expressions）组成。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-20T04:20:06.000Z">
-<meta property="article:modified_time" content="2022-10-20T04:46:07.000Z">
+<meta property="article:published_time" content="2022-10-20T04:20:07.000Z">
+<meta property="article:modified_time" content="2022-10-20T04:20:07.000Z">
 <meta property="article:author" content="Lolia">
 <meta property="article:tag" content="读书笔记">
 <meta property="article:tag" content="C&#x2F;C++">
@@ -35,11 +35,11 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete%20(copy)/">
+<link rel="canonical" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%917%20%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete%20(copy)/","path":"编程语言/C&C++/【Effective C++】8 定制 new 和 delete (copy)/","title":"【Effective C++】7 模板与泛型编程"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%917%20%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/","path":"编程语言/C&C++/【Effective C++】7 模板与泛型编程/","title":"【Effective C++】7 模板与泛型编程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>【Effective C++】7 模板与泛型编程 | Lolia's blogs</title>
@@ -166,7 +166,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete%20(copy)/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%917%20%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,9 +194,8 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-10-20 12:20:06 / 修改时间：12:46:07" itemprop="dateCreated datePublished" datetime="2022-10-20T12:20:06+08:00">2022-10-20</time>
+      <time title="创建时间：2022-10-20 12:20:07" itemprop="dateCreated datePublished" datetime="2022-10-20T12:20:07+08:00">2022-10-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,109 +235,95 @@
 <li>对classes而言接口是显式的（explicit），以函数签名为中心。多态则是通过virtual函数发生于运行期。</li>
 <li>对template参数而言，接口都是隐式的（implicit），奠基于有效表达式。多态则是通过template具现化和函数重载解析（function overloading resolution）发生于编译期</li>
 </ul>
-<h2 id="条款42-了解typename的双重意义"><a href="#条款42-了解typename的双重意义" class="headerlink" title="条款42 了解typename的双重意义"></a>条款42 了解typename的双重意义</h2><ul>
-<li><p>几个概念：</p>
-</li>
-<li><ul>
+<h2 id="条款42-了解typename的双重意义"><a href="#条款42-了解typename的双重意义" class="headerlink" title="条款42 了解typename的双重意义"></a>条款42 了解typename的双重意义</h2><p>几个概念：</p>
+<ul>
 <li>从属名称（dependent names）：名称依赖于某个template参数</li>
 <li>嵌套从属名称（nestd dependent names）：名称嵌套（如：a::b）</li>
 <li>嵌套从属类型名称（nested dependent type name）：代表的意义是一个类型</li>
 </ul>
-</li>
-</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> C&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print2nd</span><span class="params">(<span class="type">const</span> C&amp; container)</span></span>&#123;</span><br><span class="line">    C::const_iterator* x;  <span class="comment">// 错误，这是a * b，相乘的意思，很疯狂</span></span><br><span class="line">    <span class="keyword">typename</span> C::const_iterator* x;  <span class="comment">// 正确，明确const_iterator是类型名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>C++默认 嵌套从属名称 <strong>不是类型名称</strong>！！除非你使用<strong>typename</strong>明确声明。注意！此时的typename只适用于验明<strong>嵌套从属类型名称！！！</strong></li>
-<li>特殊情况：typename 不可以出现在base classes list（继承列表）内，也不可以出现在成员初值列里</li>
-</ul>
+<p>C++默认 嵌套从属名称 <strong>不是类型名称</strong>！！除非你使用<strong>typename</strong>明确声明。注意！此时的typename只适用于验明<strong>嵌套从属类型名称！！！</strong></p>
+<p>特殊情况：typename 不可以出现在base classes list（继承列表）内，也不可以出现在成员初值列里</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base&lt;T&gt;::Nested &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Derived</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function">        :Base&lt;T&gt;::Nested(x)</span></span><br><span class="line"><span class="function">    &#123;</span></span><br><span class="line">        <span class="keyword">typename</span> Base&lt;T&gt;::Nested temp;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">// 如果使用typedef</span></span><br><span class="line">   <span class="keyword">typedef</span> <span class="keyword">typename</span> std::Base&lt;T&gt;::value_type value_type;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>typename的实现也因编译器的不同而不同</li>
-</ul>
+<p>typename的实现也因编译器的不同而不同</p>
+<blockquote>
 <p>请记住</p>
 <ul>
 <li>声明template参数时，前缀关键字class和typename可互换。</li>
 <li>请使用关键字typename标识嵌套从属类型名称；但不得在base class lists（基类列）或member initialization list（成员初值列）内以他作为base class修饰符。</li>
 </ul>
-<h2 id="条款43-学习处理模板化基类内的名称"><a href="#条款43-学习处理模板化基类内的名称" class="headerlink" title="条款43 学习处理模板化基类内的名称"></a>条款43 学习处理模板化基类内的名称</h2><ul>
-<li>编译器不会直接访问模板基类的作用域，因为不知道该访问的是普通模板还是<strong>特化模板</strong>（这是两份不一样的代码）</li>
-</ul>
+</blockquote>
+<h2 id="条款43-学习处理模板化基类内的名称"><a href="#条款43-学习处理模板化基类内的名称" class="headerlink" title="条款43 学习处理模板化基类内的名称"></a>条款43 学习处理模板化基类内的名称</h2><p>编译器不会直接访问模板基类的作用域，因为不知道该访问的是普通模板还是<strong>特化模板</strong>（这是两份不一样的代码）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MsgInfo</span>&#123;...&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MsgSender</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sendClear</span><span class="params">(<span class="type">const</span> MsgInfo&amp; info)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        std::string msg;</span><br><span class="line">        ...</span><br><span class="line">        Company c;</span><br><span class="line">        c.<span class="built_in">sendCleartext</span>(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Company&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LoggingMsgSender</span>: <span class="keyword">public</span> MsgSender&lt;Company&gt; &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="type">const</span> MsgInfo&amp; info)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// do sth</span></span><br><span class="line">        <span class="built_in">sendClear</span>(info);    <span class="comment">// 调用base class的函数，无法通过编译</span></span><br><span class="line">        <span class="comment">// do sth</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>三种方法</li>
-</ul>
+<p>三种方法</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用this-&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="type">const</span> MsgSender&amp; info)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">sendClear</span>(info);</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 使用using声明，告诉编译器进入该作用域查找</span></span><br><span class="line"><span class="keyword">using</span> MsgSender&lt;Company&gt;::sendClear;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="type">const</span> MsgSender&amp; info)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">sendClear</span>(info);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显式指出作用域，弊端是会使virtual函数失效</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sendClearMsg</span><span class="params">(<span class="type">const</span> MsgSender&amp; info)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    MsgSender&lt;Company&gt;::<span class="built_in">sendClear</span>(info);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
 <p>请记住</p>
 <ul>
 <li>可在derived class template 内通过“this-&gt;”指涉base class templates 内的成员名称，或藉由一个明白写出的“base class 资格修饰符”完成。</li>
 </ul>
-<h2 id="条款44-（看不太懂）将与参数无关的代码抽离templates"><a href="#条款44-（看不太懂）将与参数无关的代码抽离templates" class="headerlink" title="条款44 （看不太懂）将与参数无关的代码抽离templates"></a>条款44 （看不太懂）将与参数无关的代码抽离templates</h2><ul>
-<li>template其实是告诉编译器帮你自动生成代码（模板里的函数只有被调用过，才会具现化）。但是有时候可能会导致代码简洁，编译的目标码（object code）却臃肿不堪的情况。</li>
-<li>共性与变性分析（commonality and variability analysis）：</li>
-</ul>
+</blockquote>
+<h2 id="条款44-（看不太懂）将与参数无关的代码抽离templates"><a href="#条款44-（看不太懂）将与参数无关的代码抽离templates" class="headerlink" title="条款44 （看不太懂）将与参数无关的代码抽离templates"></a>条款44 （看不太懂）将与参数无关的代码抽离templates</h2><p>template其实是告诉编译器帮你自动生成代码（模板里的函数只有被调用过，才会具现化）。但是有时候可能会导致代码简洁，编译的目标码（object code）却臃肿不堪的情况。</p>
+<p>共性与变性分析（commonality and variability analysis）：</p>
+<blockquote>
 <p>请记住</p>
 <ul>
 <li>templates 生成多个classes 和多个函数，所以任何template代码都不该与某个造成膨胀的template参数产生相依关系。</li>
 <li>因非类型模板参数（non-type template parameters）而造成的代码膨胀，往往可消除，做法是以函数参数或class成员变量替换template参数。</li>
 <li>因类型参数（type parameters）而造成的代码膨胀，往往可降低，做法是让带有完全相同二进制表述（binary representations）的具现类型（instantiation types）共享实现码。</li>
 </ul>
-<h2 id="条款45-（有点难）运用-成员函数模板（member-function-template）-接受所有兼容类型"><a href="#条款45-（有点难）运用-成员函数模板（member-function-template）-接受所有兼容类型" class="headerlink" title="条款45 （有点难）运用 成员函数模板（member function template） 接受所有兼容类型"></a>条款45 （有点难）运用 成员函数模板（member function template） 接受所有兼容类型</h2><ul>
-<li>默认的模板类并没有得到 具现化模板的类型的隐式转化能力</li>
-<li>如果带有base-derived关系的两个类型分别具现化某个template，产生出来的两个具现体并不带有base-derived关系，所以不能直接用隐式转换。</li>
-</ul>
+</blockquote>
+<h2 id="条款45-（有点难）运用-成员函数模板（member-function-template）-接受所有兼容类型"><a href="#条款45-（有点难）运用-成员函数模板（member-function-template）-接受所有兼容类型" class="headerlink" title="条款45 （有点难）运用 成员函数模板（member function template） 接受所有兼容类型"></a>条款45 （有点难）运用 成员函数模板（member function template） 接受所有兼容类型</h2><p>默认的模板类并没有得到 具现化模板的类型的隐式转化能力</p>
+<p>如果带有base-derived关系的两个类型分别具现化某个template，产生出来的两个具现体并不带有base-derived关系，所以不能直接用隐式转换。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SmartPtr</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</span></span><br><span class="line"><span class="function">    <span class="keyword">explicit</span> <span class="title">SmartPtr</span><span class="params">(U* other)</span>  <span class="comment">// 接受内置指针的构造函数</span></span></span><br><span class="line"><span class="function">        : heldPtr(other) &#123;</span>...&#125; </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">SmartPtr</span>(<span class="type">const</span> SmartPtr&amp; other)  <span class="comment">// 不泛化的copy构造函数</span></span><br><span class="line">        : <span class="built_in">heldPtr</span>(other.<span class="built_in">get</span>()) &#123;...&#125; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;  <span class="comment">// 泛化的copy构造函数</span></span><br><span class="line">    <span class="built_in">SmartPtr</span>(<span class="type">const</span> SmartPtr&lt;U&gt;&amp; other)  <span class="comment">// 不写explicit是为了实现隐式转换</span></span><br><span class="line">        : <span class="built_in">heldPtr</span>(other.<span class="built_in">get</span>()) &#123;...&#125;  <span class="comment">// 使用底层的转化，排除掉不合理的转化</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// copy赋值同上</span></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    </span><br><span class="line">    <span class="function">T* <span class="title">get</span><span class="params">()</span> <span class="type">const</span> </span>&#123;<span class="keyword">return</span> heldPtr;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T* heldPtr;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
+<blockquote>
 <p>请记住</p>
 <ul>
 <li>请使用 member function templates（成员函数模板）生成“可接受所有兼容类型”的函数</li>
 <li>如果你声明 member templates 用于“泛化copy构造”或“泛化assignment操作”，你还是需要声明正常的copy构造函数和copyassignment操作符。</li>
 </ul>
-<h2 id="条款46-需要类型转换时请为模板定义非成员函数"><a href="#条款46-需要类型转换时请为模板定义非成员函数" class="headerlink" title="条款46 需要类型转换时请为模板定义非成员函数"></a>条款46 需要类型转换时请为模板定义非成员函数</h2><ul>
-<li>使用条款24的方式不能解决 模板类的隐式转换。<strong>函数模板依赖实参推导！</strong>函数模板根据调用的实参推导模板参数类型，在推导过程中不会采纳“通过构造函数而发生”的隐式转换。即<strong>函数实参的隐式转换必须以函数具现化为前提！</strong>但是<strong>模板函数</strong>又需要具体的（准确的）实参类型来具象化函数。</li>
-</ul>
+</blockquote>
+<h2 id="条款46-需要类型转换时请为模板定义非成员函数"><a href="#条款46-需要类型转换时请为模板定义非成员函数" class="headerlink" title="条款46 需要类型转换时请为模板定义非成员函数"></a>条款46 需要类型转换时请为模板定义非成员函数</h2><p>使用条款24的方式不能解决 模板类的隐式转换。<strong>函数模板依赖实参推导！</strong>函数模板根据调用的实参推导模板参数类型，在推导过程中不会采纳“通过构造函数而发生”的隐式转换。即<strong>函数实参的隐式转换必须以函数具现化为前提！</strong>但是<strong>模板函数</strong>又需要具体的（准确的）实参类型来具象化函数。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">const</span> Rational&lt;T&gt; <span class="keyword">operator</span>* (<span class="type">const</span> Rational&lt;T&gt;&amp; lhs,</span><br><span class="line">                             <span class="type">const</span> Rational&lt;T&gt;&amp; rhs)</span><br><span class="line">&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误调用，</span></span><br><span class="line">Rational&lt;<span class="type">int</span>&gt; result = oneHalf * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>class template（类模板）不依赖实参推导，所以可以将non-member函数声明为类的friend函数。所以当类具象的时候，模板friend函数也具象化了。又因模板的声明和定义不好分开定义，链接问题比较复杂（声明具象化的时候找不到对应的具象化的定义），我们将声明和定义写到一起。</li>
-</ul>
+<p>class template（类模板）不依赖实参推导，所以可以将non-member函数声明为类的friend函数。所以当类具象的时候，模板friend函数也具象化了。又因模板的声明和定义不好分开定义，链接问题比较复杂（声明具象化的时候找不到对应的具象化的定义），我们将声明和定义写到一起。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rational</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">friend</span> <span class="type">const</span> Rational <span class="keyword">operator</span>* (<span class="type">const</span> Rational&amp; lhs,</span><br><span class="line">                                     <span class="type">const</span> Rational&amp; rhs)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Rational</span>(lhs.<span class="built_in">numerator</span>() * rhs.<span class="built_in">numerator</span>(),</span><br><span class="line">                        lhs.<span class="built_in">denominator</span>() * rhs.<span class="built_in">denominator</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>有趣的是，我们在这里使用friend 并不是为了函数能获得类中的访问权限，而是为了<strong>模板函数能伴随模板类自动具现化</strong>。</li>
-</ul>
+<p>有趣的是，我们在这里使用friend 并不是为了函数能获得类中的访问权限，而是为了<strong>模板函数能伴随模板类自动具现化</strong>。</p>
+<blockquote>
 <p>请记住</p>
 <ul>
 <li>当我们编写一个class template，而它所提供之“与此template相关的”函数支持“所有参数之隐式类型转换”时，请将那些函数定义成“class template 内部的friend 函数”。</li>
 </ul>
-<h2 id="条款47-（看不懂）请使用traits（特征）-classes-表现类型信息"><a href="#条款47-（看不懂）请使用traits（特征）-classes-表现类型信息" class="headerlink" title="条款47 （看不懂）请使用traits（特征） classes 表现类型信息"></a>条款47 （看不懂）请使用traits（特征） classes 表现类型信息</h2><p>请记住</p>
+</blockquote>
+<h2 id="条款47-（看不懂）请使用traits（特征）-classes-表现类型信息"><a href="#条款47-（看不懂）请使用traits（特征）-classes-表现类型信息" class="headerlink" title="条款47 （看不懂）请使用traits（特征） classes 表现类型信息"></a>条款47 （看不懂）请使用traits（特征） classes 表现类型信息</h2><blockquote>
+<p>请记住</p>
 <ul>
 <li>Traits classes 使得“类型相关信息”在编译期可用。它们以templates 和 “templates 特化”完成实现。</li>
 <li>整合重载技术（overloading）后，traits classes 有可能在编译期对类型执行if…else 测试。</li>
 </ul>
-<h2 id="条款48-认识template-元编程"><a href="#条款48-认识template-元编程" class="headerlink" title="条款48 认识template 元编程"></a>条款48 认识template 元编程</h2><ul>
-<li>Template metaprogramming（TMP，模板元编程），将运行期的工作转移到编译期。</li>
-</ul>
+</blockquote>
+<h2 id="条款48-认识template-元编程"><a href="#条款48-认识template-元编程" class="headerlink" title="条款48 认识template 元编程"></a>条款48 认识template 元编程</h2><p>Template metaprogramming（TMP，模板元编程），将运行期的工作转移到编译期。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="type">unsigned</span> n&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Factorial</span> &#123;</span><br><span class="line">    <span class="keyword">enum</span>&#123; value = n * Factorial&lt;n - <span class="number">1</span>&gt;::value &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;&gt;  <span class="comment">// 特殊情况，n=0的特化</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Factorial</span>&lt;<span class="number">0</span>&gt; &#123;</span><br><span class="line">    <span class="keyword">enum</span>&#123; value = <span class="number">1</span> &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>三个应用场景（举例）</p>
 <ul>
-<li><p>三个应用场景（举例）</p>
-</li>
-<li><ul>
 <li>确保度量单位正确。TMP可以确保程序所有度量单位组合的正确性（在编译期）。</li>
 <li>优化矩阵运算。</li>
 <li>可以生成客户定制之设计模式（custom design pattern）实现品。如Strategy、Observer、Visitor等都可以多种方式实现。</li>
 </ul>
-</li>
-</ul>
+<blockquote>
 <p>请记住</p>
 <ul>
 <li>Template metaprogramming 可将工作由运行期转移到编译期，因而得以实现早期错误侦测和更高的执行效率。</li>
 <li>TMP 可被用来生成“基于政策选择组合”（based on combinations of policy choices）的客户定制代码，也可用来避免生成对某些特殊类型并不适合的代码。</li>
 </ul>
+</blockquote>
 
     </div>
 
@@ -357,13 +342,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%919%20%E6%9D%82%E9%A1%B9%E8%AE%A8%E8%AE%BA/" rel="prev" title="【Effective C++】9 杂项讨论">
-                  <i class="fa fa-angle-left"></i> 【Effective C++】9 杂项讨论
+                <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%916%20%E7%BB%A7%E6%89%BF%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/" rel="prev" title="【Effective C++】6 继承与面向对象设计">
+                  <i class="fa fa-angle-left"></i> 【Effective C++】6 继承与面向对象设计
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%917%20%E6%A8%A1%E6%9D%BF%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B%20(copy)/" rel="next" title="【Effective C++】7 模板与泛型编程">
-                  【Effective C++】7 模板与泛型编程 <i class="fa fa-angle-right"></i>
+                <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete/" rel="next" title="【Effective C++】8 定制 new 和 delete">
+                  【Effective C++】8 定制 new 和 delete <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
