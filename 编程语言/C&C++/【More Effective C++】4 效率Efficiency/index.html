@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="条款16 谨记 80-20 法则软件的总体性能几乎总是由其构成要素的一小部分决定。 请学会使用程序分析器（program profiler），并且保证采样的数据是普适的，可以重现的。 条款17 考虑采用lazy evaluation（缓式评估）拖延战术hhh，把运算拖到刻不容缓的地步再执行。 应用1：Reference Counting（引用计数）在你真正需要之前（比如要修改它了），不必着急为某物">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【More Effective C++】4 效率Efficiency">
+<meta property="og:url" content="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/index.html">
+<meta property="og:site_name" content="Lolia&#39;s blogs">
+<meta property="og:description" content="条款16 谨记 80-20 法则软件的总体性能几乎总是由其构成要素的一小部分决定。 请学会使用程序分析器（program profiler），并且保证采样的数据是普适的，可以重现的。 条款17 考虑采用lazy evaluation（缓式评估）拖延战术hhh，把运算拖到刻不容缓的地步再执行。 应用1：Reference Counting（引用计数）在你真正需要之前（比如要修改它了），不必着急为某物">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-25T08:13:24.000Z">
+<meta property="article:modified_time" content="2022-10-25T08:13:27.000Z">
+<meta property="article:author" content="Lolia">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="More Effective C++">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/","path":"编程语言/C&C++/【More Effective C++】4 效率Efficiency/","title":"【More Effective C++】4 效率Efficiency"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【More Effective C++】4 效率Efficiency | Lolia's blogs</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lolia's blogs</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文章是写给未来的信</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE16-%E8%B0%A8%E8%AE%B0-80-20-%E6%B3%95%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">条款16 谨记 80-20 法则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE17-%E8%80%83%E8%99%91%E9%87%87%E7%94%A8lazy-evaluation%EF%BC%88%E7%BC%93%E5%BC%8F%E8%AF%84%E4%BC%B0%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">条款17 考虑采用lazy evaluation（缓式评估）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A81%EF%BC%9AReference-Counting%EF%BC%88%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%EF%BC%89"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">应用1：Reference Counting（引用计数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A82%EF%BC%9A%E5%8C%BA%E5%88%86%E8%AF%BB%E5%92%8C%E5%86%99"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">应用2：区分读和写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A83%EF%BC%9ALazy-Fetching%EF%BC%88%E7%BC%93%E5%BC%8F%E5%8F%96%E5%87%BA%EF%BC%89"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">应用3：Lazy Fetching（缓式取出）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A84%EF%BC%9ALazy-Expression-Evaluation%EF%BC%88%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BC%93%E8%AF%84%E4%BC%B0%EF%BC%89"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">应用4：Lazy Expression Evaluation（表达式缓评估）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.0.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE18-%E5%88%86%E6%9C%9F%E6%91%8A%E8%BF%98%E9%A2%84%E6%9C%9F%E7%9A%84%E8%AE%A1%E7%AE%97%E6%88%90%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">条款18 分期摊还预期的计算成本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE19-%E4%BA%86%E8%A7%A3%E4%B8%B4%E6%97%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9D%A5%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">条款19 了解临时对象的来源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">参数隐式类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">函数返回对象</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE20-%E5%8D%8F%E5%8A%A9%E5%AE%8C%E6%88%90%E2%80%9C%E8%BF%94%E5%9B%9E%E5%80%BC%E4%BC%98%E5%8C%96%EF%BC%88RVO%EF%BC%89%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">条款20 协助完成“返回值优化（RVO）”</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE21-%E5%88%A9%E7%94%A8%E9%87%8D%E8%BD%BD%E6%8A%80%E6%9C%AF%EF%BC%88overload%EF%BC%89%E9%81%BF%E5%85%8D%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%EF%BC%88implicit-type-conversions%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">条款21 利用重载技术（overload）避免隐式类型转换（implicit type conversions）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE22%EF%BC%9A%E8%80%83%E8%99%91%E4%BB%A5%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%A4%8D%E5%90%88%E5%BD%A2%E5%BC%8F%EF%BC%88op-%EF%BC%89%E5%8F%96%E4%BB%A3%E5%85%B6%E7%8B%AC%E8%BA%AB%E5%BD%A2%E5%BC%8F%EF%BC%88op%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">条款22：考虑以操作符复合形式（op&#x3D;）取代其独身形式（op）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE23%EF%BC%9A%E8%80%83%E8%99%91%E4%BD%BF%E7%94%A8%E5%85%B6%E4%BB%96%E7%A8%8B%E5%BA%8F%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">条款23：考虑使用其他程序库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE24%EF%BC%9A%E4%BA%86%E8%A7%A3virtual-functions%E3%80%81multiple-inheritance%E3%80%81virtual-base-classes%E3%80%81runtime-type-identification%E7%9A%84%E6%88%90%E6%9C%AC"><span class="nav-number">9.</span> <span class="nav-text">条款24：了解virtual functions、multiple inheritance、virtual base classes、runtime type identification的成本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8vtbl%E7%9A%84%E6%88%90%E6%9C%AC"><span class="nav-number">9.0.0.1.</span> <span class="nav-text">虚函数表vtbl的成本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88vtpr"><span class="nav-number">9.0.0.2.</span> <span class="nav-text">虚函数指针vtpr</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E4%B8%8D%E5%BA%94%E8%AF%A5%E8%A2%ABinline"><span class="nav-number">9.0.0.3.</span> <span class="nav-text">虚函数不应该被inline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">9.0.0.4.</span> <span class="nav-text">虚函数调用流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF"><span class="nav-number">9.0.0.5.</span> <span class="nav-text">多重继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8F%B1%E5%BD%A2%E7%BB%A7%E6%89%BF%E5%92%8C%E8%99%9A%E5%9F%BA%E7%B1%BB"><span class="nav-number">9.0.0.6.</span> <span class="nav-text">菱形继承和虚基类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E7%B1%BB%E5%9E%8B%E8%BE%A8%E8%AF%86%EF%BC%88runtime-type-identification%EF%BC%8CRTTI%EF%BC%89"><span class="nav-number">9.0.0.7.</span> <span class="nav-text">运行时类型辨识（runtime type identification，RTTI）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lolia</p>
+  <div class="site-description" itemprop="description">用个人网站来督促自己前进吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【More Effective C++】4 效率Efficiency | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【More Effective C++】4 效率Efficiency
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-25 16:13:24 / 修改时间：16:13:27" itemprop="dateCreated datePublished" datetime="2022-10-25T16:13:24+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/More-Effective-C/" itemprop="url" rel="index"><span itemprop="name">More Effective C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="条款16-谨记-80-20-法则"><a href="#条款16-谨记-80-20-法则" class="headerlink" title="条款16 谨记 80-20 法则"></a>条款16 谨记 80-20 法则</h1><p><strong>软件的总体性能几乎总是由其构成要素的一小部分决定。</strong></p>
+<p>请学会使用程序分析器（program profiler），并且保证采样的数据是普适的，可以重现的。</p>
+<h1 id="条款17-考虑采用lazy-evaluation（缓式评估）"><a href="#条款17-考虑采用lazy-evaluation（缓式评估）" class="headerlink" title="条款17 考虑采用lazy evaluation（缓式评估）"></a>条款17 考虑采用lazy evaluation（缓式评估）</h1><p>拖延战术hhh，把运算拖到刻不容缓的地步再执行。</p>
+<h4 id="应用1：Reference-Counting（引用计数）"><a href="#应用1：Reference-Counting（引用计数）" class="headerlink" title="应用1：Reference Counting（引用计数）"></a>应用1：Reference Counting（引用计数）</h4><p>在你真正需要之前（比如要修改它了），不必着急为某物做一个副本，而是用共享取代副本。</p>
+<h4 id="应用2：区分读和写"><a href="#应用2：区分读和写" class="headerlink" title="应用2：区分读和写"></a>应用2：区分读和写</h4><p>继续上面Reference Counting 的例子，我们在读取的时候不需要副本，只有在要写入的时候才需要创造一个副本，那么我们该怎么判断读和写呢？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string s2 = s1;</span><br><span class="line">cout&lt;&lt;s2[<span class="number">3</span>];  <span class="comment">// 读，不需要创建副本</span></span><br><span class="line">s2[<span class="number">3</span>] = <span class="string">&#x27;a&#x27;</span>;  <span class="comment">// 写，需要副本</span></span><br></pre></td></tr></table></figure>
+
+<p>​	我们重载 [] 操作符暂时是无能为力的……但是如果使用lazy evaluation 和 条款30 的proxy classes 可以延缓决定“究竟是读还是写”直到能够得到确定答案。</p>
+<h4 id="应用3：Lazy-Fetching（缓式取出）"><a href="#应用3：Lazy-Fetching（缓式取出）" class="headerlink" title="应用3：Lazy Fetching（缓式取出）"></a>应用3：Lazy Fetching（缓式取出）</h4><p>对于一个需要从数据库读取数据的大对象</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LargeObject</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LargeObjec</span>(ObjectID id);</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">const</span> string&amp; <span class="title">field1</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">field2</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>​	可以考虑并不在构造的时候就将所有数据读取出来，而是将该对象视为一个读取器，需要对象的某个数据时再单独读取该单个的数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LargeObject</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LargeObjec</span>(ObjectID id):<span class="built_in">oid</span>(id), <span class="built_in">field1Value</span>(<span class="literal">nullptr</span>), <span class="built_in">field2Value</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">const</span> string&amp; <span class="title">field1</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(field1Value == <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// read the data for field 1 from the database </span></span><br><span class="line">            <span class="comment">// and make field1Value point to it</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *field1Value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">field2</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    ObjectID oid;</span><br><span class="line">    <span class="keyword">mutable</span> string* field1Value;</span><br><span class="line">    <span class="keyword">mutable</span> <span class="type">int</span>* field2Value;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	该例中将数据成员转变成指向数据的指针（也可使用智能指针），当指针为null时代表数据尚未读取。关键字mutable保证成员变量再const函数中也可以被修改。</p>
+<p>读取数据的成员函数被用const关键字修饰是合理的，对于用户来说其行为确实是const，将实现隐藏在抽象背后！（因此，此处的mutable用得好啊）</p>
+<h4 id="应用4：Lazy-Expression-Evaluation（表达式缓评估）"><a href="#应用4：Lazy-Expression-Evaluation（表达式缓评估）" class="headerlink" title="应用4：Lazy Expression Evaluation（表达式缓评估）"></a>应用4：Lazy Expression Evaluation（表达式缓评估）</h4><p>对于数值应用，如矩阵计算，lazy evaluation可以发挥很大的作用。核心就是：<strong>大限度</strong>、<strong>细粒度</strong>地拖延到真正需要用到的时候（读取）再工作。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span> &#123;...&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">class</span> Matrix&lt;<span class="type">int</span>&gt; <span class="title">m1</span><span class="params">(<span class="number">1000</span>,<span class="number">1000</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">class</span> Matrix&lt;<span class="type">int</span>&gt; <span class="title">m2</span><span class="params">(<span class="number">1000</span>,<span class="number">1000</span>)</span></span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span>&lt;<span class="type">int</span>&gt; m3 = m1 + m2;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们不需要直接计算m3的结果，而可以保存m3与m1、m2的关系，因为可能会有以下情况：</p>
+<ol>
+<li>可能根本就没用到m3？</li>
+<li>可能我们只关心m3的一小部分数据。如第4行第5列的值是多少？</li>
+</ol>
+<p>当然也会有一些需要注意的地方。比如，如果在m3被计算之前，我们修改了m1的值，那么我们要保证m3计算结果不受m1改变的影响，可以在m1修改时直接计算m3，也可以拷贝一份m1。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>lazy evaluation的核心就是拖延战术，大限度、小粒度的拖延。但这个方法也不是任何时候都奏效，为了实现这个方法，我们往往也会需要一些开销，比如开发、维护成本等，特别是如果你的计算是必要的，那么无论怎么拖延，工作终究是要做的，运行效率和内存占用往往会更糟糕。</p>
+<p>因此，只有当你的部分工作“其实可以避免时”lazy evaluation才会奏效。</p>
+<p>除此之外，lazy evaluation是一个可以“隐于幕后”的方法，属于程序的实现部分（相对于抽象，或者说用户接口），可以（理应）很好的进行封装。</p>
+<h1 id="条款18-分期摊还预期的计算成本"><a href="#条款18-分期摊还预期的计算成本" class="headerlink" title="条款18 分期摊还预期的计算成本"></a>条款18 分期摊还预期的计算成本</h1><p>与条款17相对的超急评估（over-eager evaluation），即在被要求之前就先把事情做下去。</p>
+<h1 id="条款19-了解临时对象的来源"><a href="#条款19-了解临时对象的来源" class="headerlink" title="条款19 了解临时对象的来源"></a>条款19 了解临时对象的来源</h1><p>误区，局部对象temp并不是临时对象，临时对象不在代码中可见，只要你产生non-heap object但没有给他命名，便诞生了一个临时对象。一般在以下两种情况下产生：</p>
+<ol>
+<li>函数参数传递时发生的隐式类型转换（implicit type conversations）</li>
+<li>函数返回对象</li>
+</ol>
+<h4 id="参数隐式类型转换"><a href="#参数隐式类型转换" class="headerlink" title="参数隐式类型转换"></a>参数隐式类型转换</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">countChar</span><span class="params">(<span class="type">const</span> string&amp; str, <span class="type">char</span> ch)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> buffer[<span class="number">10</span>];</span><br><span class="line">...</span><br><span class="line"><span class="type">size_t</span> num = <span class="built_in">countChar</span>(buffer, <span class="string">&#x27;a&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>函数调用时会由buffer产生一个string类型的临时对象，并使str引用临时对象，这个过程中会发生一次对象的构造，并在函数结束时发生对象的析构。</p>
+<p>具体分析3种传参形式：</p>
+<ol>
+<li>reference to const：常量引用，可以发生隐式转换</li>
+<li>by value：传值，可以发生隐式转换（确定会发生一次对象的构造和析构）</li>
+<li>reference to non-const：非常量引用，不会发生隐式类型转换（派生类向基类转换除外）</li>
+</ol>
+<h4 id="函数返回对象"><a href="#函数返回对象" class="headerlink" title="函数返回对象"></a>函数返回对象</h4><p>这个话题就涉及到了“返回值优化”（return value optimization），这正是条款20讨论的内容。</p>
+<h1 id="条款20-协助完成“返回值优化（RVO）”"><a href="#条款20-协助完成“返回值优化（RVO）”" class="headerlink" title="条款20 协助完成“返回值优化（RVO）”"></a>条款20 协助完成“返回值优化（RVO）”</h1><p>在函数以by-value返回对象时，我们应该以合理的方式，寻求编译器的帮助。</p>
+<p>我们的伎俩是：返回所谓的constructor arguments以取代对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>*(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Rational</span>(...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 96年的标准之后，下面这个也可以完成返回值优化</span></span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>*(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">    <span class="function">Rational <span class="title">result</span><span class="params">(...)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rational c = a * b;</span><br></pre></td></tr></table></figure>
+
+<p>​	这么做好像什么都没有干，看起来我们还是需要在函数中构造一个对象用来返回，但是我们允许编译器进行优化，即直接将其构造于c的内存中，即只发生一次构造，成本为0！！！（本应发生三次构造、两次析构）</p>
+<p>详细分析：在函数体内部作用域发生一次构造和析构，又由于函数返回的是值类型，又会产生一次构造和析构，最后在使用函数返回的对象构造c对象。</p>
+<p>注：在96年之后，命名对象和匿名对象都可以实现返回值优化。</p>
+<h1 id="条款21-利用重载技术（overload）避免隐式类型转换（implicit-type-conversions）"><a href="#条款21-利用重载技术（overload）避免隐式类型转换（implicit-type-conversions）" class="headerlink" title="条款21 利用重载技术（overload）避免隐式类型转换（implicit type conversions）"></a>条款21 利用重载技术（overload）避免隐式类型转换（implicit type conversions）</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UPInt</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">UPInt</span>();</span><br><span class="line">	<span class="built_in">UPInt</span>(<span class="type">int</span> value);  <span class="comment">// 可以实现由int到UPInt的隐式转换</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> UPInt <span class="keyword">operator</span>+(<span class="type">const</span> UPInt&amp; lhs, <span class="type">const</span> UPInt&amp; rhs);</span><br><span class="line"></span><br><span class="line">upi3 = upi1 + <span class="number">10</span>;  <span class="comment">// 此处会发生一次隐式转换，额外生成一个临时的UPInt对象</span></span><br></pre></td></tr></table></figure>
+
+<p>虽然隐式转换确实能够达到我们的目的，但是可能会产生我们不需要的临时对象，增加性能开销。可以显式地利用符号（函数）的重载来避免隐式转换。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> UPInt <span class="keyword">operator</span>+(<span class="type">const</span> UPInt&amp; lhs, <span class="type">int</span> rhs);</span><br></pre></td></tr></table></figure>
+
+<p>不过要记得，全局的操作符重载，参数必须要含有用户自定类型，比如不能重载int+int。</p>
+<p>还有一个常用的应用场景，就是char*和string之间的相互转换。</p>
+<p>除此之外，不要忘了2-8法则，增加一大堆重载函数也不一定是件好事，除非你确定重载后程序的整体效率能够有重大的改善。</p>
+<h1 id="条款22：考虑以操作符复合形式（op-）取代其独身形式（op）"><a href="#条款22：考虑以操作符复合形式（op-）取代其独身形式（op）" class="headerlink" title="条款22：考虑以操作符复合形式（op&#x3D;）取代其独身形式（op）"></a>条款22：考虑以操作符复合形式（op&#x3D;）取代其独身形式（op）</h1><p>对于能够使用+操作符的对象，往往我们也希望他能够支持+&#x3D;操作符。</p>
+<p>一般来说复合形式只需要对对象本身进行操作，不需要创建新的对象，而独身形式不会改变左右两个参数，而是构造一个新的对象，进行操作。比起维护两个函数，我们更倾向于用一个函数调用另一个函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rational</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Rational&amp; <span class="keyword">operator</span>+=(<span class="type">const</span> Rational&amp; rhs);</span><br><span class="line">	Rational&amp; <span class="keyword">operator</span>-=(<span class="type">const</span> Rational&amp; rhs);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意返回值const的小细节E21</span></span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>+(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Rational</span>(lhs) += rhs;  <span class="comment">// 注意，请确保Rational()不会被编译器识别为去除const的转型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>-(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Rational</span>(lhs) -= rhs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	这样我们就只需要维护类内复合形式的操作符即可。也可以把这段代码写成模板，由编译器生成代码（如果你不介意所有独身操作符都暴露在全局作用域之下），这样只要你在自定类中实现了复合操作符，就可以使用其独身形式。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> T <span class="keyword">operator</span>+(<span class="type">const</span> T&amp; lhs, <span class="type">const</span> T&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">T</span>(lhs) += rhs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> T <span class="keyword">operator</span>-(<span class="type">const</span> T&amp; lhs, <span class="type">const</span> T&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">T</span>(lhs) -= rhs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	独身形式和复合形式也会让用户在便利性和效率间纠结hhh。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">result = a+ b+c+d; <span class="comment">// 有三个临时对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有临时对象</span></span><br><span class="line">result = a;</span><br><span class="line">result += b;</span><br><span class="line">result += c;</span><br><span class="line">result += d;</span><br></pre></td></tr></table></figure>
+
+<p>​	不过注意2-8原则，前者一般也不会对性能产生太大的影响。前者代码可读性强，后者在汇编层可读性强。</p>
+<h1 id="条款23：考虑使用其他程序库"><a href="#条款23：考虑使用其他程序库" class="headerlink" title="条款23：考虑使用其他程序库"></a>条款23：考虑使用其他程序库</h1><p>通过分析器来比对程序库之间的优劣，由于我们不能保证测试数据足够“典型”，所以盲目信任分析器的结果是愚蠢的，但不用分析器也是愚蠢的。</p>
+<p>当你的程序性能遇到瓶颈时，可以考虑使用别的函数库。比如有I&#x2F;O瓶颈，可以做出取舍，考虑使用stdio取代iostream，但也要为此牺牲iostream的安全性和可扩充性。再比如程序花费很多时间在动态分配内存和释放内存上，你应该看看是否有其他提供了operator new和operator delete 的程序库。</p>
+<h1 id="条款24：了解virtual-functions、multiple-inheritance、virtual-base-classes、runtime-type-identification的成本"><a href="#条款24：了解virtual-functions、multiple-inheritance、virtual-base-classes、runtime-type-identification的成本" class="headerlink" title="条款24：了解virtual functions、multiple inheritance、virtual base classes、runtime type identification的成本"></a>条款24：了解virtual functions、multiple inheritance、virtual base classes、runtime type identification的成本</h1><p>这一块的内容是深度探索C++对象模型的主要内容。</p>
+<p>C++的标准规定了编译器需要支持虚函数，而现在主流的虚函数实现是通过vtbl和vptrs。下面就来具体分析这种实现机制带来的利弊。</p>
+<h4 id="虚函数表vtbl的成本"><a href="#虚函数表vtbl的成本" class="headerlink" title="虚函数表vtbl的成本"></a>虚函数表vtbl的成本</h4><p>每个含有虚函数的class（或者继承自含有虚函数的class）都需要在编译的时候生成一份虚函数表，那么这张表应该放在哪里呢？有一种暴力做法就是，在每一个需要vtbl的目标文件中都生成一份（重写或者调用），然后在链接阶段剥除重复的vtbl。但这不是主流做法。另一种方法是探勘式做法。将vtbl放在内含第一个non-inline、non-pure的虚函数定义式的目标文件内。</p>
+<p>上面谈论的是虚表静态保存的位置。那么在程序运行时，vtbl会被加载到内存的哪个位置呢？</p>
+<p>TODO</p>
+<h4 id="虚函数指针vtpr"><a href="#虚函数指针vtpr" class="headerlink" title="虚函数指针vtpr"></a>虚函数指针vtpr</h4><p>一个指针需要4Byte（8Byte）的内存空间</p>
+<h4 id="虚函数不应该被inline"><a href="#虚函数不应该被inline" class="headerlink" title="虚函数不应该被inline"></a>虚函数不应该被inline</h4><p>inline表示函数应该在编译期展开，但是虚函数的调用意味着运行时的多态，两者是矛盾的。虚函数在编译期并不知道调用的对象是什么类型，也不知道调用的函数内容。</p>
+<h4 id="虚函数调用流程"><a href="#虚函数调用流程" class="headerlink" title="虚函数调用流程"></a>虚函数调用流程</h4><ol>
+<li>根据对象的vptr找到对应的vtbl。成本只有一个偏移调整（获得vptr）和一个指针间接动作（访问vtbl）</li>
+<li>根据调用的虚函数的索引，在虚表中找到对应的函数指针。成本只是一个差移以求进入vtbl数组。</li>
+<li>用函数指针调用函数</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object-&gt;<span class="built_in">virtualFunc</span>();</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">(*object-&gt;vptr[i])(object); <span class="comment">// 传入object作为this*</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4><p>简单的多重继承主要的难点在于</p>
+<ol>
+<li>如何找出正确的vptr，因为此时对象中存有多个vptr对应多个vtbl。</li>
+<li>如果该类中又定义了新的虚函数，那么它应该放在哪张虚表里？可能放在第一个继承的父类中。</li>
+</ol>
+<h4 id="菱形继承和虚基类"><a href="#菱形继承和虚基类" class="headerlink" title="菱形继承和虚基类"></a>菱形继承和虚基类</h4><p>菱形继承的第一个问题就是：对象中可能会存在多份重复的base data member。针对这个问题，虚继承会在最末端派生类中确定虚基类的位置（可能是类的末尾），并为每个父类生成一个指针指向虚基类的data members。（这仅仅是可能的做法，当然也有别的做法，可以不引入那么多的指针）</p>
+<p>如果虚基类中含有虚函数，那么末端派生类可能会产生3个vptr和3张虚表。</p>
+<h4 id="运行时类型辨识（runtime-type-identification，RTTI）"><a href="#运行时类型辨识（runtime-type-identification，RTTI）" class="headerlink" title="运行时类型辨识（runtime type identification，RTTI）"></a>运行时类型辨识（runtime type identification，RTTI）</h4><p>RTTI提供了在运行时获得class和object信息的能力，它被存放在type_info类中。那么我们要怎么访问type_info呢？一般来说，虚表的0索引处，就存放着一个指向该类的type_info对象的指针，这也意味着只有含有虚函数的类（或者父类含有虚函数）才支持RTTI。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+              <a href="/tags/More-Effective-C/" rel="tag"># More Effective C++</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%913%20%E5%BC%82%E5%B8%B8Exceptions/" rel="prev" title="【More Effective C++】3 异常Exceptions">
+                  <i class="fa fa-angle-left"></i> 【More Effective C++】3 异常Exceptions
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/" rel="next" title="UE卡通渲染">
+                  UE卡通渲染 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Lolia</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
