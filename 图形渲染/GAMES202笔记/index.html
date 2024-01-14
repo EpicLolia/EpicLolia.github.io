@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本篇为学习 GAMES202-高质量实时渲染后做的简单笔记。 一、实时阴影硬阴影采用多趟（Multi-Pass）的做法，先从光源的视角生成一张Shadow Map，后续渲染Shading Point时可以通过Shadow Map上的像素值来计算遮挡关系，从而渲染阴影。 软阴影在将常用的软阴影方法PCSS之前，我们需要先引入一个模糊阴影的算法PCF。 Percentage Closer Filter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GAMES202笔记">
+<meta property="og:url" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Lolia&#39;s blogs">
+<meta property="og:description" content="本篇为学习 GAMES202-高质量实时渲染后做的简单笔记。 一、实时阴影硬阴影采用多趟（Multi-Pass）的做法，先从光源的视角生成一张Shadow Map，后续渲染Shading Point时可以通过Shadow Map上的像素值来计算遮挡关系，从而渲染阴影。 软阴影在将常用的软阴影方法PCSS之前，我们需要先引入一个模糊阴影的算法PCF。 Percentage Closer Filter">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/progressively_growing_sizes.png">
+<meta property="article:published_time" content="2023-12-25T14:20:53.000Z">
+<meta property="article:modified_time" content="2023-12-25T14:20:53.000Z">
+<meta property="article:author" content="Lolia">
+<meta property="article:tag" content="图形渲染">
+<meta property="article:tag" content="GAMES202">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/progressively_growing_sizes.png">
+
+
+<link rel="canonical" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/","path":"图形渲染/GAMES202笔记/","title":"GAMES202笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>GAMES202笔记 | Lolia's blogs</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lolia's blogs</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文章是写给未来的信</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E6%97%B6%E9%98%B4%E5%BD%B1"><span class="nav-number">1.</span> <span class="nav-text">一、实时阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E9%98%B4%E5%BD%B1"><span class="nav-number">1.1.</span> <span class="nav-text">硬阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E9%98%B4%E5%BD%B1"><span class="nav-number">1.2.</span> <span class="nav-text">软阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Percentage-Closer-Filtering%EF%BC%88PCF%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">Percentage Closer Filtering（PCF）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Percentage-Closer-Soft-Shadows%EF%BC%88PCSS%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">Percentage Closer Soft Shadows（PCSS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variance-Soft-Shadow-Mapping%EF%BC%88VSSM%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">Variance Soft Shadow Mapping（VSSM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Moment-Shadow-Mapping%EF%BC%88MSM%EF%BC%89"><span class="nav-number">1.2.4.</span> <span class="nav-text">Moment Shadow Mapping（MSM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cascade-Shadow-Mapping%EF%BC%88CSM%EF%BC%89"><span class="nav-number">1.2.5.</span> <span class="nav-text">Cascade Shadow Mapping（CSM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ESDF%E7%9A%84%E9%98%B4%E5%BD%B1%E6%B8%B2%E6%9F%93"><span class="nav-number">1.2.6.</span> <span class="nav-text">基于SDF的阴影渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%8E%AF%E5%A2%83%E5%85%89"><span class="nav-number">2.</span> <span class="nav-text">二、环境光</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Based-Lighing%EF%BC%88IBL%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">Image-Based Lighing（IBL）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Split-Sum%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">Split Sum方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0%EF%BC%88Spherical-Harmonics%EF%BC%8CSH%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">球谐函数（Spherical Harmonics，SH）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precomputed-Radiance-Transfer%EF%BC%88PRT%EF%BC%89"><span class="nav-number">2.4.</span> <span class="nav-text">Precomputed Radiance Transfer（PRT）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%85%A8%E5%B1%80%E5%85%89%E7%85%A7"><span class="nav-number">3.</span> <span class="nav-text">三、全局光照</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RSM%EF%BC%88Reflective-Shadow-Map%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">RSM（Reflective Shadow Map）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Light-Propagation-Volumes%EF%BC%88LPV%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">Light Propagation Volumes（LPV）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Voxel-Global-Illumination%EF%BC%88VXGI%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">Voxel Global Illumination（VXGI）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen-Space-Ambient-Occlusion%EF%BC%88SSAO%EF%BC%89%E5%92%8C-Horizon-Based-AO%EF%BC%88HBAO%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">Screen Space Ambient Occlusion（SSAO）和 Horizon Based AO（HBAO）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SS-Direction-Occlusion%EF%BC%88SSDO%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">SS Direction Occlusion（SSDO）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen-Space-Reflection%EF%BC%88SSR%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">Screen Space Reflection（SSR）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81PBR%E6%9D%90%E8%B4%A8"><span class="nav-number">4.</span> <span class="nav-text">四、PBR材质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%A1%A8%E9%9D%A2%E6%A8%A1%E5%9E%8B%EF%BC%88Microfacet-BRDF%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">微表面模型（Microfacet BRDF）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-%E8%8F%B2%E6%B6%85%E5%B0%94%E9%A1%B9"><span class="nav-number">4.1.1.</span> <span class="nav-text">F-菲涅尔项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G-%E5%BE%AE%E8%A1%A8%E9%9D%A2%E7%9A%84%E8%87%AA%E9%81%AE%E6%8C%A1%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.2.</span> <span class="nav-text">G-微表面的自遮挡问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-%E5%BE%AE%E8%A1%A8%E9%9D%A2%E7%9A%84%E6%B3%95%E7%BA%BF%E5%88%86%E5%B8%83"><span class="nav-number">4.1.3.</span> <span class="nav-text">D-微表面的法线分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Kulla-Conty-Approximation"><span class="nav-number">4.1.4.</span> <span class="nav-text">The Kulla-Conty Approximation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linearly-Transformed-Cosines%EF%BC%88LTC%EF%BC%89"><span class="nav-number">4.1.5.</span> <span class="nav-text">Linearly Transformed Cosines（LTC）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AA%E5%A3%AB%E5%B0%BC%E5%8E%9F%E5%88%99%E6%9D%90%E8%B4%A8%E6%A8%A1%E5%9E%8B%EF%BC%88Disney-Principled-BRDF%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">迪士尼原则材质模型（Disney Principled BRDF）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E7%9C%9F%E5%AE%9E%E6%84%9F%E6%B8%B2%E6%9F%93%EF%BC%88Non-Photorealistic-Rendering%EF%BC%8CNPR%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">非真实感渲染（Non-Photorealistic Rendering，NPR）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E6%97%B6%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA"><span class="nav-number">5.</span> <span class="nav-text">五、实时光线追踪</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E5%9F%9F%E9%99%8D%E5%99%AA%EF%BC%88Spatial-Denoising%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">空域降噪（Spatial Denoising）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gaussian-filtering%EF%BC%88%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2%EF%BC%89"><span class="nav-number">5.1.1.</span> <span class="nav-text">Gaussian filtering（高斯滤波）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bilateral-filtering%EF%BC%88%E5%8F%8C%E8%BE%B9%E6%BB%A4%E6%B3%A2%EF%BC%89"><span class="nav-number">5.1.2.</span> <span class="nav-text">Bilateral filtering（双边滤波）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joint-Bilateral-filtering%EF%BC%88%E8%81%94%E5%90%88%E5%8F%8C%E8%BE%B9%E6%BB%A4%E6%B3%A2%EF%BC%89"><span class="nav-number">5.1.3.</span> <span class="nav-text">Joint Bilateral filtering（联合双边滤波）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Outlier-Removal"><span class="nav-number">5.1.4.</span> <span class="nav-text">Outlier Removal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8ELarge-filter%E7%9A%84%E5%8A%A0%E9%80%9F%E6%96%B9%E6%B3%95"><span class="nav-number">5.1.5.</span> <span class="nav-text">对于Large filter的加速方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Separate-Passes%EF%BC%88%E6%8B%86%E5%88%86%E5%AE%9E%E7%8E%B0%EF%BC%89"><span class="nav-number">5.1.5.1.</span> <span class="nav-text">1. Separate Passes（拆分实现）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Progressively-Growing-Sizes"><span class="nav-number">5.1.5.2.</span> <span class="nav-text">2. Progressively Growing Sizes</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E9%99%8D%E5%99%AA%EF%BC%88Temporal-Denoising%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">时域降噪（Temporal Denoising）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spatiotemporal-Variance-Guided-Filter%EF%BC%88SVGF%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">Spatiotemporal Variance-Guided Filter（SVGF）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B7%A5%E4%B8%9A%E6%8A%80%E6%9C%AF"><span class="nav-number">6.</span> <span class="nav-text">六、一些常用的工业技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%97%E9%94%AF%E9%BD%BF"><span class="nav-number">6.1.</span> <span class="nav-text">抗锯齿</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lolia</p>
+  <div class="site-description" itemprop="description">用个人网站来督促自己前进吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="GAMES202笔记 | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GAMES202笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-25 22:20:53" itemprop="dateCreated datePublished" datetime="2023-12-25T22:20:53+08:00">2023-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>本篇为学习 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YK4y1T7yY/">GAMES202-高质量实时渲染</a>后做的简单笔记。</p>
+<h1 id="一、实时阴影"><a href="#一、实时阴影" class="headerlink" title="一、实时阴影"></a>一、实时阴影</h1><h2 id="硬阴影"><a href="#硬阴影" class="headerlink" title="硬阴影"></a>硬阴影</h2><p>采用多趟（Multi-Pass）的做法，先从光源的视角生成一张<strong>Shadow Map</strong>，后续渲染Shading Point时可以通过Shadow Map上的像素值来计算遮挡关系，从而渲染阴影。</p>
+<h2 id="软阴影"><a href="#软阴影" class="headerlink" title="软阴影"></a>软阴影</h2><p>在将常用的软阴影方法PCSS之前，我们需要先引入一个模糊阴影的算法PCF。</p>
+<h3 id="Percentage-Closer-Filtering（PCF）"><a href="#Percentage-Closer-Filtering（PCF）" class="headerlink" title="Percentage Closer Filtering（PCF）"></a>Percentage Closer Filtering（PCF）</h3><p>使用PCF方法，在Shading Point与Shadow Map上的像素比较时，不再只与一个像素计算可视性，而是与一个范围内的像素计算可视性，并将结果加权平均（FIlter）。这样的操作可以使阴影变模糊（软），其模糊程度与范围（Filter Size）的选取正相关，即Filter Size越大，阴影越模糊（软）。</p>
+<p>需要注意的是，这里的Filter并不是对Shadow Map上各个像素的深度值进行Filter，而是对一个Shading Point与Shadow Map上各个像素的可视性进行Filter！</p>
+<p>PCF不仅可以用来缓解阴影的锯齿问题，也可以用于软阴影的实现。</p>
+<h3 id="Percentage-Closer-Soft-Shadows（PCSS）"><a href="#Percentage-Closer-Soft-Shadows（PCSS）" class="headerlink" title="Percentage Closer Soft Shadows（PCSS）"></a>Percentage Closer Soft Shadows（PCSS）</h3><p>在实际的软阴影中，有越靠近遮挡物的阴影越硬，越远离遮挡物的越软，这样的物理性质，而在PCF方法中，阴影的软硬由比较范围决定，因此，我们只要想办法根据Shading Point与遮挡物的距离选择合适的比较范围，就可以渲染出合适的软阴影。</p>
+<p>具体分以下三步：</p>
+<ol>
+<li>在Shadow Map的一定范围内，找到遮挡Shading Point的像素，计算它们的平均深度。注意这里仅计算遮挡了Shading Point的像素的平均深度！</li>
+<li>根据平均遮挡深度，决定PCF的Filter Size。</li>
+<li>PCF。</li>
+</ol>
+<h3 id="Variance-Soft-Shadow-Mapping（VSSM）"><a href="#Variance-Soft-Shadow-Mapping（VSSM）" class="headerlink" title="Variance Soft Shadow Mapping（VSSM）"></a>Variance Soft Shadow Mapping（VSSM）</h3><p>虽然现在已经很少使用了，但是其中有很多很聪明的方法。</p>
+<p>主要就是用很多大胆的近似来代替PCSS中的采样，优化PCSS中第一步和第三步的性能。</p>
+<h3 id="Moment-Shadow-Mapping（MSM）"><a href="#Moment-Shadow-Mapping（MSM）" class="headerlink" title="Moment Shadow Mapping（MSM）"></a>Moment Shadow Mapping（MSM）</h3><p>更高阶的VSM</p>
+<h3 id="Cascade-Shadow-Mapping（CSM）"><a href="#Cascade-Shadow-Mapping（CSM）" class="headerlink" title="Cascade Shadow Mapping（CSM）"></a>Cascade Shadow Mapping（CSM）</h3><p>工业界常用的做法，根据距离远近，使用不同精度的Shadow Map。</p>
+<h3 id="基于SDF的阴影渲染"><a href="#基于SDF的阴影渲染" class="headerlink" title="基于SDF的阴影渲染"></a>基于SDF的阴影渲染</h3><p><strong>Ray Marching</strong>是SDF的一种常见的使用方式，它可以快速地求出线与物体的最小距离。在阴影渲染时，我们也可以通过这个方法，在Shading Point上求出Safe Angel（即未被遮挡的程度），Safe Angel越大，Shading Point越亮。</p>
+<p>基于SDF的阴影运行性能最高，因为它不需要单独的Pass来计算光源的Shadow Map，不过它需要的SDF数据预处理的开销比较大，实际应用比较困难。</p>
+<h1 id="二、环境光"><a href="#二、环境光" class="headerlink" title="二、环境光"></a>二、环境光</h1><h2 id="Image-Based-Lighing（IBL）"><a href="#Image-Based-Lighing（IBL）" class="headerlink" title="Image-Based Lighing（IBL）"></a>Image-Based Lighing（IBL）</h2><p>环境光会被保存在Spherical Map或Cube Map贴图中。</p>
+<h2 id="Split-Sum方法"><a href="#Split-Sum方法" class="headerlink" title="Split Sum方法"></a>Split Sum方法</h2><p>需要对Cube Map进行Mip Map。</p>
+<h2 id="球谐函数（Spherical-Harmonics，SH）"><a href="#球谐函数（Spherical-Harmonics，SH）" class="headerlink" title="球谐函数（Spherical Harmonics，SH）"></a>球谐函数（Spherical Harmonics，SH）</h2><p>对于diffuse物体，我们并不需要高频的环境光信息，故可以将环境光通过SH来表示，一般取3-5阶即可。</p>
+<h2 id="Precomputed-Radiance-Transfer（PRT）"><a href="#Precomputed-Radiance-Transfer（PRT）" class="headerlink" title="Precomputed Radiance Transfer（PRT）"></a>Precomputed Radiance Transfer（PRT）</h2><p>在实际渲染中，我们还需要考虑环境光的可见性（阴影）。</p>
+<p>对于<strong>静态场景</strong>，可以通过预计算的方法来渲染其环境光。我们可以将渲染方程拆解成两个部分，<strong>Lighting</strong>和<strong>Light Transports</strong>项。其中Lighting项与环境光相关，Light Transtorts项则针对场景中每个静态Vertex单独计算，与物体遮挡关系和BRDF相关。<br>$$<br>L(o)&#x3D;\int_Ω L(i)V(i)ρ(i,o)\mathrm{max}(0,n·i)\mathrm{d}i\<br>L(i)-\mathrm{Lighting}\<br>V(i)ρ(i,o)\mathrm{max}(0,n·i)-\mathrm{Light Transports}<br>$$<br>对于DIffuse的物体，其Light Transports项是一个Vector，而对于Glossy的物体，其Light Transports项则是一个Matrix。在运行时，我们只需要对每个顶点做一次矩阵点乘，即可计算出环境光照的结果。</p>
+<p>球谐函数表示高频信息比较吃力，所以PRT方法对于Glossy（甚至是Specular）物体的渲染效果并不好。因此也可以使用其他能够表达高频信息的基函数，比如小波函数（Haar Wavelet）。当然小波函数也有自己的缺陷，比如不能方便地旋转（球谐可以）。</p>
+<h1 id="三、全局光照"><a href="#三、全局光照" class="headerlink" title="三、全局光照"></a>三、全局光照</h1><p>现实世界中，光线在场景中会进行无限次地反弹，最终进入我们地眼睛。在实时渲染中，我们无法使光线无限次弹射，但若能获取光线比直接光照多一次反弹的结果（即间接光照），我们也可以取得很不错的渲染效果！</p>
+<p>故全局光照需要解决的问题，就是第一次间接光照的计算问题。</p>
+<h2 id="RSM（Reflective-Shadow-Map）"><a href="#RSM（Reflective-Shadow-Map）" class="headerlink" title="RSM（Reflective Shadow Map）"></a>RSM（Reflective Shadow Map）</h2><p>核心思路是将所有接受直接光照的地方视为Diffuse的表面，并将其作为次级光源参与Shading Point的计算。</p>
+<p>次级光源与Shading Point直接的可视性也暂不考虑，甚至可以直接采用Shading Point在Shadow Map上与次级光源的距离，来判断Shading Point与次级光源是否接近，并以此进行采样。对于一个shading point采样400个次级光源是比较合适的，其中对较近的次级光源要使用比较大的权重。</p>
+<p>RSM只是图像（2D）空间的全局光照，我们只有来自Shadow Map的信息，只考虑了shading point与次级光源在Shadow Map上的2D位置关系，没有考虑shading point与次级光源的3D位置关系以及可视性。</p>
+<h2 id="Light-Propagation-Volumes（LPV）"><a href="#Light-Propagation-Volumes（LPV）" class="headerlink" title="Light Propagation Volumes（LPV）"></a>Light Propagation Volumes（LPV）</h2><p>核心思路是将场景划分为若干个Voxel（体素），在计算完直接光照后，将接受到直接光照的表面看作间接光照在场景中传播的起点，迭代多轮后，可以获取场景中各voxel的radiance（可以用SH表示）。</p>
+<p>LPV也有其缺点，如果Voxel粒度太大，则容易出现light leaking（漏光）现象。而细粒度的体素化则会带来更大的性能开销。</p>
+<h2 id="Voxel-Global-Illumination（VXGI）"><a href="#Voxel-Global-Illumination（VXGI）" class="headerlink" title="Voxel Global Illumination（VXGI）"></a>Voxel Global Illumination（VXGI）</h2><p>将场景的直接光照信息记录在Hierachical的Voxel中，对于Shading Point，做一次Cone Tracing，判断哪些次级光源会对这个Shading Point有贡献，并计算相应的结果。这里并没有假设直接光照的反射物是Diffuse的，它可以支持Glossy反射物。</p>
+<p>在做Cone Tracing时，随着距离的增加，Cone的面积也会增大，这时我们可以在更高层级的Voxel进行查询。</p>
+<p>对于Diffuse的Shading Point，我们可以用多次Cone Tracing来代替一个半球的采样。</p>
+<p>VXGI的质量非常好，与光线追踪的结果非常接近，但是开销太大，应用受限。</p>
+<h2 id="Screen-Space-Ambient-Occlusion（SSAO）和-Horizon-Based-AO（HBAO）"><a href="#Screen-Space-Ambient-Occlusion（SSAO）和-Horizon-Based-AO（HBAO）" class="headerlink" title="Screen Space Ambient Occlusion（SSAO）和 Horizon Based AO（HBAO）"></a>Screen Space Ambient Occlusion（SSAO）和 Horizon Based AO（HBAO）</h2><p>在整个球内进行采样，判断可见性的是SSAO。</p>
+<p>根据Shading Point法线，在法线方向的半球内进行采样的是HBAO。</p>
+<h2 id="SS-Direction-Occlusion（SSDO）"><a href="#SS-Direction-Occlusion（SSDO）" class="headerlink" title="SS Direction Occlusion（SSDO）"></a>SS Direction Occlusion（SSDO）</h2><p>在SSAO（HBAO）中，我们只考虑了Shading Point周围的遮挡关系，也可以说是只考虑了Shading Point的（来自于光源和环境光的）直接光照，而没有考虑周围物体的间接光照。</p>
+<p>SSDO可以理解为在屏幕空间的类RSM算法，计算小范围内的全局光照。与SSAO的做法一样，通过相机深度，我们可以找到（采样）Shading Point附近会遮挡Shading Point的Patch，然后按照与RSM类似的做法，计算该Patch对Shading Point的影响即可。</p>
+<h2 id="Screen-Space-Reflection（SSR）"><a href="#Screen-Space-Reflection（SSR）" class="headerlink" title="Screen Space Reflection（SSR）"></a>Screen Space Reflection（SSR）</h2><p>屏幕空间反射，即屏幕空间的全局光照，更进一步地讲，就是做屏幕空间的光线追踪了。光线追踪的一个难点在于如何快速地对射线和物体求交，在离线软光追中，我们可以将场景通过BVH树来组织加速。在3D空间中我们通过3D层次结构来加速求交，在2D空间中我们同样可以这样做。具体来说，我们可以在屏幕空间对深度进行最小深度池化（Min Depth Pooling），如果射线与浅层地最小深度都不相交的话，那么它也必然不会与深层具体地某个像素相交。</p>
+<p>实际做屏幕空间射线求交时，每次前进步长的选择也有一定技巧，伪代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mip = 0;</span><br><span class="line">while(level &gt; -1)&#123;</span><br><span class="line">	step through current cell;</span><br><span class="line">	if(above Z plane) ++level;</span><br><span class="line">	if(below Z plane) --level;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决Tracing问题后，就到了Shading的部分了。</p>
+<p>这里我们同样假设反射物也是Diffuse，不需要沿着光线的路径不断Tracing到光源处。对于每个Shading Point，我们可以根据其BRDF进行蒙特卡洛采样，一般而言，对于Glossy（或者Specular）的物体，我们只需要少量的采样就可以获得不错的效果，而Diffuse的物体则需要比较多的采样。</p>
+<h1 id="四、PBR材质"><a href="#四、PBR材质" class="headerlink" title="四、PBR材质"></a>四、PBR材质</h1><ul>
+<li>Bi-directional Reflective（反射） Distribution Function</li>
+<li>Bi-directional Transmit（投射） Distribution Function</li>
+<li>Bi-directional Scattering（散射） Distribution Function</li>
+</ul>
+<p>BSDF &#x3D; BRDF + BTDF</p>
+<h2 id="微表面模型（Microfacet-BRDF）"><a href="#微表面模型（Microfacet-BRDF）" class="headerlink" title="微表面模型（Microfacet BRDF）"></a>微表面模型（Microfacet BRDF）</h2><p>$$<br>f(i,o)&#x3D;\frac{F(i,h)G(i,o,h)D(h)}{4(n,i)(n,o)}\<br>$$</p>
+<p>$$<br>i-\mathrm{view}\quad o-\mathrm{light}\quad\<br>h-\mathrm{half\ vector\ of\ io}\quad n-\mathrm{normal}\<br>F-\mathrm{Fresnel\ term}\<br>G-\mathrm{Shadowing\ masking\ term(Geometry\ term)}\<br>D-\mathrm{Distribution\ of\ normals}<br>$$</p>
+<h3 id="F-菲涅尔项"><a href="#F-菲涅尔项" class="headerlink" title="F-菲涅尔项"></a>F-菲涅尔项</h3><p>可以采用<strong>Schlick’s approximation</strong><br>$$<br>R(θ)&#x3D;R_0+(1-R_0)(1-\cosθ)^5\<br>R_0&#x3D;(\frac{n_1-n_2}{n_1+n_2})^2<br>$$<br>上式中的$n_1,n_2$为表面两侧介质的绝对折射率，是物体本身的性质。</p>
+<h3 id="G-微表面的自遮挡问题"><a href="#G-微表面的自遮挡问题" class="headerlink" title="G-微表面的自遮挡问题"></a>G-微表面的自遮挡问题</h3><p>注意这里是微观层面的遮挡问题</p>
+<p>遮挡来源于两个部分，一个是光源方向的遮挡，即Shadowing，另一个是观察方向的遮挡，即Masking。常用的函数有<strong>The Smith Shadowing-Masking</strong>。</p>
+<p>G项可以中和菲涅尔项导致的边缘发白的现象。</p>
+<h3 id="D-微表面的法线分布"><a href="#D-微表面的法线分布" class="headerlink" title="D-微表面的法线分布"></a>D-微表面的法线分布</h3><p>一般呈lobe（瓣波）状，使用法线分布函数（Normal Distribution Function，NDF）来表示。</p>
+<p>常用的NDF有Beckmann模型、GGX模型（TR模型）、GTR（Generalized Trowbridge-Reitz）模型等等。</p>
+<h3 id="The-Kulla-Conty-Approximation"><a href="#The-Kulla-Conty-Approximation" class="headerlink" title="The Kulla-Conty Approximation"></a>The Kulla-Conty Approximation</h3><p>在G项处理自遮挡问题时，我们只考虑了一次弹射的情况，造成了多次弹射的能量损失，导致粗糙物体的渲染结果偏暗。</p>
+<p>KC方法过程比较复杂，这里不展开。最终可以拆分出出一张LUT加速计算。</p>
+<h3 id="Linearly-Transformed-Cosines（LTC）"><a href="#Linearly-Transformed-Cosines（LTC）" class="headerlink" title="Linearly Transformed Cosines（LTC）"></a>Linearly Transformed Cosines（LTC）</h3><p>传统做法下，GGX模型与多边形光源求交，我们可能需要进行多次采样模拟积分，这样做的开销并不小。</p>
+<p>如果不考虑shadow问题，LTC方法可以通过将光源变换到BRDF所在的Cosines空间来求解析解，避免了采样。</p>
+<h2 id="迪士尼原则材质模型（Disney-Principled-BRDF）"><a href="#迪士尼原则材质模型（Disney-Principled-BRDF）" class="headerlink" title="迪士尼原则材质模型（Disney Principled BRDF）"></a>迪士尼原则材质模型（Disney Principled BRDF）</h2><p>Disney Principled BRDF是一种对设计师友好的材质模型。它有几点原则（From Games202）：</p>
+<ol>
+<li>应该使用更直观的名词而不是使用物理名词参数，比如使用平缓、饱和度等</li>
+<li>让brdf框架不太复杂，也就是让参数数量少一点</li>
+<li>最好有一个拖动条左边最小值，右边最大值供艺术家们进行调整</li>
+<li>有时候为了特殊的效果允许将参数值超过范围，也就是允许小于0或大于1</li>
+<li>所有参数的组合应尽可能可靠和合理，也就是不论如何调整参数最后的结果应该是正常的</li>
+</ol>
+<p>它拥有比较高维的参数空间，可以模拟出十分丰富的材质效果，但有时候也会出现不同参数组合拥有相似效果的冗余情况。</p>
+<h2 id="非真实感渲染（Non-Photorealistic-Rendering，NPR）"><a href="#非真实感渲染（Non-Photorealistic-Rendering，NPR）" class="headerlink" title="非真实感渲染（Non-Photorealistic Rendering，NPR）"></a>非真实感渲染（Non-Photorealistic Rendering，NPR）</h2><p>NPR是一个Art Driven问题，因此我们的是分析各种艺术效果的特征和本质，最后在渲染中实现。艺术来源于真实，NPR渲染往往也需要一个优秀的PBR渲染框架来作为基础。</p>
+<h1 id="五、实时光线追踪"><a href="#五、实时光线追踪" class="headerlink" title="五、实时光线追踪"></a>五、实时光线追踪</h1><p>随着硬件技术的发展，慢慢地我们可以支持1SPP（ samples per pixel）的的开销了（这里的采样一般也只考虑光线弹射2次，而不是无限次弹射）。但如此低的采样率，渲染出的结果会有极大的噪声，并不能直接输出，我们需要对其进行降噪操作。</p>
+<h2 id="空域降噪（Spatial-Denoising）"><a href="#空域降噪（Spatial-Denoising）" class="headerlink" title="空域降噪（Spatial Denoising）"></a>空域降噪（Spatial Denoising）</h2><h3 id="Gaussian-filtering（高斯滤波）"><a href="#Gaussian-filtering（高斯滤波）" class="headerlink" title="Gaussian filtering（高斯滤波）"></a>Gaussian filtering（高斯滤波）</h3><p>从最简单的高斯滤波开始，我们可以过滤掉所有高频的噪声，但这也会将<strong>边界</strong>这一个高频信号过滤掉，这不是我们所期望的结果。</p>
+<p>高斯滤波仅考虑了像素之间的距离信息来计算邻近像素权重，我们当然也可以考虑更多维的像素信息！</p>
+<h3 id="Bilateral-filtering（双边滤波）"><a href="#Bilateral-filtering（双边滤波）" class="headerlink" title="Bilateral filtering（双边滤波）"></a>Bilateral filtering（双边滤波）</h3><p>双边滤波就是考虑了像素的距离和像素的颜色两个维度的信息来计算像素的权重，通过这样的操作，我们可以在滤波时保留边界信息，仅过滤高频噪声。</p>
+<p>但在实时光追的场景下，高频噪声占比过大，双边滤波的效果并没有那么好。我们需要考虑更多维度的信息！</p>
+<h3 id="Joint-Bilateral-filtering（联合双边滤波）"><a href="#Joint-Bilateral-filtering（联合双边滤波）" class="headerlink" title="Joint Bilateral filtering（联合双边滤波）"></a>Joint Bilateral filtering（联合双边滤波）</h3><p>联合双边滤波考虑了G-Buffer中的深度、法线、颜色等等信息来计算权重，由于G-Buffer中的信息是准确（无噪声）的，通过这些信息得出的权重往往也是比较准确的。</p>
+<h3 id="Outlier-Removal"><a href="#Outlier-Removal" class="headerlink" title="Outlier Removal"></a>Outlier Removal</h3><p>由于光追结果的噪声并不是在RGB颜色空间中，它有可能会有非常大的值，其在滤波时可能对周围像素造成很大影响，我们需要将其值限制在一个合理的范围内。</p>
+<p>具体做法就是计算其周围像素的均值和方差，然后将像素颜色Clamp到$[μ-kσ,μ+kσ]$内。</p>
+<h3 id="对于Large-filter的加速方法"><a href="#对于Large-filter的加速方法" class="headerlink" title="对于Large filter的加速方法"></a>对于Large filter的加速方法</h3><h4 id="1-Separate-Passes（拆分实现）"><a href="#1-Separate-Passes（拆分实现）" class="headerlink" title="1. Separate Passes（拆分实现）"></a>1. Separate Passes（拆分实现）</h4><p>简单来说，我们可以将2维卷积操作拆分成水平方向和竖直方向两趟的1维卷积，将$O(n^2)$的复杂度降为$O(n+n)$。对于高斯滤波来说，这种做法是准确的，对于更复杂的滤波，这种做法的结果不一定准确，但是强行这么做的效果也并不差，可以接受。</p>
+<h4 id="2-Progressively-Growing-Sizes"><a href="#2-Progressively-Growing-Sizes" class="headerlink" title="2. Progressively Growing Sizes"></a>2. Progressively Growing Sizes</h4><p>简单来说，就是使用小型Kernel核进行多趟的Filter，从而达到大Filter的效果。这里每一趟Filter时，采样像素的间隔要逐趟增加，对于第N趟Filter，我们需要每隔$(N-1)^2$个像素采样一次，如图所示。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/progressively_growing_sizes.png" class="" title="Progressively Growing Sizes">
+
+<h2 id="时域降噪（Temporal-Denoising）"><a href="#时域降噪（Temporal-Denoising）" class="headerlink" title="时域降噪（Temporal Denoising）"></a>时域降噪（Temporal Denoising）</h2><p>要做时域降噪，我们需要知道帧与帧之间的像素的对应关系，而只要知道物体的<strong>Motion Vector</strong>，我们就可以通过当前帧的渲染信息以及上一帧的相机MVPE，来计算出每个Shading Point对应上一帧的哪个像素。</p>
+<p>之后将两帧的结果按照一定比例混合到一起，就可以得到一个噪声较小的结果了。</p>
+<p>某些情况下，上一帧的结果也不一定可信，比如计算得到的上一帧像素涉及到遮挡关系的改变，亦或者场景光照（或间接光照，即反射物）的改变，这些都会导致时域降噪出错。</p>
+<p>对于第一种情况，我们可以通过GBuffer中的ObjectID进行处理，如果前后帧ObjectID不一致，就不进行结果的混合了。对于第二种情况，我们可以参考空域Outlier Removal的做法，将前一帧Clamp到一个合适的范围后，再进行混合。</p>
+<h2 id="Spatiotemporal-Variance-Guided-Filter（SVGF）"><a href="#Spatiotemporal-Variance-Guided-Filter（SVGF）" class="headerlink" title="Spatiotemporal Variance-Guided Filter（SVGF）"></a>Spatiotemporal Variance-Guided Filter（SVGF）</h2><p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28288053">Spatiotemporal Variance-Guided Filter, 向实时光线追踪迈进 - 知乎 (zhihu.com)</a></p>
+<h1 id="六、一些常用的工业技术"><a href="#六、一些常用的工业技术" class="headerlink" title="六、一些常用的工业技术"></a>六、一些常用的工业技术</h1><h2 id="抗锯齿"><a href="#抗锯齿" class="headerlink" title="抗锯齿"></a>抗锯齿</h2><ul>
+<li><p>Multisample Anti-Aliasing（MSAA）：对于一个像素进行多次采样，并将最终的结果求平均。</p>
+</li>
+<li><p>Super-Sampling AA（SSAA）：将一个场景按照更大的分辨率渲染后再降采样，开销比较大。</p>
+</li>
+</ul>
+<p>在同样的倍数下，MSAA的性能往往要优于SSAA，因为MSAA使用了很多技巧降低了采样率。</p>
+<ul>
+<li>Temporal AA（TAA）：与光追章节中提到的时域降噪思路类似，也需要用到Motion Vector，这里不再赘述。</li>
+<li>Enhanced Subpixel Morphological AA（SMAA）：图像层面的反走样，是Fast Approximate AA（FXAA）和Morphological AA （MLAA）的进阶版本。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" rel="tag"># 图形渲染</a>
+              <a href="/tags/GAMES202/" rel="tag"># GAMES202</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/" rel="prev" title="UE卡通渲染">
+                  <i class="fa fa-angle-left"></i> UE卡通渲染
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Lolia</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

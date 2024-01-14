@@ -19,19 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="参考资料：  虚幻5渲染编程专栏概述及目录 - 知乎 (zhihu.com)    一、描边Back Facing外描边  UE4从零开始的卡通渲染——描边篇（一） - 知乎 (zhihu.com) 虚幻5渲染编程(风格化渲染篇)第三卷: 勾线描边 - 知乎 (zhihu.com) 虚幻4渲染编程(Shader篇)【第十六卷：Multi-BasePass in UE4】 - 知乎 (zhihu.">
+    <meta name="description" content="参考资料：  虚幻5渲染编程专栏概述及目录 - 知乎 (zhihu.com) （虚幻4Shader篇）向Shader传递数据 - 知乎 (zhihu.com) New shading models and changing the GBuffer | Epic Developer Community (epicgames.com) Unreal’s Rendering Passes - Unre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UE卡通渲染">
 <meta property="og:url" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/index.html">
 <meta property="og:site_name" content="Lolia&#39;s blogs">
-<meta property="og:description" content="参考资料：  虚幻5渲染编程专栏概述及目录 - 知乎 (zhihu.com)    一、描边Back Facing外描边  UE4从零开始的卡通渲染——描边篇（一） - 知乎 (zhihu.com) 虚幻5渲染编程(风格化渲染篇)第三卷: 勾线描边 - 知乎 (zhihu.com) 虚幻4渲染编程(Shader篇)【第十六卷：Multi-BasePass in UE4】 - 知乎 (zhihu.">
+<meta property="og:description" content="参考资料：  虚幻5渲染编程专栏概述及目录 - 知乎 (zhihu.com) （虚幻4Shader篇）向Shader传递数据 - 知乎 (zhihu.com) New shading models and changing the GBuffer | Epic Developer Community (epicgames.com) Unreal’s Rendering Passes - Unre">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20240112011054282-1704993064152-1.png">
+<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155206989.png">
+<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155921416.png">
 <meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913161219080.png">
 <meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913121914573.png">
 <meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913151917251.png">
-<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913152034108.png">
-<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155206989.png">
-<meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155921416.png">
 <meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160043820.png">
 <meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160408740.png">
 <meta property="og:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160543432.png">
@@ -49,11 +49,11 @@
 <meta property="article:published_time" content="2023-07-19T09:14:18.000Z">
 <meta property="article:modified_time" content="2023-09-13T04:20:02.000Z">
 <meta property="article:author" content="Lolia">
-<meta property="article:tag" content="Unreal Engine">
 <meta property="article:tag" content="图形渲染">
+<meta property="article:tag" content="Unreal Engine">
 <meta property="article:tag" content="材质">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913161219080.png">
+<meta name="twitter:image" content="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20240112011054282-1704993064152-1.png">
 
 
 <link rel="canonical" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/">
@@ -136,7 +136,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8F%8F%E8%BE%B9"><span class="nav-number">1.</span> <span class="nav-text">一、描边</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-Facing%E5%A4%96%E6%8F%8F%E8%BE%B9"><span class="nav-number">1.1.</span> <span class="nav-text">Back Facing外描边</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">二、自定义光照模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cpp%E4%BE%A7%E4%BF%AE%E6%94%B9"><span class="nav-number">2.1.</span> <span class="nav-text">Cpp侧修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9D%90%E8%B4%A8%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 材质定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9D%90%E8%B4%A8%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 材质数据接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Inspector%E7%9B%B8%E5%85%B3"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. Inspector相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shader%E4%BE%A7%E4%BF%AE%E6%94%B9"><span class="nav-number">2.2.</span> <span class="nav-text">Shader侧修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 模型定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 数据接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Shader"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. Shader</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8D%A1%E9%80%9A%E6%9D%90%E8%B4%A8"><span class="nav-number">3.</span> <span class="nav-text">三、卡通材质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B4%E5%BD%B1%E8%BF%87%E6%B8%A1"><span class="nav-number">3.1.</span> <span class="nav-text">阴影过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E5%85%89%E8%BF%87%E6%B8%A1"><span class="nav-number">3.2.</span> <span class="nav-text">高光过渡</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%8F%8F%E8%BE%B9"><span class="nav-number">1.</span> <span class="nav-text">一、描边</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Back-Facing%E5%A4%96%E6%8F%8F%E8%BE%B9"><span class="nav-number">1.1.</span> <span class="nav-text">Back Facing外描边</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">二、自定义光照模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cpp%E4%BE%A7%E4%BF%AE%E6%94%B9"><span class="nav-number">2.1.</span> <span class="nav-text">Cpp侧修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9D%90%E8%B4%A8%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 材质定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Cpp%E4%BE%A7%E5%AE%8F%E5%AF%BC%E5%87%BA"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. Cpp侧宏导出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9D%90%E8%B4%A8%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. 材质数据接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%BC%80%E5%90%AFGBuffer%E4%B8%AD%E7%9B%B8%E5%85%B3%E7%9A%84MRT"><span class="nav-number">2.1.4.</span> <span class="nav-text">4. 开启GBuffer中相关的MRT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Inspector%E7%9B%B8%E5%85%B3"><span class="nav-number">2.1.5.</span> <span class="nav-text">5. Inspector相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shader%E4%BE%A7%E4%BF%AE%E6%94%B9"><span class="nav-number">2.2.</span> <span class="nav-text">Shader侧修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 模型定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 数据接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Shader"><span class="nav-number">2.2.3.</span> <span class="nav-text">3. Shader</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8D%A1%E9%80%9A%E6%9D%90%E8%B4%A8"><span class="nav-number">3.</span> <span class="nav-text">三、卡通材质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B4%E5%BD%B1%E8%BF%87%E6%B8%A1"><span class="nav-number">3.1.</span> <span class="nav-text">阴影过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E5%85%89%E8%BF%87%E6%B8%A1"><span class="nav-number">3.2.</span> <span class="nav-text">高光过渡</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -149,7 +149,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -160,7 +160,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -248,7 +248,10 @@
 <p>参考资料：</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/203631693">虚幻5渲染编程专栏概述及目录 - 知乎 (zhihu.com)</a></li>
-<li></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66781931">（虚幻4Shader篇）向Shader传递数据 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/tutorials/2R5x/unreal-engine-new-shading-models-and-changing-the-gbuffer">New shading models and changing the GBuffer | Epic Developer Community (epicgames.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://unrealartoptimization.github.io/book/profiling/passes/">Unreal’s Rendering Passes - Unreal Art Optimization</a></li>
+<li><a target="_blank" rel="noopener" href="https://interplayoflight.wordpress.com/2017/10/25/how-unreal-renders-a-frame/">How Unreal Renders a Frame – Interplay of Light (wordpress.com)</a></li>
 </ol>
 </blockquote>
 <h1 id="一、描边"><a href="#一、描边" class="headerlink" title="一、描边"></a>一、描边</h1><h2 id="Back-Facing外描边"><a href="#Back-Facing外描边" class="headerlink" title="Back Facing外描边"></a>Back Facing外描边</h2><blockquote>
@@ -273,17 +276,25 @@
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/551343308">从零开始的UE5卡通渲染【二】：自定义着色模型 - 知乎 (zhihu.com)</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36840778">虚幻4渲染编程(材质编辑器篇)【第二卷：自定义光照模型】 - 知乎 (zhihu.com)</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521681785">虚幻五渲染编程（Graphic篇）【第六卷： Customize GBuffer of UnrealEngine5】 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/tutorials/2R5x/unreal-engine-new-shading-models-and-changing-the-gbuffer">New shading models and changing the GBuffer | Epic Developer Community (epicgames.com)</a></li>
 </ol>
 </blockquote>
 <h2 id="Cpp侧修改"><a href="#Cpp侧修改" class="headerlink" title="Cpp侧修改"></a>Cpp侧修改</h2><h3 id="1-材质定义"><a href="#1-材质定义" class="headerlink" title="1. 材质定义"></a>1. 材质定义</h3><ol>
-<li>在<code>EngineTypes.h</code>的枚举<code>EMaterialShadingModel</code>中注册新的光照模型。注意这里的位置要与后文HLSL定义的顺序一致。</li>
+<li>在<code>EngineTypes.h</code>的枚举<code>EMaterialShadingModel</code>中注册新的光照模型，其会在Material的下拉框中显示。<strong>注意这里的位置要与后文HLSL定义的顺序一致。</strong></li>
+<li>如果想要材质在蓝图中可以通过节点选择，那么还需要在UMaterialExpressionShadingModel中添加相应的Meta<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20240112011054282-1704993064152-1.png" class="" title="image-20240112011054282"></li>
 <li>在<code>MaterialShader.cpp</code>的<code>GetShadingModelString()</code>中增加相应的Case</li>
-<li>在<code>HLSLMaterialTranslator.cpp</code>的<code>FHLSLMaterialTranslator::GetMaterialEnvironment()</code>添加相应的分支</li>
+<li>在<code>MaterialShader.cpp</code>的<code>UpdateMaterialShaderCompilingStats</code>更新Shader Stats</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913161219080.png" class="" title="image-20230913161219080">
-
-<h3 id="2-材质数据接口"><a href="#2-材质数据接口" class="headerlink" title="2. 材质数据接口"></a>2. 材质数据接口</h3><ol>
-<li>在<code>Material.cpp</code>的<code>IsPropertyActive_Internal()</code>中添加相应接口。这里开放了CustomData1，但是没有用到</li>
+<p>做完以上操作之后，我们就可以在材质中选择我们自定义的光照模型了。</p>
+<h3 id="2-Cpp侧宏导出"><a href="#2-Cpp侧宏导出" class="headerlink" title="2. Cpp侧宏导出"></a>2. Cpp侧宏导出</h3><p>HLSL中是否编译某块代码由宏控制，我们也需要为我们自己的光照模型定义并开启相应的宏</p>
+<ol>
+<li>在<code>ShaderMaterial.h</code>的<code>FShaderMaterialPropertyDefines</code>中添加相关位域，在HLSL中宏开关的命名也必须与此处一致。<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155206989.png" class="" title="image-20230913155206989"></li>
+<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>FShaderCompileUtilities::ApplyFetchEnvironment()</code> <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155921416.png" class="" title="image-20230913155921416"></li>
+<li>在<code>HLSLMaterialTranslator.cpp</code>的<code>FHLSLMaterialTranslator::GetMaterialEnvironment()</code>添加相应的分支<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913161219080.png" class="" title="image-20230913161219080"></li>
+<li>在<code>MaterialHLSLEmitter.cpp</code>中也有<code>GetMaterialEnvironment()</code>函数，我们也做同样的操作</li>
+</ol>
+<h3 id="3-材质数据接口"><a href="#3-材质数据接口" class="headerlink" title="3. 材质数据接口"></a>3. 材质数据接口</h3><ol>
+<li>在<code>Material.cpp</code>的<code>IsPropertyActive_Internal()</code>中开放相应Pin。</li>
 </ol>
 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913121914573.png" class="" title="image-20230913121914573">
 
@@ -292,30 +303,17 @@
 </ol>
 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913151917251.png" class="" title="image-20230913151917251">
 
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913152034108.png" class="" title="image-20230913152034108">
-
 <ol start="3">
-<li>对于SubsurfaceColor，还需要修改<code>MaterialShared.h</code>的<code>IsSubsurfaceShadingModel()</code></li>
+<li>如果模型是Subsurface模型，那么还需要，还需要修改<code>MaterialShared.h</code>的<code>IsSubsurfaceShadingModel()</code></li>
 </ol>
-<p>对于CustomData我们需要将其写入GBuffer，步骤如下：</p>
+<h3 id="4-开启GBuffer中相关的MRT"><a href="#4-开启GBuffer中相关的MRT" class="headerlink" title="4. 开启GBuffer中相关的MRT"></a>4. 开启GBuffer中相关的MRT</h3><p>这一步的目的是开启HLSL侧的宏开关，即导出宏定义<code>PIXELSHADEROUTPUT_MRT</code>，编译HLSL中相关MRT的代码。</p>
 <ol>
-<li>在<code>ShaderMaterial.h</code>的<code>FShaderMaterialPropertyDefines</code>中添加相关位域</li>
-</ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155206989.png" class="" title="image-20230913155206989">
-
-<ol start="2">
-<li>在<code>ShaderMaterialDerivedHelpers.cpp</code>的<code>CalculateDerivedMaterialParameters()</code>函数中</li>
+<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>DetermineUsedMaterialSlots()</code><img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160043820.png" class="" title="image-20230913160043820"></li>
+<li>如果要使用使用CustomData，那么最好在<code>ShaderMaterialDerivedHelpers.cpp</code>的<code>CalculateDerivedMaterialParameters()</code>函数中修改如下代码（对于新版本其实是冗余的，为了保持与旧版本一致还是改一下吧）</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//++[lolia] Toon Shading Model</span></span><br><span class="line">Dst.WRITES_CUSTOMDATA_TO_GBUFFER = (Dst.USES_GBUFFER &amp;&amp; (... || Mat.MATERIAL_SHADINGMODEL_TOON));</span><br><span class="line"><span class="comment">//--[lolia]</span></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>FShaderCompileUtilities::ApplyFetchEnvironment()</code> 和<code>DetermineUsedMaterialSlots()</code></li>
-</ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155921416.png" class="" title="image-20230913155921416">
-
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160043820.png" class="" title="image-20230913160043820">
-
-<h3 id="3-Inspector相关"><a href="#3-Inspector相关" class="headerlink" title="3. Inspector相关"></a>3. Inspector相关</h3><ol>
+<h3 id="5-Inspector相关"><a href="#5-Inspector相关" class="headerlink" title="5. Inspector相关"></a>5. Inspector相关</h3><ol>
 <li><code>PixelInspectorResult.h</code></li>
 </ol>
 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160408740.png" class="" title="image-20230913160408740">
@@ -331,18 +329,12 @@
 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160659260.png" class="" title="image-20230913160659260">
 
 <h2 id="Shader侧修改"><a href="#Shader侧修改" class="headerlink" title="Shader侧修改"></a>Shader侧修改</h2><h3 id="1-模型定义"><a href="#1-模型定义" class="headerlink" title="1. 模型定义"></a>1. 模型定义</h3><ol>
-<li><code>ShadingCommon.ush</code>添加模型定义，此处定义的顺序需要和<code>EngineTypes.h</code>中枚举的顺序一致。此外，可以在<code>GetShadingModelColor()</code>中修改模型Debug颜色。</li>
+<li><code>ShadingCommon.ush</code>添加模型定义，此处定义的顺序需要和<code>EngineTypes.h</code>中枚举的顺序一致。此外，可以在<code>GetShadingModelColor()</code>中修改模型Debug颜色。<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162050368.png" class="" title="image-20230913162050368"></li>
+<li>对于宏开关，HLSL侧也要在未设置环境变量时进行声明，防止编译错误。在<code>Definitions.usf</code>中添加<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162335790.png" class="" title="image-20230913162335790"></li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162050368.png" class="" title="image-20230913162050368">
-
-<ol start="2">
-<li><code>Definitions.usf</code></li>
-</ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162335790.png" class="" title="image-20230913162335790">
-
 <h3 id="2-数据接口"><a href="#2-数据接口" class="headerlink" title="2. 数据接口"></a>2. 数据接口</h3><p>在Shader端同样需要为我们的Shading Model开启SubsurfaceColor和CustomData的相关写入权限，并进行数据传输。</p>
 <ol>
-<li>在<code>DeferredShadingCommon.ush</code>中开启接口</li>
+<li>在<code>DeferredShadingCommon.ush</code>中维护相关判别函数，同时我们也可以添加自己的判别函数<code>IsToonShading</code></li>
 </ol>
 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913164134265.png" class="" title="image-20230913164134265">
 
@@ -403,8 +395,8 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Unreal-Engine/" rel="tag"># Unreal Engine</a>
               <a href="/tags/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" rel="tag"># 图形渲染</a>
+              <a href="/tags/Unreal-Engine/" rel="tag"># Unreal Engine</a>
               <a href="/tags/%E6%9D%90%E8%B4%A8/" rel="tag"># 材质</a>
           </div>
 
@@ -417,6 +409,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/" rel="next" title="GAMES202笔记">
+                  GAMES202笔记 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -436,7 +431,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2023</span>
+    <span itemprop="copyrightYear">2024</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
