@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -303,16 +303,261 @@
 <p>对于第一种情况，我们可以通过GBuffer中的ObjectID进行处理，如果前后帧ObjectID不一致，就不进行结果的混合了。对于第二种情况，我们可以参考空域Outlier Removal的做法，将前一帧Clamp到一个合适的范围后，再进行混合。</p>
 <h2 id="Spatiotemporal-Variance-Guided-Filter（SVGF）"><a href="#Spatiotemporal-Variance-Guided-Filter（SVGF）" class="headerlink" title="Spatiotemporal Variance-Guided Filter（SVGF）"></a>Spatiotemporal Variance-Guided Filter（SVGF）</h2><p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28288053">Spatiotemporal Variance-Guided Filter, 向实时光线追踪迈进 - 知乎 (zhihu.com)</a></p>
 <h1 id="六、一些常用的工业技术"><a href="#六、一些常用的工业技术" class="headerlink" title="六、一些常用的工业技术"></a>六、一些常用的工业技术</h1><h2 id="抗锯齿"><a href="#抗锯齿" class="headerlink" title="抗锯齿"></a>抗锯齿</h2><ul>
-<li><p>Multisample Anti-Aliasing（MSAA）：对于一个像素进行多次采样，并将最终的结果求平均。</p>
-</li>
-<li><p>Super-Sampling AA（SSAA）：将一个场景按照更大的分辨率渲染后再降采样，开销比较大。</p>
-</li>
+<li>Multisample Anti-Aliasing（MSAA）：对于一个像素进行多次采样，并将最终的结果求平均。</li>
+<li>Super-Sampling AA（SSAA）：将一个场景按照更大的分辨率渲染后再降采样，开销比较大。</li>
 </ul>
 <p>在同样的倍数下，MSAA的性能往往要优于SSAA，因为MSAA使用了很多技巧降低了采样率。</p>
 <ul>
 <li>Temporal AA（TAA）：与光追章节中提到的时域降噪思路类似，也需要用到Motion Vector，这里不再赘述。</li>
 <li>Enhanced Subpixel Morphological AA（SMAA）：图像层面的反走样，是Fast Approximate AA（FXAA）和Morphological AA （MLAA）的进阶版本。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">实时渲染深入探究-课程笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-25 22:20:53" itemprop="dateCreated datePublished" datetime="2023-12-25T22:20:53+08:00">2023-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>文本为<a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/courses/ML7/unreal-engine-31657f/bLyn/unreal-engine-822b4d">深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)</a>课程的笔记。</p>
+<p>先点出实时渲染4大性能热点：</p>
+<ol>
+<li>几何体渲染的Drawcall次数</li>
+<li>Pixel Shader的性能</li>
+<li>半透明物体的渲染</li>
+<li>动态阴影</li>
+</ol>
+<p>学习完本课程之后也能对上面这几项有所理解。</p>
+<h1 id="1-对象剔除"><a href="#1-对象剔除" class="headerlink" title="1 对象剔除"></a>1 对象剔除</h1><p>剔除计算发生在CPU中，对CPU产生开销。一般来说，处理超过10-15k的物体，就会对性能造成影响了。</p>
+<p>但若剔除做的不好，导致过多物体参与渲染，就会影响GPU性能。</p>
+<h2 id="Distance-Culling（距离剔除）"><a href="#Distance-Culling（距离剔除）" class="headerlink" title="Distance Culling（距离剔除）"></a>Distance Culling（距离剔除）</h2><p>这个功能UE并没有自动启用，但我们很有必要将其打开，因为其对于性能的提升十分的简单粗暴。</p>
+<p>在场景中可以放置Distance Culling Volume，对于每一个Mesh可以对自己的Cull Distance进行相关设置。</p>
+<h2 id="Frustum-Culling（视锥剔除）"><a href="#Frustum-Culling（视锥剔除）" class="headerlink" title="Frustum Culling（视锥剔除）"></a>Frustum Culling（视锥剔除）</h2><p>这一步是渲染必要的步骤，我们无法对其进行太多的设置。</p>
+<h2 id="Precomputed-Visibility（预计算可视性）"><a href="#Precomputed-Visibility（预计算可视性）" class="headerlink" title="Precomputed Visibility（预计算可视性）"></a>Precomputed Visibility（预计算可视性）</h2><p>我们需要在场景中放置Precomputed Visibility Volume，之后UE会将场景体素化，在每个Voxel中保存静态物体的遮挡关系。</p>
+<h2 id="Occlusion-Culling（遮挡剔除）"><a href="#Occlusion-Culling（遮挡剔除）" class="headerlink" title="Occlusion Culling（遮挡剔除）"></a>Occlusion Culling（遮挡剔除）</h2><p>针对上述流程中无法剔除的物体，UE还会逐物体进行遮挡剔除，这一步的开销要比上面的三步都要大，所以请合理配置上面的三个步骤，剔除掉尽可能多的物体。</p>
+<p>小型物体很容易因为遮挡关系而剔除，即便是特效粒子，Occlusion Culling也可以根据遮挡关系将其剔除，但相反的，大型物体往往就难以通过遮挡关系来剔除了。因此，大型物体会节省CPU的开销，但增加GPU的开销，而小型物体会增加CPU的开销，而减少GPU的开销，这是一种权衡。</p>
+<p>此外，在户外开放场景中，Occlusion Culling不一定能够起到很好的效果，这一点需要注意。</p>
+<h2 id="相关调试方法"><a href="#相关调试方法" class="headerlink" title="相关调试方法"></a>相关调试方法</h2><p>在命令行中输入<code>stat initviews</code>可以看到相关的剔除数据。</p>
+<p>在命令行中输入<code>FreezeRendering</code>可以冻结剔除结果。</p>
+<h1 id="2-几何体渲染"><a href="#2-几何体渲染" class="headerlink" title="2 几何体渲染"></a>2 几何体渲染</h1><h2 id="Pre-pass-Early-Z-Pass"><a href="#Pre-pass-Early-Z-Pass" class="headerlink" title="Pre-pass &#x2F; Early Z Pass"></a>Pre-pass &#x2F; Early Z Pass</h2><p>先将所有物体在屏幕内的深度拿到，避免冗余Shading。</p>
+<h2 id="Primitive-Drawcall"><a href="#Primitive-Drawcall" class="headerlink" title="Primitive Drawcall"></a>Primitive Drawcall</h2><p>一般而言，每一个Primitive之间的Drawcall相互独立，而每个Primitive中不同的材质，也都会分别进行Drawcall。实际渲染时一般会按照材质的顺序，对不同的Mesh依次进行Drawcall，避免材质的切换。</p>
+<p>将不同的Mesh组织到同一个Actor中并不能优化性能，因为遮挡剔除，以及Drawcall都是在Primitive Component的层面上进行的。</p>
+<p>一般来说，2000-3000的Drawcall是比较合适的，超过5000就比较高了，而超过10000则可能出现一些问题。对于移动平台，Drawcall的次数限制比较高，一般只允许数百次。当然，我们也要结合实际Drawcall的复杂程度进行考虑。</p>
+<p>对于目前的GPU性能来说，三角形的面数，即网格体的复杂程度往往不是性能的主要问题了，Drawcall的次数才是。Drawcall本身会有一定的基础开销，对于面数比较低的模型，继续优化其面数往往并不能起效果。</p>
+<p>使用少量大型模型，相比使用大量小型模型，往往能够减少Drawcall。但大模型也有自己的问题，比如遮挡剔除效果差、光照贴图精度低、碰撞计算更复杂、内存占用更多等问题。</p>
+<p>实际工作中，建议使用模块化的场景搭建流程，并在最后的环节（因为合并操作不能撤销），根据实际性能分析的结果，对必要的（开销较大的）Mesh进行合并。</p>
+<p>如果你要进行Mesh合并，最好遵守以下几条原则：</p>
+<ol>
+<li>越常用的Mesh，其面数越低越好，这样Merge之后面数也不会太多</li>
+<li>只Merge邻近的Mesh</li>
+<li>只Merge拥有相同材质的Mesh</li>
+<li>没有或只有简单碰撞信息的Mesh更适合Merge</li>
+<li>小物体或只接受动态光照的物体更适合Merge，可以不需要担心光照贴图</li>
+<li>远处的物体往往更适合Merge</li>
+</ol>
+<p>需要强调的是，Mesh的合并是一种性能优化的方法，而<strong>过早优化是万恶之源</strong>，我们只应在必要的时候进行优化。实际场景中，我们可能并不需要合并Mesh，场景就可以流畅运行了。</p>
+<p>此外，对于海量（几百上千）重复物体的渲染，我们可以使用<strong>Instanced Rendering</strong>，将他们组织到一次Drawcall当中，比如地上的草。而对于少量重复的物体，这样的优化往往是没有必要的，Instanced Rendering本身也有一定开销，不一定能够取得更好的性能。</p>
+<p>LOD（Level Of Detail）也是一项常用的优化技巧。LOD实际上就是按照距离的远近，将模型替换成面数更低的简单模型的方法。一般而言，每一级的面数最好都要比上一级少一半，这样才能弥补掉LOD本身的开销。HLOD（Hierarchical LOD）是一种更加进阶的方案，它可以根据距离，把若干模型组织起来，减少Drawcall。</p>
+<h3 id="相关调试方法-1"><a href="#相关调试方法-1" class="headerlink" title="相关调试方法"></a>相关调试方法</h3><ol>
+<li>使用<code>stat RHI</code>可以看到Drawcall次数。</li>
+<li>在<code>Tools-&gt;Audit-&gt;Statistics</code>窗口（UE5）中，可以看到场景各Mesh的相关统计数据。</li>
+</ol>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/statistics_window.png" class="" title="Statistics">
+
+<h2 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h2><p>Vertex Shader负责对输入的顶点进行坐标的变换，我们也可以通过Vertex Shader实现顶点动画，比如旗帜飘动、水面波纹、草叶摇动等等。在UE中，这一功能在材质里表示为World Position Offset输入。</p>
+<p>Vertex Shader是逐顶点执行的，所以我们有以下几点需要：</p>
+<ol>
+<li>越复杂的顶点动画，开销越大</li>
+<li>模型顶点越多，开销越大。因此越复杂的模型，我们应该使用越简单的Vertex Shader</li>
+<li>对于远处的物体，我们应该禁用复杂的Vertex Shader的功能（顶点动画）</li>
+</ol>
+<h1 id="3-Rasterization-to-GBuffer"><a href="#3-Rasterization-to-GBuffer" class="headerlink" title="3 Rasterization to GBuffer"></a>3 Rasterization to GBuffer</h1><blockquote>
+<p> 标题的这里的Rasterization，应该宏观理解成把场景转换成GBuffer的一个过程，而不是GPU中的光栅化。</p>
+</blockquote>
+<p>在GPU上，Rasterization是一个固定的流程，他将Mesh信息转换成一定分辨率的2D的像素信息。</p>
+<p>一个像素最多只能表示一个三角面（Polygon），如果一个像素所对应的3D空间中覆盖了多个面，它也只会精确地表示其中一个，而不是它们的平均。</p>
+<p>Rasterization判断哪些像素需要参与Shading，是以2*2的Quad为单位的，即便是三角形只与Quad中一个像素相交，我们也仍然需要其他3个像素作为辅助像素参与Shading，具体原理可以参考RTR4的Chapter23。</p>
+<p>这样的机制也很容易造成Quad Overdraw（Over Shading），即一个像素被Shading多次的情况。最糟糕的情况下，一个Quad的4个像素分别属于不同的三角，那么每个像素需要Shading4次（不考虑透明物体）。</p>
+<p>因此，三角面的密度也会影响性能，密度越大越容易Overdraw。在模型中要尽量使用分布均匀的三角面，避免使用细长的三角形。随着物体远离屏幕，其密度也会逐渐增大，为了避免这种情况导致的Overdraw，我们应当使用LOD或者Distance Culling。</p>
+<p>在Deferred Rendering中，Quad Overdraw往往不会对性能造成太大影响。而在Forward Rendering中，其Initial Pixel Shader较为复杂，这时候我们就要注意其性能了。</p>
+<p>将场景的所有信息都保存到GBuffer后，后续我们就只依赖于GBuffer来进行渲染了。</p>
+<p>GBuffer分配可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/568775542">Customize GBuffer In UE5 - 知乎 (zhihu.com)</a></p>
+<h2 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h2><img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/quad_over_draw.png" class="" title="Quad Over Draw in UE5">
+
+<p>可以在View Mode中可视化Quad Overdraw。</p>
+<p>通过Render Doc可以清楚地看到GBuffer中的信息。</p>
+<p>当然，UE中内置了可视化Buffer的模式。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/buffer_visualization.png" class="" title="Buffer Visualization">
+
+<h1 id="4-纹理"><a href="#4-纹理" class="headerlink" title="4 纹理"></a>4 纹理</h1><p>纹理资产导入后都会进行压缩，PC平台按照BC（Block Compression）格式进行压缩，BC与DXTC（DirectX Texture Compression，DXT）都指的是同一个概念。</p>
+<p>UE中使用的是简化的BC方法，我们并不能对其做太多设置。常用的BC方法及使用场景如下：</p>
+<ol>
+<li>BC3（DXTC5）：有A通道的纹理</li>
+<li>BC1（DXTC1）：无A通道的纹理</li>
+<li>BC5：只保存RG通道，如法线贴图</li>
+</ol>
+<p>Shader（Material）中输入纹理的数量有上限，一般是16张，在UE的材质系统中默认会占用3张，我们只能用剩下的13张。纹理的太大会占用内存和带宽，但一般不会影响渲染的性能（帧率），而是会造成延迟或卡顿。</p>
+<p>纹理可以进行Mipmap，UE会自动为纹理生成Mipmap，并且在实际使用时进行<strong>纹理流送</strong>。但这要求纹理的边长必须是2的幂次（长宽可以不等）。不规则的分辨率不可以进行Mipmap，但也并非所有纹理都需要Mipmap，比如永远不会从远处观察的物体的纹理，此时我们可以使用任意分辨率的纹理。</p>
+<p>UI中使用的纹理也不需要Mipmap和纹理流送，我们应该主动禁用这项功能，在UE中需要将纹理的Group标记为UI。<strong>纹理的Group很重要，请正确设置Texture Group</strong>！</p>
+<p>纹理流送的内存空间可以通过<code>r.Streaming.PoolSize</code>进行设置。如果空间不足，那么UE会倾向于加载更低级的Mipmap纹理进行渲染。</p>
+<h1 id="5-Pixel-Shader和材质"><a href="#5-Pixel-Shader和材质" class="headerlink" title="5 Pixel Shader和材质"></a>5 Pixel Shader和材质</h1><p>Pixel Shader是逐像素执行的Shader，屏幕分辨率越高，Pixel Shader执行的次数也就越多。当然我们也可以按照一定规则，选择性地对一些像素进行Shading，比如使用Mask。</p>
+<p>在UE的材质系统中，材质会为其每一种用途都单独编译出一份Shader。材质系统实际上做的是根据不同的HLSL模板，生成不同Pass中用到的Shader。</p>
+<p>UE的材质系统默认的着色模型用的是PBR模型，一般来说，使用Metallic和Roughness这两个参数就可以调出我们想要的大部分效果了。</p>
+<p>Pixel Shader往往会成为性能的热点，因为所有光照、反射、大气雾等效果都在Pixel Shader中实现。屏幕分辨率和材质复杂度都会影响Pixel Shader运行的性能，使用复杂材质的物体，在画面中占据的像素越多，开销也就越大。</p>
+<h2 id="调试方法-1"><a href="#调试方法-1" class="headerlink" title="调试方法"></a>调试方法</h2><p>在材质系统的Stats栏可以看到一些Shader信息</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/material_shader_info.png" class="" title="Shader Info of Material">
+
+<p>一般来说，Base pass shader的指令数在100到200之间是比较合适的，我们可以在View Mode中选择Shader Complexity进行调试。（注意，如果开启Shader Debug的相关设置，会导致Shader指令数大幅增加，上图就是如此，请关闭后再测试性能）</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/shader_complexity.png" class="" title="Shader Complexity">
+
+<h1 id="6-反射"><a href="#6-反射" class="headerlink" title="6 反射"></a>6 反射</h1><p>UE中混合使用3种方法来实现反射效果</p>
+<h2 id="Reflection-Captures"><a href="#Reflection-Captures" class="headerlink" title="Reflection Captures"></a>Reflection Captures</h2><p>Reflection Captures是通过预计算，在指定位置生成Cubemap的方法。这种方法运行时性能优秀，但只能反射静态物体，并且只能对局部的Shading Point起作用（即Volume内的Shading Point）。</p>
+<p>在UE中可以在场景中放置Reflection Captures Volume，当渲染体积内的物体时，就会向Reflection Captures查询其Cubemap，辅助渲染。我们只在Volume中心的位置生成了Cubemap，当相机离中心越近，反射的效果越准确，反之，反射效果会产生一定的位置偏差。</p>
+<p>Cubemap的分辨率可以在项目设置中修改，越大的分辨率，可以得到越锐利的结果。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/reflection_capture_resolution.png" class="" title="Reflection Capture Resolution">
+
+<p>我们最好不场景中使用过多的Reflection Capture，同时Reflection Capture之间最好也不要重叠，这会造成更大的性能开销，因为重叠区域的Shading Point需要融合所有Reflection Capture的Cubemap的结果，因此建议Reflection Capture重叠的数量最多不超过8个。</p>
+<p>此外，在没有Cook场景时，Reflection Capture会在每次加载场景时捕获一次，这会增加场景加载的时间，需要格外注意。</p>
+<h2 id="Planar-Reflection"><a href="#Planar-Reflection" class="headerlink" title="Planar Reflection"></a>Planar Reflection</h2><p>Planar Reflection平面或类平面（水面）的实时反射效果。其本质就是在指定位置对场景进行额外的一次渲染，可以反射出视野外的物体。但是其性能开销的也非常大，我们要谨慎使用。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/planar-reflections-in-unreal-engine/">虚幻引擎中的平面反射 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
+<h2 id="Screen-Space-Reflction（SSR）"><a href="#Screen-Space-Reflction（SSR）" class="headerlink" title="Screen Space Reflction（SSR）"></a>Screen Space Reflction（SSR）</h2><p>这是UE默认开启的反射功能，优点不再赘述。SSR也有一些缺点，比如反射效果会有一些噪声（因为它是基于采样的），并且只有平面内的信息。</p>
+<p>需要注意的是，虽然SRR的开销不大，但在一些性能吃紧的设备上，我们仍然需要考虑将其关闭。反过来说，如果性能过剩，也可以通过<code>r.SSR.Quality 4</code>（默认是3）来提高SSR质量，减轻噪声。</p>
+<p>实际构建场景时，我们可能会同时使用上面提到的三种反射效果，但UE在实际渲染某个Shading Point时，只会选择其中一个方案进行反射的渲染，此时SSR优先级高于Planar Reflection，Planar Reflection高于Reflection Captures。</p>
+<h2 id="Skylight"><a href="#Skylight" class="headerlink" title="Skylight"></a>Skylight</h2><p>除了以上三种反射方案，Skylight也可以视为一个开销较小的全局Reflection Capture方案，它也可以捕获场景自动生成Cubemap（可以按距离剔除较近物体，只捕获远处的物体，如天空盒）。</p>
+<p>Skylight对于户外大场景十分重要，可以避免防止过多的Reflection Capture Actor。实际渲染时，如果Shading Point没有检测到前面三种反射方案，就会使用Skylight。</p>
+<h1 id="7-光照与阴影"><a href="#7-光照与阴影" class="headerlink" title="7 光照与阴影"></a>7 光照与阴影</h1><img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lighting_and_shadows.png" class="" title="Lighting And Shadows">
+
+<h2 id="静态（Pre-Rendered）"><a href="#静态（Pre-Rendered）" class="headerlink" title="静态（Pre-Rendered）"></a>静态（Pre-Rendered）</h2><p>静态光影会在编辑器中预计算光影效果，并将它们保存到Lightmap中。这样做可以获得极佳的渲染性能，但会增加内存和带宽的负担。</p>
+<p>就质量而言，静态光影可以计算出准确的光影效果及全局光照，也可以生成正确的阴影（软阴影），但这些结果最终需要保存到Lightmap中供运行时使用，所以实际质量与Lightmap的分辨率直接相关，需要注意Lightmap分辨率也有上限。Lightmap的分辨率会影响文件大小和运行时内存占用，一般不会影响帧率。</p>
+<p>场景中的每一个受静态光照影响的物体都需要有Lightmap UVs。静态光影的质量也与物体的UV布局有关。非常大的物体可能会用光Lightmap的UV空间，此时UE会使用更低分辨率的Lightmap，导致质量下降。</p>
+<p>对于每个物体分配的LightMap的精度，我们也可以根据场景Lightmap密度手动调整。当然，一般情况下，我们并不需要调整这些属性。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/overridden_lightmap_res.png" class="" title="Overridden Lightmap Res">
+
+<p>详情可以参考官方文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/static-light-mobility-in-unreal-engine/">虚幻引擎中静态光源的移动性 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
+<p>实际渲染时，会将Base Color与Lightmap相乘，使阴影处更暗，光照处更亮。</p>
+<p>UE中使用Lightmass来生成Lightmap，它会将很多Lightmaps打包成一个图集，你可以在World Settings中看到他们。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmaps.png" class="" title="Lightmaps">
+
+<p>Lightmass烘焙是一个独立的程序，因此它可以支持分布式烘焙。Lightmass烘焙的质量由Light Build Quality和World Settings中的Lightmass设置决定。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmass_settings.png" class="" title="Lightmass Settings">
+
+<p>静态光影的预计算可能有比较长的时间开销，并且每次修改场景都要重新预计算。Lightmap烘焙时间，会受到Lightmap分辨率、模型与光源的数量和烘焙质量相关设置的直接影响。此外，光源的半径也会影响烘焙时间，半径越大，烘焙时间越长。</p>
+<p>运行时，我们可以根据相机视角判断需要重点渲染的区域，但在离线的场景下，我们并不知道相机会出现在哪里。因此在烘焙Lightmass时，我们也需要在场景中摄像机可能出现的位置都放置好<strong>Lightmass Importance Volume</strong>。</p>
+<p>Lightmap中只保存了静态的场景的光影信息，对于运行时动态的物体，我们可以查询间接光照缓存（Indirect Lighting Cache，ILC）进行混合，辅助动态物体在运行时的光影渲染。</p>
+<p>要开启ILC，需要在Lightmass的Volume Lighting Method中选择Sparse Volume Lighting Samples。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/enable_ILC.png" class="" title="Enable ILC">
+
+<p>同时动态物体怎么使用ILC信息，也可以在Mesh的Lighting栏进行设置，甚至是直接关闭。</p>
+<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/use_ILC.png" class="" title="Use ILC">
+
+<p>一般ILC会倾向于分布在Lightmass Importance Volume中的地面上，我们也可以通过放置<strong>Lightmass Character Indirect Detail Volume</strong>来手动指定那些动态物体可能移动到的地方。</p>
+<p>目前UE默认的方案不是ILC，而是VLM。详情参考<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/volumetric-lightmaps-in-unreal-engine/">虚幻引擎中的体积光照贴图 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
+<h3 id="调试方法-2"><a href="#调试方法-2" class="headerlink" title="调试方法"></a>调试方法</h3><ol>
+<li>可视化Lightmap密度。颜色越红，密度越高。 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmap_density.png" class="" title="Lightmap Density"></li>
+<li>可视化ILC辅助调试<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/indirect_lighting_cache.png" class="" title="Indirect Lighting Cache"></li>
+</ol>
+<h2 id="动态（Real-Time）"><a href="#动态（Real-Time）" class="headerlink" title="动态（Real Time）"></a>动态（Real Time）</h2><p>相比起静态阴影，动态光影在运行时实时计算，不受Lightmap大小限制，不关心物体的大小。</p>
+<p>在讲动态光影之前，建议阅读UE官方关于光源移动性的相关文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/light-types-and-their-mobility-in-unreal-engine/">虚幻引擎中的光源类型及其移动性</a>和<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/actor-mobility-in-unreal-engine/">虚幻引擎中的Actor移动性</a></p>
+<h3 id="动态阴影"><a href="#动态阴影" class="headerlink" title="动态阴影"></a>动态阴影</h3><p>相比起静态阴影，动态阴影不考虑全局光照，只能够生成硬阴影。</p>
+<p>UE中使用了很多种阴影方案，一般根据光源及物体的移动性选用不同的阴影方案。可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367517074">UE4中的可移动性细谈 —— Mobility in UE4 - 知乎 (zhihu.com)</a></p>
+<p>对于可以产生动态阴影（Movable或Stationary）的Directional Light，UE会使用CSM。</p>
+<p>基于距离场（Directional Field，DF）的阴影的性能往往更好，但需要将DF保存到体积纹理（实际上是若干的2D纹理，其中平面精度远高于Z轴的精度）中，纹理精度直接影响了阴影质量。对于远距离的物体，阴影精度往往不是太大的问题，因此使用DF来渲染阴影也是一个不错的选择。受DF保存方式的影响，DF对棱角分明的物体的表征更加准确。</p>
+<p>此外，还有其他几种不常用的动态阴影类型，比如Inset Shadows、Contact Shadows和CapsuleShadows等，这里不再展开。</p>
+<p>动态阴影的开销十分巨大，因为它需要单独的Drawcall，从光源处计算Shadow Map，对于点光源还需要生成Cubemap类型的Shadow Map。因此我们应该谨慎开启动态光源的阴影投射功能，或者舍弃一些质量来降低开销。在实际项目中，我们也可以在运行时通过代码来控制是否投射阴影，以优化性能。</p>
+<p>Shadow map的生成可以理解为是在光源位置进行的Pre-pass，这是逐Vertex的过程。因此动态阴影会受到场景中物体面数（顶点数）的影响，如果场景需要用到大量的动态阴影，那么请降低场景的面数。不过比起使用Shadow Map，这种场景下DF往往是更优的选择。</p>
+<h3 id="动态光照"><a href="#动态光照" class="headerlink" title="动态光照"></a>动态光照</h3><p>动态光照一般不会计算全局光照，而仅表现简单直接光照的效果。</p>
+<p>对于Deferred Renderer（以及现代的Forward Rendering）来说，动态光照的渲染往往不会产生太大的性能开销，动态的阴影才是性能杀手。</p>
+<p>需要注意的是，判断哪些像素与<strong>屏幕空间</strong>中，光源半径覆盖的面积有关，而光源距离相机越近，覆盖的面积就越大，需要Shading的像素就越多。</p>
+<p>实际场景中，我们应该尽可能的减小光源的半径，以优化性能，这对于动态阴影同样适用。</p>
+<h2 id="混合使用动态-静态光影"><a href="#混合使用动态-静态光影" class="headerlink" title="混合使用动态&#x2F;静态光影"></a>混合使用动态&#x2F;静态光影</h2><p>将两者混合使用往往可以得到一个不错的渲染效果，我们可以按照如下方案进行使用：</p>
+<ol>
+<li>对于远距离的微弱的光照，使用静态光照</li>
+<li>对于近处的光照，我们先使用静态光照来渲染间接光，然后在其基础上，使用动态光照来突出着色和阴影。</li>
+<li>如果需要极致的性能，请使用静态光照，如果需要运行时修改光照效果，请使用动态光照。</li>
+</ol>
+<h1 id="8-距离雾和透明物体"><a href="#8-距离雾和透明物体" class="headerlink" title="8 距离雾和透明物体"></a>8 距离雾和透明物体</h1><p>UE中有两种距离雾，分别是大气雾和指数雾。距离雾意味着雾会随着距离（接近相机）而消退，同时它也是高度雾，会在接近天空时消退。大气雾和指数雾两者差别并不大，前者性能好一些，后者可以混合更丰富的颜色种类，效果更好。</p>
+<p>UE中雾的效果在Pixel Shader中处理，通过GBuffer及屏幕深度等信息，将雾的颜色按照一定规则混合即可。</p>
+<p>UE中还有一种局部体积的雾，这里不展开。</p>
+<p>半透明物体的渲染是Deferred Renderer的弱项，也是其性能热点之一。也有将半透明物体在Forward Renderer中渲染后，和Deferred Renderer混合的做法，但这样你需要同时运行两套渲染框架。</p>
+<p>在Deferred Renderer中， 一般将半透明物体的渲染推迟到不透明物体渲染之后，同时你需要对同一个Pixel进行多次Shading。</p>
+<p>实际使用Translucent材质时，应当遵循以下几条原则：</p>
+<ol>
+<li>可以用Masked，就不要用Translucent</li>
+<li>使用Translucent时，可以用Unlit模型达到期望的效果，就不要用DefaultLit</li>
+<li>如果Translucent物体一定要响应光照，那么请正确配置相关的Translucent设置。</li>
+<li>透明材质覆盖的像素越多，其材质就应该越简单。举例来说，远处的烟雾粒子复杂一些没有关系，但近处的烟雾粒子必须非常简单。</li>
+</ol>
+<h1 id="9-后处理"><a href="#9-后处理" class="headerlink" title="9 后处理"></a>9 后处理</h1><p>后处理也是基于GBuffer实现的效果。</p>
+<p>常见的后处理效果有Light Bloom、Depth of Field、Lensflare、Light Shaft（GodRay）、Vignette、Tonemapping、Exposure、Motion Blur等。</p>
 
       
     </div>
@@ -1613,196 +1858,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%916%20%E7%BB%A7%E6%89%BF%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Lolia">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lolia's blogs">
-      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Lolia's blogs">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%916%20%E7%BB%A7%E6%89%BF%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Effective C++】6 继承与面向对象设计</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-20 12:20:06" itemprop="dateCreated datePublished" datetime="2022-10-20T12:20:06+08:00">2022-10-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/Effective-C/" itemprop="url" rel="index"><span itemprop="name">Effective C++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="条款32-确定你的public-继承塑模出-is-a-关系"><a href="#条款32-确定你的public-继承塑模出-is-a-关系" class="headerlink" title="条款32 确定你的public 继承塑模出 is-a 关系"></a>条款32 确定你的public 继承塑模出 is-a 关系</h2><p>若class D（Derived） public 继承 class B（Base），那么B对象能派上用场的地方，D一样也可以（Liskov Substitution Principle）</p>
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>“public继承”意味着is-a。适用于base classes身上的每一件事情一定也适用于derived classes身上，因为每一个derived class 对象也都是一个base class 对象。</li>
-</ul>
-</blockquote>
-<h2 id="条款33-避免遮掩继承而来的名称"><a href="#条款33-避免遮掩继承而来的名称" class="headerlink" title="条款33 避免遮掩继承而来的名称"></a>条款33 避免遮掩继承而来的名称</h2><p>即便是覆盖虚函数，它还是会遮盖同名函数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">mf1</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">mf1</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">mf2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">mf3</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">mf3</span><span class="params">(<span class="type">double</span>)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// using Base::mf1;  // 取消遮盖</span></span><br><span class="line">    <span class="comment">// using Base::mf3;</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">mf1</span><span class="params">()</span></span>;  <span class="comment">// 重写虚函数，但是遮盖了mf1(int)，即便它是虚函数</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">mf3</span><span class="params">()</span></span>;  <span class="comment">// 遮盖了mf3() 和 mf3(double)  </span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">mf3</span><span class="params">(<span class="type">double</span> d)</span> </span>&#123; Base::<span class="built_in">mf3</span>(d);&#125; <span class="comment">// 转交函数</span></span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>derived classes 内的名称会遮掩base classes 内的名称。在public 继承下从来没有人希望如此。</li>
-<li>为了让被遮掩的名称再见天日，可使用using声明式或转交函数（forwarding function）。</li>
-</ul>
-</blockquote>
-<h2 id="条款34-区分接口继承和实现继承"><a href="#条款34-区分接口继承和实现继承" class="headerlink" title="条款34 区分接口继承和实现继承"></a>条款34 区分接口继承和实现继承</h2><p>纯虚函数是可以写出定义式的，但是只能通过base::func() 的方式明确调用。</p>
-<p>对于分离接口的声明和实现</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fly</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">DefaultFly</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fly</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; <span class="built_in">DefaultFly</span>(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fly</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Base::fly</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// defaultFly</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fly</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; Base::<span class="built_in">fly</span>(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>接口继承和实现继承不同。在public继承之下，derived class 总是继承base class 的接口。</li>
-<li>pure virtual 函数只具体指定接口继承。</li>
-<li>简朴的（非纯）impure virtual函数具体指定接口继承及缺省实现继承。</li>
-<li>non-virtual 函数具体指定接口继承以及强制性实现继承</li>
-</ul>
-</blockquote>
-<h2 id="条款35-考虑virtual函数以外的其他选择-P169"><a href="#条款35-考虑virtual函数以外的其他选择-P169" class="headerlink" title="条款35 考虑virtual函数以外的其他选择 P169"></a>条款35 考虑virtual函数以外的其他选择 P169</h2><p>non-virtual interface（NVI）手法实现 Template Method。优点是可以实现事前和事后处理。virtual函数也可以是private，这样派生类只能重写其实现，但不能调用。ps：在vs里好像可以使用。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">GameCharacter</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">healthValue</span><span class="params">()</span> <span class="type">const</span> </span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="type">int</span> reVal = <span class="built_in">doHealthValue</span>();</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> reVal;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">int</span> <span class="title">doHealthValue</span><span class="params">()</span> <span class="type">const</span></span>&#123;...&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>Function Pointers 实现Strategy 模式（策略模式）</p>
-<p>function 完成Strategy模式</p>
-<p>古典的Strategy模式 </p>
-<p>P 177 对本节进行了总结</p>
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>virtual 函数的替代方案包括NVI手法及Strategy设计模式的多种形式。NVI手法自身是一个特殊形式的Template Method设计模式</li>
-<li>将机能从成员函数移到class外部函数，带来的一个缺点是，非成员函数无法访问class的non-public成员。</li>
-<li>trl::function 对象的行为就像是一般的函数指针。这样的对象可以接纳“与给定之目标签名式（target signature）兼容”的所有可调用物（callable entities）。</li>
-</ul>
-</blockquote>
-<h2 id="条款36-绝不重新定义继承而来的non-virtual-函数"><a href="#条款36-绝不重新定义继承而来的non-virtual-函数" class="headerlink" title="条款36 绝不重新定义继承而来的non-virtual 函数"></a>条款36 绝不重新定义继承而来的non-virtual 函数</h2><blockquote>
-<p>请记住</p>
-<ul>
-<li>绝对不要重新定义继承而来的non-virtual 函数</li>
-</ul>
-</blockquote>
-<h2 id="条款37-绝不重新定义继承而来的缺省参数值"><a href="#条款37-绝不重新定义继承而来的缺省参数值" class="headerlink" title="条款37 绝不重新定义继承而来的缺省参数值"></a>条款37 绝不重新定义继承而来的缺省参数值</h2><p>静态绑定又名前期绑定，动态绑定又名后期绑定</p>
-<p>virtual函数是动态绑定的，但是缺省参数值却是静态绑定的！！所以静态类型只会使用对应的缺省参数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 三者的静态类型均为 Shape*，</span></span><br><span class="line">Shape* ps;  <span class="comment">// 无动态类型</span></span><br><span class="line">Shape* pc = <span class="keyword">new</span> Circle;  <span class="comment">// 动态类型为Circle</span></span><br><span class="line">Shape* pr = <span class="keyword">new</span> Rectangle;  <span class="comment">// 动态类型为Rectangle</span></span><br></pre></td></tr></table></figure>
-
-<p>我们应该避免在虚函数中使用缺省参数值，可以按照<strong>条款35</strong>使用NVI手法进行重构。</p>
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>绝对不要重新定义一个继承而来的缺省参数值，因为缺省参数值都是静态绑定，而virtual函数——你唯一应该覆写的东西——却是动态绑定</li>
-</ul>
-</blockquote>
-<h2 id="条款38-通过复合（组合）塑模出-has-a-或“根据某物实现出”"><a href="#条款38-通过复合（组合）塑模出-has-a-或“根据某物实现出”" class="headerlink" title="条款38 通过复合（组合）塑模出 has-a 或“根据某物实现出”"></a>条款38 通过复合（组合）塑模出 has-a 或“根据某物实现出”</h2><p>复合（composition）、分层（layering）、内含（containment）、聚合（aggregation）、内嵌（embedding）</p>
-<p>注意区分has-a 和is-implemented-in-terms-of 的区别</p>
-<p>一个基于list实现set的例子，这里的list 和 set并不是is-a的关系，比如set不允许重复，而list可以。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Set</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">member</span><span class="params">(<span class="type">const</span> T&amp; item)</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">const</span> T&amp; item)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">const</span> T&amp; item)</span></span>;</span><br><span class="line">    <span class="function">std::<span class="type">size_t</span> <span class="title">size</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::list&lt;T&gt; rep;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">bool</span> Set&lt;T&gt;::<span class="built_in">member</span>(<span class="type">const</span> T&amp; item)<span class="type">const</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> std::<span class="built_in">find</span>(rep.<span class="built_in">begin</span>(), rep.<span class="built_in">end</span>(), item) != rep.<span class="built_in">end</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">void</span> Set&lt;T&gt;::<span class="built_in">insert</span>(<span class="type">const</span> T&amp; item)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">member</span>(item))</span><br><span class="line">        rep.<span class="built_in">push_back</span>(item);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="type">void</span> Set&lt;T&gt;::<span class="built_in">remove</span>(<span class="type">const</span> T&amp; item)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 这里的typename见条款42</span></span><br><span class="line">    <span class="keyword">typename</span> std::list&lt;T&gt;::iterator it = std::<span class="built_in">find</span>(rep.<span class="built_in">begin</span>(), rep.<span class="built_in">end</span>(), item);</span><br><span class="line">    <span class="keyword">if</span>(it != rep.<span class="built_in">end</span>())</span><br><span class="line">        rep.<span class="built_in">erase</span>(it);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line">std::<span class="type">size_t</span> Set&lt;T&gt;::<span class="built_in">size</span>(<span class="type">const</span> T&amp; item)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> rep.<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>复合（composition）的意义和public完全不同</li>
-<li>在应用域（application domain），复合意味着has-a（有一个）。在实现域（implementation domain），复合意味着is-implemented-in-terms-of（根据某物实现出）</li>
-</ul>
-</blockquote>
-<h2 id="条款39-明智而审慎地使用private-继承"><a href="#条款39-明智而审慎地使用private-继承" class="headerlink" title="条款39 明智而审慎地使用private 继承"></a>条款39 明智而审慎地使用private 继承</h2><p>private继承只继承实现，不继承接口，基类的public 和protected 都会变成private，是一个is-implemented-in-terms-of。</p>
-<p>尽可能使用复合（或者继承+复合，有必要的话，即当需要覆写virtual），必要时才使用private继承（当protected成员和virtual函数牵扯进来）</p>
-<p>继承是传递的，一个类private继承了某个功能类，那么这个类的派生类也有能力覆写virtual函数，这往往是不合理的。（<strong>C++11有final，可以实现了</strong>）</p>
-<p>private继承一个不占内存的类（empty base），可以实现对象尺寸最小化。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// private继承</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span>: <span class="keyword">private</span> Timer &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">onTick</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 复合</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Widget</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">WidgetTimer</span>: <span class="keyword">public</span> Timer &#123;   <span class="comment">// 有必要的话可以将这个类提出去解耦</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">onTick</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    WidgetTimer timer;  <span class="comment">// 把这个声明为指针就可以不用包含头文件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>private 继承意味着 is-implemented-in-terms-of（根据某物实现出）。它通常比复合（composition）的级别低。但是当derived class 需要访问protected base class 的成员，或需要重新定义继承而来的virtual 函数时，这么设计是合理的。</li>
-<li>和复合（composition）不同，private 继承可以造成empty base 最优化。这对于致力于“对象尺寸最小化”的程序库开发者而言，可能很重要。</li>
-</ul>
-</blockquote>
-<h2 id="条款40-明智而审慎地使用多重继承"><a href="#条款40-明智而审慎地使用多重继承" class="headerlink" title="条款40 明智而审慎地使用多重继承"></a>条款40 明智而审慎地使用多重继承</h2><p>对于“钻石型”继承，编译器往往默认会生成多份重复的基类的成员。如果要避免，就需要对重复的基类使用虚继承（成为虚基类），但这会消耗更多性能。</p>
-<p>virtual base的初始化责任是由继承体系中最底层（most derived）class负责！</p>
-<p>使用virtual base的忠告：</p>
-<ul>
-<li>别用</li>
-<li>避免在virtual base 里放数据</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">File</span>&#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">InputFile</span>: <span class="keyword">public</span> File&#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OutputFile</span>: <span class="keyword">public</span> File&#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">IOFile</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> InputFile</span><br><span class="line">             , <span class="keyword">virtual</span> <span class="keyword">public</span> OutputFile</span><br><span class="line">&#123;...&#125;</span><br></pre></td></tr></table></figure>
-
-<p>private继承可以合理地被多重使用，该用就用不要害怕hhh。</p>
-<blockquote>
-<p>请记住</p>
-<ul>
-<li>多重继承比单一继承复杂。他可能导致新的歧义性，以及对virtual继承的需要。</li>
-<li>virtual继承会增加大小、速度、初始化（及赋值）复杂度等等成本。如果virtual base class 不带任何数据，将是最具实用价值的情况。</li>
-<li>多重继承的确有正当用途。其中一个情节涉及“public 继承某个 Interface class”和“private继承某个协助实现的class”两相组合。</li>
-</ul>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1852,6 +1907,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

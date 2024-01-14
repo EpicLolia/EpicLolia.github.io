@@ -129,7 +129,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -309,10 +309,8 @@
 <p>对于第一种情况，我们可以通过GBuffer中的ObjectID进行处理，如果前后帧ObjectID不一致，就不进行结果的混合了。对于第二种情况，我们可以参考空域Outlier Removal的做法，将前一帧Clamp到一个合适的范围后，再进行混合。</p>
 <h2 id="Spatiotemporal-Variance-Guided-Filter（SVGF）"><a href="#Spatiotemporal-Variance-Guided-Filter（SVGF）" class="headerlink" title="Spatiotemporal Variance-Guided Filter（SVGF）"></a>Spatiotemporal Variance-Guided Filter（SVGF）</h2><p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28288053">Spatiotemporal Variance-Guided Filter, 向实时光线追踪迈进 - 知乎 (zhihu.com)</a></p>
 <h1 id="六、一些常用的工业技术"><a href="#六、一些常用的工业技术" class="headerlink" title="六、一些常用的工业技术"></a>六、一些常用的工业技术</h1><h2 id="抗锯齿"><a href="#抗锯齿" class="headerlink" title="抗锯齿"></a>抗锯齿</h2><ul>
-<li><p>Multisample Anti-Aliasing（MSAA）：对于一个像素进行多次采样，并将最终的结果求平均。</p>
-</li>
-<li><p>Super-Sampling AA（SSAA）：将一个场景按照更大的分辨率渲染后再降采样，开销比较大。</p>
-</li>
+<li>Multisample Anti-Aliasing（MSAA）：对于一个像素进行多次采样，并将最终的结果求平均。</li>
+<li>Super-Sampling AA（SSAA）：将一个场景按照更大的分辨率渲染后再降采样，开销比较大。</li>
 </ul>
 <p>在同样的倍数下，MSAA的性能往往要优于SSAA，因为MSAA使用了很多技巧降低了采样率。</p>
 <ul>
@@ -336,8 +334,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/" rel="prev" title="UE卡通渲染">
-                  <i class="fa fa-angle-left"></i> UE卡通渲染
+                <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="prev" title="实时渲染深入探究-课程笔记">
+                  <i class="fa fa-angle-left"></i> 实时渲染深入探究-课程笔记
                 </a>
             </div>
             <div class="post-nav-item">
@@ -397,6 +395,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
