@@ -339,7 +339,7 @@
 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913164134265.png" class="" title="image-20230913164134265">
 
 <ol start="2">
-<li>在<code>BasePassCommon.ush</code>开启GBuffer的CustomData写入权限：</li>
+<li>在<code>BasePassCommon.ush</code>开启GBuffer的CustomData写入权限（这一处宏定义好像已经没有用了）</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//++[lolia] Toon Shading Model</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> WRITES_CUSTOMDATA_TO_FBUFFER (USES_GBUFFER &amp;&amp; (... || MATERIAL_SHADINGMODEL_TOON))</span></span><br><span class="line"><span class="comment">//--[lolia]</span></span><br></pre></td></tr></table></figure>
 
@@ -368,7 +368,7 @@
 
 <h1 id="三、卡通材质"><a href="#三、卡通材质" class="headerlink" title="三、卡通材质"></a>三、卡通材质</h1><blockquote>
 <ol>
-<li>[虚幻5渲染编程(风格化渲染篇)<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/519728086">第七卷: Toon shadow control] - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/519728086">虚幻5渲染编程(风格化渲染篇)[第七卷: Toon shadow control] - 知乎 (zhihu.com)</a></li>
 </ol>
 </blockquote>
 <h2 id="阴影过渡"><a href="#阴影过渡" class="headerlink" title="阴影过渡"></a>阴影过渡</h2><p>预积分贴图生成代码如下：</p>
