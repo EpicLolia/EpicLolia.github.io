@@ -129,7 +129,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -160,7 +160,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -178,7 +178,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">GAMES202笔记</a>
+          <a href="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">GAMES202笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -197,7 +197,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">游戏开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
         </span>
     </span>
 
@@ -295,7 +299,7 @@
 <p>具体做法就是计算其周围像素的均值和方差，然后将像素颜色Clamp到$[μ-kσ,μ+kσ]$内。</p>
 <h3 id="对于Large-filter的加速方法"><a href="#对于Large-filter的加速方法" class="headerlink" title="对于Large filter的加速方法"></a>对于Large filter的加速方法</h3><h4 id="1-Separate-Passes（拆分实现）"><a href="#1-Separate-Passes（拆分实现）" class="headerlink" title="1. Separate Passes（拆分实现）"></a>1. Separate Passes（拆分实现）</h4><p>简单来说，我们可以将2维卷积操作拆分成水平方向和竖直方向两趟的1维卷积，将$O(n^2)$的复杂度降为$O(n+n)$。对于高斯滤波来说，这种做法是准确的，对于更复杂的滤波，这种做法的结果不一定准确，但是强行这么做的效果也并不差，可以接受。</p>
 <h4 id="2-Progressively-Growing-Sizes"><a href="#2-Progressively-Growing-Sizes" class="headerlink" title="2. Progressively Growing Sizes"></a>2. Progressively Growing Sizes</h4><p>简单来说，就是使用小型Kernel核进行多趟的Filter，从而达到大Filter的效果。这里每一趟Filter时，采样像素的间隔要逐趟增加，对于第N趟Filter，我们需要每隔$(N-1)^2$个像素采样一次，如图所示。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/progressively_growing_sizes.png" class="" title="Progressively Growing Sizes">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/GAMES202%E7%AC%94%E8%AE%B0/progressively_growing_sizes.png" class="" title="Progressively Growing Sizes">
 
 <h2 id="时域降噪（Temporal-Denoising）"><a href="#时域降噪（Temporal-Denoising）" class="headerlink" title="时域降噪（Temporal Denoising）"></a>时域降噪（Temporal Denoising）</h2><p>要做时域降噪，我们需要知道帧与帧之间的像素的对应关系，而只要知道物体的<strong>Motion Vector</strong>，我们就可以通过当前帧的渲染信息以及上一帧的相机MVPE，来计算出每个Shading Point对应上一帧的哪个像素。</p>
 <p>之后将两帧的结果按照一定比例混合到一起，就可以得到一个噪声较小的结果了。</p>
@@ -337,7 +341,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -355,7 +359,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">实时渲染深入探究-课程笔记</a>
+          <a href="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">实时渲染深入探究-课程笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -374,7 +378,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">游戏开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
         </span>
     </span>
 
@@ -431,7 +439,7 @@
 <li>使用<code>stat RHI</code>可以看到Drawcall次数。</li>
 <li>在<code>Tools-&gt;Audit-&gt;Statistics</code>窗口（UE5）中，可以看到场景各Mesh的相关统计数据。</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/statistics_window.png" class="" title="Statistics">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/statistics_window.png" class="" title="Statistics">
 
 <h2 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h2><p>Vertex Shader负责对输入的顶点进行坐标的变换，我们也可以通过Vertex Shader实现顶点动画，比如旗帜飘动、水面波纹、草叶摇动等等。在UE中，这一功能在材质里表示为World Position Offset输入。</p>
 <p>Vertex Shader是逐顶点执行的，所以我们有以下几点需要：</p>
@@ -451,12 +459,12 @@
 <p>在Deferred Rendering中，Quad Overdraw往往不会对性能造成太大影响。而在Forward Rendering中，其Initial Pixel Shader较为复杂，这时候我们就要注意其性能了。</p>
 <p>将场景的所有信息都保存到GBuffer后，后续我们就只依赖于GBuffer来进行渲染了。</p>
 <p>GBuffer分配可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/568775542">Customize GBuffer In UE5 - 知乎 (zhihu.com)</a></p>
-<h2 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h2><img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/quad_over_draw.png" class="" title="Quad Over Draw in UE5">
+<h2 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h2><img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/quad_over_draw.png" class="" title="Quad Over Draw in UE5">
 
 <p>可以在View Mode中可视化Quad Overdraw。</p>
 <p>通过Render Doc可以清楚地看到GBuffer中的信息。</p>
 <p>当然，UE中内置了可视化Buffer的模式。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/buffer_visualization.png" class="" title="Buffer Visualization">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/buffer_visualization.png" class="" title="Buffer Visualization">
 
 <h1 id="4-纹理"><a href="#4-纹理" class="headerlink" title="4 纹理"></a>4 纹理</h1><p>纹理资产导入后都会进行压缩，PC平台按照BC（Block Compression）格式进行压缩，BC与DXTC（DirectX Texture Compression，DXT）都指的是同一个概念。</p>
 <p>UE中使用的是简化的BC方法，我们并不能对其做太多设置。常用的BC方法及使用场景如下：</p>
@@ -474,16 +482,16 @@
 <p>UE的材质系统默认的着色模型用的是PBR模型，一般来说，使用Metallic和Roughness这两个参数就可以调出我们想要的大部分效果了。</p>
 <p>Pixel Shader往往会成为性能的热点，因为所有光照、反射、大气雾等效果都在Pixel Shader中实现。屏幕分辨率和材质复杂度都会影响Pixel Shader运行的性能，使用复杂材质的物体，在画面中占据的像素越多，开销也就越大。</p>
 <h2 id="调试方法-1"><a href="#调试方法-1" class="headerlink" title="调试方法"></a>调试方法</h2><p>在材质系统的Stats栏可以看到一些Shader信息</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/material_shader_info.png" class="" title="Shader Info of Material">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/material_shader_info.png" class="" title="Shader Info of Material">
 
 <p>一般来说，Base pass shader的指令数在100到200之间是比较合适的，我们可以在View Mode中选择Shader Complexity进行调试。（注意，如果开启Shader Debug的相关设置，会导致Shader指令数大幅增加，上图就是如此，请关闭后再测试性能）</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/shader_complexity.png" class="" title="Shader Complexity">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/shader_complexity.png" class="" title="Shader Complexity">
 
 <h1 id="6-反射"><a href="#6-反射" class="headerlink" title="6 反射"></a>6 反射</h1><p>UE中混合使用3种方法来实现反射效果</p>
 <h2 id="Reflection-Captures"><a href="#Reflection-Captures" class="headerlink" title="Reflection Captures"></a>Reflection Captures</h2><p>Reflection Captures是通过预计算，在指定位置生成Cubemap的方法。这种方法运行时性能优秀，但只能反射静态物体，并且只能对局部的Shading Point起作用（即Volume内的Shading Point）。</p>
 <p>在UE中可以在场景中放置Reflection Captures Volume，当渲染体积内的物体时，就会向Reflection Captures查询其Cubemap，辅助渲染。我们只在Volume中心的位置生成了Cubemap，当相机离中心越近，反射的效果越准确，反之，反射效果会产生一定的位置偏差。</p>
 <p>Cubemap的分辨率可以在项目设置中修改，越大的分辨率，可以得到越锐利的结果。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/reflection_capture_resolution.png" class="" title="Reflection Capture Resolution">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/reflection_capture_resolution.png" class="" title="Reflection Capture Resolution">
 
 <p>我们最好不场景中使用过多的Reflection Capture，同时Reflection Capture之间最好也不要重叠，这会造成更大的性能开销，因为重叠区域的Shading Point需要融合所有Reflection Capture的Cubemap的结果，因此建议Reflection Capture重叠的数量最多不超过8个。</p>
 <p>此外，在没有Cook场景时，Reflection Capture会在每次加载场景时捕获一次，这会增加场景加载的时间，需要格外注意。</p>
@@ -494,36 +502,36 @@
 <p>实际构建场景时，我们可能会同时使用上面提到的三种反射效果，但UE在实际渲染某个Shading Point时，只会选择其中一个方案进行反射的渲染，此时SSR优先级高于Planar Reflection，Planar Reflection高于Reflection Captures。</p>
 <h2 id="Skylight"><a href="#Skylight" class="headerlink" title="Skylight"></a>Skylight</h2><p>除了以上三种反射方案，Skylight也可以视为一个开销较小的全局Reflection Capture方案，它也可以捕获场景自动生成Cubemap（可以按距离剔除较近物体，只捕获远处的物体，如天空盒）。</p>
 <p>Skylight对于户外大场景十分重要，可以避免防止过多的Reflection Capture Actor。实际渲染时，如果Shading Point没有检测到前面三种反射方案，就会使用Skylight。</p>
-<h1 id="7-光照与阴影"><a href="#7-光照与阴影" class="headerlink" title="7 光照与阴影"></a>7 光照与阴影</h1><img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lighting_and_shadows.png" class="" title="Lighting And Shadows">
+<h1 id="7-光照与阴影"><a href="#7-光照与阴影" class="headerlink" title="7 光照与阴影"></a>7 光照与阴影</h1><img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lighting_and_shadows.png" class="" title="Lighting And Shadows">
 
 <h2 id="静态（Pre-Rendered）"><a href="#静态（Pre-Rendered）" class="headerlink" title="静态（Pre-Rendered）"></a>静态（Pre-Rendered）</h2><p>静态光影会在编辑器中预计算光影效果，并将它们保存到Lightmap中。这样做可以获得极佳的渲染性能，但会增加内存和带宽的负担。</p>
 <p>就质量而言，静态光影可以计算出准确的光影效果及全局光照，也可以生成正确的阴影（软阴影），但这些结果最终需要保存到Lightmap中供运行时使用，所以实际质量与Lightmap的分辨率直接相关，需要注意Lightmap分辨率也有上限。Lightmap的分辨率会影响文件大小和运行时内存占用，一般不会影响帧率。</p>
 <p>场景中的每一个受静态光照影响的物体都需要有Lightmap UVs。静态光影的质量也与物体的UV布局有关。非常大的物体可能会用光Lightmap的UV空间，此时UE会使用更低分辨率的Lightmap，导致质量下降。</p>
 <p>对于每个物体分配的LightMap的精度，我们也可以根据场景Lightmap密度手动调整。当然，一般情况下，我们并不需要调整这些属性。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/overridden_lightmap_res.png" class="" title="Overridden Lightmap Res">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/overridden_lightmap_res.png" class="" title="Overridden Lightmap Res">
 
 <p>详情可以参考官方文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/static-light-mobility-in-unreal-engine/">虚幻引擎中静态光源的移动性 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
 <p>实际渲染时，会将Base Color与Lightmap相乘，使阴影处更暗，光照处更亮。</p>
 <p>UE中使用Lightmass来生成Lightmap，它会将很多Lightmaps打包成一个图集，你可以在World Settings中看到他们。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmaps.png" class="" title="Lightmaps">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmaps.png" class="" title="Lightmaps">
 
 <p>Lightmass烘焙是一个独立的程序，因此它可以支持分布式烘焙。Lightmass烘焙的质量由Light Build Quality和World Settings中的Lightmass设置决定。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmass_settings.png" class="" title="Lightmass Settings">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmass_settings.png" class="" title="Lightmass Settings">
 
 <p>静态光影的预计算可能有比较长的时间开销，并且每次修改场景都要重新预计算。Lightmap烘焙时间，会受到Lightmap分辨率、模型与光源的数量和烘焙质量相关设置的直接影响。此外，光源的半径也会影响烘焙时间，半径越大，烘焙时间越长。</p>
 <p>运行时，我们可以根据相机视角判断需要重点渲染的区域，但在离线的场景下，我们并不知道相机会出现在哪里。因此在烘焙Lightmass时，我们也需要在场景中摄像机可能出现的位置都放置好<strong>Lightmass Importance Volume</strong>。</p>
 <p>Lightmap中只保存了静态的场景的光影信息，对于运行时动态的物体，我们可以查询间接光照缓存（Indirect Lighting Cache，ILC）进行混合，辅助动态物体在运行时的光影渲染。</p>
 <p>要开启ILC，需要在Lightmass的Volume Lighting Method中选择Sparse Volume Lighting Samples。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/enable_ILC.png" class="" title="Enable ILC">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/enable_ILC.png" class="" title="Enable ILC">
 
 <p>同时动态物体怎么使用ILC信息，也可以在Mesh的Lighting栏进行设置，甚至是直接关闭。</p>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/use_ILC.png" class="" title="Use ILC">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/use_ILC.png" class="" title="Use ILC">
 
 <p>一般ILC会倾向于分布在Lightmass Importance Volume中的地面上，我们也可以通过放置<strong>Lightmass Character Indirect Detail Volume</strong>来手动指定那些动态物体可能移动到的地方。</p>
 <p>目前UE默认的方案不是ILC，而是VLM。详情参考<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/volumetric-lightmaps-in-unreal-engine/">虚幻引擎中的体积光照贴图 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
 <h3 id="调试方法-2"><a href="#调试方法-2" class="headerlink" title="调试方法"></a>调试方法</h3><ol>
-<li>可视化Lightmap密度。颜色越红，密度越高。 <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmap_density.png" class="" title="Lightmap Density"></li>
-<li>可视化ILC辅助调试<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/indirect_lighting_cache.png" class="" title="Indirect Lighting Cache"></li>
+<li>可视化Lightmap密度。颜色越红，密度越高。 <img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/lightmap_density.png" class="" title="Lightmap Density"></li>
+<li>可视化ILC辅助调试<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6-%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/indirect_lighting_cache.png" class="" title="Indirect Lighting Cache"></li>
 </ol>
 <h2 id="动态（Real-Time）"><a href="#动态（Real-Time）" class="headerlink" title="动态（Real Time）"></a>动态（Real Time）</h2><p>相比起静态阴影，动态光影在运行时实时计算，不受Lightmap大小限制，不关心物体的大小。</p>
 <p>在讲动态光影之前，建议阅读UE官方关于光源移动性的相关文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/light-types-and-their-mobility-in-unreal-engine/">虚幻引擎中的光源类型及其移动性</a>和<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/actor-mobility-in-unreal-engine/">虚幻引擎中的Actor移动性</a></p>
@@ -584,7 +592,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -602,7 +610,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/" class="post-title-link" itemprop="url">UE卡通渲染</a>
+          <a href="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/" class="post-title-link" itemprop="url">卡通渲染</a>
         </h2>
 
         <div class="post-meta-container">
@@ -628,7 +636,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">游戏开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
         </span>
     </span>
 
@@ -679,34 +691,34 @@
 </blockquote>
 <h2 id="Cpp侧修改"><a href="#Cpp侧修改" class="headerlink" title="Cpp侧修改"></a>Cpp侧修改</h2><h3 id="1-材质定义"><a href="#1-材质定义" class="headerlink" title="1. 材质定义"></a>1. 材质定义</h3><ol>
 <li>在<code>EngineTypes.h</code>的枚举<code>EMaterialShadingModel</code>中注册新的光照模型，其会在Material的下拉框中显示。<strong>注意这里的位置要与后文HLSL定义的顺序一致。</strong></li>
-<li>如果想要材质在蓝图中可以通过节点选择，那么还需要在UMaterialExpressionShadingModel中添加相应的Meta<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20240112011054282-1704993064152-1.png" class="" title="image-20240112011054282"></li>
+<li>如果想要材质在蓝图中可以通过节点选择，那么还需要在UMaterialExpressionShadingModel中添加相应的Meta<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20240112011054282-1704993064152-1.png" class="" title="image-20240112011054282"></li>
 <li>在<code>MaterialShader.cpp</code>的<code>GetShadingModelString()</code>中增加相应的Case</li>
 <li>在<code>MaterialShader.cpp</code>的<code>UpdateMaterialShaderCompilingStats</code>更新Shader Stats</li>
 </ol>
 <p>做完以上操作之后，我们就可以在材质中选择我们自定义的光照模型了。</p>
 <h3 id="2-Cpp侧宏导出"><a href="#2-Cpp侧宏导出" class="headerlink" title="2. Cpp侧宏导出"></a>2. Cpp侧宏导出</h3><p>HLSL中是否编译某块代码由宏控制，我们也需要为我们自己的光照模型定义并开启相应的宏</p>
 <ol>
-<li>在<code>ShaderMaterial.h</code>的<code>FShaderMaterialPropertyDefines</code>中添加相关位域，在HLSL中宏开关的命名也必须与此处一致。<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155206989.png" class="" title="image-20230913155206989"></li>
-<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>FShaderCompileUtilities::ApplyFetchEnvironment()</code> <img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155921416.png" class="" title="image-20230913155921416"></li>
-<li>在<code>HLSLMaterialTranslator.cpp</code>的<code>FHLSLMaterialTranslator::GetMaterialEnvironment()</code>添加相应的分支<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913161219080.png" class="" title="image-20230913161219080"></li>
+<li>在<code>ShaderMaterial.h</code>的<code>FShaderMaterialPropertyDefines</code>中添加相关位域，在HLSL中宏开关的命名也必须与此处一致。<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155206989.png" class="" title="image-20230913155206989"></li>
+<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>FShaderCompileUtilities::ApplyFetchEnvironment()</code> <img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913155921416.png" class="" title="image-20230913155921416"></li>
+<li>在<code>HLSLMaterialTranslator.cpp</code>的<code>FHLSLMaterialTranslator::GetMaterialEnvironment()</code>添加相应的分支<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913161219080.png" class="" title="image-20230913161219080"></li>
 <li>在<code>MaterialHLSLEmitter.cpp</code>中也有<code>GetMaterialEnvironment()</code>函数，我们也做同样的操作</li>
 </ol>
 <h3 id="3-材质数据接口"><a href="#3-材质数据接口" class="headerlink" title="3. 材质数据接口"></a>3. 材质数据接口</h3><ol>
 <li>在<code>Material.cpp</code>的<code>IsPropertyActive_Internal()</code>中开放相应Pin。</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913121914573.png" class="" title="image-20230913121914573">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913121914573.png" class="" title="image-20230913121914573">
 
 <ol start="2">
 <li>在<code>MaterialShared.cpp</code>的<code>FMaterialAttributeDefinitionMap::GetAttributeOverrideForMaterial()</code>中填写Pin别名</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913151917251.png" class="" title="image-20230913151917251">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913151917251.png" class="" title="image-20230913151917251">
 
 <ol start="3">
 <li>如果模型是Subsurface模型，那么还需要，还需要修改<code>MaterialShared.h</code>的<code>IsSubsurfaceShadingModel()</code></li>
 </ol>
 <h3 id="4-开启GBuffer中相关的MRT"><a href="#4-开启GBuffer中相关的MRT" class="headerlink" title="4. 开启GBuffer中相关的MRT"></a>4. 开启GBuffer中相关的MRT</h3><p>这一步的目的是开启HLSL侧的宏开关，即导出宏定义<code>PIXELSHADEROUTPUT_MRT</code>，编译HLSL中相关MRT的代码。</p>
 <ol>
-<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>DetermineUsedMaterialSlots()</code><img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160043820.png" class="" title="image-20230913160043820"></li>
+<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>DetermineUsedMaterialSlots()</code><img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160043820.png" class="" title="image-20230913160043820"></li>
 <li>如果要使用使用CustomData，那么最好在<code>ShaderMaterialDerivedHelpers.cpp</code>的<code>CalculateDerivedMaterialParameters()</code>函数中修改如下代码（对于新版本其实是冗余的，为了保持与旧版本一致还是改一下吧）</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//++[lolia] Toon Shading Model</span></span><br><span class="line">Dst.WRITES_CUSTOMDATA_TO_GBUFFER = (Dst.USES_GBUFFER &amp;&amp; (... || Mat.MATERIAL_SHADINGMODEL_TOON));</span><br><span class="line"><span class="comment">//--[lolia]</span></span><br></pre></td></tr></table></figure>
@@ -714,27 +726,27 @@
 <h3 id="5-Inspector相关"><a href="#5-Inspector相关" class="headerlink" title="5. Inspector相关"></a>5. Inspector相关</h3><ol>
 <li><code>PixelInspectorResult.h</code></li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160408740.png" class="" title="image-20230913160408740">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160408740.png" class="" title="image-20230913160408740">
 
 <ol start="2">
 <li><code>PixelInspectorResult.cpp</code>中<code>PixelInspectorResult::DecodeShadingModel()</code>添加case</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160543432.png" class="" title="image-20230913160543432">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160543432.png" class="" title="image-20230913160543432">
 
 <ol start="3">
 <li><code>PixelInspectorDetailsCustomization.cpp</code>中<code>FPixelInspectorDetailsCustomization::CustomizeDetails()</code></li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160659260.png" class="" title="image-20230913160659260">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913160659260.png" class="" title="image-20230913160659260">
 
 <h2 id="Shader侧修改"><a href="#Shader侧修改" class="headerlink" title="Shader侧修改"></a>Shader侧修改</h2><h3 id="1-模型定义"><a href="#1-模型定义" class="headerlink" title="1. 模型定义"></a>1. 模型定义</h3><ol>
-<li><code>ShadingCommon.ush</code>添加模型定义，此处定义的顺序需要和<code>EngineTypes.h</code>中枚举的顺序一致。此外，可以在<code>GetShadingModelColor()</code>中修改模型Debug颜色。<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162050368.png" class="" title="image-20230913162050368"></li>
-<li>对于宏开关，HLSL侧也要在未设置环境变量时进行声明，防止编译错误。在<code>Definitions.usf</code>中添加<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162335790.png" class="" title="image-20230913162335790"></li>
+<li><code>ShadingCommon.ush</code>添加模型定义，此处定义的顺序需要和<code>EngineTypes.h</code>中枚举的顺序一致。此外，可以在<code>GetShadingModelColor()</code>中修改模型Debug颜色。<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162050368.png" class="" title="image-20230913162050368"></li>
+<li>对于宏开关，HLSL侧也要在未设置环境变量时进行声明，防止编译错误。在<code>Definitions.usf</code>中添加<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913162335790.png" class="" title="image-20230913162335790"></li>
 </ol>
 <h3 id="2-数据接口"><a href="#2-数据接口" class="headerlink" title="2. 数据接口"></a>2. 数据接口</h3><p>在Shader端同样需要为我们的Shading Model开启SubsurfaceColor和CustomData的相关写入权限，并进行数据传输。</p>
 <ol>
 <li>在<code>DeferredShadingCommon.ush</code>中维护相关判别函数，同时我们也可以添加自己的判别函数<code>IsToonShading</code></li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913164134265.png" class="" title="image-20230913164134265">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913164134265.png" class="" title="image-20230913164134265">
 
 <ol start="2">
 <li>在<code>BasePassCommon.ush</code>开启GBuffer的CustomData写入权限（这一处宏定义好像已经没有用了）</li>
@@ -744,12 +756,12 @@
 <ol start="3">
 <li>在<code>BasePassPixelShader.usf</code>的<code>FPixelShaderInOut_MainPS()</code>中为SubsurfaceColor写入数据。下图两处改动都是添加ToonModel判断，逻辑是一致的。</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913165002797.png" class="" title="image-20230913165002797">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913165002797.png" class="" title="image-20230913165002797">
 
 <ol start="4">
 <li>最后，在<code>ShadingModelsMaterial.ush</code>的<code>SetGBufferForShadingModel</code>函数里，把SubsurfaceColor和CustomData压入<code>GBuffer.CustomData</code>。</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913165347308.png" class="" title="image-20230913165347308">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913165347308.png" class="" title="image-20230913165347308">
 
 <ol start="5">
 <li>如果用不到SpecularColor和DiffuseColor，可以在<code>BasePassPixelShader.usf</code>的<code>FPixelShaderInOut_MainPS()</code>的相应位置置零。<code>ReflectionEnvironmentPixelShader.usf</code>的<code>ReflectionEnvironment()</code>也直接返回0。</li>
@@ -757,12 +769,12 @@
 <h3 id="3-Shader"><a href="#3-Shader" class="headerlink" title="3. Shader"></a>3. Shader</h3><ol>
 <li><code>ShadingModels.ush</code>的<code>IntegrateBxDF()</code>添加BxDF函数</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913171239695.png" class="" title="image-20230913171239695">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913171239695.png" class="" title="image-20230913171239695">
 
 <ol start="2">
 <li>天光的计算并不走<code>IntegrateBxDF()</code>，需要单独处理。在<code>SkyLightingDiffuseShared.ush</code>的<code>SkyLightDiffuse()</code>函数中修改如下：</li>
 </ol>
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913171515214.png" class="" title="image-20230913171515214">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/image-20230913171515214.png" class="" title="image-20230913171515214">
 
 <h1 id="三、卡通材质"><a href="#三、卡通材质" class="headerlink" title="三、卡通材质"></a>三、卡通材质</h1><blockquote>
 <ol>
@@ -774,16 +786,16 @@
 
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">PrivateDependencyModuleNames.<span class="built_in">Add</span>(<span class="string">&quot;ImageCore&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Engine/Public/ImageUtils.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">FImage <span class="title">Image</span><span class="params">(<span class="number">256</span>, <span class="number">256</span>, ERawImageFormat::BGRA8)</span></span>;</span><br><span class="line">    <span class="type">const</span> TArrayView64&lt;FColor&gt; Data = Image.<span class="built_in">AsBGRA8</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; <span class="number">256</span>; y++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; <span class="number">256</span>; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            FColor RetColor = <span class="built_in">FColor</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span><br><span class="line">            <span class="type">float</span> Y = y / <span class="number">255.f</span>;</span><br><span class="line">            <span class="type">float</span> X = x / <span class="number">255.f</span>;</span><br><span class="line"></span><br><span class="line">            Y = Y * <span class="number">0.1f</span>;</span><br><span class="line"></span><br><span class="line">            RetColor.R = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Y, <span class="number">0.5</span> + Y, X) * <span class="number">255</span>;</span><br><span class="line">            RetColor.G = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Y, <span class="number">0.5</span> + Y, X) * <span class="number">255</span>;</span><br><span class="line">            RetColor.B = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Y, <span class="number">0.5</span> + Y, X) * <span class="number">255</span>;</span><br><span class="line"></span><br><span class="line">            Data[x + y * <span class="number">256</span>] = RetColor;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    TArray64&lt;uint8&gt; Output;</span><br><span class="line">    FImageUtils::<span class="built_in">CompressImage</span>(Output, <span class="built_in">TEXT</span>(<span class="string">&quot;png&quot;</span>), Image);</span><br><span class="line">    FFileHelper::<span class="built_in">SaveArrayToFile</span>(Output, <span class="built_in">TEXT</span>(<span class="string">&quot;C:/Users/Lolia/Desktop/output.png&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/ToonShadowRamp.png" class="" title="ToonShadowRamp">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/ToonShadowRamp.png" class="" title="ToonShadowRamp">
 
 <p>对于皮肤ramp贴图，可以这样生成：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> Y = y / <span class="number">255.f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> X = x / <span class="number">255.f</span>;</span><br><span class="line"></span><br><span class="line">Y += <span class="number">0.3f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> Width = Y * <span class="number">0.05f</span>;</span><br><span class="line"></span><br><span class="line">RetColor.R = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Width * <span class="number">2.f</span>, <span class="number">0.5</span> + Width * <span class="number">1.f</span>, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.G = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Width * <span class="number">1.f</span>, <span class="number">0.5</span> + Width * <span class="number">2.f</span>, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.B = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Width * <span class="number">0.f</span>, <span class="number">0.5</span> + Width * <span class="number">2.f</span>, X) * <span class="number">255</span>;</span><br></pre></td></tr></table></figure>
 
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/ToonSkinShadowRamp.png" class="" title="ToonSkinShadowRamp">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/ToonSkinShadowRamp.png" class="" title="ToonSkinShadowRamp">
 
 <h2 id="高光过渡"><a href="#高光过渡" class="headerlink" title="高光过渡"></a>高光过渡</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> Y = y / <span class="number">255.f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> X = x / <span class="number">255.f</span>;</span><br><span class="line"></span><br><span class="line">Y += <span class="number">0.3f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> Width = <span class="number">0.05</span> * Y + <span class="number">0.01f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> Y2 = (Y * Y) * Width;</span><br><span class="line"></span><br><span class="line">RetColor.R = <span class="built_in">smoothstep</span>(<span class="number">1</span> - Width - Y2, <span class="number">1</span> - Width + Y2, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.G = <span class="built_in">smoothstep</span>(<span class="number">1</span> - Width - Y2, <span class="number">1</span> - Width + Y2, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.B = <span class="built_in">smoothstep</span>(<span class="number">1</span> - Width - Y2, <span class="number">1</span> - Width + Y2, X) * <span class="number">255</span>;</span><br></pre></td></tr></table></figure>
 
-<img src="/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/ToonRoughness.png" class="" title="ToonRoughness">
+<img src="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E5%8D%A1%E9%80%9A%E6%B8%B2%E6%9F%93/ToonRoughness.png" class="" title="ToonRoughness">
 
       
     </div>
@@ -810,7 +822,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -828,7 +840,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/" class="post-title-link" itemprop="url">【More Effective C++】4 效率Efficiency</a>
+          <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%914%20%E6%95%88%E7%8E%87Efficiency/" class="post-title-link" itemprop="url">【More Effective C++】4 效率Efficiency</a>
         </h2>
 
         <div class="post-meta-container">
@@ -848,15 +860,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/More-Effective-C/" itemprop="url" rel="index"><span itemprop="name">More Effective C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
         </span>
     </span>
 
@@ -990,7 +1002,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%913%20%E5%BC%82%E5%B8%B8Exceptions/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%913%20%E5%BC%82%E5%B8%B8Exceptions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1008,7 +1020,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%913%20%E5%BC%82%E5%B8%B8Exceptions/" class="post-title-link" itemprop="url">【More Effective C++】3 异常Exceptions</a>
+          <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%913%20%E5%BC%82%E5%B8%B8Exceptions/" class="post-title-link" itemprop="url">【More Effective C++】3 异常Exceptions</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1028,15 +1040,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/More-Effective-C/" itemprop="url" rel="index"><span itemprop="name">More Effective C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
         </span>
     </span>
 
@@ -1098,7 +1110,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%912%20%E6%93%8D%E4%BD%9C%E7%AC%A6Operators/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%912%20%E6%93%8D%E4%BD%9C%E7%AC%A6Operators/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1116,7 +1128,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%912%20%E6%93%8D%E4%BD%9C%E7%AC%A6Operators/" class="post-title-link" itemprop="url">【More Effective C++】2 操作符Operators</a>
+          <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%912%20%E6%93%8D%E4%BD%9C%E7%AC%A6Operators/" class="post-title-link" itemprop="url">【More Effective C++】2 操作符Operators</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1136,15 +1148,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/More-Effective-C/" itemprop="url" rel="index"><span itemprop="name">More Effective C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
         </span>
     </span>
 
@@ -1270,7 +1282,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%911%20%E5%9F%BA%E7%A1%80%E8%AE%AE%E9%A2%98Basics/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%911%20%E5%9F%BA%E7%A1%80%E8%AE%AE%E9%A2%98Basics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1288,7 +1300,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%911%20%E5%9F%BA%E7%A1%80%E8%AE%AE%E9%A2%98Basics/" class="post-title-link" itemprop="url">【More Effective C++】1 基础议题Basics</a>
+          <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90More%20Effective%20C++%E3%80%911%20%E5%9F%BA%E7%A1%80%E8%AE%AE%E9%A2%98Basics/" class="post-title-link" itemprop="url">【More Effective C++】1 基础议题Basics</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1308,15 +1320,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/More-Effective-C/" itemprop="url" rel="index"><span itemprop="name">More Effective C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
         </span>
     </span>
 
@@ -1400,7 +1412,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2%E6%A3%80%E6%B5%8B/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2%E6%A3%80%E6%B5%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1418,7 +1430,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2%E6%A3%80%E6%B5%8B/" class="post-title-link" itemprop="url">霍夫变换检测</a>
+          <a href="/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2%E6%A3%80%E6%B5%8B/" class="post-title-link" itemprop="url">霍夫变换检测</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1437,7 +1449,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">图像处理</span></a>
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">游戏开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/" itemprop="url" rel="index"><span itemprop="name">图形渲染</span></a>
         </span>
     </span>
 
@@ -1492,7 +1508,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%919%20%E6%9D%82%E9%A1%B9%E8%AE%A8%E8%AE%BA/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%919%20%E6%9D%82%E9%A1%B9%E8%AE%A8%E8%AE%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1510,7 +1526,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%919%20%E6%9D%82%E9%A1%B9%E8%AE%A8%E8%AE%BA/" class="post-title-link" itemprop="url">【Effective C++】9 杂项讨论</a>
+          <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%919%20%E6%9D%82%E9%A1%B9%E8%AE%A8%E8%AE%BA/" class="post-title-link" itemprop="url">【Effective C++】9 杂项讨论</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1529,15 +1545,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/Effective-C/" itemprop="url" rel="index"><span itemprop="name">Effective C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
         </span>
     </span>
 
@@ -1584,7 +1600,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete/">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1602,7 +1618,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete/" class="post-title-link" itemprop="url">【Effective C++】8 定制 new 和 delete</a>
+          <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%918%20%E5%AE%9A%E5%88%B6%20new%20%E5%92%8C%20delete/" class="post-title-link" itemprop="url">【Effective C++】8 定制 new 和 delete</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1621,15 +1637,15 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/Effective-C/" itemprop="url" rel="index"><span itemprop="name">Effective C++</span></a>
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
         </span>
     </span>
 

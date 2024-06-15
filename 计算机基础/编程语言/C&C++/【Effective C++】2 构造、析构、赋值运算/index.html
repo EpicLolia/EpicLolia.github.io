@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="条款05 了解C++默认编写并调用了哪些函数如果成员中有reference或const类型，或者一个derive dclass的base class有private赋值操作符，编译器将不会生成默认copy assignment   请记住  编译器可以暗自为class创建default构造函数、copy构造函数、copy assignment操作符，以及析构函数。   条款06 若不想使用编译器自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Effective C++】2 构造、析构、赋值运算">
+<meta property="og:url" content="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%912%20%E6%9E%84%E9%80%A0%E3%80%81%E6%9E%90%E6%9E%84%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="Lolia&#39;s blogs">
+<meta property="og:description" content="条款05 了解C++默认编写并调用了哪些函数如果成员中有reference或const类型，或者一个derive dclass的base class有private赋值操作符，编译器将不会生成默认copy assignment   请记住  编译器可以暗自为class创建default构造函数、copy构造函数、copy assignment操作符，以及析构函数。   条款06 若不想使用编译器自">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-20T04:20:02.000Z">
+<meta property="article:modified_time" content="2022-10-20T04:20:02.000Z">
+<meta property="article:author" content="Lolia">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="读书笔记">
+<meta property="article:tag" content="Effective C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%912%20%E6%9E%84%E9%80%A0%E3%80%81%E6%9E%90%E6%9E%84%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%912%20%E6%9E%84%E9%80%A0%E3%80%81%E6%9E%90%E6%9E%84%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97/","path":"计算机基础/编程语言/C&C++/【Effective C++】2 构造、析构、赋值运算/","title":"【Effective C++】2 构造、析构、赋值运算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【Effective C++】2 构造、析构、赋值运算 | Lolia's blogs</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lolia's blogs</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文章是写给未来的信</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE05-%E4%BA%86%E8%A7%A3C-%E9%BB%98%E8%AE%A4%E7%BC%96%E5%86%99%E5%B9%B6%E8%B0%83%E7%94%A8%E4%BA%86%E5%93%AA%E4%BA%9B%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">条款05 了解C++默认编写并调用了哪些函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE06-%E8%8B%A5%E4%B8%8D%E6%83%B3%E4%BD%BF%E7%94%A8%E7%BC%96%E8%AF%91%E5%99%A8%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%E5%87%BD%E6%95%B0%EF%BC%8C%E5%B0%B1%E8%AF%A5%E6%98%8E%E7%A1%AE%E6%8B%92%E7%BB%9D"><span class="nav-number">2.</span> <span class="nav-text">条款06 若不想使用编译器自动生成的函数，就该明确拒绝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE07-%E4%B8%BA%E5%A4%9A%E6%80%81%E5%9F%BA%E7%B1%BB%E5%A3%B0%E6%98%8Evirtual%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">条款07 为多态基类声明virtual析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE08-%E5%88%AB%E8%AE%A9%E5%BC%82%E5%B8%B8%E9%80%83%E7%A6%BB%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">条款08 别让异常逃离析构函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE09-%E7%BB%9D%E4%B8%8D%E5%9C%A8%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E8%B0%83%E7%94%A8virtual%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">条款09 绝不在构造和析构过程中调用virtual函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE10-%E4%BB%A4operator-%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AAreference-to-this"><span class="nav-number">6.</span> <span class="nav-text">条款10 令operator&#x3D; 返回一个reference to *this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE11-%E5%9C%A8operator%E4%B8%AD%E5%A4%84%E7%90%86%E2%80%9C%E8%87%AA%E6%88%91%E8%B5%8B%E5%80%BC%E2%80%9D"><span class="nav-number">7.</span> <span class="nav-text">条款11 在operator中处理“自我赋值”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE12-%E5%A4%8D%E5%88%B6%E5%AF%B9%E8%B1%A1%E6%97%B6%E5%8B%BF%E5%BF%98%E5%85%B6%E6%AF%8F%E4%B8%80%E4%B8%AA%E6%88%90%E5%88%86"><span class="nav-number">8.</span> <span class="nav-text">条款12 复制对象时勿忘其每一个成分</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lolia</p>
+  <div class="site-description" itemprop="description">用个人网站来督促自己前进吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%912%20%E6%9E%84%E9%80%A0%E3%80%81%E6%9E%90%E6%9E%84%E3%80%81%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【Effective C++】2 构造、析构、赋值运算 | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Effective C++】2 构造、析构、赋值运算
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-20 12:20:02" itemprop="dateCreated datePublished" datetime="2022-10-20T12:20:02+08:00">2022-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C-C/" itemprop="url" rel="index"><span itemprop="name">C&C++</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="条款05-了解C-默认编写并调用了哪些函数"><a href="#条款05-了解C-默认编写并调用了哪些函数" class="headerlink" title="条款05 了解C++默认编写并调用了哪些函数"></a>条款05 了解C++默认编写并调用了哪些函数</h2><p>如果成员中有reference或const类型，或者一个derive dclass的base class有private赋值操作符，编译器将不会生成默认copy assignment </p>
+<blockquote>
+<p>请记住</p>
+<ul>
+<li>编译器可以暗自为class创建default构造函数、copy构造函数、copy assignment操作符，以及析构函数。</li>
+</ul>
+</blockquote>
+<h2 id="条款06-若不想使用编译器自动生成的函数，就该明确拒绝"><a href="#条款06-若不想使用编译器自动生成的函数，就该明确拒绝" class="headerlink" title="条款06 若不想使用编译器自动生成的函数，就该明确拒绝"></a>条款06 若不想使用编译器自动生成的函数，就该明确拒绝</h2><blockquote>
+<p>请记住</p>
+<ul>
+<li>为驳回编译器自动（暗自）提供的机能，可将相应的成员函数声明为private并且不予实现。</li>
+<li>使用像Uncopyable这样的base class 也是一种做法。</li>
+</ul>
+</blockquote>
+<h2 id="条款07-为多态基类声明virtual析构函数"><a href="#条款07-为多态基类声明virtual析构函数" class="headerlink" title="条款07 为多态基类声明virtual析构函数"></a>条款07 为多态基类声明virtual析构函数</h2><p>virtual机制会给类增加一个指针的内存，同时也失去了可移植性（其他语言）</p>
+<p>并不是作为基类就要virtual析构函数，只有涉及多态，使用基类指针的时候，会有derived class不析构的问题。</p>
+<p>如果将析构函数声明为pure-virtual，也请给出其定义，因为它是一定会被调用到的，不写会报link错误。</p>
+<blockquote>
+<p>请记住</p>
+<ul>
+<li>polymorphic（带多态性质的）base classes应该声明一个virtual析构函数。如果class带有任何virtual函数，他就应该拥有一个virtual析构函数</li>
+<li>Classes 的设计目的如果不是作为base class 使用，或不是为了具备多态性（polymorphic），就不该声明virtual析构函数</li>
+<li>PS: <strong>virtual &#x3D;&#x3D; 多态</strong></li>
+</ul>
+</blockquote>
+<h2 id="条款08-别让异常逃离析构函数"><a href="#条款08-别让异常逃离析构函数" class="headerlink" title="条款08 别让异常逃离析构函数"></a>条款08 别让异常逃离析构函数</h2><blockquote>
+<p>请记住</p>
+<ul>
+<li>析构函数绝对不要突出异常。如果一个被析构函数调用的函数可能抛出异常，析构函数应该捕捉任何异常，然后吞下他们（不传播）或结束程序。</li>
+<li>如果客户端需要对某个操作函数运行期间抛出的异常做出反应，那么class应该提供一个普通函数（而非在析构函数中）执行该操作。</li>
+</ul>
+</blockquote>
+<h2 id="条款09-绝不在构造和析构过程中调用virtual函数"><a href="#条款09-绝不在构造和析构过程中调用virtual函数" class="headerlink" title="条款09 绝不在构造和析构过程中调用virtual函数"></a>条款09 绝不在构造和析构过程中调用virtual函数</h2><p>这是一个与java和C#不同的地方</p>
+<blockquote>
+<p>请记住</p>
+<ul>
+<li>在构造和析构期间不要调用virtual 函数，因为这类调用从不下降至derived class（比起当前执行构造和析构函数的那层）</li>
+</ul>
+</blockquote>
+<h2 id="条款10-令operator-返回一个reference-to-this"><a href="#条款10-令operator-返回一个reference-to-this" class="headerlink" title="条款10 令operator&#x3D; 返回一个reference to *this"></a>条款10 令operator&#x3D; 返回一个reference to *this</h2><p>大家都这么做……（笑）</p>
+<h2 id="条款11-在operator中处理“自我赋值”"><a href="#条款11-在operator中处理“自我赋值”" class="headerlink" title="条款11 在operator中处理“自我赋值”"></a>条款11 在operator中处理“自我赋值”</h2><p>三种方法保证赋值安全</p>
+<ul>
+<li>证同测试，但是会牺牲一些性能</li>
+<li>调整语序，确保在delete前完成必要的操作</li>
+<li>copy-and-swap方法</li>
+</ul>
+<blockquote>
+<p>请记住</p>
+<ul>
+<li>确保当对象自我赋值时operator&#x3D; 有良好行为。其中技术包括比较“来源对象”和“目标对象”的地址、精心周到的语句顺序、以及copy-and-swap。</li>
+<li>确定任何函数如果操作一个以上的对象，而其中多个对象是同一个对象时，其行为仍然正确。</li>
+</ul>
+</blockquote>
+<h2 id="条款12-复制对象时勿忘其每一个成分"><a href="#条款12-复制对象时勿忘其每一个成分" class="headerlink" title="条款12 复制对象时勿忘其每一个成分"></a>条款12 复制对象时勿忘其每一个成分</h2><p>在继承关系中，派生类的copying函数中应该调用base class的对应函数！！！</p>
+<blockquote>
+<p>请记住</p>
+<ul>
+<li>Copying函数应该确保复制“对象内的所有成员变量”及“所有base class成分”</li>
+<li>不要尝试以某个copying函数实现另一个copying函数，应该将共同机能放进第三个函数中，并由两个copying函数共同调用。</li>
+</ul>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"># C/C++</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"># 读书笔记</a>
+              <a href="/tags/Effective-C/" rel="tag"># Effective C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%911%20%E8%AE%A9%E8%87%AA%E5%B7%B1%E4%B9%A0%E6%83%AFC++/" rel="prev" title="【Effective C++】1 让自己习惯C++">
+                  <i class="fa fa-angle-left"></i> 【Effective C++】1 让自己习惯C++
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C&C++/%E3%80%90Effective%20C++%E3%80%913%20%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" rel="next" title="【Effective C++】3 资源管理">
+                  【Effective C++】3 资源管理 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Lolia</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
