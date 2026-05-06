@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="用个人网站来督促自己前进吧！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lolia&#39;s blogs">
+<meta property="og:url" content="https://epiclolia.github.io/index.html">
+<meta property="og:site_name" content="Lolia&#39;s blogs">
+<meta property="og:description" content="用个人网站来督促自己前进吧！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Lolia">
+<meta property="article:tag" content="Game-Programming,游戏开发,程序员">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://epiclolia.github.io/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Lolia's blogs</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Lolia's blogs</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文章是写给未来的信</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lolia</p>
+  <div class="site-description" itemprop="description">用个人网站来督促自己前进吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/misc/hexo-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/misc/hexo-guide/" class="post-title-link" itemprop="url">Hexo 中的常用特性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-05 15:22:29" itemprop="dateCreated datePublished" datetime="2026-05-05T15:22:29+08:00">2026-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-07 00:07:39" itemprop="dateModified" datetime="2026-05-07T00:07:39+08:00">2026-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>872</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          涵盖 Hexo 博客的打包发布流程、Next 主题配置、自动生成 categories、图片路径修正、LaTeX 公式、浏览量统计、本地搜索及字数统计等常用设置。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/misc/hexo-guide/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/unreal-engine/rendering/real-time-rendering-deep-dive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/unreal-engine/rendering/real-time-rendering-deep-dive/" class="post-title-link" itemprop="url">实时渲染深入探究-课程笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-25 22:20:53" itemprop="dateCreated datePublished" datetime="2023-12-25T22:20:53+08:00">2023-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/unreal-engine/" itemprop="url" rel="index"><span itemprop="name">unreal-engine</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/unreal-engine/rendering/" itemprop="url" rel="index"><span itemprop="name">rendering</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>21 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>文本为<a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/courses/ML7/unreal-engine-31657f/bLyn/unreal-engine-822b4d">深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)</a>课程的笔记。</p>
+<p>先点出实时渲染4大性能热点：</p>
+<ol>
+<li>几何体渲染的Drawcall次数</li>
+<li>Pixel Shader的性能</li>
+<li>半透明物体的渲染</li>
+<li>动态阴影</li>
+</ol>
+<p>学习完本课程之后也能对上面这几项有所理解。</p>
+<h1 id="1-对象剔除"><a href="#1-对象剔除" class="headerlink" title="1 对象剔除"></a>1 对象剔除</h1><p>剔除计算发生在CPU中，对CPU产生开销。一般来说，处理超过10-15k的物体，就会对性能造成影响了。</p>
+<p>但若剔除做的不好，导致过多物体参与渲染，就会影响GPU性能。</p>
+<h2 id="Distance-Culling（距离剔除）"><a href="#Distance-Culling（距离剔除）" class="headerlink" title="Distance Culling（距离剔除）"></a>Distance Culling（距离剔除）</h2><p>这个功能UE并没有自动启用，但我们很有必要将其打开，因为其对于性能的提升十分的简单粗暴。</p>
+<p>在场景中可以放置Distance Culling Volume，对于每一个Mesh可以对自己的Cull Distance进行相关设置。</p>
+<h2 id="Frustum-Culling（视锥剔除）"><a href="#Frustum-Culling（视锥剔除）" class="headerlink" title="Frustum Culling（视锥剔除）"></a>Frustum Culling（视锥剔除）</h2><p>这一步是渲染必要的步骤，我们无法对其进行太多的设置。</p>
+<h2 id="Precomputed-Visibility（预计算可视性）"><a href="#Precomputed-Visibility（预计算可视性）" class="headerlink" title="Precomputed Visibility（预计算可视性）"></a>Precomputed Visibility（预计算可视性）</h2><p>我们需要在场景中放置Precomputed Visibility Volume，之后UE会将场景体素化，在每个Voxel中保存静态物体的遮挡关系。</p>
+<h2 id="Occlusion-Culling（遮挡剔除）"><a href="#Occlusion-Culling（遮挡剔除）" class="headerlink" title="Occlusion Culling（遮挡剔除）"></a>Occlusion Culling（遮挡剔除）</h2><p>针对上述流程中无法剔除的物体，UE还会逐物体进行遮挡剔除，这一步的开销要比上面的三步都要大，所以请合理配置上面的三个步骤，剔除掉尽可能多的物体。</p>
+<p>小型物体很容易因为遮挡关系而剔除，即便是特效粒子，Occlusion Culling也可以根据遮挡关系将其剔除，但相反的，大型物体往往就难以通过遮挡关系来剔除了。因此，大型物体会节省CPU的开销，但增加GPU的开销，而小型物体会增加CPU的开销，而减少GPU的开销，这是一种权衡。</p>
+<p>此外，在户外开放场景中，Occlusion Culling不一定能够起到很好的效果，这一点需要注意。</p>
+<h2 id="相关调试方法"><a href="#相关调试方法" class="headerlink" title="相关调试方法"></a>相关调试方法</h2><p>在命令行中输入<code>stat initviews</code>可以看到相关的剔除数据。</p>
+<p>在命令行中输入<code>FreezeRendering</code>可以冻结剔除结果。</p>
+<h1 id="2-几何体渲染"><a href="#2-几何体渲染" class="headerlink" title="2 几何体渲染"></a>2 几何体渲染</h1><h2 id="Pre-pass-Early-Z-Pass"><a href="#Pre-pass-Early-Z-Pass" class="headerlink" title="Pre-pass &#x2F; Early Z Pass"></a>Pre-pass &#x2F; Early Z Pass</h2><p>先将所有物体在屏幕内的深度拿到，避免冗余Shading。</p>
+<h2 id="Primitive-Drawcall"><a href="#Primitive-Drawcall" class="headerlink" title="Primitive Drawcall"></a>Primitive Drawcall</h2><p>一般而言，每一个Primitive之间的Drawcall相互独立，而每个Primitive中不同的材质，也都会分别进行Drawcall。实际渲染时一般会按照材质的顺序，对不同的Mesh依次进行Drawcall，避免材质的切换。</p>
+<p>将不同的Mesh组织到同一个Actor中并不能优化性能，因为遮挡剔除，以及Drawcall都是在Primitive Component的层面上进行的。</p>
+<p>一般来说，2000-3000的Drawcall是比较合适的，超过5000就比较高了，而超过10000则可能出现一些问题。对于移动平台，Drawcall的次数限制比较高，一般只允许数百次。当然，我们也要结合实际Drawcall的复杂程度进行考虑。</p>
+<p>对于目前的GPU性能来说，三角形的面数，即网格体的复杂程度往往不是性能的主要问题了，Drawcall的次数才是。Drawcall本身会有一定的基础开销，对于面数比较低的模型，继续优化其面数往往并不能起效果。</p>
+<p>使用少量大型模型，相比使用大量小型模型，往往能够减少Drawcall。但大模型也有自己的问题，比如遮挡剔除效果差、光照贴图精度低、碰撞计算更复杂、内存占用更多等问题。</p>
+<p>实际工作中，建议使用模块化的场景搭建流程，并在最后的环节（因为合并操作不能撤销），根据实际性能分析的结果，对必要的（开销较大的）Mesh进行合并。</p>
+<p>如果你要进行Mesh合并，最好遵守以下几条原则：</p>
+<ol>
+<li>越常用的Mesh，其面数越低越好，这样Merge之后面数也不会太多</li>
+<li>只Merge邻近的Mesh</li>
+<li>只Merge拥有相同材质的Mesh</li>
+<li>没有或只有简单碰撞信息的Mesh更适合Merge</li>
+<li>小物体或只接受动态光照的物体更适合Merge，可以不需要担心光照贴图</li>
+<li>远处的物体往往更适合Merge</li>
+</ol>
+<p>需要强调的是，Mesh的合并是一种性能优化的方法，而<strong>过早优化是万恶之源</strong>，我们只应在必要的时候进行优化。实际场景中，我们可能并不需要合并Mesh，场景就可以流畅运行了。</p>
+<p>此外，对于海量（几百上千）重复物体的渲染，我们可以使用<strong>Instanced Rendering</strong>，将他们组织到一次Drawcall当中，比如地上的草。而对于少量重复的物体，这样的优化往往是没有必要的，Instanced Rendering本身也有一定开销，不一定能够取得更好的性能。</p>
+<p>LOD（Level Of Detail）也是一项常用的优化技巧。LOD实际上就是按照距离的远近，将模型替换成面数更低的简单模型的方法。一般而言，每一级的面数最好都要比上一级少一半，这样才能弥补掉LOD本身的开销。HLOD（Hierarchical LOD）是一种更加进阶的方案，它可以根据距离，把若干模型组织起来，减少Drawcall。</p>
+<h3 id="相关调试方法-1"><a href="#相关调试方法-1" class="headerlink" title="相关调试方法"></a>相关调试方法</h3><ol>
+<li>使用<code>stat RHI</code>可以看到Drawcall次数。</li>
+<li>在<code>Tools-&gt;Audit-&gt;Statistics</code>窗口（UE5）中，可以看到场景各Mesh的相关统计数据。</li>
+</ol>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/statistics_window.png" alt="Statistics"></p>
+<h2 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h2><p>Vertex Shader负责对输入的顶点进行坐标的变换，我们也可以通过Vertex Shader实现顶点动画，比如旗帜飘动、水面波纹、草叶摇动等等。在UE中，这一功能在材质里表示为World Position Offset输入。</p>
+<p>Vertex Shader是逐顶点执行的，所以我们有以下几点需要：</p>
+<ol>
+<li>越复杂的顶点动画，开销越大</li>
+<li>模型顶点越多，开销越大。因此越复杂的模型，我们应该使用越简单的Vertex Shader</li>
+<li>对于远处的物体，我们应该禁用复杂的Vertex Shader的功能（顶点动画）</li>
+</ol>
+<h1 id="3-Rasterization-to-GBuffer"><a href="#3-Rasterization-to-GBuffer" class="headerlink" title="3 Rasterization to GBuffer"></a>3 Rasterization to GBuffer</h1><blockquote>
+<p> 标题的这里的Rasterization，应该宏观理解成把场景转换成GBuffer的一个过程，而不是GPU中的光栅化。</p>
+</blockquote>
+<p>在GPU上，Rasterization是一个固定的流程，他将Mesh信息转换成一定分辨率的2D的像素信息。</p>
+<p>一个像素最多只能表示一个三角面（Polygon），如果一个像素所对应的3D空间中覆盖了多个面，它也只会精确地表示其中一个，而不是它们的平均。</p>
+<p>Rasterization判断哪些像素需要参与Shading，是以2*2的Quad为单位的，即便是三角形只与Quad中一个像素相交，我们也仍然需要其他3个像素作为辅助像素参与Shading，具体原理可以参考RTR4的Chapter23。</p>
+<p>这样的机制也很容易造成Quad Overdraw（Over Shading），即一个像素被Shading多次的情况。最糟糕的情况下，一个Quad的4个像素分别属于不同的三角，那么每个像素需要Shading4次（不考虑透明物体）。</p>
+<p>因此，三角面的密度也会影响性能，密度越大越容易Overdraw。在模型中要尽量使用分布均匀的三角面，避免使用细长的三角形。随着物体远离屏幕，其密度也会逐渐增大，为了避免这种情况导致的Overdraw，我们应当使用LOD或者Distance Culling。</p>
+<p>在Deferred Rendering中，Quad Overdraw往往不会对性能造成太大影响。而在Forward Rendering中，其Initial Pixel Shader较为复杂，这时候我们就要注意其性能了。</p>
+<p>将场景的所有信息都保存到GBuffer后，后续我们就只依赖于GBuffer来进行渲染了。</p>
+<p>GBuffer分配可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/568775542">Customize GBuffer In UE5 - 知乎 (zhihu.com)</a></p>
+<h2 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h2><p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/quad_over_draw.png" alt="Quad Over Draw in UE5"></p>
+<p>可以在View Mode中可视化Quad Overdraw。</p>
+<p>通过Render Doc可以清楚地看到GBuffer中的信息。</p>
+<p>当然，UE中内置了可视化Buffer的模式。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/buffer_visualization.png" alt="Buffer Visualization"></p>
+<h1 id="4-纹理"><a href="#4-纹理" class="headerlink" title="4 纹理"></a>4 纹理</h1><p>纹理资产导入后都会进行压缩，PC平台按照BC（Block Compression）格式进行压缩，BC与DXTC（DirectX Texture Compression，DXT）都指的是同一个概念。</p>
+<p>UE中使用的是简化的BC方法，我们并不能对其做太多设置。常用的BC方法及使用场景如下：</p>
+<ol>
+<li>BC3（DXTC5）：有A通道的纹理</li>
+<li>BC1（DXTC1）：无A通道的纹理</li>
+<li>BC5：只保存RG通道，如法线贴图</li>
+</ol>
+<p>Shader（Material）中输入纹理的数量有上限，一般是16张，在UE的材质系统中默认会占用3张，我们只能用剩下的13张。纹理的太大会占用内存和带宽，但一般不会影响渲染的性能（帧率），而是会造成延迟或卡顿。</p>
+<p>纹理可以进行Mipmap，UE会自动为纹理生成Mipmap，并且在实际使用时进行<strong>纹理流送</strong>。但这要求纹理的边长必须是2的幂次（长宽可以不等）。不规则的分辨率不可以进行Mipmap，但也并非所有纹理都需要Mipmap，比如永远不会从远处观察的物体的纹理，此时我们可以使用任意分辨率的纹理。</p>
+<p>UI中使用的纹理也不需要Mipmap和纹理流送，我们应该主动禁用这项功能，在UE中需要将纹理的Group标记为UI。<strong>纹理的Group很重要，请正确设置Texture Group</strong>！</p>
+<p>纹理流送的内存空间可以通过<code>r.Streaming.PoolSize</code>进行设置。如果空间不足，那么UE会倾向于加载更低级的Mipmap纹理进行渲染。</p>
+<h1 id="5-Pixel-Shader和材质"><a href="#5-Pixel-Shader和材质" class="headerlink" title="5 Pixel Shader和材质"></a>5 Pixel Shader和材质</h1><p>Pixel Shader是逐像素执行的Shader，屏幕分辨率越高，Pixel Shader执行的次数也就越多。当然我们也可以按照一定规则，选择性地对一些像素进行Shading，比如使用Mask。</p>
+<p>在UE的材质系统中，材质会为其每一种用途都单独编译出一份Shader。材质系统实际上做的是根据不同的HLSL模板，生成不同Pass中用到的Shader。</p>
+<p>UE的材质系统默认的着色模型用的是PBR模型，一般来说，使用Metallic和Roughness这两个参数就可以调出我们想要的大部分效果了。</p>
+<p>Pixel Shader往往会成为性能的热点，因为所有光照、反射、大气雾等效果都在Pixel Shader中实现。屏幕分辨率和材质复杂度都会影响Pixel Shader运行的性能，使用复杂材质的物体，在画面中占据的像素越多，开销也就越大。</p>
+<h2 id="调试方法-1"><a href="#调试方法-1" class="headerlink" title="调试方法"></a>调试方法</h2><p>在材质系统的Stats栏可以看到一些Shader信息</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/material_shader_info.png" alt="Shader Info of Material"></p>
+<p>一般来说，Base pass shader的指令数在100到200之间是比较合适的，我们可以在View Mode中选择Shader Complexity进行调试。（注意，如果开启Shader Debug的相关设置，会导致Shader指令数大幅增加，上图就是如此，请关闭后再测试性能）</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/shader_complexity.png" alt="Shader Complexity"></p>
+<h1 id="6-反射"><a href="#6-反射" class="headerlink" title="6 反射"></a>6 反射</h1><p>UE中混合使用3种方法来实现反射效果</p>
+<h2 id="Reflection-Captures"><a href="#Reflection-Captures" class="headerlink" title="Reflection Captures"></a>Reflection Captures</h2><p>Reflection Captures是通过预计算，在指定位置生成Cubemap的方法。这种方法运行时性能优秀，但只能反射静态物体，并且只能对局部的Shading Point起作用（即Volume内的Shading Point）。</p>
+<p>在UE中可以在场景中放置Reflection Captures Volume，当渲染体积内的物体时，就会向Reflection Captures查询其Cubemap，辅助渲染。我们只在Volume中心的位置生成了Cubemap，当相机离中心越近，反射的效果越准确，反之，反射效果会产生一定的位置偏差。</p>
+<p>Cubemap的分辨率可以在项目设置中修改，越大的分辨率，可以得到越锐利的结果。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/reflection_capture_resolution.png" alt="Reflection Capture Resolution"></p>
+<p>我们最好不场景中使用过多的Reflection Capture，同时Reflection Capture之间最好也不要重叠，这会造成更大的性能开销，因为重叠区域的Shading Point需要融合所有Reflection Capture的Cubemap的结果，因此建议Reflection Capture重叠的数量最多不超过8个。</p>
+<p>此外，在没有Cook场景时，Reflection Capture会在每次加载场景时捕获一次，这会增加场景加载的时间，需要格外注意。</p>
+<h2 id="Planar-Reflection"><a href="#Planar-Reflection" class="headerlink" title="Planar Reflection"></a>Planar Reflection</h2><p>Planar Reflection平面或类平面（水面）的实时反射效果。其本质就是在指定位置对场景进行额外的一次渲染，可以反射出视野外的物体。但是其性能开销的也非常大，我们要谨慎使用。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/planar-reflections-in-unreal-engine/">虚幻引擎中的平面反射 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
+<h2 id="Screen-Space-Reflction（SSR）"><a href="#Screen-Space-Reflction（SSR）" class="headerlink" title="Screen Space Reflction（SSR）"></a>Screen Space Reflction（SSR）</h2><p>这是UE默认开启的反射功能，优点不再赘述。SSR也有一些缺点，比如反射效果会有一些噪声（因为它是基于采样的），并且只有平面内的信息。</p>
+<p>需要注意的是，虽然SRR的开销不大，但在一些性能吃紧的设备上，我们仍然需要考虑将其关闭。反过来说，如果性能过剩，也可以通过<code>r.SSR.Quality 4</code>（默认是3）来提高SSR质量，减轻噪声。</p>
+<p>实际构建场景时，我们可能会同时使用上面提到的三种反射效果，但UE在实际渲染某个Shading Point时，只会选择其中一个方案进行反射的渲染，此时SSR优先级高于Planar Reflection，Planar Reflection高于Reflection Captures。</p>
+<h2 id="Skylight"><a href="#Skylight" class="headerlink" title="Skylight"></a>Skylight</h2><p>除了以上三种反射方案，Skylight也可以视为一个开销较小的全局Reflection Capture方案，它也可以捕获场景自动生成Cubemap（可以按距离剔除较近物体，只捕获远处的物体，如天空盒）。</p>
+<p>Skylight对于户外大场景十分重要，可以避免防止过多的Reflection Capture Actor。实际渲染时，如果Shading Point没有检测到前面三种反射方案，就会使用Skylight。</p>
+<h1 id="7-光照与阴影"><a href="#7-光照与阴影" class="headerlink" title="7 光照与阴影"></a>7 光照与阴影</h1><p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lighting_and_shadows.png" alt="Lighting And Shadows"></p>
+<h2 id="静态（Pre-Rendered）"><a href="#静态（Pre-Rendered）" class="headerlink" title="静态（Pre-Rendered）"></a>静态（Pre-Rendered）</h2><p>静态光影会在编辑器中预计算光影效果，并将它们保存到Lightmap中。这样做可以获得极佳的渲染性能，但会增加内存和带宽的负担。</p>
+<p>就质量而言，静态光影可以计算出准确的光影效果及全局光照，也可以生成正确的阴影（软阴影），但这些结果最终需要保存到Lightmap中供运行时使用，所以实际质量与Lightmap的分辨率直接相关，需要注意Lightmap分辨率也有上限。Lightmap的分辨率会影响文件大小和运行时内存占用，一般不会影响帧率。</p>
+<p>场景中的每一个受静态光照影响的物体都需要有Lightmap UVs。静态光影的质量也与物体的UV布局有关。非常大的物体可能会用光Lightmap的UV空间，此时UE会使用更低分辨率的Lightmap，导致质量下降。</p>
+<p>对于每个物体分配的LightMap的精度，我们也可以根据场景Lightmap密度手动调整。当然，一般情况下，我们并不需要调整这些属性。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/overridden_lightmap_res.png" alt="Overridden Lightmap Res"></p>
+<p>详情可以参考官方文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/static-light-mobility-in-unreal-engine/">虚幻引擎中静态光源的移动性 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
+<p>实际渲染时，会将Base Color与Lightmap相乘，使阴影处更暗，光照处更亮。</p>
+<p>UE中使用Lightmass来生成Lightmap，它会将很多Lightmaps打包成一个图集，你可以在World Settings中看到他们。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmaps.png" alt="Lightmaps"></p>
+<p>Lightmass烘焙是一个独立的程序，因此它可以支持分布式烘焙。Lightmass烘焙的质量由Light Build Quality和World Settings中的Lightmass设置决定。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmass_settings.png" alt="Lightmass Settings"></p>
+<p>静态光影的预计算可能有比较长的时间开销，并且每次修改场景都要重新预计算。Lightmap烘焙时间，会受到Lightmap分辨率、模型与光源的数量和烘焙质量相关设置的直接影响。此外，光源的半径也会影响烘焙时间，半径越大，烘焙时间越长。</p>
+<p>运行时，我们可以根据相机视角判断需要重点渲染的区域，但在离线的场景下，我们并不知道相机会出现在哪里。因此在烘焙Lightmass时，我们也需要在场景中摄像机可能出现的位置都放置好<strong>Lightmass Importance Volume</strong>。</p>
+<p>Lightmap中只保存了静态的场景的光影信息，对于运行时动态的物体，我们可以查询间接光照缓存（Indirect Lighting Cache，ILC）进行混合，辅助动态物体在运行时的光影渲染。</p>
+<p>要开启ILC，需要在Lightmass的Volume Lighting Method中选择Sparse Volume Lighting Samples。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/enable_ILC.png" alt="Enable ILC"></p>
+<p>同时动态物体怎么使用ILC信息，也可以在Mesh的Lighting栏进行设置，甚至是直接关闭。</p>
+<p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/use_ILC.png" alt="Use ILC"></p>
+<p>一般ILC会倾向于分布在Lightmass Importance Volume中的地面上，我们也可以通过放置<strong>Lightmass Character Indirect Detail Volume</strong>来手动指定那些动态物体可能移动到的地方。</p>
+<p>目前UE默认的方案不是ILC，而是VLM。详情参考<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/volumetric-lightmaps-in-unreal-engine/">虚幻引擎中的体积光照贴图 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
+<h3 id="调试方法-2"><a href="#调试方法-2" class="headerlink" title="调试方法"></a>调试方法</h3><ol>
+<li>可视化Lightmap密度。颜色越红，密度越高。 <img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmap_density.png" alt="Lightmap Density"></li>
+<li>可视化ILC辅助调试<img src="/unreal-engine/rendering/real-time-rendering-deep-dive/indirect_lighting_cache.png" alt="Indirect Lighting Cache"></li>
+</ol>
+<h2 id="动态（Real-Time）"><a href="#动态（Real-Time）" class="headerlink" title="动态（Real Time）"></a>动态（Real Time）</h2><p>相比起静态阴影，动态光影在运行时实时计算，不受Lightmap大小限制，不关心物体的大小。</p>
+<p>在讲动态光影之前，建议阅读UE官方关于光源移动性的相关文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/light-types-and-their-mobility-in-unreal-engine/">虚幻引擎中的光源类型及其移动性</a>和<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/actor-mobility-in-unreal-engine/">虚幻引擎中的Actor移动性</a></p>
+<h3 id="动态阴影"><a href="#动态阴影" class="headerlink" title="动态阴影"></a>动态阴影</h3><p>相比起静态阴影，动态阴影不考虑全局光照，只能够生成硬阴影。</p>
+<p>UE中使用了很多种阴影方案，一般根据光源及物体的移动性选用不同的阴影方案。可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367517074">UE4中的可移动性细谈 —— Mobility in UE4 - 知乎 (zhihu.com)</a></p>
+<p>对于可以产生动态阴影（Movable或Stationary）的Directional Light，UE会使用CSM。</p>
+<p>基于距离场（Directional Field，DF）的阴影的性能往往更好，但需要将DF保存到体积纹理（实际上是若干的2D纹理，其中平面精度远高于Z轴的精度）中，纹理精度直接影响了阴影质量。对于远距离的物体，阴影精度往往不是太大的问题，因此使用DF来渲染阴影也是一个不错的选择。受DF保存方式的影响，DF对棱角分明的物体的表征更加准确。</p>
+<p>此外，还有其他几种不常用的动态阴影类型，比如Inset Shadows、Contact Shadows和CapsuleShadows等，这里不再展开。</p>
+<p>动态阴影的开销十分巨大，因为它需要单独的Drawcall，从光源处计算Shadow Map，对于点光源还需要生成Cubemap类型的Shadow Map。因此我们应该谨慎开启动态光源的阴影投射功能，或者舍弃一些质量来降低开销。在实际项目中，我们也可以在运行时通过代码来控制是否投射阴影，以优化性能。</p>
+<p>Shadow map的生成可以理解为是在光源位置进行的Pre-pass，这是逐Vertex的过程。因此动态阴影会受到场景中物体面数（顶点数）的影响，如果场景需要用到大量的动态阴影，那么请降低场景的面数。不过比起使用Shadow Map，这种场景下DF往往是更优的选择。</p>
+<h3 id="动态光照"><a href="#动态光照" class="headerlink" title="动态光照"></a>动态光照</h3><p>动态光照一般不会计算全局光照，而仅表现简单直接光照的效果。</p>
+<p>对于Deferred Renderer（以及现代的Forward Rendering）来说，动态光照的渲染往往不会产生太大的性能开销，动态的阴影才是性能杀手。</p>
+<p>需要注意的是，判断哪些像素与<strong>屏幕空间</strong>中，光源半径覆盖的面积有关，而光源距离相机越近，覆盖的面积就越大，需要Shading的像素就越多。</p>
+<p>实际场景中，我们应该尽可能的减小光源的半径，以优化性能，这对于动态阴影同样适用。</p>
+<h2 id="混合使用动态-静态光影"><a href="#混合使用动态-静态光影" class="headerlink" title="混合使用动态&#x2F;静态光影"></a>混合使用动态&#x2F;静态光影</h2><p>将两者混合使用往往可以得到一个不错的渲染效果，我们可以按照如下方案进行使用：</p>
+<ol>
+<li>对于远距离的微弱的光照，使用静态光照</li>
+<li>对于近处的光照，我们先使用静态光照来渲染间接光，然后在其基础上，使用动态光照来突出着色和阴影。</li>
+<li>如果需要极致的性能，请使用静态光照，如果需要运行时修改光照效果，请使用动态光照。</li>
+</ol>
+<h1 id="8-距离雾和透明物体"><a href="#8-距离雾和透明物体" class="headerlink" title="8 距离雾和透明物体"></a>8 距离雾和透明物体</h1><p>UE中有两种距离雾，分别是大气雾和指数雾。距离雾意味着雾会随着距离（接近相机）而消退，同时它也是高度雾，会在接近天空时消退。大气雾和指数雾两者差别并不大，前者性能好一些，后者可以混合更丰富的颜色种类，效果更好。</p>
+<p>UE中雾的效果在Pixel Shader中处理，通过GBuffer及屏幕深度等信息，将雾的颜色按照一定规则混合即可。</p>
+<p>UE中还有一种局部体积的雾，这里不展开。</p>
+<p>半透明物体的渲染是Deferred Renderer的弱项，也是其性能热点之一。也有将半透明物体在Forward Renderer中渲染后，和Deferred Renderer混合的做法，但这样你需要同时运行两套渲染框架。</p>
+<p>在Deferred Renderer中， 一般将半透明物体的渲染推迟到不透明物体渲染之后，同时你需要对同一个Pixel进行多次Shading。</p>
+<p>实际使用Translucent材质时，应当遵循以下几条原则：</p>
+<ol>
+<li>可以用Masked，就不要用Translucent</li>
+<li>使用Translucent时，可以用Unlit模型达到期望的效果，就不要用DefaultLit</li>
+<li>如果Translucent物体一定要响应光照，那么请正确配置相关的Translucent设置。</li>
+<li>透明材质覆盖的像素越多，其材质就应该越简单。举例来说，远处的烟雾粒子复杂一些没有关系，但近处的烟雾粒子必须非常简单。</li>
+</ol>
+<h1 id="9-后处理"><a href="#9-后处理" class="headerlink" title="9 后处理"></a>9 后处理</h1><p>后处理也是基于GBuffer实现的效果。</p>
+<p>常见的后处理效果有Light Bloom、Depth of Field、Lensflare、Light Shaft（GodRay）、Vignette、Tonemapping、Exposure、Motion Blur等。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/game-dev/graphics/games202-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/game-dev/graphics/games202-notes/" class="post-title-link" itemprop="url">GAMES202笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-25 22:20:53" itemprop="dateCreated datePublished" datetime="2023-12-25T22:20:53+08:00">2023-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/game-dev/" itemprop="url" rel="index"><span itemprop="name">game-dev</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/game-dev/graphics/" itemprop="url" rel="index"><span itemprop="name">graphics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>15 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本篇为学习 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YK4y1T7yY/">GAMES202-高质量实时渲染</a>后做的简单笔记。</p>
+<h1 id="一、实时阴影"><a href="#一、实时阴影" class="headerlink" title="一、实时阴影"></a>一、实时阴影</h1><h2 id="硬阴影"><a href="#硬阴影" class="headerlink" title="硬阴影"></a>硬阴影</h2><p>采用多趟（Multi-Pass）的做法，先从光源的视角生成一张<strong>Shadow Map</strong>，后续渲染Shading Point时可以通过Shadow Map上的像素值来计算遮挡关系，从而渲染阴影。</p>
+<h2 id="软阴影"><a href="#软阴影" class="headerlink" title="软阴影"></a>软阴影</h2><p>在将常用的软阴影方法PCSS之前，我们需要先引入一个模糊阴影的算法PCF。</p>
+<h3 id="Percentage-Closer-Filtering（PCF）"><a href="#Percentage-Closer-Filtering（PCF）" class="headerlink" title="Percentage Closer Filtering（PCF）"></a>Percentage Closer Filtering（PCF）</h3><p>使用PCF方法，在Shading Point与Shadow Map上的像素比较时，不再只与一个像素计算可视性，而是与一个范围内的像素计算可视性，并将结果加权平均（FIlter）。这样的操作可以使阴影变模糊（软），其模糊程度与范围（Filter Size）的选取正相关，即Filter Size越大，阴影越模糊（软）。</p>
+<p>需要注意的是，这里的Filter并不是对Shadow Map上各个像素的深度值进行Filter，而是对一个Shading Point与Shadow Map上各个像素的可视性进行Filter！</p>
+<p>PCF不仅可以用来缓解阴影的锯齿问题，也可以用于软阴影的实现。</p>
+<h3 id="Percentage-Closer-Soft-Shadows（PCSS）"><a href="#Percentage-Closer-Soft-Shadows（PCSS）" class="headerlink" title="Percentage Closer Soft Shadows（PCSS）"></a>Percentage Closer Soft Shadows（PCSS）</h3><p>在实际的软阴影中，有越靠近遮挡物的阴影越硬，越远离遮挡物的越软，这样的物理性质，而在PCF方法中，阴影的软硬由比较范围决定，因此，我们只要想办法根据Shading Point与遮挡物的距离选择合适的比较范围，就可以渲染出合适的软阴影。</p>
+<p>具体分以下三步：</p>
+<ol>
+<li>在Shadow Map的一定范围内，找到遮挡Shading Point的像素，计算它们的平均深度。注意这里仅计算遮挡了Shading Point的像素的平均深度！</li>
+<li>根据平均遮挡深度，决定PCF的Filter Size。</li>
+<li>PCF。</li>
+</ol>
+<h3 id="Variance-Soft-Shadow-Mapping（VSSM）"><a href="#Variance-Soft-Shadow-Mapping（VSSM）" class="headerlink" title="Variance Soft Shadow Mapping（VSSM）"></a>Variance Soft Shadow Mapping（VSSM）</h3><p>虽然现在已经很少使用了，但是其中有很多很聪明的方法。</p>
+<p>主要就是用很多大胆的近似来代替PCSS中的采样，优化PCSS中第一步和第三步的性能。</p>
+<h3 id="Moment-Shadow-Mapping（MSM）"><a href="#Moment-Shadow-Mapping（MSM）" class="headerlink" title="Moment Shadow Mapping（MSM）"></a>Moment Shadow Mapping（MSM）</h3><p>更高阶的VSM</p>
+<h3 id="Cascade-Shadow-Mapping（CSM）"><a href="#Cascade-Shadow-Mapping（CSM）" class="headerlink" title="Cascade Shadow Mapping（CSM）"></a>Cascade Shadow Mapping（CSM）</h3><p>工业界常用的做法，根据距离远近，使用不同精度的Shadow Map。</p>
+<h3 id="基于SDF的阴影渲染"><a href="#基于SDF的阴影渲染" class="headerlink" title="基于SDF的阴影渲染"></a>基于SDF的阴影渲染</h3><p><strong>Ray Marching</strong>是SDF的一种常见的使用方式，它可以快速地求出线与物体的最小距离。在阴影渲染时，我们也可以通过这个方法，在Shading Point上求出Safe Angel（即未被遮挡的程度），Safe Angel越大，Shading Point越亮。</p>
+<p>基于SDF的阴影运行性能最高，因为它不需要单独的Pass来计算光源的Shadow Map，不过它需要的SDF数据预处理的开销比较大，实际应用比较困难。</p>
+<h1 id="二、环境光"><a href="#二、环境光" class="headerlink" title="二、环境光"></a>二、环境光</h1><h2 id="Image-Based-Lighing（IBL）"><a href="#Image-Based-Lighing（IBL）" class="headerlink" title="Image-Based Lighing（IBL）"></a>Image-Based Lighing（IBL）</h2><p>环境光会被保存在Spherical Map或Cube Map贴图中。</p>
+<h2 id="Split-Sum方法"><a href="#Split-Sum方法" class="headerlink" title="Split Sum方法"></a>Split Sum方法</h2><p>需要对Cube Map进行Mip Map。</p>
+<h2 id="球谐函数（Spherical-Harmonics，SH）"><a href="#球谐函数（Spherical-Harmonics，SH）" class="headerlink" title="球谐函数（Spherical Harmonics，SH）"></a>球谐函数（Spherical Harmonics，SH）</h2><p>对于diffuse物体，我们并不需要高频的环境光信息，故可以将环境光通过SH来表示，一般取3-5阶即可。</p>
+<h2 id="Precomputed-Radiance-Transfer（PRT）"><a href="#Precomputed-Radiance-Transfer（PRT）" class="headerlink" title="Precomputed Radiance Transfer（PRT）"></a>Precomputed Radiance Transfer（PRT）</h2><p>在实际渲染中，我们还需要考虑环境光的可见性（阴影）。</p>
+<p>对于<strong>静态场景</strong>，可以通过预计算的方法来渲染其环境光。我们可以将渲染方程拆解成两个部分，<strong>Lighting</strong>和<strong>Light Transports</strong>项。其中Lighting项与环境光相关，Light Transtorts项则针对场景中每个静态Vertex单独计算，与物体遮挡关系和BRDF相关。<br>$$<br>L(o)&#x3D;\int_Ω L(i)V(i)ρ(i,o)\mathrm{max}(0,n·i)\mathrm{d}i\<br>L(i)-\mathrm{Lighting}\<br>V(i)ρ(i,o)\mathrm{max}(0,n·i)-\mathrm{Light Transports}<br>$$<br>对于DIffuse的物体，其Light Transports项是一个Vector，而对于Glossy的物体，其Light Transports项则是一个Matrix。在运行时，我们只需要对每个顶点做一次矩阵点乘，即可计算出环境光照的结果。</p>
+<p>球谐函数表示高频信息比较吃力，所以PRT方法对于Glossy（甚至是Specular）物体的渲染效果并不好。因此也可以使用其他能够表达高频信息的基函数，比如小波函数（Haar Wavelet）。当然小波函数也有自己的缺陷，比如不能方便地旋转（球谐可以）。</p>
+<h1 id="三、全局光照"><a href="#三、全局光照" class="headerlink" title="三、全局光照"></a>三、全局光照</h1><p>现实世界中，光线在场景中会进行无限次地反弹，最终进入我们地眼睛。在实时渲染中，我们无法使光线无限次弹射，但若能获取光线比直接光照多一次反弹的结果（即间接光照），我们也可以取得很不错的渲染效果！</p>
+<p>故全局光照需要解决的问题，就是第一次间接光照的计算问题。</p>
+<h2 id="RSM（Reflective-Shadow-Map）"><a href="#RSM（Reflective-Shadow-Map）" class="headerlink" title="RSM（Reflective Shadow Map）"></a>RSM（Reflective Shadow Map）</h2><p>核心思路是将所有接受直接光照的地方视为Diffuse的表面，并将其作为次级光源参与Shading Point的计算。</p>
+<p>次级光源与Shading Point直接的可视性也暂不考虑，甚至可以直接采用Shading Point在Shadow Map上与次级光源的距离，来判断Shading Point与次级光源是否接近，并以此进行采样。对于一个shading point采样400个次级光源是比较合适的，其中对较近的次级光源要使用比较大的权重。</p>
+<p>RSM只是图像（2D）空间的全局光照，我们只有来自Shadow Map的信息，只考虑了shading point与次级光源在Shadow Map上的2D位置关系，没有考虑shading point与次级光源的3D位置关系以及可视性。</p>
+<h2 id="Light-Propagation-Volumes（LPV）"><a href="#Light-Propagation-Volumes（LPV）" class="headerlink" title="Light Propagation Volumes（LPV）"></a>Light Propagation Volumes（LPV）</h2><p>核心思路是将场景划分为若干个Voxel（体素），在计算完直接光照后，将接受到直接光照的表面看作间接光照在场景中传播的起点，迭代多轮后，可以获取场景中各voxel的radiance（可以用SH表示）。</p>
+<p>LPV也有其缺点，如果Voxel粒度太大，则容易出现light leaking（漏光）现象。而细粒度的体素化则会带来更大的性能开销。</p>
+<h2 id="Voxel-Global-Illumination（VXGI）"><a href="#Voxel-Global-Illumination（VXGI）" class="headerlink" title="Voxel Global Illumination（VXGI）"></a>Voxel Global Illumination（VXGI）</h2><p>将场景的直接光照信息记录在Hierachical的Voxel中，对于Shading Point，做一次Cone Tracing，判断哪些次级光源会对这个Shading Point有贡献，并计算相应的结果。这里并没有假设直接光照的反射物是Diffuse的，它可以支持Glossy反射物。</p>
+<p>在做Cone Tracing时，随着距离的增加，Cone的面积也会增大，这时我们可以在更高层级的Voxel进行查询。</p>
+<p>对于Diffuse的Shading Point，我们可以用多次Cone Tracing来代替一个半球的采样。</p>
+<p>VXGI的质量非常好，与光线追踪的结果非常接近，但是开销太大，应用受限。</p>
+<h2 id="Screen-Space-Ambient-Occlusion（SSAO）和-Horizon-Based-AO（HBAO）"><a href="#Screen-Space-Ambient-Occlusion（SSAO）和-Horizon-Based-AO（HBAO）" class="headerlink" title="Screen Space Ambient Occlusion（SSAO）和 Horizon Based AO（HBAO）"></a>Screen Space Ambient Occlusion（SSAO）和 Horizon Based AO（HBAO）</h2><p>在整个球内进行采样，判断可见性的是SSAO。</p>
+<p>根据Shading Point法线，在法线方向的半球内进行采样的是HBAO。</p>
+<h2 id="SS-Direction-Occlusion（SSDO）"><a href="#SS-Direction-Occlusion（SSDO）" class="headerlink" title="SS Direction Occlusion（SSDO）"></a>SS Direction Occlusion（SSDO）</h2><p>在SSAO（HBAO）中，我们只考虑了Shading Point周围的遮挡关系，也可以说是只考虑了Shading Point的（来自于光源和环境光的）直接光照，而没有考虑周围物体的间接光照。</p>
+<p>SSDO可以理解为在屏幕空间的类RSM算法，计算小范围内的全局光照。与SSAO的做法一样，通过相机深度，我们可以找到（采样）Shading Point附近会遮挡Shading Point的Patch，然后按照与RSM类似的做法，计算该Patch对Shading Point的影响即可。</p>
+<h2 id="Screen-Space-Reflection（SSR）"><a href="#Screen-Space-Reflection（SSR）" class="headerlink" title="Screen Space Reflection（SSR）"></a>Screen Space Reflection（SSR）</h2><p>屏幕空间反射，即屏幕空间的全局光照，更进一步地讲，就是做屏幕空间的光线追踪了。光线追踪的一个难点在于如何快速地对射线和物体求交，在离线软光追中，我们可以将场景通过BVH树来组织加速。在3D空间中我们通过3D层次结构来加速求交，在2D空间中我们同样可以这样做。具体来说，我们可以在屏幕空间对深度进行最小深度池化（Min Depth Pooling），如果射线与浅层地最小深度都不相交的话，那么它也必然不会与深层具体地某个像素相交。</p>
+<p>实际做屏幕空间射线求交时，每次前进步长的选择也有一定技巧，伪代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mip = 0;</span><br><span class="line">while(level &gt; -1)&#123;</span><br><span class="line">	step through current cell;</span><br><span class="line">	if(above Z plane) ++level;</span><br><span class="line">	if(below Z plane) --level;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决Tracing问题后，就到了Shading的部分了。</p>
+<p>这里我们同样假设反射物也是Diffuse，不需要沿着光线的路径不断Tracing到光源处。对于每个Shading Point，我们可以根据其BRDF进行蒙特卡洛采样，一般而言，对于Glossy（或者Specular）的物体，我们只需要少量的采样就可以获得不错的效果，而Diffuse的物体则需要比较多的采样。</p>
+<h1 id="四、PBR材质"><a href="#四、PBR材质" class="headerlink" title="四、PBR材质"></a>四、PBR材质</h1><ul>
+<li>Bi-directional Reflective（反射） Distribution Function</li>
+<li>Bi-directional Transmit（投射） Distribution Function</li>
+<li>Bi-directional Scattering（散射） Distribution Function</li>
+</ul>
+<p>BSDF &#x3D; BRDF + BTDF</p>
+<h2 id="微表面模型（Microfacet-BRDF）"><a href="#微表面模型（Microfacet-BRDF）" class="headerlink" title="微表面模型（Microfacet BRDF）"></a>微表面模型（Microfacet BRDF）</h2><p>$$<br>f(i,o)&#x3D;\frac{F(i,h)G(i,o,h)D(h)}{4(n,i)(n,o)}\<br>$$</p>
+<p>$$<br>i-\mathrm{view}\quad o-\mathrm{light}\quad\<br>h-\mathrm{half\ vector\ of\ io}\quad n-\mathrm{normal}\<br>F-\mathrm{Fresnel\ term}\<br>G-\mathrm{Shadowing\ masking\ term(Geometry\ term)}\<br>D-\mathrm{Distribution\ of\ normals}<br>$$</p>
+<h3 id="F-菲涅尔项"><a href="#F-菲涅尔项" class="headerlink" title="F-菲涅尔项"></a>F-菲涅尔项</h3><p>可以采用<strong>Schlick’s approximation</strong><br>$$<br>R(θ)&#x3D;R_0+(1-R_0)(1-\cosθ)^5\<br>R_0&#x3D;(\frac{n_1-n_2}{n_1+n_2})^2<br>$$<br>上式中的$n_1,n_2$为表面两侧介质的绝对折射率，是物体本身的性质。</p>
+<h3 id="G-微表面的自遮挡问题"><a href="#G-微表面的自遮挡问题" class="headerlink" title="G-微表面的自遮挡问题"></a>G-微表面的自遮挡问题</h3><p>注意这里是微观层面的遮挡问题</p>
+<p>遮挡来源于两个部分，一个是光源方向的遮挡，即Shadowing，另一个是观察方向的遮挡，即Masking。常用的函数有<strong>The Smith Shadowing-Masking</strong>。</p>
+<p>G项可以中和菲涅尔项导致的边缘发白的现象。</p>
+<h3 id="D-微表面的法线分布"><a href="#D-微表面的法线分布" class="headerlink" title="D-微表面的法线分布"></a>D-微表面的法线分布</h3><p>一般呈lobe（瓣波）状，使用法线分布函数（Normal Distribution Function，NDF）来表示。</p>
+<p>常用的NDF有Beckmann模型、GGX模型（TR模型）、GTR（Generalized Trowbridge-Reitz）模型等等。</p>
+<h3 id="The-Kulla-Conty-Approximation"><a href="#The-Kulla-Conty-Approximation" class="headerlink" title="The Kulla-Conty Approximation"></a>The Kulla-Conty Approximation</h3><p>在G项处理自遮挡问题时，我们只考虑了一次弹射的情况，造成了多次弹射的能量损失，导致粗糙物体的渲染结果偏暗。</p>
+<p>KC方法过程比较复杂，这里不展开。最终可以拆分出出一张LUT加速计算。</p>
+<h3 id="Linearly-Transformed-Cosines（LTC）"><a href="#Linearly-Transformed-Cosines（LTC）" class="headerlink" title="Linearly Transformed Cosines（LTC）"></a>Linearly Transformed Cosines（LTC）</h3><p>传统做法下，GGX模型与多边形光源求交，我们可能需要进行多次采样模拟积分，这样做的开销并不小。</p>
+<p>如果不考虑shadow问题，LTC方法可以通过将光源变换到BRDF所在的Cosines空间来求解析解，避免了采样。</p>
+<h2 id="迪士尼原则材质模型（Disney-Principled-BRDF）"><a href="#迪士尼原则材质模型（Disney-Principled-BRDF）" class="headerlink" title="迪士尼原则材质模型（Disney Principled BRDF）"></a>迪士尼原则材质模型（Disney Principled BRDF）</h2><p>Disney Principled BRDF是一种对设计师友好的材质模型。它有几点原则（From Games202）：</p>
+<ol>
+<li>应该使用更直观的名词而不是使用物理名词参数，比如使用平缓、饱和度等</li>
+<li>让brdf框架不太复杂，也就是让参数数量少一点</li>
+<li>最好有一个拖动条左边最小值，右边最大值供艺术家们进行调整</li>
+<li>有时候为了特殊的效果允许将参数值超过范围，也就是允许小于0或大于1</li>
+<li>所有参数的组合应尽可能可靠和合理，也就是不论如何调整参数最后的结果应该是正常的</li>
+</ol>
+<p>它拥有比较高维的参数空间，可以模拟出十分丰富的材质效果，但有时候也会出现不同参数组合拥有相似效果的冗余情况。</p>
+<h2 id="非真实感渲染（Non-Photorealistic-Rendering，NPR）"><a href="#非真实感渲染（Non-Photorealistic-Rendering，NPR）" class="headerlink" title="非真实感渲染（Non-Photorealistic Rendering，NPR）"></a>非真实感渲染（Non-Photorealistic Rendering，NPR）</h2><p>NPR是一个Art Driven问题，因此我们的是分析各种艺术效果的特征和本质，最后在渲染中实现。艺术来源于真实，NPR渲染往往也需要一个优秀的PBR渲染框架来作为基础。</p>
+<h1 id="五、实时光线追踪"><a href="#五、实时光线追踪" class="headerlink" title="五、实时光线追踪"></a>五、实时光线追踪</h1><p>随着硬件技术的发展，慢慢地我们可以支持1SPP（ samples per pixel）的的开销了（这里的采样一般也只考虑光线弹射2次，而不是无限次弹射）。但如此低的采样率，渲染出的结果会有极大的噪声，并不能直接输出，我们需要对其进行降噪操作。</p>
+<h2 id="空域降噪（Spatial-Denoising）"><a href="#空域降噪（Spatial-Denoising）" class="headerlink" title="空域降噪（Spatial Denoising）"></a>空域降噪（Spatial Denoising）</h2><h3 id="Gaussian-filtering（高斯滤波）"><a href="#Gaussian-filtering（高斯滤波）" class="headerlink" title="Gaussian filtering（高斯滤波）"></a>Gaussian filtering（高斯滤波）</h3><p>从最简单的高斯滤波开始，我们可以过滤掉所有高频的噪声，但这也会将<strong>边界</strong>这一个高频信号过滤掉，这不是我们所期望的结果。</p>
+<p>高斯滤波仅考虑了像素之间的距离信息来计算邻近像素权重，我们当然也可以考虑更多维的像素信息！</p>
+<h3 id="Bilateral-filtering（双边滤波）"><a href="#Bilateral-filtering（双边滤波）" class="headerlink" title="Bilateral filtering（双边滤波）"></a>Bilateral filtering（双边滤波）</h3><p>双边滤波就是考虑了像素的距离和像素的颜色两个维度的信息来计算像素的权重，通过这样的操作，我们可以在滤波时保留边界信息，仅过滤高频噪声。</p>
+<p>但在实时光追的场景下，高频噪声占比过大，双边滤波的效果并没有那么好。我们需要考虑更多维度的信息！</p>
+<h3 id="Joint-Bilateral-filtering（联合双边滤波）"><a href="#Joint-Bilateral-filtering（联合双边滤波）" class="headerlink" title="Joint Bilateral filtering（联合双边滤波）"></a>Joint Bilateral filtering（联合双边滤波）</h3><p>联合双边滤波考虑了G-Buffer中的深度、法线、颜色等等信息来计算权重，由于G-Buffer中的信息是准确（无噪声）的，通过这些信息得出的权重往往也是比较准确的。</p>
+<h3 id="Outlier-Removal"><a href="#Outlier-Removal" class="headerlink" title="Outlier Removal"></a>Outlier Removal</h3><p>由于光追结果的噪声并不是在RGB颜色空间中，它有可能会有非常大的值，其在滤波时可能对周围像素造成很大影响，我们需要将其值限制在一个合理的范围内。</p>
+<p>具体做法就是计算其周围像素的均值和方差，然后将像素颜色Clamp到$[μ-kσ,μ+kσ]$内。</p>
+<h3 id="对于Large-filter的加速方法"><a href="#对于Large-filter的加速方法" class="headerlink" title="对于Large filter的加速方法"></a>对于Large filter的加速方法</h3><h4 id="1-Separate-Passes（拆分实现）"><a href="#1-Separate-Passes（拆分实现）" class="headerlink" title="1. Separate Passes（拆分实现）"></a>1. Separate Passes（拆分实现）</h4><p>简单来说，我们可以将2维卷积操作拆分成水平方向和竖直方向两趟的1维卷积，将$O(n^2)$的复杂度降为$O(n+n)$。对于高斯滤波来说，这种做法是准确的，对于更复杂的滤波，这种做法的结果不一定准确，但是强行这么做的效果也并不差，可以接受。</p>
+<h4 id="2-Progressively-Growing-Sizes"><a href="#2-Progressively-Growing-Sizes" class="headerlink" title="2. Progressively Growing Sizes"></a>2. Progressively Growing Sizes</h4><p>简单来说，就是使用小型Kernel核进行多趟的Filter，从而达到大Filter的效果。这里每一趟Filter时，采样像素的间隔要逐趟增加，对于第N趟Filter，我们需要每隔$(N-1)^2$个像素采样一次，如图所示。</p>
+<p><img src="/game-dev/graphics/games202-notes/progressively_growing_sizes.png" alt="Progressively Growing Sizes"></p>
+<h2 id="时域降噪（Temporal-Denoising）"><a href="#时域降噪（Temporal-Denoising）" class="headerlink" title="时域降噪（Temporal Denoising）"></a>时域降噪（Temporal Denoising）</h2><p>要做时域降噪，我们需要知道帧与帧之间的像素的对应关系，而只要知道物体的<strong>Motion Vector</strong>，我们就可以通过当前帧的渲染信息以及上一帧的相机MVPE，来计算出每个Shading Point对应上一帧的哪个像素。</p>
+<p>之后将两帧的结果按照一定比例混合到一起，就可以得到一个噪声较小的结果了。</p>
+<p>某些情况下，上一帧的结果也不一定可信，比如计算得到的上一帧像素涉及到遮挡关系的改变，亦或者场景光照（或间接光照，即反射物）的改变，这些都会导致时域降噪出错。</p>
+<p>对于第一种情况，我们可以通过GBuffer中的ObjectID进行处理，如果前后帧ObjectID不一致，就不进行结果的混合了。对于第二种情况，我们可以参考空域Outlier Removal的做法，将前一帧Clamp到一个合适的范围后，再进行混合。</p>
+<h2 id="Spatiotemporal-Variance-Guided-Filter（SVGF）"><a href="#Spatiotemporal-Variance-Guided-Filter（SVGF）" class="headerlink" title="Spatiotemporal Variance-Guided Filter（SVGF）"></a>Spatiotemporal Variance-Guided Filter（SVGF）</h2><p>参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28288053">Spatiotemporal Variance-Guided Filter, 向实时光线追踪迈进 - 知乎 (zhihu.com)</a></p>
+<h1 id="六、一些常用的工业技术"><a href="#六、一些常用的工业技术" class="headerlink" title="六、一些常用的工业技术"></a>六、一些常用的工业技术</h1><h2 id="抗锯齿"><a href="#抗锯齿" class="headerlink" title="抗锯齿"></a>抗锯齿</h2><ul>
+<li>Multisample Anti-Aliasing（MSAA）：对于一个像素进行多次采样，并将最终的结果求平均。</li>
+<li>Super-Sampling AA（SSAA）：将一个场景按照更大的分辨率渲染后再降采样，开销比较大。</li>
+</ul>
+<p>在同样的倍数下，MSAA的性能往往要优于SSAA，因为MSAA使用了很多技巧降低了采样率。</p>
+<ul>
+<li>Temporal AA（TAA）：与光追章节中提到的时域降噪思路类似，也需要用到Motion Vector，这里不再赘述。</li>
+<li>Enhanced Subpixel Morphological AA（SMAA）：图像层面的反走样，是Fast Approximate AA（FXAA）和Morphological AA （MLAA）的进阶版本。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/unreal-engine/rendering/toon-rendering/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/unreal-engine/rendering/toon-rendering/" class="post-title-link" itemprop="url">卡通渲染</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-19 17:14:18" itemprop="dateCreated datePublished" datetime="2023-07-19T17:14:18+08:00">2023-07-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-13 12:20:02" itemprop="dateModified" datetime="2023-09-13T12:20:02+08:00">2023-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/unreal-engine/" itemprop="url" rel="index"><span itemprop="name">unreal-engine</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/unreal-engine/rendering/" itemprop="url" rel="index"><span itemprop="name">rendering</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>参考资料：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/203631693">虚幻5渲染编程专栏概述及目录 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66781931">（虚幻4Shader篇）向Shader传递数据 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/tutorials/2R5x/unreal-engine-new-shading-models-and-changing-the-gbuffer">New shading models and changing the GBuffer | Epic Developer Community (epicgames.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://unrealartoptimization.github.io/book/profiling/passes/">Unreal’s Rendering Passes - Unreal Art Optimization</a></li>
+<li><a target="_blank" rel="noopener" href="https://interplayoflight.wordpress.com/2017/10/25/how-unreal-renders-a-frame/">How Unreal Renders a Frame – Interplay of Light (wordpress.com)</a></li>
+</ol>
+</blockquote>
+<h1 id="一、描边"><a href="#一、描边" class="headerlink" title="一、描边"></a>一、描边</h1><h2 id="Back-Facing外描边"><a href="#Back-Facing外描边" class="headerlink" title="Back Facing外描边"></a>Back Facing外描边</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/493276011">UE4从零开始的卡通渲染——描边篇（一） - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/471507240">虚幻5渲染编程(风格化渲染篇)第三卷: 勾线描边 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/97658822">虚幻4渲染编程(Shader篇)【第十六卷：Multi-BasePass in UE4】 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/234535777">在UE4引擎中做卡通描边的一点心得 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/63133742">尝试在UE4.22中实现罪恶装备Xrd的卡通渲染 - 知乎 (zhihu.com)</a></li>
+</ol>
+</blockquote>
+<p>将一个Mesh绘制两遍，其中第一遍正常绘制，第二遍将顶点外扩，并且只渲染背面。</p>
+<p>UE5新增了绘制两边Mesh的功能：<a target="_blank" rel="noopener" href="https://github.com/EpicGames/UnrealEngine/commit/d7b8804119f53887f81a0da157c7fee85d2bd592">Added an “Overlay Material” to a mesh component.</a></p>
+<p>需要注意的是：</p>
+<ol>
+<li>顶点外扩距离要随着相机远近而变化</li>
+<li>折边（硬边）断裂问题</li>
+</ol>
+<p>其中硬边断裂问题可以通过平滑法线来解决，这里通过在导入fbx的时候将平滑后的法线保存在顶点颜色中来实现。</p>
+<h1 id="二、自定义光照模型"><a href="#二、自定义光照模型" class="headerlink" title="二、自定义光照模型"></a>二、自定义光照模型</h1><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/551343308">从零开始的UE5卡通渲染【二】：自定义着色模型 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36840778">虚幻4渲染编程(材质编辑器篇)【第二卷：自定义光照模型】 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521681785">虚幻五渲染编程（Graphic篇）【第六卷： Customize GBuffer of UnrealEngine5】 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/tutorials/2R5x/unreal-engine-new-shading-models-and-changing-the-gbuffer">New shading models and changing the GBuffer | Epic Developer Community (epicgames.com)</a></li>
+</ol>
+</blockquote>
+<h2 id="Cpp侧修改"><a href="#Cpp侧修改" class="headerlink" title="Cpp侧修改"></a>Cpp侧修改</h2><h3 id="1-材质定义"><a href="#1-材质定义" class="headerlink" title="1. 材质定义"></a>1. 材质定义</h3><ol>
+<li>在<code>EngineTypes.h</code>的枚举<code>EMaterialShadingModel</code>中注册新的光照模型，其会在Material的下拉框中显示。<strong>注意这里的位置要与后文HLSL定义的顺序一致。</strong></li>
+<li>如果想要材质在蓝图中可以通过节点选择，那么还需要在UMaterialExpressionShadingModel中添加相应的Meta<img src="/unreal-engine/rendering/toon-rendering/image-20240112011054282-1704993064152-1.png" alt="image-20240112011054282"></li>
+<li>在<code>MaterialShader.cpp</code>的<code>GetShadingModelString()</code>中增加相应的Case</li>
+<li>在<code>MaterialShader.cpp</code>的<code>UpdateMaterialShaderCompilingStats</code>更新Shader Stats</li>
+</ol>
+<p>做完以上操作之后，我们就可以在材质中选择我们自定义的光照模型了。</p>
+<h3 id="2-Cpp侧宏导出"><a href="#2-Cpp侧宏导出" class="headerlink" title="2. Cpp侧宏导出"></a>2. Cpp侧宏导出</h3><p>HLSL中是否编译某块代码由宏控制，我们也需要为我们自己的光照模型定义并开启相应的宏</p>
+<ol>
+<li>在<code>ShaderMaterial.h</code>的<code>FShaderMaterialPropertyDefines</code>中添加相关位域，在HLSL中宏开关的命名也必须与此处一致。<img src="/unreal-engine/rendering/toon-rendering/image-20230913155206989.png" alt="image-20230913155206989"></li>
+<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>FShaderCompileUtilities::ApplyFetchEnvironment()</code> <img src="/unreal-engine/rendering/toon-rendering/image-20230913155921416.png" alt="image-20230913155921416"></li>
+<li>在<code>HLSLMaterialTranslator.cpp</code>的<code>FHLSLMaterialTranslator::GetMaterialEnvironment()</code>添加相应的分支<img src="/unreal-engine/rendering/toon-rendering/image-20230913161219080.png" alt="image-20230913161219080"></li>
+<li>在<code>MaterialHLSLEmitter.cpp</code>中也有<code>GetMaterialEnvironment()</code>函数，我们也做同样的操作</li>
+</ol>
+<h3 id="3-材质数据接口"><a href="#3-材质数据接口" class="headerlink" title="3. 材质数据接口"></a>3. 材质数据接口</h3><ol>
+<li>在<code>Material.cpp</code>的<code>IsPropertyActive_Internal()</code>中开放相应Pin。</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913121914573.png" alt="image-20230913121914573"></p>
+<ol start="2">
+<li>在<code>MaterialShared.cpp</code>的<code>FMaterialAttributeDefinitionMap::GetAttributeOverrideForMaterial()</code>中填写Pin别名</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913151917251.png" alt="image-20230913151917251"></p>
+<ol start="3">
+<li>如果模型是Subsurface模型，那么还需要，还需要修改<code>MaterialShared.h</code>的<code>IsSubsurfaceShadingModel()</code></li>
+</ol>
+<h3 id="4-开启GBuffer中相关的MRT"><a href="#4-开启GBuffer中相关的MRT" class="headerlink" title="4. 开启GBuffer中相关的MRT"></a>4. 开启GBuffer中相关的MRT</h3><p>这一步的目的是开启HLSL侧的宏开关，即导出宏定义<code>PIXELSHADEROUTPUT_MRT</code>，编译HLSL中相关MRT的代码。</p>
+<ol>
+<li>在<code>ShaderGenerationUtil.cpp</code>中修改<code>DetermineUsedMaterialSlots()</code><img src="/unreal-engine/rendering/toon-rendering/image-20230913160043820.png" alt="image-20230913160043820"></li>
+<li>如果要使用使用CustomData，那么最好在<code>ShaderMaterialDerivedHelpers.cpp</code>的<code>CalculateDerivedMaterialParameters()</code>函数中修改如下代码（对于新版本其实是冗余的，为了保持与旧版本一致还是改一下吧）</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//++[lolia] Toon Shading Model</span></span><br><span class="line">Dst.WRITES_CUSTOMDATA_TO_GBUFFER = (Dst.USES_GBUFFER &amp;&amp; (... || Mat.MATERIAL_SHADINGMODEL_TOON));</span><br><span class="line"><span class="comment">//--[lolia]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Inspector相关"><a href="#5-Inspector相关" class="headerlink" title="5. Inspector相关"></a>5. Inspector相关</h3><ol>
+<li><code>PixelInspectorResult.h</code></li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913160408740.png" alt="image-20230913160408740"></p>
+<ol start="2">
+<li><code>PixelInspectorResult.cpp</code>中<code>PixelInspectorResult::DecodeShadingModel()</code>添加case</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913160543432.png" alt="image-20230913160543432"></p>
+<ol start="3">
+<li><code>PixelInspectorDetailsCustomization.cpp</code>中<code>FPixelInspectorDetailsCustomization::CustomizeDetails()</code></li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913160659260.png" alt="image-20230913160659260"></p>
+<h2 id="Shader侧修改"><a href="#Shader侧修改" class="headerlink" title="Shader侧修改"></a>Shader侧修改</h2><h3 id="1-模型定义"><a href="#1-模型定义" class="headerlink" title="1. 模型定义"></a>1. 模型定义</h3><ol>
+<li><code>ShadingCommon.ush</code>添加模型定义，此处定义的顺序需要和<code>EngineTypes.h</code>中枚举的顺序一致。此外，可以在<code>GetShadingModelColor()</code>中修改模型Debug颜色。<img src="/unreal-engine/rendering/toon-rendering/image-20230913162050368.png" alt="image-20230913162050368"></li>
+<li>对于宏开关，HLSL侧也要在未设置环境变量时进行声明，防止编译错误。在<code>Definitions.usf</code>中添加<img src="/unreal-engine/rendering/toon-rendering/image-20230913162335790.png" alt="image-20230913162335790"></li>
+</ol>
+<h3 id="2-数据接口"><a href="#2-数据接口" class="headerlink" title="2. 数据接口"></a>2. 数据接口</h3><p>在Shader端同样需要为我们的Shading Model开启SubsurfaceColor和CustomData的相关写入权限，并进行数据传输。</p>
+<ol>
+<li>在<code>DeferredShadingCommon.ush</code>中维护相关判别函数，同时我们也可以添加自己的判别函数<code>IsToonShading</code></li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913164134265.png" alt="image-20230913164134265"></p>
+<ol start="2">
+<li>在<code>BasePassCommon.ush</code>开启GBuffer的CustomData写入权限（这一处宏定义好像已经没有用了）</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//++[lolia] Toon Shading Model</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> WRITES_CUSTOMDATA_TO_FBUFFER (USES_GBUFFER &amp;&amp; (... || MATERIAL_SHADINGMODEL_TOON))</span></span><br><span class="line"><span class="comment">//--[lolia]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在<code>BasePassPixelShader.usf</code>的<code>FPixelShaderInOut_MainPS()</code>中为SubsurfaceColor写入数据。下图两处改动都是添加ToonModel判断，逻辑是一致的。</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913165002797.png" alt="image-20230913165002797"></p>
+<ol start="4">
+<li>最后，在<code>ShadingModelsMaterial.ush</code>的<code>SetGBufferForShadingModel</code>函数里，把SubsurfaceColor和CustomData压入<code>GBuffer.CustomData</code>。</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913165347308.png" alt="image-20230913165347308"></p>
+<ol start="5">
+<li>如果用不到SpecularColor和DiffuseColor，可以在<code>BasePassPixelShader.usf</code>的<code>FPixelShaderInOut_MainPS()</code>的相应位置置零。<code>ReflectionEnvironmentPixelShader.usf</code>的<code>ReflectionEnvironment()</code>也直接返回0。</li>
+</ol>
+<h3 id="3-Shader"><a href="#3-Shader" class="headerlink" title="3. Shader"></a>3. Shader</h3><ol>
+<li><code>ShadingModels.ush</code>的<code>IntegrateBxDF()</code>添加BxDF函数</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913171239695.png" alt="image-20230913171239695"></p>
+<ol start="2">
+<li>天光的计算并不走<code>IntegrateBxDF()</code>，需要单独处理。在<code>SkyLightingDiffuseShared.ush</code>的<code>SkyLightDiffuse()</code>函数中修改如下：</li>
+</ol>
+<p><img src="/unreal-engine/rendering/toon-rendering/image-20230913171515214.png" alt="image-20230913171515214"></p>
+<h1 id="三、卡通材质"><a href="#三、卡通材质" class="headerlink" title="三、卡通材质"></a>三、卡通材质</h1><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/519728086">虚幻5渲染编程(风格化渲染篇)[第七卷: Toon shadow control] - 知乎 (zhihu.com)</a></li>
+</ol>
+</blockquote>
+<h2 id="阴影过渡"><a href="#阴影过渡" class="headerlink" title="阴影过渡"></a>阴影过渡</h2><p>预积分贴图生成代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 平滑阶跃函数</span></span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">smoothstep</span><span class="params">(<span class="type">float</span> t1, <span class="type">float</span> t2, <span class="type">float</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// Scale, bias and saturate x to 0..1 range</span></span><br><span class="line">	x = FMath::<span class="built_in">Clamp</span>((x - t1) / (t2 - t1), <span class="number">0.0</span>, <span class="number">1.0</span>); </span><br><span class="line">	<span class="comment">// Evaluate polynomial</span></span><br><span class="line">	<span class="keyword">return</span> x * x * (<span class="number">3</span> - <span class="number">2</span> * x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">PrivateDependencyModuleNames.<span class="built_in">Add</span>(<span class="string">&quot;ImageCore&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Engine/Public/ImageUtils.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">FImage <span class="title">Image</span><span class="params">(<span class="number">256</span>, <span class="number">256</span>, ERawImageFormat::BGRA8)</span></span>;</span><br><span class="line">    <span class="type">const</span> TArrayView64&lt;FColor&gt; Data = Image.<span class="built_in">AsBGRA8</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; <span class="number">256</span>; y++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; <span class="number">256</span>; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            FColor RetColor = <span class="built_in">FColor</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>);</span><br><span class="line">            <span class="type">float</span> Y = y / <span class="number">255.f</span>;</span><br><span class="line">            <span class="type">float</span> X = x / <span class="number">255.f</span>;</span><br><span class="line"></span><br><span class="line">            Y = Y * <span class="number">0.1f</span>;</span><br><span class="line"></span><br><span class="line">            RetColor.R = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Y, <span class="number">0.5</span> + Y, X) * <span class="number">255</span>;</span><br><span class="line">            RetColor.G = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Y, <span class="number">0.5</span> + Y, X) * <span class="number">255</span>;</span><br><span class="line">            RetColor.B = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Y, <span class="number">0.5</span> + Y, X) * <span class="number">255</span>;</span><br><span class="line"></span><br><span class="line">            Data[x + y * <span class="number">256</span>] = RetColor;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    TArray64&lt;uint8&gt; Output;</span><br><span class="line">    FImageUtils::<span class="built_in">CompressImage</span>(Output, <span class="built_in">TEXT</span>(<span class="string">&quot;png&quot;</span>), Image);</span><br><span class="line">    FFileHelper::<span class="built_in">SaveArrayToFile</span>(Output, <span class="built_in">TEXT</span>(<span class="string">&quot;C:/Users/Lolia/Desktop/output.png&quot;</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/unreal-engine/rendering/toon-rendering/ToonShadowRamp.png" alt="ToonShadowRamp"></p>
+<p>对于皮肤ramp贴图，可以这样生成：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> Y = y / <span class="number">255.f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> X = x / <span class="number">255.f</span>;</span><br><span class="line"></span><br><span class="line">Y += <span class="number">0.3f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> Width = Y * <span class="number">0.05f</span>;</span><br><span class="line"></span><br><span class="line">RetColor.R = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Width * <span class="number">2.f</span>, <span class="number">0.5</span> + Width * <span class="number">1.f</span>, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.G = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Width * <span class="number">1.f</span>, <span class="number">0.5</span> + Width * <span class="number">2.f</span>, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.B = <span class="built_in">smoothstep</span>(<span class="number">0.5f</span> - Width * <span class="number">0.f</span>, <span class="number">0.5</span> + Width * <span class="number">2.f</span>, X) * <span class="number">255</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/unreal-engine/rendering/toon-rendering/ToonSkinShadowRamp.png" alt="ToonSkinShadowRamp"></p>
+<h2 id="高光过渡"><a href="#高光过渡" class="headerlink" title="高光过渡"></a>高光过渡</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">float</span> Y = y / <span class="number">255.f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> X = x / <span class="number">255.f</span>;</span><br><span class="line"></span><br><span class="line">Y += <span class="number">0.3f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> Width = <span class="number">0.05</span> * Y + <span class="number">0.01f</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">float</span> Y2 = (Y * Y) * Width;</span><br><span class="line"></span><br><span class="line">RetColor.R = <span class="built_in">smoothstep</span>(<span class="number">1</span> - Width - Y2, <span class="number">1</span> - Width + Y2, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.G = <span class="built_in">smoothstep</span>(<span class="number">1</span> - Width - Y2, <span class="number">1</span> - Width + Y2, X) * <span class="number">255</span>;</span><br><span class="line">RetColor.B = <span class="built_in">smoothstep</span>(<span class="number">1</span> - Width - Y2, <span class="number">1</span> - Width + Y2, X) * <span class="number">255</span>;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/unreal-engine/rendering/toon-rendering/ToonRoughness.png" alt="ToonRoughness"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/computer-science/programming-language/cpp/more-effective-cpp-4-efficiency/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/computer-science/programming-language/cpp/more-effective-cpp-4-efficiency/" class="post-title-link" itemprop="url">【More Effective C++】4 效率Efficiency</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-25 16:13:24 / 修改时间：16:13:27" itemprop="dateCreated datePublished" datetime="2022-10-25T16:13:24+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/" itemprop="url" rel="index"><span itemprop="name">programming-language</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="条款16-谨记-80-20-法则"><a href="#条款16-谨记-80-20-法则" class="headerlink" title="条款16 谨记 80-20 法则"></a>条款16 谨记 80-20 法则</h1><p><strong>软件的总体性能几乎总是由其构成要素的一小部分决定。</strong></p>
+<p>请学会使用程序分析器（program profiler），并且保证采样的数据是普适的，可以重现的。</p>
+<h1 id="条款17-考虑采用lazy-evaluation（缓式评估）"><a href="#条款17-考虑采用lazy-evaluation（缓式评估）" class="headerlink" title="条款17 考虑采用lazy evaluation（缓式评估）"></a>条款17 考虑采用lazy evaluation（缓式评估）</h1><p>拖延战术hhh，把运算拖到刻不容缓的地步再执行。</p>
+<h4 id="应用1：Reference-Counting（引用计数）"><a href="#应用1：Reference-Counting（引用计数）" class="headerlink" title="应用1：Reference Counting（引用计数）"></a>应用1：Reference Counting（引用计数）</h4><p>在你真正需要之前（比如要修改它了），不必着急为某物做一个副本，而是用共享取代副本。</p>
+<h4 id="应用2：区分读和写"><a href="#应用2：区分读和写" class="headerlink" title="应用2：区分读和写"></a>应用2：区分读和写</h4><p>继续上面Reference Counting 的例子，我们在读取的时候不需要副本，只有在要写入的时候才需要创造一个副本，那么我们该怎么判断读和写呢？</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string s2 = s1;</span><br><span class="line">cout&lt;&lt;s2[<span class="number">3</span>];  <span class="comment">// 读，不需要创建副本</span></span><br><span class="line">s2[<span class="number">3</span>] = <span class="string">&#x27;a&#x27;</span>;  <span class="comment">// 写，需要副本</span></span><br></pre></td></tr></table></figure>
+
+<p>​	我们重载 [] 操作符暂时是无能为力的……但是如果使用lazy evaluation 和 条款30 的proxy classes 可以延缓决定“究竟是读还是写”直到能够得到确定答案。</p>
+<h4 id="应用3：Lazy-Fetching（缓式取出）"><a href="#应用3：Lazy-Fetching（缓式取出）" class="headerlink" title="应用3：Lazy Fetching（缓式取出）"></a>应用3：Lazy Fetching（缓式取出）</h4><p>对于一个需要从数据库读取数据的大对象</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LargeObject</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LargeObjec</span>(ObjectID id);</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">const</span> string&amp; <span class="title">field1</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">field2</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>​	可以考虑并不在构造的时候就将所有数据读取出来，而是将该对象视为一个读取器，需要对象的某个数据时再单独读取该单个的数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LargeObject</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LargeObjec</span>(ObjectID id):<span class="built_in">oid</span>(id), <span class="built_in">field1Value</span>(<span class="literal">nullptr</span>), <span class="built_in">field2Value</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">const</span> string&amp; <span class="title">field1</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(field1Value == <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// read the data for field 1 from the database </span></span><br><span class="line">            <span class="comment">// and make field1Value point to it</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *field1Value;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">field2</span><span class="params">()</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    ObjectID oid;</span><br><span class="line">    <span class="keyword">mutable</span> string* field1Value;</span><br><span class="line">    <span class="keyword">mutable</span> <span class="type">int</span>* field2Value;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	该例中将数据成员转变成指向数据的指针（也可使用智能指针），当指针为null时代表数据尚未读取。关键字mutable保证成员变量再const函数中也可以被修改。</p>
+<p>读取数据的成员函数被用const关键字修饰是合理的，对于用户来说其行为确实是const，将实现隐藏在抽象背后！（因此，此处的mutable用得好啊）</p>
+<h4 id="应用4：Lazy-Expression-Evaluation（表达式缓评估）"><a href="#应用4：Lazy-Expression-Evaluation（表达式缓评估）" class="headerlink" title="应用4：Lazy Expression Evaluation（表达式缓评估）"></a>应用4：Lazy Expression Evaluation（表达式缓评估）</h4><p>对于数值应用，如矩阵计算，lazy evaluation可以发挥很大的作用。核心就是：<strong>大限度</strong>、<strong>细粒度</strong>地拖延到真正需要用到的时候（读取）再工作。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span> &#123;...&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">class</span> Matrix&lt;<span class="type">int</span>&gt; <span class="title">m1</span><span class="params">(<span class="number">1000</span>,<span class="number">1000</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">class</span> Matrix&lt;<span class="type">int</span>&gt; <span class="title">m2</span><span class="params">(<span class="number">1000</span>,<span class="number">1000</span>)</span></span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span>&lt;<span class="type">int</span>&gt; m3 = m1 + m2;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们不需要直接计算m3的结果，而可以保存m3与m1、m2的关系，因为可能会有以下情况：</p>
+<ol>
+<li>可能根本就没用到m3？</li>
+<li>可能我们只关心m3的一小部分数据。如第4行第5列的值是多少？</li>
+</ol>
+<p>当然也会有一些需要注意的地方。比如，如果在m3被计算之前，我们修改了m1的值，那么我们要保证m3计算结果不受m1改变的影响，可以在m1修改时直接计算m3，也可以拷贝一份m1。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>lazy evaluation的核心就是拖延战术，大限度、小粒度的拖延。但这个方法也不是任何时候都奏效，为了实现这个方法，我们往往也会需要一些开销，比如开发、维护成本等，特别是如果你的计算是必要的，那么无论怎么拖延，工作终究是要做的，运行效率和内存占用往往会更糟糕。</p>
+<p>因此，只有当你的部分工作“其实可以避免时”lazy evaluation才会奏效。</p>
+<p>除此之外，lazy evaluation是一个可以“隐于幕后”的方法，属于程序的实现部分（相对于抽象，或者说用户接口），可以（理应）很好的进行封装。</p>
+<h1 id="条款18-分期摊还预期的计算成本"><a href="#条款18-分期摊还预期的计算成本" class="headerlink" title="条款18 分期摊还预期的计算成本"></a>条款18 分期摊还预期的计算成本</h1><p>与条款17相对的超急评估（over-eager evaluation），即在被要求之前就先把事情做下去。</p>
+<h1 id="条款19-了解临时对象的来源"><a href="#条款19-了解临时对象的来源" class="headerlink" title="条款19 了解临时对象的来源"></a>条款19 了解临时对象的来源</h1><p>误区，局部对象temp并不是临时对象，临时对象不在代码中可见，只要你产生non-heap object但没有给他命名，便诞生了一个临时对象。一般在以下两种情况下产生：</p>
+<ol>
+<li>函数参数传递时发生的隐式类型转换（implicit type conversations）</li>
+<li>函数返回对象</li>
+</ol>
+<h4 id="参数隐式类型转换"><a href="#参数隐式类型转换" class="headerlink" title="参数隐式类型转换"></a>参数隐式类型转换</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">countChar</span><span class="params">(<span class="type">const</span> string&amp; str, <span class="type">char</span> ch)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> buffer[<span class="number">10</span>];</span><br><span class="line">...</span><br><span class="line"><span class="type">size_t</span> num = <span class="built_in">countChar</span>(buffer, <span class="string">&#x27;a&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>函数调用时会由buffer产生一个string类型的临时对象，并使str引用临时对象，这个过程中会发生一次对象的构造，并在函数结束时发生对象的析构。</p>
+<p>具体分析3种传参形式：</p>
+<ol>
+<li>reference to const：常量引用，可以发生隐式转换</li>
+<li>by value：传值，可以发生隐式转换（确定会发生一次对象的构造和析构）</li>
+<li>reference to non-const：非常量引用，不会发生隐式类型转换（派生类向基类转换除外）</li>
+</ol>
+<h4 id="函数返回对象"><a href="#函数返回对象" class="headerlink" title="函数返回对象"></a>函数返回对象</h4><p>这个话题就涉及到了“返回值优化”（return value optimization），这正是条款20讨论的内容。</p>
+<h1 id="条款20-协助完成“返回值优化（RVO）”"><a href="#条款20-协助完成“返回值优化（RVO）”" class="headerlink" title="条款20 协助完成“返回值优化（RVO）”"></a>条款20 协助完成“返回值优化（RVO）”</h1><p>在函数以by-value返回对象时，我们应该以合理的方式，寻求编译器的帮助。</p>
+<p>我们的伎俩是：返回所谓的constructor arguments以取代对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>*(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Rational</span>(...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 96年的标准之后，下面这个也可以完成返回值优化</span></span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>*(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">    <span class="function">Rational <span class="title">result</span><span class="params">(...)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rational c = a * b;</span><br></pre></td></tr></table></figure>
+
+<p>​	这么做好像什么都没有干，看起来我们还是需要在函数中构造一个对象用来返回，但是我们允许编译器进行优化，即直接将其构造于c的内存中，即只发生一次构造，成本为0！！！（本应发生三次构造、两次析构）</p>
+<p>详细分析：在函数体内部作用域发生一次构造和析构，又由于函数返回的是值类型，又会产生一次构造和析构，最后在使用函数返回的对象构造c对象。</p>
+<p>注：在96年之后，命名对象和匿名对象都可以实现返回值优化。</p>
+<h1 id="条款21-利用重载技术（overload）避免隐式类型转换（implicit-type-conversions）"><a href="#条款21-利用重载技术（overload）避免隐式类型转换（implicit-type-conversions）" class="headerlink" title="条款21 利用重载技术（overload）避免隐式类型转换（implicit type conversions）"></a>条款21 利用重载技术（overload）避免隐式类型转换（implicit type conversions）</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UPInt</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">UPInt</span>();</span><br><span class="line">	<span class="built_in">UPInt</span>(<span class="type">int</span> value);  <span class="comment">// 可以实现由int到UPInt的隐式转换</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> UPInt <span class="keyword">operator</span>+(<span class="type">const</span> UPInt&amp; lhs, <span class="type">const</span> UPInt&amp; rhs);</span><br><span class="line"></span><br><span class="line">upi3 = upi1 + <span class="number">10</span>;  <span class="comment">// 此处会发生一次隐式转换，额外生成一个临时的UPInt对象</span></span><br></pre></td></tr></table></figure>
+
+<p>虽然隐式转换确实能够达到我们的目的，但是可能会产生我们不需要的临时对象，增加性能开销。可以显式地利用符号（函数）的重载来避免隐式转换。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> UPInt <span class="keyword">operator</span>+(<span class="type">const</span> UPInt&amp; lhs, <span class="type">int</span> rhs);</span><br></pre></td></tr></table></figure>
+
+<p>不过要记得，全局的操作符重载，参数必须要含有用户自定类型，比如不能重载int+int。</p>
+<p>还有一个常用的应用场景，就是char*和string之间的相互转换。</p>
+<p>除此之外，不要忘了2-8法则，增加一大堆重载函数也不一定是件好事，除非你确定重载后程序的整体效率能够有重大的改善。</p>
+<h1 id="条款22：考虑以操作符复合形式（op-）取代其独身形式（op）"><a href="#条款22：考虑以操作符复合形式（op-）取代其独身形式（op）" class="headerlink" title="条款22：考虑以操作符复合形式（op&#x3D;）取代其独身形式（op）"></a>条款22：考虑以操作符复合形式（op&#x3D;）取代其独身形式（op）</h1><p>对于能够使用+操作符的对象，往往我们也希望他能够支持+&#x3D;操作符。</p>
+<p>一般来说复合形式只需要对对象本身进行操作，不需要创建新的对象，而独身形式不会改变左右两个参数，而是构造一个新的对象，进行操作。比起维护两个函数，我们更倾向于用一个函数调用另一个函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Rational</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Rational&amp; <span class="keyword">operator</span>+=(<span class="type">const</span> Rational&amp; rhs);</span><br><span class="line">	Rational&amp; <span class="keyword">operator</span>-=(<span class="type">const</span> Rational&amp; rhs);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 注意返回值const的小细节E21</span></span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>+(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Rational</span>(lhs) += rhs;  <span class="comment">// 注意，请确保Rational()不会被编译器识别为去除const的转型</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">const</span> Rational <span class="keyword">operator</span>-(<span class="type">const</span> Rational&amp; lhs, <span class="type">const</span> Rational&amp; rhs)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Rational</span>(lhs) -= rhs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	这样我们就只需要维护类内复合形式的操作符即可。也可以把这段代码写成模板，由编译器生成代码（如果你不介意所有独身操作符都暴露在全局作用域之下），这样只要你在自定类中实现了复合操作符，就可以使用其独身形式。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> T <span class="keyword">operator</span>+(<span class="type">const</span> T&amp; lhs, <span class="type">const</span> T&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">T</span>(lhs) += rhs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">const</span> T <span class="keyword">operator</span>-(<span class="type">const</span> T&amp; lhs, <span class="type">const</span> T&amp; rhs)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">T</span>(lhs) -= rhs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	独身形式和复合形式也会让用户在便利性和效率间纠结hhh。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">result = a+ b+c+d; <span class="comment">// 有三个临时对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有临时对象</span></span><br><span class="line">result = a;</span><br><span class="line">result += b;</span><br><span class="line">result += c;</span><br><span class="line">result += d;</span><br></pre></td></tr></table></figure>
+
+<p>​	不过注意2-8原则，前者一般也不会对性能产生太大的影响。前者代码可读性强，后者在汇编层可读性强。</p>
+<h1 id="条款23：考虑使用其他程序库"><a href="#条款23：考虑使用其他程序库" class="headerlink" title="条款23：考虑使用其他程序库"></a>条款23：考虑使用其他程序库</h1><p>通过分析器来比对程序库之间的优劣，由于我们不能保证测试数据足够“典型”，所以盲目信任分析器的结果是愚蠢的，但不用分析器也是愚蠢的。</p>
+<p>当你的程序性能遇到瓶颈时，可以考虑使用别的函数库。比如有I&#x2F;O瓶颈，可以做出取舍，考虑使用stdio取代iostream，但也要为此牺牲iostream的安全性和可扩充性。再比如程序花费很多时间在动态分配内存和释放内存上，你应该看看是否有其他提供了operator new和operator delete 的程序库。</p>
+<h1 id="条款24：了解virtual-functions、multiple-inheritance、virtual-base-classes、runtime-type-identification的成本"><a href="#条款24：了解virtual-functions、multiple-inheritance、virtual-base-classes、runtime-type-identification的成本" class="headerlink" title="条款24：了解virtual functions、multiple inheritance、virtual base classes、runtime type identification的成本"></a>条款24：了解virtual functions、multiple inheritance、virtual base classes、runtime type identification的成本</h1><p>这一块的内容是深度探索C++对象模型的主要内容。</p>
+<p>C++的标准规定了编译器需要支持虚函数，而现在主流的虚函数实现是通过vtbl和vptrs。下面就来具体分析这种实现机制带来的利弊。</p>
+<h4 id="虚函数表vtbl的成本"><a href="#虚函数表vtbl的成本" class="headerlink" title="虚函数表vtbl的成本"></a>虚函数表vtbl的成本</h4><p>每个含有虚函数的class（或者继承自含有虚函数的class）都需要在编译的时候生成一份虚函数表，那么这张表应该放在哪里呢？有一种暴力做法就是，在每一个需要vtbl的目标文件中都生成一份（重写或者调用），然后在链接阶段剥除重复的vtbl。但这不是主流做法。另一种方法是探勘式做法。将vtbl放在内含第一个non-inline、non-pure的虚函数定义式的目标文件内。</p>
+<p>上面谈论的是虚表静态保存的位置。那么在程序运行时，vtbl会被加载到内存的哪个位置呢？</p>
+<p>TODO</p>
+<h4 id="虚函数指针vtpr"><a href="#虚函数指针vtpr" class="headerlink" title="虚函数指针vtpr"></a>虚函数指针vtpr</h4><p>一个指针需要4Byte（8Byte）的内存空间</p>
+<h4 id="虚函数不应该被inline"><a href="#虚函数不应该被inline" class="headerlink" title="虚函数不应该被inline"></a>虚函数不应该被inline</h4><p>inline表示函数应该在编译期展开，但是虚函数的调用意味着运行时的多态，两者是矛盾的。虚函数在编译期并不知道调用的对象是什么类型，也不知道调用的函数内容。</p>
+<h4 id="虚函数调用流程"><a href="#虚函数调用流程" class="headerlink" title="虚函数调用流程"></a>虚函数调用流程</h4><ol>
+<li>根据对象的vptr找到对应的vtbl。成本只有一个偏移调整（获得vptr）和一个指针间接动作（访问vtbl）</li>
+<li>根据调用的虚函数的索引，在虚表中找到对应的函数指针。成本只是一个差移以求进入vtbl数组。</li>
+<li>用函数指针调用函数</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">object-&gt;<span class="built_in">virtualFunc</span>();</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line">(*object-&gt;vptr[i])(object); <span class="comment">// 传入object作为this*</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h4><p>简单的多重继承主要的难点在于</p>
+<ol>
+<li>如何找出正确的vptr，因为此时对象中存有多个vptr对应多个vtbl。</li>
+<li>如果该类中又定义了新的虚函数，那么它应该放在哪张虚表里？可能放在第一个继承的父类中。</li>
+</ol>
+<h4 id="菱形继承和虚基类"><a href="#菱形继承和虚基类" class="headerlink" title="菱形继承和虚基类"></a>菱形继承和虚基类</h4><p>菱形继承的第一个问题就是：对象中可能会存在多份重复的base data member。针对这个问题，虚继承会在最末端派生类中确定虚基类的位置（可能是类的末尾），并为每个父类生成一个指针指向虚基类的data members。（这仅仅是可能的做法，当然也有别的做法，可以不引入那么多的指针）</p>
+<p>如果虚基类中含有虚函数，那么末端派生类可能会产生3个vptr和3张虚表。</p>
+<h4 id="运行时类型辨识（runtime-type-identification，RTTI）"><a href="#运行时类型辨识（runtime-type-identification，RTTI）" class="headerlink" title="运行时类型辨识（runtime type identification，RTTI）"></a>运行时类型辨识（runtime type identification，RTTI）</h4><p>RTTI提供了在运行时获得class和object信息的能力，它被存放在type_info类中。那么我们要怎么访问type_info呢？一般来说，虚表的0索引处，就存放着一个指向该类的type_info对象的指针，这也意味着只有含有虚函数的类（或者父类含有虚函数）才支持RTTI。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/computer-science/programming-language/cpp/more-effective-cpp-3-exceptions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/computer-science/programming-language/cpp/more-effective-cpp-3-exceptions/" class="post-title-link" itemprop="url">【More Effective C++】3 异常Exceptions</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-25 16:12:07 / 修改时间：16:12:11" itemprop="dateCreated datePublished" datetime="2022-10-25T16:12:07+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/" itemprop="url" rel="index"><span itemprop="name">programming-language</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>568</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="条款9-利用destructors避免泄露资源"><a href="#条款9-利用destructors避免泄露资源" class="headerlink" title="条款9 利用destructors避免泄露资源"></a>条款9 利用destructors避免泄露资源</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">processAdoptions</span><span class="params">(istream&amp; dataSource)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(dataSource)&#123;</span><br><span class="line">        ALA *pa = <span class="built_in">readALA</span>(dataSource);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            pa-&gt;<span class="built_in">processAdoption</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">catch</span>(...)&#123;</span><br><span class="line">            <span class="keyword">delete</span> pa;</span><br><span class="line">            <span class="keyword">throw</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> pa;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	可以使用对象析构时调用destructor来帮助你释放内存，如智能指针。</p>
+<p>当然也不只是资源的释放，任何你想在出作用域时执行的任务都可以考虑对象的析构函数（但要注意条款11）。</p>
+<h2 id="条款10-在constructor内阻止资源泄露（resource-leak）"><a href="#条款10-在constructor内阻止资源泄露（resource-leak）" class="headerlink" title="条款10 在constructor内阻止资源泄露（resource leak）"></a>条款10 在constructor内阻止资源泄露（resource leak）</h2><p>tips：delete一个nullptr是安全的</p>
+<p>destructor只会析构已经构造完成的对象，如果在构造过程中抛出错误，那么是不会调用析构函数的，容易造成资源泄露（栈对象可以释放，但是堆对象不行）。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span>::<span class="built_in">constructor</span>(<span class="type">const</span> string&amp; imagefile, <span class="type">const</span> string&amp; audiofile)&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(imagefile != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">            theImage = <span class="keyword">new</span> <span class="built_in">Image</span>(imagefile);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(audiofile != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">            theAudioClip = <span class="keyword">new</span> <span class="built_in">AudioClip</span>(audiofile);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">catch</span>(...)&#123;</span><br><span class="line">        <span class="keyword">delete</span> theImage;</span><br><span class="line">        <span class="keyword">delete</span> theAudioClip;</span><br><span class="line">        <span class="keyword">throw</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于常指针成员变量，我们不得不使用列表初始化，此时就只能把try catch放到一个额外的函数以供列表初始化调用。</p>
+<p><strong>最好的做法就是使用智能指针来管理成员指针！我们什么都不用干，析构函数也什么都不用干。</strong></p>
+<h2 id="条款11-静止异常（exceptions）流出destructors之外"><a href="#条款11-静止异常（exceptions）流出destructors之外" class="headerlink" title="条款11 静止异常（exceptions）流出destructors之外"></a>条款11 静止异常（exceptions）流出destructors之外</h2><p>destructor会在两种情况下调用：</p>
+<ol>
+<li><ol>
+<li>对象走出作用域，或者被手动删除（delete），这是正常析构</li>
+<li>对象被exception机制（栈展开）销毁，即在对象所处栈域内出现了异常，对象被迫提前销毁</li>
+</ol>
+</li>
+</ol>
+<p>在第二种情况下，由于上下文（析构函数外头）中已经存在一个未处理的异常，如果destructor再抛出一个异常，那么程序会立刻调用terminate，直接gg</p>
+<p>还有另一个坏处，如果在析构函数内抛出异常，还可能导致析构函数执行不全，留下部分遗骸没有处理。</p>
+<p>那么要怎么解决呢？在destructor之中使用try catch，并且保证catch中也不抛出异常（输出日志 &lt;&lt; 也可能抛异常），同时也保证抛出异常后析构也要完整执行。</p>
+<h2 id="条款12-了解“抛出一个exception”与“传递一个参数”或“调用一个虚函数”之间的差异"><a href="#条款12-了解“抛出一个exception”与“传递一个参数”或“调用一个虚函数”之间的差异" class="headerlink" title="条款12 了解“抛出一个exception”与“传递一个参数”或“调用一个虚函数”之间的差异"></a>条款12 了解“抛出一个exception”与“传递一个参数”或“调用一个虚函数”之间的差异</h2><p>啃不动辣，之后再说</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/computer-science/programming-language/cpp/more-effective-cpp-2-operators/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/computer-science/programming-language/cpp/more-effective-cpp-2-operators/" class="post-title-link" itemprop="url">【More Effective C++】2 操作符Operators</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-25 16:11:13 / 修改时间：16:11:17" itemprop="dateCreated datePublished" datetime="2022-10-25T16:11:13+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/" itemprop="url" rel="index"><span itemprop="name">programming-language</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="条款5-对定制的“类型转换函数”保持警觉"><a href="#条款5-对定制的“类型转换函数”保持警觉" class="headerlink" title="条款5 对定制的“类型转换函数”保持警觉"></a>条款5 对定制的“类型转换函数”保持警觉</h2><p><strong>隐式</strong>类型转换函数的两种定义：</p>
+<ul>
+<li>能够以单一自变量构造的构造函数（构造函数只有一个参数 or 除第一个参数外都有默认值）</li>
+<li>operator type_name() { }</li>
+</ul>
+<p>缺点：导致非预期的函数被成功调用。（理应报错的函数却被“蹩脚”的隐式转换成功避过）</p>
+<p>合理的做法：</p>
+<ul>
+<li>使用explicit 关键字防止单变量构造函数被用作隐式转换（还有一个做法就是使用proxy class(代理类)）</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Array</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// proxy class</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ArraySize</span>&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">ArraySize</span>(<span class="type">int</span> numElements):<span class="built_in">thisSize</span>(numElements)&#123;&#125;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">size</span><span class="params">()</span> <span class="type">const</span> </span>&#123;<span class="keyword">return</span> theSize;&#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> theSize;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// -------------</span></span><br><span class="line">    <span class="built_in">Array</span>(ArraySize size);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>明确定义一个函数来进行转换（例如 string 的 c_str() 函数）</li>
+</ul>
+<p><strong>编译器的隐式转换只允许转换一次</strong>，即不会出现编译器隐式 A-&gt;B-&gt;C 两次转换</p>
+<h4 id="请记住"><a href="#请记住" class="headerlink" title="请记住"></a>请记住</h4><p>允许编译器执行隐式转换害处将多过好处。所以不要提供转换函数，除非你确定你需要他们。</p>
+<h2 id="条款6-区别-increment-自增-decrement-自减-操作符的前置（prefix）和后置（postfix）形式"><a href="#条款6-区别-increment-自增-decrement-自减-操作符的前置（prefix）和后置（postfix）形式" class="headerlink" title="条款6 区别 increment(自增)&#x2F;decrement(自减) 操作符的前置（prefix）和后置（postfix）形式"></a>条款6 区别 increment(自增)&#x2F;decrement(自减) 操作符的前置（prefix）和后置（postfix）形式</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UPInt</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    UPInt&amp; <span class="keyword">operator</span>++()  <span class="comment">// ++UPInt</span></span><br><span class="line">    &#123;</span><br><span class="line">        *<span class="keyword">this</span> += <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> UPInt <span class="title">operator</span><span class="params">(<span class="type">int</span>)</span>  <span class="comment">// UPInt++</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        UPInt oldValue = *<span class="keyword">this</span>;</span><br><span class="line">        ++(*<span class="keyword">this</span>);  <span class="comment">// 调用前置式</span></span><br><span class="line">        <span class="keyword">return</span> oldValue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    UPInt&amp; <span class="keyword">operator</span>+=(<span class="type">int</span> i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">UPInt i1;</span><br><span class="line">++i1;</span><br><span class="line">i1++;</span><br><span class="line">++++i1;  <span class="comment">// right</span></span><br><span class="line">i1++++;  <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>前置式：increment and fetch 累加然后取出 </li>
+<li>后置式：fetch and increment 取出然后累加</li>
+<li>后置式需要声明一个int参数，可以不给名字（因为不会实际使用上</li>
+<li>前置式返回对象的引用，而后置式返回旧对象的拷贝，因此后置式返回的对象应为const，不允许 UPInt++++；</li>
+<li>前置式的性能较后置式优秀，因为后置式创建了一个临时对象，存在一次构造和析构，因此<strong>优先使用前置式</strong></li>
+<li>请保证前置式和后置式的主逻辑相同，可以使用<strong>后置式调用前置式</strong>，这样我们只用维护前置式就好了</li>
+</ul>
+<h2 id="条款7-千万不要重载-、-和-操作符"><a href="#条款7-千万不要重载-、-和-操作符" class="headerlink" title="条款7 千万不要重载&amp;&amp;、|| 和 , 操作符"></a>条款7 千万不要重载&amp;&amp;、|| 和 , 操作符</h2><p>C++（C）的“真假值表达式”采用“<strong>骤死式</strong>”，即一旦可以确定表达式的真假，即便表达式还有部分尚未进行判断（评估），仍然会直接结束表达式。</p>
+<p>但是如果重载了 &amp;&amp; 和 || 那么“骤死式”语义就会转化成 函数调用语义，这样会导致</p>
+<ul>
+<li><ol>
+<li>操作符左右的两个表达式作为函数的参数，一定都会被执行到</li>
+<li>函数参数的<strong>执行顺序</strong>是未定义的，而“骤死式”语义下表达式的执行顺序是确定的，从左往右</li>
+</ol>
+</li>
+</ul>
+<p>这样的后果并不是我们很容易能预期的，所以请不要重载 &amp;&amp; 和 || 。</p>
+<p>对于 , 操作符，其表达式会先执行左侧表达式，然后执行右侧表达式，最后将右侧表达式的结果返回。如果重载的话，我们也无法保证先执行左侧表达式，再执行右侧表达式（不管是non-member function 还是 member function）。</p>
+<p>所以请<strong>不要重载&amp;&amp;、|| 和 , 操作符</strong>。</p>
+<h2 id="条款8-了解各种不同意义的new-和-delete"><a href="#条款8-了解各种不同意义的new-和-delete" class="headerlink" title="条款8 了解各种不同意义的new 和 delete"></a>条款8 了解各种不同意义的new 和 delete</h2><p>在分配内存时，内存分配器实际上会用额外sizeof(size_t)来存储内存的大小，这样释放的时候才知道要释放多少内存。</p>
+<h3 id="operator-new-和-new-operator（new-expression）"><a href="#operator-new-和-new-operator（new-expression）" class="headerlink" title="operator new 和 new operator（new expression）"></a>operator new 和 new operator（new expression）</h3><ul>
+<li>new operator 是语言内建的，不能被改变（如sizeof）。他做两件事</li>
+<li><ol>
+<li>分配内存 （可以通过 operator new 来自定义）</li>
+<li>调用constructor来初始化刚刚分配的内存</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string *ps = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">&quot;Memory&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>operator new 唯一的任务就是分配内存，取得operator new返回的内存并初始化是new operator的任务。</li>
+</ul>
+<p>operator new() 是像是一个函数，而不是一个运算符。 它可以在<strong>全局重载</strong>或者<strong>类重载。</strong> </p>
+<p>非成员运算符 new 或 delete 函数不可声明为静态的，也不可在全局命名空间之外的命名空间中进行声明。</p>
+<p>标准形式的operator new(size_t)<strong>全局只允许一份</strong>，如果你调用的库也重写了它，那么将会出现链接错误。 </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="type">size_t</span> size)</span></span>;  <span class="comment">// 接受size_t内存大小，返回分配到的内存指针</span></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="type">size_t</span> size, <span class="type">int</span> i)</span></span>;  <span class="comment">// 也可以重载更多的参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//可以显式调用</span></span><br><span class="line"><span class="type">void</span>* rawMemory = <span class="keyword">operator</span> <span class="built_in">new</span>(<span class="built_in">sizeof</span>(string));</span><br></pre></td></tr></table></figure>
+
+<p>当你写了一个自己的operator new(size_t)后，使用new operator会<strong>自动调用你的版本</strong>的operator new。</p>
+<ul>
+<li>如果你还想要手动在分配的内存上进行构造，可以使用 placement new（特殊版本的 operator new）</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span>* rawM = <span class="keyword">operator</span> <span class="built_in">new</span>(<span class="built_in">sizeof</span>(std::string));</span><br><span class="line">std::string* ps = <span class="built_in">new</span>(rawM) std::<span class="built_in">string</span>();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="type">size_t</span>，<span class="type">void</span>* location)</span> <span class="comment">// 已经内置了这个函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> location;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实质上就是通过传参（rawM）在 new operator 的内存分配阶段隐式调用 operator new(size_t, void*)版本的内存分配函数，后面的构造阶段不变。</p>
+<h3 id="delete-和-Deallocation（内存释放）"><a href="#delete-和-Deallocation（内存释放）" class="headerlink" title="delete 和 Deallocation（内存释放）"></a>delete 和 Deallocation（内存释放）</h3><p>delete operator 和 operator delete 的行为与new相似。</p>
+<p>operator delete 只执行内存释放</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="type">void</span>* memoryToBeDeallocation)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>delete operator 会执行以下两步</p>
+<ul>
+<li><ol>
+<li>析构内存中的对象</li>
+<li>调用 operator delete 释放内存</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> ps;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">ps-&gt;~<span class="built_in">string</span>();</span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(ps)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="new-And-delete"><a href="#new-And-delete" class="headerlink" title="new And delete"></a>new And delete</h3><p>正常使用，即 new 生成对象，delete 释放对象</p>
+<p>如果只想要内存，则使用 operator new 分配内存，使用operator delete来释放内存</p>
+<p>如果使用 placement new，那么就不应该使用delete 和operator delete，因为你并不知道这块内存是怎么来的，是不是operator new 分配的（可以通过对应的 placement delete 来解决，见<a target="_blank" rel="noopener" href="https://www.yuque.com/shishideluoliya/dtphcp/dy0ham#XkrQO">Effective C++条款52</a>）</p>
+<h3 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h3><p>在分配数组内存时，可能会额外分配4个字节用来储存数组的大小等信息，以便之后的delete[]。</p>
+<p>当new operator作用于数组，我们会先调用operator new[] （可以重载）来分配内存，然后对每个对象分别调用构造函数。</p>
+<p>当delete operator 作用于数组时，先对每一个对象调用析构函数，然后再调用 operator delete[] 来释放内存。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string* ps = <span class="keyword">new</span> string[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">delete</span> [] ps;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/computer-science/programming-language/cpp/more-effective-cpp-1-basics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/computer-science/programming-language/cpp/more-effective-cpp-1-basics/" class="post-title-link" itemprop="url">【More Effective C++】1 基础议题Basics</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-25 16:10:20 / 修改时间：16:10:25" itemprop="dateCreated datePublished" datetime="2022-10-25T16:10:20+08:00">2022-10-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/" itemprop="url" rel="index"><span itemprop="name">programming-language</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="条款1-仔细区别pointers和references"><a href="#条款1-仔细区别pointers和references" class="headerlink" title="条款1 仔细区别pointers和references"></a>条款1 仔细区别pointers和references</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">v</span><span class="params">(<span class="number">10</span>)</span></span>;</span><br><span class="line">*v[<span class="number">5</span>] = <span class="number">10</span>;  <span class="comment">// 很奇怪对吧</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当你知道你需要指向某个东西，而且绝不会改变指向其他东西，或是当你实现一个操作符而其语法需求无法由pointer达成（见上例），你就应该选择references。其他任何时候请采用pointers。</li>
+</ul>
+<h2 id="条款2-最好使用C-转型操作符"><a href="#条款2-最好使用C-转型操作符" class="headerlink" title="条款2 最好使用C++转型操作符"></a>条款2 最好使用C++转型操作符</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(type) expression  <span class="comment">// C 风格转型</span></span><br><span class="line"><span class="built_in">static_cast</span>&lt;type&gt;(expression)</span><br><span class="line"><span class="built_in">const_cast</span>&lt;type&gt;(expression)  <span class="comment">// 擦除常量性（增加常量性可以隐式发生）</span></span><br><span class="line">                              <span class="comment">// &lt;&gt;中必须是指针或引用，改变指向对象的常量性</span></span><br><span class="line"><span class="built_in">dynamic_cast</span>&lt;type&gt;(expression)  <span class="comment">// 将父类指针、引用向下转型</span></span><br><span class="line">                            <span class="comment">// 只能用来协助你巡航于继承体系，无法应用在缺乏虚函数的类型上</span></span><br><span class="line"><span class="built_in">reinterpret_cast</span>&lt;type&gt;(expression)  <span class="comment">// 将函数指针强转，尽量不要使用</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span>&amp; b = *<span class="built_in">const_cast</span>&lt;<span class="type">int</span>*&gt;(&amp;a);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>虽然C的转型操作符可以完成所有工作，但是难以辨认、debug</li>
+<li>C++的转型比较容易辨识（不管是人还是编译器），编译器也能诊断转型错误原因</li>
+<li>当然最理想的状态就是不用转型hhh</li>
+<li>tips：dynamic_cast要求类型必须有虚函数</li>
+</ul>
+<h2 id="条款3-绝对不要以多态（polymorphically）方式处理数组"><a href="#条款3-绝对不要以多态（polymorphically）方式处理数组" class="headerlink" title="条款3 绝对不要以多态（polymorphically）方式处理数组"></a>条款3 绝对不要以多态（polymorphically）方式处理数组</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> m_i1;</span><br><span class="line">	<span class="type">long</span> m_i2;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Base</span>() :<span class="built_in">m_i1</span>(<span class="number">11</span>), <span class="built_in">m_i2</span>(<span class="number">22</span>) &#123;&#125;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">func1</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> :<span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="type">float</span> m_f1;</span><br><span class="line">	<span class="type">char</span> m_c2;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Derived</span>() :<span class="built_in">m_f1</span>(<span class="number">1.11</span>), <span class="built_in">m_c2</span>(<span class="string">&#x27;a&#x27;</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Print</span><span class="params">(<span class="type">const</span> Base arr[], <span class="type">int</span> count)</span> </span>&#123;</span><br><span class="line">	std::cout &lt;&lt; arr[<span class="number">3</span>].m_i1 &lt;&lt; std::endl;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; count; ++i) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Derived arr[<span class="number">10</span>]&#123;&#125;;</span><br><span class="line">	std::cout &lt;&lt; arr[<span class="number">3</span>].m_i1 &lt;&lt; std::endl;</span><br><span class="line">	<span class="comment">// 犯了条款3的错误</span></span><br><span class="line">	<span class="built_in">Print</span>(arr, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>简单来说，多态（polymorphism）和指针算术不能混用。数组对象几乎总是会涉及指针的算数运算，所以数组和多态不要混用。</li>
+<li>究其根本，数组的下标运算（ [index] ）需要知道数组元素的大小（体积），而这个大小只是静态类型（基类）的大小，派生类的大小往往比基类大，这样下标运算就会导致指针错位。</li>
+<li>更进一步分析这个错误，我们只是把一个Derived数组首部的指针进行转换，转换后的Base数组首部指针并不知道数组元素的真实信息，自然无法合理的进行内存的分块，只能按它已知的信息进行指针的跳转。</li>
+</ul>
+<h2 id="条款4-非必要不提供-default-constructor"><a href="#条款4-非必要不提供-default-constructor" class="headerlink" title="条款4 非必要不提供 default constructor"></a>条款4 非必要不提供 default constructor</h2><p>tips：一个带参的（拷贝构造除外）的构造函数会取消编译器对default构造函数的隐式生成</p>
+<ol>
+<li><p>对于一个必须有初值才能构造的类型，构建数组是麻烦的，下面有三种方法</p>
+</li>
+<li><ol>
+<li>直接用初值构造数组，但这只适用于non-heap数组（栈空间）</li>
+<li>使用一个指针数组，对各个指针new一个对象，最后要记得把他们释放。这个方法会占用比较多的内存空间（存储指针）</li>
+<li>为数组分配足够多的raw memory 在这个空间上使用placement new，这块内存的头部就是数组的首地址。释放内存的时候记得只能对new出来的raw memory进行delete，placement new不行！</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">EquipmentPiece</span>;</span><br><span class="line"><span class="comment">// 分配足够多的内存</span></span><br><span class="line"><span class="type">void</span> *rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="number">10</span>*<span class="built_in">sizeof</span>(EquipmentPiece));</span><br><span class="line"><span class="comment">// 让bestpieces指向此块内存，把这块内存当作数组</span></span><br><span class="line">EquipmentPiece *bestPieces = <span class="built_in">static_cast</span>&lt;EquipmentPiece*&gt;(rawMemory);</span><br><span class="line"><span class="comment">// 利用placement new进行构造</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; ++i)&#123;</span><br><span class="line">    <span class="keyword">new</span> (&amp;bestPieces[i]) <span class="built_in">EquipmentPiece</span>( <span class="comment">/*ID Number*/</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 释放内存</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">9</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">    bestPieces[i].~<span class="built_in">EquipmentPiece</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">operator</span> <span class="keyword">delete</span>[](rawMemory);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>没有default constructor的类型也将不适用于许多template-based container classes。当然像vector这类（“可拓展数组”）是适配的。</li>
+<li>在类的继承方面，没有default constructor的虚基类（virtual base classes）将是一场噩梦。因为虚基类必须在最远端的派生类中的变量进行初始化，这意味着我们必须了解虚基类的意义，手动为虚基类传参构造。</li>
+</ol>
+<p>为什么非必要不提供default constructor？</p>
+<ul>
+<li><ul>
+<li>在保证对象一定会初始化之后，使用对象便不用检查对象内的成员是否存在，这大大便利了对象的使用！精简了代码，也更有效率！</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/game-dev/graphics/hough-transform-detection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/game-dev/graphics/hough-transform-detection/" class="post-title-link" itemprop="url">霍夫变换检测</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-21 17:24:15" itemprop="dateCreated datePublished" datetime="2022-10-21T17:24:15+08:00">2022-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/game-dev/" itemprop="url" rel="index"><span itemprop="name">game-dev</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/game-dev/graphics/" itemprop="url" rel="index"><span itemprop="name">graphics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>参考资料：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/203292567?utm_source=wechat_session">【知乎】（四十八）通俗易懂理解——霍夫变换原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/448935812">【知乎】霍夫圆检测原理，一文读懂，可用作车轮识别</a></li>
+</ol>
+</blockquote>
+<p>本文是数字图像处理课程一次小作业的笔记，记录如何实现霍夫变换进行图像特征检测。</p>
+<p>霍夫变换是用于数字图像中检测直线或圆的一种算法。广义霍夫变换可以检测任意曲线。</p>
+<p>霍夫圆变换可以有优化的方法。</p>
+<h3 id="C-实现例程"><a href="#C-实现例程" class="headerlink" title="C++实现例程"></a>C++实现例程</h3><p>这里使用OpenCV进行算法的实现。</p>
+<h4 id="霍夫线变换"><a href="#霍夫线变换" class="headerlink" title="霍夫线变换"></a>霍夫线变换</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 霍夫线变换</span></span><br><span class="line"><span class="comment"> * @param input 输入图像 8UC3</span></span><br><span class="line"><span class="comment"> * @param output 输出图像</span></span><br><span class="line"><span class="comment"> * @param thresh 霍夫空间阈值 0~255</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HoughLine</span><span class="params">(InputMat input, OutputMat output, <span class="type">int</span> thresh)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Mat <span class="title">gray</span><span class="params">(input.rows, input.cols, CV_8UC1, Scalar(<span class="number">0</span>))</span></span>;</span><br><span class="line">	<span class="function">Mat <span class="title">edge</span><span class="params">(gray.rows, gray.cols, CV_8UC1, Scalar(<span class="number">0</span>))</span></span>;</span><br><span class="line">	<span class="built_in">cvtColor</span>(input, gray, COLOR_BGR2GRAY);</span><br><span class="line">	<span class="built_in">EdgeDetector</span>(gray, edge, <span class="number">0.8</span>, <span class="number">20</span>, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 对角线距离，可以保证求得的r在 -r_max ~ r_max 内</span></span><br><span class="line">	<span class="type">const</span> <span class="type">double</span> r_max = <span class="built_in">sqrt</span>(<span class="number">2</span>) * <span class="built_in">max</span>(edge.cols, edge.rows); </span><br><span class="line">    <span class="type">int</span> r_slice = <span class="number">400</span>;  <span class="comment">// 参数空间中距离r的分段数量</span></span><br><span class="line">	<span class="type">int</span> rw = edge.rows;</span><br><span class="line">	<span class="type">int</span> cl = edge.cols;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// calculate the param space</span></span><br><span class="line">	Mat param = Mat::<span class="built_in">zeros</span>(r_slice, <span class="number">180</span>, CV_32SC1); <span class="comment">// 角度取0~180</span></span><br><span class="line">	<span class="type">int</span> max_val = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">// 以左上角为原点，col为横坐标x，row为纵坐标y</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; rw; y++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; cl; x++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (edge.<span class="built_in">at</span>&lt;uchar&gt;(y, x) == <span class="number">255</span>) <span class="comment">// 对于边缘检测，像素的非0即255</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="type">int</span> theta = <span class="number">0</span>; theta &lt; <span class="number">180</span>; ++theta) <span class="comment">// 角度取0~180</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="comment">// r == x * cos(theta) + y * sin(theta)</span></span><br><span class="line">					<span class="type">double</span> r = x * <span class="built_in">cos</span>(CV_PI * theta / <span class="number">180.0</span>)</span><br><span class="line">                        + y * <span class="built_in">sin</span>(CV_PI * theta / <span class="number">180.0</span>);</span><br><span class="line">					<span class="comment">// 量化到param矩阵, 即从 -r_max ~ r_max 线性映射到 0 ~ r_slice</span></span><br><span class="line">					<span class="type">int</span> r_param = <span class="built_in">int</span>((r / r_max) * (r_slice / <span class="number">2.0</span>) + (r_slice / <span class="number">2.0</span>));</span><br><span class="line">					param.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(r_param, theta) += <span class="number">1</span>;</span><br><span class="line">					max_val = std::<span class="built_in">max</span>(max_val, param.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(r_param, theta));</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> r_param = <span class="number">0</span>; r_param &lt; r_slice; ++r_param)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> theta = <span class="number">0</span>; theta &lt; <span class="number">180</span>; ++theta)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 将参数空间的幅值压缩到 0 ~ 255</span></span><br><span class="line">			<span class="type">const</span> <span class="type">int</span> amp = <span class="built_in">int</span>(<span class="number">255.0</span> * param.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(r_param, theta) / max_val);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// get back to spacial space</span></span><br><span class="line">			<span class="keyword">if</span> (amp &gt;= thresh)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="comment">// 从 0 ~ r_slice 线性映射到 -r_max ~ r_max</span></span><br><span class="line">				<span class="type">double</span> r = (r_param - r_slice * <span class="number">0.5</span>) / (r_slice * <span class="number">0.5</span>) * r_max;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 取直线 r == x*cos(theta) + y*sin(theta) 上的两点来绘制线段, </span></span><br><span class="line">                <span class="comment">// 这里取(x1,0)和(x2,rows)</span></span><br><span class="line">				<span class="keyword">if</span> (theta == <span class="number">90</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="type">int</span> y = <span class="built_in">int</span>(r / <span class="built_in">sin</span>(CV_PI * theta / <span class="number">180.0</span>));</span><br><span class="line">					<span class="built_in">line</span>(output, <span class="built_in">Point</span>(<span class="number">0</span>, y), <span class="built_in">Point</span>(output.cols, y), <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					<span class="type">int</span> x1 = <span class="built_in">int</span>(r / <span class="built_in">cos</span>(CV_PI * theta / <span class="number">180.0</span>));</span><br><span class="line">					<span class="type">int</span> x2 = <span class="built_in">int</span>((r - output.rows * <span class="built_in">sin</span>(CV_PI * theta / <span class="number">180.0</span>))</span><br><span class="line">                                 / <span class="built_in">cos</span>(CV_PI * theta / <span class="number">180.0</span>));</span><br><span class="line">					<span class="built_in">line</span>(output, <span class="built_in">Point</span>(x1, <span class="number">0</span>), <span class="built_in">Point</span>(x2, output.rows), </span><br><span class="line">                         <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>));</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="霍夫圆变换"><a href="#霍夫圆变换" class="headerlink" title="霍夫圆变换"></a>霍夫圆变换</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 应用Sobel算子, 计算灰度图的梯度方向</span></span><br><span class="line"><span class="comment"> * @param input 输入图像 灰度图</span></span><br><span class="line"><span class="comment"> * @param ori</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SobelDirection</span><span class="params">(InputMat input, OutputMat ori)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> rw = input.rows;</span><br><span class="line">	<span class="type">int</span> cl = input.cols;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; rw - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; cl - <span class="number">1</span>; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">double</span> gx = <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i - <span class="number">1</span>, j + <span class="number">1</span>)) + <span class="number">2</span> * <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i, j + <span class="number">1</span>)) + <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i + <span class="number">1</span>, j + <span class="number">1</span>))</span><br><span class="line">				- (<span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i - <span class="number">1</span>, j - <span class="number">1</span>)) + <span class="number">2</span> * <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i, j - <span class="number">1</span>)) + <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i + <span class="number">1</span>, j - <span class="number">1</span>)));</span><br><span class="line">			<span class="type">double</span> gy = -(<span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i - <span class="number">1</span>, j - <span class="number">1</span>)) + <span class="number">2</span> * <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i - <span class="number">1</span>, j)) + <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i - <span class="number">1</span>, j + <span class="number">1</span>)))</span><br><span class="line">				+ (<span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i + <span class="number">1</span>, j - <span class="number">1</span>)) + <span class="number">2</span> * <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i + <span class="number">1</span>, j)) + <span class="built_in">double</span>(input.<span class="built_in">at</span>&lt;uchar&gt;(i + <span class="number">1</span>, j + <span class="number">1</span>)));</span><br><span class="line">			<span class="type">double</span> dir = <span class="built_in">fabs</span>(<span class="built_in">atan2</span>(gy, gx));</span><br><span class="line">			<span class="keyword">if</span> (dir &lt; <span class="number">0</span>) dir += (CV_PI);</span><br><span class="line">			ori.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(i, j) = <span class="built_in">float</span>(dir);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 霍夫圆变换</span></span><br><span class="line"><span class="comment"> * @param src 输入图像</span></span><br><span class="line"><span class="comment"> * @param dst 输出图像</span></span><br><span class="line"><span class="comment"> * @param threshold 圆心阈值</span></span><br><span class="line"><span class="comment"> * @param max_r 最大半径</span></span><br><span class="line"><span class="comment"> * @param min_r 最小半径</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HoughCircle</span><span class="params">(InputMat src, OutputMat dst, <span class="type">double</span> threshold, <span class="type">double</span> max_r, <span class="type">double</span> min_r = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Mat <span class="title">gray</span><span class="params">(src.rows, src.cols, CV_8UC1, Scalar(<span class="number">0</span>))</span></span>;</span><br><span class="line">	<span class="function">Mat <span class="title">edge</span><span class="params">(src.rows, src.cols, CV_8UC1, Scalar(<span class="number">0</span>))</span></span>;</span><br><span class="line">	<span class="function">Mat <span class="title">gradient</span><span class="params">(src.rows, src.cols, CV_32FC1, Scalar(<span class="number">0</span>))</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cvtColor</span>(src, gray, COLOR_BGR2GRAY);</span><br><span class="line">	<span class="built_in">EdgeDetector</span>(gray, edge, <span class="number">0.6</span>, <span class="number">20</span>, <span class="number">10</span>);</span><br><span class="line">	<span class="built_in">Sobel</span>(gray, gradient, CV_16S, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> rw = src.rows;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> cl = src.cols;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// apply center lines</span></span><br><span class="line">	Mat param_center = Mat::<span class="built_in">zeros</span>(src.rows, src.cols, CV_32SC1);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; rw; y++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; cl; x++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (edge.<span class="built_in">at</span>&lt;uchar&gt;(y, x) == <span class="number">255</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="comment">// 沿梯度方向划线</span></span><br><span class="line">				param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y, x) += <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">fabs</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x) - CV_PI * <span class="number">0.5</span>) &lt;= CV_PI * <span class="number">0.25</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; n &lt; rw - <span class="number">1</span>; n++)</span><br><span class="line">					&#123;</span><br><span class="line">						<span class="keyword">if</span> (y + n &lt; rw &amp;&amp;</span><br><span class="line">							x + n / <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &lt; cl &amp;&amp;</span><br><span class="line">							x + n / <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &gt;= <span class="number">0</span>)</span><br><span class="line">						&#123;</span><br><span class="line">							param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y + n, x + (<span class="type">int</span>)(n / <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)))) += <span class="number">1</span>;</span><br><span class="line">						&#125;</span><br><span class="line">						<span class="keyword">if</span> (y - n &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">							x - n / <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &lt; cl &amp;&amp;</span><br><span class="line">							x - n / <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &gt;= <span class="number">0</span>)</span><br><span class="line">						&#123;</span><br><span class="line">							param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y - n, x - (<span class="type">int</span>)(n / <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)))) += <span class="number">1</span>;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">1</span>; m &lt; cl - <span class="number">1</span>; m++)</span><br><span class="line">					&#123;</span><br><span class="line">						<span class="keyword">if</span> (x + m &lt; cl &amp;&amp;</span><br><span class="line">							y + m / <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &lt; rw &amp;&amp;</span><br><span class="line">							y + m / <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &gt;= <span class="number">0</span>)</span><br><span class="line">						&#123;</span><br><span class="line">							param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y + (<span class="type">int</span>)(m / <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x))), x + m) += <span class="number">1</span>;</span><br><span class="line">						&#125;</span><br><span class="line">						<span class="keyword">if</span> (x - m &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">							y - m / <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &lt; rw &amp;&amp;</span><br><span class="line">							y - m / <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) &gt;= <span class="number">0</span>)</span><br><span class="line">						&#123;</span><br><span class="line">							param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y - (<span class="type">int</span>)(m / <span class="built_in">cos</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x)) * <span class="built_in">sin</span>(gradient.<span class="built_in">at</span>&lt;<span class="type">float</span>&gt;(y, x))), x - m) += <span class="number">1</span>;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// find maximun</span></span><br><span class="line">	<span class="type">int</span> max_val = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">1</span>; y &lt; rw - <span class="number">1</span>; y++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">1</span>; x &lt; cl - <span class="number">1</span>; x++)</span><br><span class="line">		&#123;</span><br><span class="line">			max_val = <span class="built_in">max</span>(<span class="built_in">int</span>(param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y, x)), max_val);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 找到圆心</span></span><br><span class="line">	<span class="comment">// <span class="doctag">TODO:</span> 剔除距离过近的点</span></span><br><span class="line">	std::vector&lt;Point2i&gt; centers;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">1</span>; y &lt; rw - <span class="number">1</span>; y++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">1</span>; x &lt; cl - <span class="number">1</span>; x++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">// 将参数空间的幅值压缩到 0 ~ 255</span></span><br><span class="line">			<span class="type">const</span> <span class="type">int</span> amp = (<span class="type">int</span>)(param_center.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(y, x) * (<span class="number">255.0</span> / max_val));</span><br><span class="line">			<span class="keyword">if</span> (amp &gt;= threshold)</span><br><span class="line">			&#123;</span><br><span class="line">				centers.<span class="built_in">emplace_back</span>(x, y);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!centers.<span class="built_in">size</span>()) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;did not find circles!&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// calculate distance(radius space)</span></span><br><span class="line">	<span class="comment">// 以圆心下标为rows, 圆的半径为cols</span></span><br><span class="line">	Mat param_radius = Mat::<span class="built_in">zeros</span>(centers.<span class="built_in">size</span>(), (<span class="type">int</span>)(max_r - min_r), CV_32SC1);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">1</span>; y &lt; rw - <span class="number">1</span>; y++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">1</span>; x &lt; cl - <span class="number">1</span>; x++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (edge.<span class="built_in">at</span>&lt;uchar&gt;(y, x) == <span class="number">255</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="type">int</span> center_index = <span class="number">0</span>; center_index &lt; centers.<span class="built_in">size</span>(); ++center_index)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="type">int</span> distance = <span class="built_in">int</span>(<span class="built_in">sqrt</span>((centers[center_index].y - y) * (centers[center_index].y - y)</span><br><span class="line">						+ (centers[center_index].x - x) * (centers[center_index].x - x)));</span><br><span class="line">					<span class="keyword">if</span> (distance &lt; max_r &amp;&amp; distance &gt;= min_r) &#123;</span><br><span class="line">						param_radius.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(center_index, (<span class="type">int</span>)(distance - min_r)) += <span class="number">1</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// find qualified radius</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> center_index = <span class="number">0</span>; center_index &lt; centers.<span class="built_in">size</span>(); ++center_index)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// <span class="doctag">TODO:</span> 暂时只是寻找最合适的半径，没有处理同心圆的情况</span></span><br><span class="line">		<span class="type">int</span> radius_max = <span class="number">0</span>;</span><br><span class="line">		<span class="type">int</span> radius = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> r = <span class="number">0</span>; r &lt; (<span class="type">int</span>)(max_r - min_r); r++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (radius_max &lt;= param_radius.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(center_index, r))</span><br><span class="line">			&#123;</span><br><span class="line">				radius_max = param_radius.<span class="built_in">at</span>&lt;<span class="type">int</span>&gt;(center_index, r);</span><br><span class="line">				radius = r + <span class="built_in">int</span>(min_r);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">circle</span>(dst, <span class="built_in">Point</span>(centers[center_index].x, centers[center_index].y), radius, <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/computer-science/programming-language/cpp/effective-cpp-9-miscellany/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/computer-science/programming-language/cpp/effective-cpp-9-miscellany/" class="post-title-link" itemprop="url">【Effective C++】9 杂项讨论</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-20 12:20:09" itemprop="dateCreated datePublished" datetime="2022-10-20T12:20:09+08:00">2022-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/" itemprop="url" rel="index"><span itemprop="name">programming-language</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/computer-science/programming-language/cpp/" itemprop="url" rel="index"><span itemprop="name">cpp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>142</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="条款53-不要轻忽编译器的警告"><a href="#条款53-不要轻忽编译器的警告" class="headerlink" title="条款53 不要轻忽编译器的警告"></a>条款53 不要轻忽编译器的警告</h2><blockquote>
+<p>请记住</p>
+<ul>
+<li>严肃对待编译器发出的警告信息。努力在你的编译器的最高（最严苛）警告级别下争取“无任何警告”的荣誉</li>
+<li>不要过度依赖编译器的报警能力，因为不同的编译器对待事情的态度并不相同。一旦移植到另一个编译器上，你原本依赖的警告信息有可能消失。</li>
+</ul>
+</blockquote>
+<h2 id="条款54-让自己熟悉TR1（Technical-Report-1）在内的标准程序库"><a href="#条款54-让自己熟悉TR1（Technical-Report-1）在内的标准程序库" class="headerlink" title="条款54 让自己熟悉TR1（Technical Report 1）在内的标准程序库"></a>条款54 让自己熟悉TR1（Technical Report 1）在内的标准程序库</h2><h2 id="条款55"><a href="#条款55" class="headerlink" title="条款55"></a>条款55</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Lolia</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">33k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:58</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

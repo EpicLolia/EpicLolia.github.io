@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="涵盖 Hexo 博客的打包发布流程、Next 主题配置、自动生成 categories、图片路径修正、LaTeX 公式、浏览量统计、本地搜索及字数统计等常用设置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 中的常用特性">
+<meta property="og:url" content="https://epiclolia.github.io/misc/hexo-guide/index.html">
+<meta property="og:site_name" content="Lolia&#39;s blogs">
+<meta property="og:description" content="涵盖 Hexo 博客的打包发布流程、Next 主题配置、自动生成 categories、图片路径修正、LaTeX 公式、浏览量统计、本地搜索及字数统计等常用设置。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-05T07:22:29.000Z">
+<meta property="article:modified_time" content="2026-05-06T16:07:39.000Z">
+<meta property="article:author" content="Lolia">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客搭建">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://epiclolia.github.io/misc/hexo-guide/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/misc/hexo-guide/","path":"misc/hexo-guide/","title":"Hexo 中的常用特性"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo 中的常用特性 | Lolia's blogs</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lolia's blogs</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文章是写给未来的信</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-%E6%89%93%E5%8C%85-%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Hexo 打包&#x2F;发布流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Next-%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">使用 Next 主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">自定义打包流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E6%97%B6%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90-categories-%E5%AD%97%E6%AE%B5"><span class="nav-number">3.1.</span> <span class="nav-text">打包时自动生成 categories 字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85%E6%97%B6%E4%BF%AE%E6%94%B9%E5%9B%BE%E7%89%87%E8%B7%AF%E5%BE%84"><span class="nav-number">3.2.</span> <span class="nav-text">打包时修改图片路径</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%AF%E6%8C%81-LaTex-%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">支持 LaTex 格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E9%87%8F%E7%BB%9F%E8%AE%A1"><span class="nav-number">5.</span> <span class="nav-text">浏览量统计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%90%9C%E7%B4%A2"><span class="nav-number">6.</span> <span class="nav-text">文本搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E4%B8%8E%E9%98%85%E8%AF%BB%E6%97%B6%E9%95%BF"><span class="nav-number">7.</span> <span class="nav-text">字数统计与阅读时长</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lolia</p>
+  <div class="site-description" itemprop="description">用个人网站来督促自己前进吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/misc/hexo-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo 中的常用特性 | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo 中的常用特性
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-05 15:22:29" itemprop="dateCreated datePublished" datetime="2026-05-05T15:22:29+08:00">2026-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-07 00:07:39" itemprop="dateModified" datetime="2026-05-07T00:07:39+08:00">2026-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>872</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Hexo-打包-发布流程"><a href="#Hexo-打包-发布流程" class="headerlink" title="Hexo 打包&#x2F;发布流程"></a>Hexo 打包&#x2F;发布流程</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment"># 生成文件</span></span><br><span class="line">hexo s <span class="comment"># 本地预览</span></span><br><span class="line">hexo d <span class="comment"># 远端部署（发布到Github.io）</span></span><br><span class="line">hexo clean <span class="comment"># 清理缓存</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="使用-Next-主题"><a href="#使用-Next-主题" class="headerlink" title="使用 Next 主题"></a>使用 Next 主题</h1><p>参考<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">hexo-theme-next 文档</a></p>
+<ol>
+<li>执行 <code>npm install hexo-theme-next --save</code> 安装Next主题，然后在 <code>_config.yml</code> 中设置 <code>theme: next</code>。</li>
+<li>执行 <code>cp node_modules/hexo-theme-next/_config.yml _config.next.yml</code> 导入Next主题的配置文件。</li>
+</ol>
+<h1 id="自定义打包流程"><a href="#自定义打包流程" class="headerlink" title="自定义打包流程"></a>自定义打包流程</h1><p>Hexo 打包时会自动加载 <code>&lt;ROOT&gt;/scripts/</code> 目录下的所有 <code>.js</code> 文件，开发者可以根据需要在 <code>scripts/</code> 目录下添加自定义脚本。</p>
+<h2 id="打包时自动生成-categories-字段"><a href="#打包时自动生成-categories-字段" class="headerlink" title="打包时自动生成 categories 字段"></a>打包时自动生成 categories 字段</h2><p>本博客仓库主要通过文件目录结构来维护文章的分类信息，为减少维护成本，本仓库通过脚本在打包时根据文章在 <code>_posts/</code> 下的目录结构自动生成 <code>categories</code> 字段。</p>
+<p>例如文章路径为 <code>_posts/game-dev/graphics/games202-notes.md</code>，打包时会自动设置 <code>categories: [&quot;game-dev&quot;, &quot;graphics&quot;]</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// scripts/auto_categories.js</span></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(<span class="string">&quot;before_generate&quot;</span>, <span class="title function_">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> posts = hexo.<span class="property">locals</span>.<span class="title function_">get</span>(<span class="string">&quot;posts&quot;</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">all</span>(</span><br><span class="line">    posts.<span class="property">data</span>.<span class="title function_">map</span>(<span class="function">(<span class="params">post</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// post.source e.g. &quot;_posts/game-dev/graphics/games202-notes.md&quot;</span></span><br><span class="line">      <span class="keyword">const</span> parts = post.<span class="property">source</span>.<span class="title function_">replace</span>(<span class="regexp">/^_posts\//</span>, <span class="string">&quot;&quot;</span>).<span class="title function_">split</span>(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">      <span class="comment">// parts: [&quot;game-dev&quot;, &quot;graphics&quot;, &quot;games202-notes.md&quot;]</span></span><br><span class="line">      <span class="keyword">const</span> categories = parts.<span class="title function_">slice</span>(<span class="number">0</span>, -<span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span> (categories.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> post.<span class="title function_">setCategories</span>(categories);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>因此只需合理组织文章所在的目录层级，categories 就会相应生成，无需在文章的 Front Matter 中维护 categories 字段。</p>
+</blockquote>
+<h2 id="打包时修改图片路径"><a href="#打包时修改图片路径" class="headerlink" title="打包时修改图片路径"></a>打包时修改图片路径</h2><p>文章中使用相对于文档父目录的路径引用的图片，而博客站点需要使用相对于 <code>_posts/</code> 的路径，可以编写脚本在打包时自动变换路径。</p>
+<p>例如在 <code>_posts/game-dev/graphics/games202-notes.md</code> 中写 <code>![图片](misc/image.png)</code>，打包时会自动转换为 <code>![图片](misc/game-dev/graphics/games202-notes/image.png)</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// scripts/transform_image_path.js</span></span><br><span class="line">hexo.<span class="property">extend</span>.<span class="property">filter</span>.<span class="title function_">register</span>(</span><br><span class="line">  <span class="string">&quot;before_post_render&quot;</span>,</span><br><span class="line">  <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// data.source e.g. &quot;_posts/game-dev/graphics/games202-notes.md&quot;</span></span><br><span class="line">    <span class="keyword">const</span> dir = data.<span class="property">source</span>.<span class="title function_">replace</span>(<span class="regexp">/^_posts\//</span>, <span class="string">&quot;&quot;</span>).<span class="title function_">replace</span>(<span class="regexp">/\/[^/]+$/</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (dir === data.<span class="property">source</span>.<span class="title function_">replace</span>(<span class="regexp">/^_posts\//</span>, <span class="string">&quot;&quot;</span>)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    data.<span class="property">content</span> = data.<span class="property">content</span>.<span class="title function_">replace</span>(</span><br><span class="line">      <span class="regexp">/!\[([^\]]*)\]\(([^)]+)\)/g</span>,</span><br><span class="line">      <span class="function">(<span class="params">match, alt, src</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="regexp">/^(https?:\/\/|\/|data:)/</span>.<span class="title function_">test</span>(src)) <span class="keyword">return</span> match;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`![<span class="subst">$&#123;alt&#125;</span>](misc/<span class="subst">$&#123;dir&#125;</span>/<span class="subst">$&#123;src&#125;</span>)`</span>;</span><br><span class="line">      &#125;,</span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="number">0</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>外部链接（<code>http://</code>、<code>https://</code>）、绝对路径（<code>/</code> 开头）和 data URI 不受影响。</p>
+</blockquote>
+<h1 id="支持-LaTex-格式"><a href="#支持-LaTex-格式" class="headerlink" title="支持 LaTex 格式"></a>支持 LaTex 格式</h1><p>next主题自带LaTex格式的适配。我们只需要在<code>_config.next.yml</code>中开启<code>mathjax</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>并在需要使用LaTex的文章的头部的yaml标签中加上<code>mathjax: true</code>即可。</p>
+<h1 id="浏览量统计"><a href="#浏览量统计" class="headerlink" title="浏览量统计"></a>浏览量统计</h1><p>Next 主题支持使用<a target="_blank" rel="noopener" href="http://busuanzi.ibruce.info/">不蒜子</a>进行浏览量统计，在<code>_config.next.yml</code>中配置即可。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在页面底部显示浏览量</span></span><br><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="attr">counter:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="文本搜索"><a href="#文本搜索" class="headerlink" title="文本搜索"></a>文本搜索</h1><p>参考<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/search-services">Next主题文档</a></p>
+<p>Next 主题可以使用 <code>hexo-generator-searchdb</code> 进行本地搜索。</p>
+<ol>
+<li>执行 <code>npm install hexo-generator-searchdb --save</code> 安装搜索插件。</li>
+<li>在 <code>_config.yml</code> 和 <code>_config.next.yml</code> 中添加搜索配置：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># _config.next.yml</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="字数统计与阅读时长"><a href="#字数统计与阅读时长" class="headerlink" title="字数统计与阅读时长"></a>字数统计与阅读时长</h1><p>使用 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-word-counter">hexo-word-counter</a> 插件为文章添加字数统计和预计阅读时长。该插件基于 Rust 实现，使用 Unicode Standard Annex #29 进行分词，对中文等多语言支持良好。</p>
+<ol>
+<li>执行 <code>npm install hexo-word-counter --save</code> 安装插件，安装后需执行 <code>hexo clean</code> 清理缓存。</li>
+<li>在 <code>_config.yml</code> 中添加配置：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span>            <span class="comment"># 在文章元信息中显示字数</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span>               <span class="comment"># 在文章元信息中显示阅读时长</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span>      <span class="comment"># 在站点底部显示总字数</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span>         <span class="comment"># 在站点底部显示总阅读时长</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span> <span class="comment"># 是否排除代码块中的文字</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span>                 <span class="comment"># 每分钟阅读字数（慢 ~200 / 正常 ~275 / 快 ~350）</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span>          <span class="comment"># 阅读时长不足 60 分钟时追加的后缀文本</span></span><br></pre></td></tr></table></figure>
+
+<p>Next 主题已内置对该插件的支持，安装并配置后即可在文章标题下方和站点底部看到统计信息。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/unreal-engine/rendering/real-time-rendering-deep-dive/" rel="prev" title="实时渲染深入探究-课程笔记">
+                  <i class="fa fa-angle-left"></i> 实时渲染深入探究-课程笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Lolia</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">33k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:58</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
