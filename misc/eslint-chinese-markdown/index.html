@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":true,"height":300},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="中文技术博客中存在大量细碎但影响阅读体验的排版问题：中英文之间缺少空格、标点前后多余空白、数字与汉字紧邻。这些问题人工写作时经常出现，AI 辅助创作也无法避免。常见的应对方式是在提示词里写排版规范，但效果并不稳定——AI 不会”记住”规则，人自己写的时候也会犯。 比起用自然语言描述规范，通过 lint 进行程序化约束更可靠。本文介绍一套基于 ESLint 的方案：编写自定义规则覆盖中文排版检查，并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Lint 代替提示词：中文 Markdown 排版的程序化约束">
+<meta property="og:url" content="https://epiclolia.github.io/misc/eslint-chinese-markdown/index.html">
+<meta property="og:site_name" content="Lolia&#39;s blogs">
+<meta property="og:description" content="中文技术博客中存在大量细碎但影响阅读体验的排版问题：中英文之间缺少空格、标点前后多余空白、数字与汉字紧邻。这些问题人工写作时经常出现，AI 辅助创作也无法避免。常见的应对方式是在提示词里写排版规范，但效果并不稳定——AI 不会”记住”规则，人自己写的时候也会犯。 比起用自然语言描述规范，通过 lint 进行程序化约束更可靠。本文介绍一套基于 ESLint 的方案：编写自定义规则覆盖中文排版检查，并">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T12:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-17T12:00:00.000Z">
+<meta property="article:author" content="Lolia">
+<meta property="article:tag" content="Claude Code">
+<meta property="article:tag" content="ESLint">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="中文排版">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://epiclolia.github.io/misc/eslint-chinese-markdown/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/misc/eslint-chinese-markdown/","path":"misc/eslint-chinese-markdown/","title":"用 Lint 代替提示词：中文 Markdown 排版的程序化约束"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>用 Lint 代替提示词：中文 Markdown 排版的程序化约束 | Lolia's blogs</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lolia's blogs</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">文章是写给未来的信</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ESLint-%E8%A7%84%E8%8C%83-Markdown"><span class="nav-number">1.</span> <span class="nav-text">使用 ESLint 规范 Markdown</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E4%BC%98%E5%8C%96%E4%B8%AD%E6%96%87%E6%8E%92%E7%89%88"><span class="nav-number">2.</span> <span class="nav-text">用自定义规则优化中文排版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E7%9A%84%E6%8E%A5%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">自定义规则的接入方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%A4%E6%9D%A1%E8%A7%84%E5%88%99"><span class="nav-number">2.2.</span> <span class="nav-text">本项目的两条规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%88%B0-AI-%E4%BA%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">3.</span> <span class="nav-text">集成到 AI + 人的工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Claude-Code-Hook%EF%BC%9AAI-%E7%BC%96%E8%BE%91%E5%90%8E%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D"><span class="nav-number">3.1.</span> <span class="nav-text">Claude Code Hook：AI 编辑后自动修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VS-Code%EF%BC%9A%E4%BF%9D%E5%AD%98%E6%97%B6%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D"><span class="nav-number">3.2.</span> <span class="nav-text">VS Code：保存时自动修复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Lolia</p>
+  <div class="site-description" itemprop="description">用个人网站来督促自己前进吧！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VwaWNMb2xpYQ==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;EpicLolia"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://epiclolia.github.io/misc/eslint-chinese-markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Lolia">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lolia's blogs">
+      <meta itemprop="description" content="用个人网站来督促自己前进吧！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用 Lint 代替提示词：中文 Markdown 排版的程序化约束 | Lolia's blogs">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用 Lint 代替提示词：中文 Markdown 排版的程序化约束
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 20:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T20:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-17 20:00:00" itemprop="dateModified" datetime="2026-05-17T20:00:00+08:00">2026-05-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>中文技术博客中存在大量细碎但影响阅读体验的排版问题：中英文之间缺少空格、标点前后多余空白、数字与汉字紧邻。这些问题人工写作时经常出现，AI 辅助创作也无法避免。常见的应对方式是在提示词里写排版规范，但效果并不稳定——AI 不会”记住”规则，人自己写的时候也会犯。</p>
+<p>比起用自然语言描述规范，通过 lint 进行程序化约束更可靠。本文介绍一套基于 ESLint 的方案：编写自定义规则覆盖中文排版检查，并通过 Claude Code Hook 和 VS Code 保存动作实现自动修复，让 AI 和人共享同一套规则。</p>
+<span id="more"></span>
+
+<h2 id="使用-ESLint-规范-Markdown"><a href="#使用-ESLint-规范-Markdown" class="headerlink" title="使用 ESLint 规范 Markdown"></a>使用 ESLint 规范 Markdown</h2><p>Markdown lint 工具不止一种（如 markdownlint），本文选择 ESLint 的理由是：ESLint 更具<strong>通用性</strong>：一条工具链即可覆盖项目中的 JS、JSON、Markdown 等多种格式，减少工具碎片化。</p>
+<p><code>@eslint/markdown</code> 插件提供了 GFM 解析器和推荐规则集，支持 Front Matter 解析（标题、标签等同样需要排版检查）和 LaTeX 数学公式（避免 <code>$...$</code> 被误报）。更关键的是，ESLint 支持编写自定义规则——这意味着可以把中文排版规范程序化为可执行的检查逻辑。</p>
+<p>以下是本项目的基础配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// eslint.config.mjs</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;eslint/config&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> eslintPluginPrettierRecommended <span class="keyword">from</span> <span class="string">&#x27;eslint-plugin-prettier/recommended&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> markdown <span class="keyword">from</span> <span class="string">&#x27;@eslint/markdown&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">files</span>: [<span class="string">&#x27;**/*.md&#x27;</span>],</span><br><span class="line">    <span class="attr">plugins</span>: &#123; markdown &#125;,</span><br><span class="line">    <span class="attr">language</span>: <span class="string">&#x27;markdown/gfm&#x27;</span>,</span><br><span class="line">    <span class="attr">languageOptions</span>: &#123;</span><br><span class="line">      <span class="attr">frontmatter</span>: <span class="string">&#x27;yaml&#x27;</span>, <span class="comment">// 支持 yaml 格式的 Front Matter</span></span><br><span class="line">      <span class="attr">math</span>: <span class="literal">true</span>, <span class="comment">// 支持 $...$ 形式的 LaTeX 公式</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">extends</span>: [<span class="string">&#x27;markdown/recommended&#x27;</span>, eslintPluginPrettierRecommended],</span><br><span class="line">    <span class="attr">rules</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;markdown/no-html&#x27;</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考资料：</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lc2xpbnQub3JnL2RvY3MvbGF0ZXN0L3VzZS9jb25maWd1cmUvY29uZmlndXJhdGlvbi1maWxlcw==">ESLint 配置文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VzbGludC9tYXJrZG93bg==">@eslint&#x2F;markdown<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9wcmV0dGllci5pby9kb2NzL2ludGVncmF0aW5nLXdpdGgtbGludGVycw==">Prettier 集成 Linter<i class="fa fa-external-link-alt"></i></span></li>
+</ol>
+</blockquote>
+<h2 id="用自定义规则优化中文排版"><a href="#用自定义规则优化中文排版" class="headerlink" title="用自定义规则优化中文排版"></a>用自定义规则优化中文排版</h2><p>现有 Markdown lint 规则面向英文设计，对中文排版几乎没有覆盖。以下是中文文档中最常见的排版问题：</p>
+<table>
+<thead>
+<tr>
+<th>问题类型</th>
+<th>反例</th>
+<th>正例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>中英文之间缺少空格</td>
+<td><code>你好world</code></td>
+<td><code>你好 world</code></td>
+</tr>
+<tr>
+<td>中文与数字之间缺少空格</td>
+<td><code>共100个</code></td>
+<td><code>共 100 个</code></td>
+</tr>
+<tr>
+<td>中文标点前后多余空格</td>
+<td><code>你好 ，世界</code></td>
+<td><code>你好，世界</code></td>
+</tr>
+<tr>
+<td>货币&#x2F;百分号与数字间多余空格</td>
+<td><code>$ 100</code></td>
+<td><code>$100</code></td>
+</tr>
+</tbody></table>
+<p>这些问题有一个共同特点：规则明确、可用正则描述、修复方式确定。非常适合用 lint 规则自动化处理。</p>
+<blockquote>
+<p>以上规范主要参考 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3J1YW55Zi9kb2N1bWVudC1zdHlsZS1ndWlkZQ==">中文技术文档的写作规范<i class="fa fa-external-link-alt"></i></span></p>
+</blockquote>
+<h3 id="自定义规则的接入方式"><a href="#自定义规则的接入方式" class="headerlink" title="自定义规则的接入方式"></a>自定义规则的接入方式</h3><p><code>@eslint/markdown</code> 将 Markdown 解析为 AST，自定义规则通过选择器匹配文本节点。一条规则的基本结构如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// custom-rule.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">meta</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">    <span class="attr">fixable</span>: <span class="string">&#x27;whitespace&#x27;</span>, <span class="comment">// 声明支持自动修复，ESLint 在 fix 模式下会自动应用修复逻辑。</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="title function_">create</span>(<span class="params">context</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="comment">// 匹配段落、标题、表格单元格中的文本</span></span><br><span class="line">      <span class="string">&#x27;:matches(paragraph, heading, tableCell) text&#x27;</span>(node) &#123;</span><br><span class="line">        <span class="comment">// 检查文本内容，报告问题并提供修复</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>将规则作为本地插件注册到 ESLint 配置中即可启用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// eslint.config.mjs</span></span><br><span class="line"><span class="keyword">import</span> cjkSpacing <span class="keyword">from</span> <span class="string">&#x27;./tools/eslint_rules/cjk-spacing.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> numberSpacing <span class="keyword">from</span> <span class="string">&#x27;./tools/eslint_rules/number-spacing.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="attr">plugins</span>: &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">      <span class="attr">custom</span>: &#123; <span class="attr">rules</span>: &#123; <span class="string">&#x27;cjk-spacing&#x27;</span>: cjkSpacing, <span class="string">&#x27;number-spacing&#x27;</span>: numberSpacing &#125; &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">rules</span>: &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">      <span class="string">&#x27;custom/cjk-spacing&#x27;</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;custom/number-spacing&#x27;</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="本项目的两条规则"><a href="#本项目的两条规则" class="headerlink" title="本项目的两条规则"></a>本项目的两条规则</h3><p>基于上述机制，本项目实现了两条规则：</p>
+<p><strong><code>cjk-spacing</code></strong>：处理 CJK 字符与 Latin 字符的间距。CJK 紧邻 Latin 时自动插入空格，CJK 标点前后出现多余空格时自动移除。</p>
+<p><strong><code>number-spacing</code></strong>：处理数字与 CJK 字符的间距。这里的”数字”不仅是 <code>\d+</code>，还涵盖货币前缀（<code>$100</code>）、百分号后缀（<code>50%</code>）、千分位（<code>1,000,000</code>）和小数（<code>3.14</code>）——这些边界情况正是提示词难以精确描述的。</p>
+<p>修复效果：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># cjk-spacing</span><br><span class="line">你好world → 你好 world</span><br><span class="line">hello世界 → hello 世界</span><br><span class="line">你好 ，世界 → 你好，世界</span><br><span class="line"></span><br><span class="line"># number-spacing</span><br><span class="line">共100个 → 共 100 个</span><br><span class="line">达到50%以上 → 达到 50% 以上</span><br><span class="line">$ 100 → $100</span><br></pre></td></tr></table></figure>
+
+<p>完整规则实现：</p>
+<ul>
+<li><a href="cjk-spacing.js">cjk-spacing.js</a></li>
+<li><a href="number-spacing.js">number-spacing.js</a></li>
+</ul>
+<h2 id="集成到-AI-人的工作流"><a href="#集成到-AI-人的工作流" class="headerlink" title="集成到 AI + 人的工作流"></a>集成到 AI + 人的工作流</h2><p>规则写好后，下一步是让 AI 和人在编辑文档时自动执行检查。</p>
+<h3 id="Claude-Code-Hook：AI-编辑后自动修复"><a href="#Claude-Code-Hook：AI-编辑后自动修复" class="headerlink" title="Claude Code Hook：AI 编辑后自动修复"></a>Claude Code Hook：AI 编辑后自动修复</h3><p>Claude Code 的 <span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmFudGhyb3BpYy5jb20vZW4vZG9jcy9jbGF1ZGUtY29kZS9ob29rcw==">Hook 机制<i class="fa fa-external-link-alt"></i></span>允许在特定事件触发时执行自定义脚本。在 <code>.claude/settings.json</code> 中注册一个 <code>PostToolUse</code> Hook，当 Claude Code 执行 <code>Edit</code> 或 <code>Write</code> 工具后自动触发 lint：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;hooks&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;PostToolUse&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;matcher&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Edit|Write&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;hooks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;command&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node \&quot;$CLAUDE_PROJECT_DIR\&quot;/.claude/hooks/eslint_fix.js&quot;</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Hook 脚本从 stdin 读取工具调用信息，提取文件路径，执行 <code>eslint --fix</code>。可修复问题当场修复；不可修复问题通过 <code>hookSpecificOutput</code> 反馈给 AI，AI 据此调整后续输出。</p>
+<h3 id="VS-Code：保存时自动修复"><a href="#VS-Code：保存时自动修复" class="headerlink" title="VS Code：保存时自动修复"></a>VS Code：保存时自动修复</h3><p>对于人手动编辑的场景，在 VS Code 工作区配置中启用保存时修复：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;source.fixAll.eslint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;explicit&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>两端共享同一套规则定义，只是触发方式不同——AI 侧由 Hook 驱动，人侧由编辑器驱动。这正是 lint 相比提示词的优势：<strong>规则定义一次，所有工具共享</strong>。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>程序化约束优于提示词约束。</strong> 提示词是概率性的，lint 是确定性的。在 AI 协作的工作流中，lint 提供了一道不依赖”理解”和”记忆”的质检关卡。</p>
+<p>本文的方案分为三层：用 ESLint 作为基础设施，用自定义规则覆盖中文排版的高频问题，用 Hook 和编辑器动作让 AI 和人两端自动执行。如果你的项目也有类似需求，可以从这两条规则出发，逐步扩展——全角&#x2F;半角标点统一、链接文本格式、术语拼写检查等，都适合用同样的模式实现。规则一旦写好，就会在每次编辑中持续发挥作用。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ESLint/" rel="tag"># ESLint</a>
+              <a href="/tags/Markdown/" rel="tag"># Markdown</a>
+              <a href="/tags/%E4%B8%AD%E6%96%87%E6%8E%92%E7%89%88/" rel="tag"># 中文排版</a>
+              <a href="/tags/Claude-Code/" rel="tag"># Claude Code</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/misc/hexo-guide/" rel="prev" title="Hexo 中的常用特性">
+                  <i class="fa fa-angle-left"></i> Hexo 中的常用特性
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Lolia</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

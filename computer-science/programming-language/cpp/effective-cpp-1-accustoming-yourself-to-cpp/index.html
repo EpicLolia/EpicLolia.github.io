@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":true,"height":300},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="条款01 视C++为一个语言联邦4个主要次语言：  C Object-Oriented C++ Template C++ STL   请记住：  C++ 高效编程守则视状况而变化，取决于你使用C++的哪一部分   条款02 尽量以 const，enum，inline 替换 #define对于定义常量的宏，可以使用enum或const变量来代替。其中需要注意的是enum不可以取地址，更像define">
+    <meta name="description" content="条款 01 视 C++为一个语言联邦4 个主要次语言：  C Object-Oriented C++ Template C++ STL   请记住：  C++ 高效编程守则视状况而变化，取决于你使用 C++的哪一部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Effective C++】1 让自己习惯C++">
+<meta property="og:title" content="【Effective C++】1 让自己习惯 C++">
 <meta property="og:url" content="https://epiclolia.github.io/computer-science/programming-language/cpp/effective-cpp-1-accustoming-yourself-to-cpp/index.html">
 <meta property="og:site_name" content="Lolia&#39;s blogs">
-<meta property="og:description" content="条款01 视C++为一个语言联邦4个主要次语言：  C Object-Oriented C++ Template C++ STL   请记住：  C++ 高效编程守则视状况而变化，取决于你使用C++的哪一部分   条款02 尽量以 const，enum，inline 替换 #define对于定义常量的宏，可以使用enum或const变量来代替。其中需要注意的是enum不可以取地址，更像define">
+<meta property="og:description" content="条款 01 视 C++为一个语言联邦4 个主要次语言：  C Object-Oriented C++ Template C++ STL   请记住：  C++ 高效编程守则视状况而变化，取决于你使用 C++的哪一部分">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-20T04:20:01.000Z">
 <meta property="article:modified_time" content="2022-10-20T04:20:01.000Z">
@@ -39,10 +39,10 @@
 <link rel="canonical" href="https://epiclolia.github.io/computer-science/programming-language/cpp/effective-cpp-1-accustoming-yourself-to-cpp/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/computer-science/programming-language/cpp/effective-cpp-1-accustoming-yourself-to-cpp/","path":"computer-science/programming-language/cpp/effective-cpp-1-accustoming-yourself-to-cpp/","title":"【Effective C++】1 让自己习惯C++"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://epiclolia.github.io/computer-science/programming-language/cpp/effective-cpp-1-accustoming-yourself-to-cpp/","path":"computer-science/programming-language/cpp/effective-cpp-1-accustoming-yourself-to-cpp/","title":"【Effective C++】1 让自己习惯 C++"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【Effective C++】1 让自己习惯C++ | Lolia's blogs</title>
+<title>【Effective C++】1 让自己习惯 C++ | Lolia's blogs</title>
   
 
 
@@ -168,7 +168,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE01-%E8%A7%86C-%E4%B8%BA%E4%B8%80%E4%B8%AA%E8%AF%AD%E8%A8%80%E8%81%94%E9%82%A6"><span class="nav-number">1.</span> <span class="nav-text">条款01 视C++为一个语言联邦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE02-%E5%B0%BD%E9%87%8F%E4%BB%A5-const%EF%BC%8Cenum%EF%BC%8Cinline-%E6%9B%BF%E6%8D%A2-define"><span class="nav-number">2.</span> <span class="nav-text">条款02 尽量以 const，enum，inline 替换 #define</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE03-%E5%B0%BD%E5%8F%AF%E8%83%BD%E4%BD%BF%E7%94%A8const"><span class="nav-number">3.</span> <span class="nav-text">条款03 尽可能使用const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E7%A7%8D%E4%BD%BF%E7%94%A8const%E7%9A%84%E5%B8%B8%E8%A7%81%E6%83%85%E6%99%AF"><span class="nav-number">3.1.</span> <span class="nav-text">几种使用const的常见情景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9const%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.2.</span> <span class="nav-text">修改const对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Econst%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">3.3.</span> <span class="nav-text">关于const成员函数的小技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE04-%E7%A1%AE%E5%AE%9A%E5%8F%98%E9%87%8F%E5%9C%A8%E8%A2%AB%E4%BD%BF%E7%94%A8%E5%89%8D%E5%B7%B2%E5%85%88%E8%A2%AB%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">条款04 确定变量在被使用前已先被初始化</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-01-%E8%A7%86-C-%E4%B8%BA%E4%B8%80%E4%B8%AA%E8%AF%AD%E8%A8%80%E8%81%94%E9%82%A6"><span class="nav-number">1.</span> <span class="nav-text">条款 01 视 C++为一个语言联邦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-02-%E5%B0%BD%E9%87%8F%E4%BB%A5-const%EF%BC%8Cenum%EF%BC%8Cinline-%E6%9B%BF%E6%8D%A2-define"><span class="nav-number">2.</span> <span class="nav-text">条款 02 尽量以 const，enum，inline 替换 #define</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-03-%E5%B0%BD%E5%8F%AF%E8%83%BD%E4%BD%BF%E7%94%A8-const"><span class="nav-number">3.</span> <span class="nav-text">条款 03 尽可能使用 const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E7%A7%8D%E4%BD%BF%E7%94%A8-const-%E7%9A%84%E5%B8%B8%E8%A7%81%E6%83%85%E6%99%AF"><span class="nav-number">3.1.</span> <span class="nav-text">几种使用 const 的常见情景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-const-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.2.</span> <span class="nav-text">修改 const 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-const-%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="nav-number">3.3.</span> <span class="nav-text">关于 const 成员函数的小技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-04-%E7%A1%AE%E5%AE%9A%E5%8F%98%E9%87%8F%E5%9C%A8%E8%A2%AB%E4%BD%BF%E7%94%A8%E5%89%8D%E5%B7%B2%E5%85%88%E8%A2%AB%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">条款 04 确定变量在被使用前已先被初始化</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,11 +192,16 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VwaWNMb2xpYQ==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;EpicLolia"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -232,12 +237,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【Effective C++】1 让自己习惯C++ | Lolia's blogs">
+      <meta itemprop="name" content="【Effective C++】1 让自己习惯 C++ | Lolia's blogs">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Effective C++】1 让自己习惯C++
+          【Effective C++】1 让自己习惯 C++
         </h1>
 
         <div class="post-meta-container">
@@ -299,7 +304,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="条款01-视C-为一个语言联邦"><a href="#条款01-视C-为一个语言联邦" class="headerlink" title="条款01 视C++为一个语言联邦"></a>条款01 视C++为一个语言联邦</h2><p>4个主要次语言：</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="条款-01-视-C-为一个语言联邦"><a href="#条款-01-视-C-为一个语言联邦" class="headerlink" title="条款 01 视 C++为一个语言联邦"></a>条款 01 视 C++为一个语言联邦</h2><p>4 个主要次语言：</p>
 <ul>
 <li>C</li>
 <li>Object-Oriented C++</li>
@@ -309,25 +314,25 @@
 <blockquote>
 <p>请记住：</p>
 <ul>
-<li>C++ 高效编程守则视状况而变化，取决于你使用C++的哪一部分</li>
+<li>C++ 高效编程守则视状况而变化，取决于你使用 C++的哪一部分</li>
 </ul>
 </blockquote>
-<h2 id="条款02-尽量以-const，enum，inline-替换-define"><a href="#条款02-尽量以-const，enum，inline-替换-define" class="headerlink" title="条款02 尽量以 const，enum，inline 替换 #define"></a>条款02 尽量以 const，enum，inline 替换 #define</h2><p>对于定义<strong>常量</strong>的宏，可以使用enum或const变量来代替。其中需要注意的是enum不可以取地址，更像define，而const是可以取址的。</p>
+<span id="more"></span>
+
+<h2 id="条款-02-尽量以-const，enum，inline-替换-define"><a href="#条款-02-尽量以-const，enum，inline-替换-define" class="headerlink" title="条款 02 尽量以 const，enum，inline 替换 #define"></a>条款 02 尽量以 const，enum，inline 替换 #define</h2><p>对于定义<strong>常量</strong>的宏，可以使用 enum 或 const 变量来代替。其中需要注意的是 enum 不可以取地址，更像 define，而 const 是可以取址的。</p>
 <p>对于定义<strong>函数</strong>的宏，可以用 <strong>template inline</strong> 来代替 define 函数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> CALL_WITH_MAX(a,b) f((a)&gt;(b)?(a):(b))  <span class="comment">// 每个变量都要加括号，不能省</span></span></span><br><span class="line"><span class="built_in">CALL_WITH_MAX</span>(++a,b);  <span class="comment">// 如果a&gt;b，a会被累加两次</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">CallWithMax</span><span class="params">(<span class="type">const</span> T&amp; a,<span class="type">const</span> T&amp; b)</span></span>&#123;  <span class="comment">// 可以限制作用域</span></span><br><span class="line">    <span class="built_in">f</span>(a&gt;b?a:b);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> CALL_WITH_MAX(a,b) f((a)&gt;(b)?(a):(b))  <span class="comment">// 每个变量都要加括号，不能省</span></span></span><br><span class="line"><span class="built_in">CALL_WITH_MAX</span>(++a,b);  <span class="comment">// 如果a&gt;b，a会被累加两次</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">CallWithMax</span><span class="params">(<span class="type">const</span> T&amp; a,<span class="type">const</span> T&amp; b)</span></span>&#123;  <span class="comment">// 可以限制作用域</span></span><br><span class="line">    <span class="built_in">f</span>(a&gt;b?a:b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>请记住：</p>
 <ul>
-<li><p>对于单纯常量，最好以从const对象或enums替换#define</p>
-</li>
-<li><p>对于形似函数的宏(macros)，最好使用inline函数替换#define</p>
-</li>
+<li>对于单纯常量，最好以从 const 对象或 enums 替换#define</li>
+<li>对于形似函数的宏(macros)，最好使用 inline 函数替换#define</li>
 </ul>
 </blockquote>
-<h2 id="条款03-尽可能使用const"><a href="#条款03-尽可能使用const" class="headerlink" title="条款03 尽可能使用const"></a>条款03 尽可能使用const</h2><p>首先明确：const是一条由编译器来帮助你完成的<strong>约束</strong>！</p>
-<h3 id="几种使用const的常见情景"><a href="#几种使用const的常见情景" class="headerlink" title="几种使用const的常见情景"></a>几种使用const的常见情景</h3><ol>
-<li>对于指针，const在*左边代表指向常量，在*右边代表指针是常量</li>
+<h2 id="条款-03-尽可能使用-const"><a href="#条款-03-尽可能使用-const" class="headerlink" title="条款 03 尽可能使用 const"></a>条款 03 尽可能使用 const</h2><p>首先明确：const 是一条由编译器来帮助你完成的<strong>约束</strong>！</p>
+<h3 id="几种使用-const-的常见情景"><a href="#几种使用-const-的常见情景" class="headerlink" title="几种使用 const 的常见情景"></a>几种使用 const 的常见情景</h3><ol>
+<li>对于指针，const 在*左边代表指向常量，在*右边代表指针是常量</li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">char</span>* p = <span class="string">&quot;Hello&quot;</span>;  <span class="comment">// const data</span></span><br><span class="line"><span class="type">char</span> <span class="type">const</span> *p = <span class="string">&quot;Hello&quot;</span>;  <span class="comment">// 等效于上行</span></span><br><span class="line"><span class="type">char</span>* <span class="type">const</span> p = <span class="string">&quot;Hello&quot;</span>;  <span class="comment">// const pointer</span></span><br></pre></td></tr></table></figure>
 
@@ -335,71 +340,68 @@
 <li><p>对于迭代器</p>
 <ul>
 <li>const_iterator 代表指向常量，不可以修改内容</li>
-<li>const iterator代表是常迭代器，不可以改变指向的对象(如 ++iterator)</li>
+<li>const iterator 代表是常迭代器，不可以改变指向的对象(如 ++iterator)</li>
 </ul>
 </li>
 <li><p>对于函数的声明</p>
 <ul>
-<li>使用const返回值，可以有效避免”想要输入&#x3D;&#x3D;却输入&#x3D;“的情况（编译器将会直接报错）</li>
-<li>函数的const参数也是如此，可以防止函数意外修改参数的内容</li>
+<li>使用 const 返回值，可以有效避免”想要输入&#x3D;&#x3D;却输入&#x3D;“的情况（编译器将会直接报错）</li>
+<li>函数的 const 参数也是如此，可以防止函数意外修改参数的内容</li>
 </ul>
 </li>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">c1</span>&#123;...&#125;</span><br><span class="line"><span class="type">const</span> c1 <span class="keyword">operator</span>* (<span class="type">const</span> c1&amp; lhs, <span class="type">const</span> c1&amp; rhs);</span><br><span class="line">c1 a,b.c;</span><br><span class="line"><span class="keyword">if</span>(a * b = c)&#123;...&#125;  <span class="comment">// 将会直接报错，不会出现runtime bug</span></span><br></pre></td></tr></table></figure>
 
 <ol start="4">
-<li>对于const成员函数<ul>
+<li>对于 const 成员函数<ul>
 <li>可以清晰知道哪个函数改变类的成员</li>
-<li>确保const对象可以使用此函数，使“操作const对象”成为可能</li>
+<li>确保 const 对象可以使用此函数，使“操作 const 对象”成为可能</li>
 </ul>
 </li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TextBlock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 对于const成员函数，使用const返回值，表明不希望改变常对象的text成员，加强其常量性质</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) <span class="type">const</span> &#123;  </span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string text;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TextBlock tb;</span><br><span class="line"><span class="type">const</span> TextBlock ctb;</span><br><span class="line">tb[<span class="number">0</span>]=<span class="string">&#x27;x&#x27;</span>;  <span class="comment">// correct</span></span><br><span class="line">ctb[<span class="number">0</span>]=<span class="string">&#x27;x&#x27;</span>;  <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TextBlock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 对于const成员函数，使用const返回值，表明不希望改变常对象的text成员，加强其常量性质</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string text;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">TextBlock tb;</span><br><span class="line"><span class="type">const</span> TextBlock ctb;</span><br><span class="line">tb[<span class="number">0</span>]=<span class="string">&#x27;x&#x27;</span>;  <span class="comment">// correct</span></span><br><span class="line">ctb[<span class="number">0</span>]=<span class="string">&#x27;x&#x27;</span>;  <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="修改const对象"><a href="#修改const对象" class="headerlink" title="修改const对象"></a>修改const对象</h3><p>即便是常对象，还是有手段改变其内容的，比如成员指针指向的内容，就不属于对象本身（bitwise constness），可以进行修改。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TextBlock</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">TextBlock</span>() &#123; </span><br><span class="line">        text = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>)* <span class="number">10</span>);</span><br><span class="line">        <span class="built_in">memset</span>(text, <span class="number">0</span>, <span class="built_in">sizeof</span>(<span class="type">char</span>) * <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">TextBlock</span>() &#123; <span class="built_in">free</span>(text); &#125;</span><br><span class="line">    <span class="comment">// 可以在句首加const</span></span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">char</span>* text;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">const</span> TextBlock ctb;</span><br><span class="line">    ctb[<span class="number">0</span>] = <span class="string">&#x27;1&#x27;</span>;  <span class="comment">// 这是可行的，但不一定是我们想要的</span></span><br><span class="line">    std::cout &lt;&lt; ctb[<span class="number">0</span>];  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修改-const-对象"><a href="#修改-const-对象" class="headerlink" title="修改 const 对象"></a>修改 const 对象</h3><p>即便是常对象，还是有手段改变其内容的，比如成员指针指向的内容，就不属于对象本身（bitwise constness），可以进行修改。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TextBlock</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">TextBlock</span>() &#123;</span><br><span class="line">        text = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>)* <span class="number">10</span>);</span><br><span class="line">        <span class="built_in">memset</span>(text, <span class="number">0</span>, <span class="built_in">sizeof</span>(<span class="type">char</span>) * <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">TextBlock</span>() &#123; <span class="built_in">free</span>(text); &#125;</span><br><span class="line">    <span class="comment">// 可以在句首加const</span></span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) &#123;</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">char</span>* text;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">const</span> TextBlock ctb;</span><br><span class="line">    ctb[<span class="number">0</span>] = <span class="string">&#x27;1&#x27;</span>;  <span class="comment">// 这是可行的，但不一定是我们想要的</span></span><br><span class="line">    std::cout &lt;&lt; ctb[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>也可以直接声明<strong>mutable</strong>成员，这样const函数也可以在客户端不知情（logical constness）的情况下修改成员变量。也就是说，const对象只保证对象内存不被修改，成员指针变量不会变化，但是成员指针指向的内存不归const对象管。有需要的话，这由程序员自己来保障（如给const函数声明const返回值）。</p>
+<p>也可以直接声明<strong>mutable</strong>成员，这样 const 函数也可以在客户端不知情（logical constness）的情况下修改成员变量。也就是说，const 对象只保证对象内存不被修改，成员指针变量不会变化，但是成员指针指向的内存不归 const 对象管。有需要的话，这由程序员自己来保障（如给 const 函数声明 const 返回值）。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> ...&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">()</span> <span class="type">const</span> </span>&#123; ++member; &#125;  <span class="comment">// 可以编译通过</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">mutable</span> <span class="type">int</span> member = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="关于const成员函数的小技巧"><a href="#关于const成员函数的小技巧" class="headerlink" title="关于const成员函数的小技巧"></a>关于const成员函数的小技巧</h3><p>如果non-const和const版本的成员函数功能一致，那么为一个成员函数声明两个形态会使代码量爆炸，可以使用non-const调用const。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TextBlock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 第一个const表明不希望改变常对象的text成员，加强其常量性质</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) <span class="type">const</span> &#123;  </span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;<span class="type">char</span>&amp;&gt;(  <span class="comment">// 将op[]返回的const解除，如果有的话</span></span><br><span class="line">            <span class="comment">// 为*this加上const，不加的话会递归调用自己，死循环</span></span><br><span class="line">            <span class="built_in">static_cast</span>&lt;<span class="type">const</span> TextBlock&amp;&gt;(*<span class="keyword">this</span>)</span><br><span class="line">            [position]  <span class="comment">// 调用const形式的op[]</span></span><br><span class="line">            );</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string text;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关于-const-成员函数的小技巧"><a href="#关于-const-成员函数的小技巧" class="headerlink" title="关于 const 成员函数的小技巧"></a>关于 const 成员函数的小技巧</h3><p>如果 non-const 和 const 版本的成员函数功能一致，那么为一个成员函数声明两个形态会使代码量爆炸，可以使用 non-const 调用 const。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TextBlock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 第一个const表明不希望改变常对象的text成员，加强其常量性质</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) <span class="type">const</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> text[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>&amp; <span class="keyword">operator</span>[] (std::<span class="type">size_t</span> position) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">const_cast</span>&lt;<span class="type">char</span>&amp;&gt;(  <span class="comment">// 将op[]返回的const解除，如果有的话</span></span><br><span class="line">            <span class="comment">// 为*this加上const，不加的话会递归调用自己，死循环</span></span><br><span class="line">            <span class="built_in">static_cast</span>&lt;<span class="type">const</span> TextBlock&amp;&gt;(*<span class="keyword">this</span>)</span><br><span class="line">            [position]  <span class="comment">// 调用const形式的op[]</span></span><br><span class="line">            );</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::string text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>如果反过来用const调用non-const是违反const成员函数的宗旨的。你承诺过不改变类的状态，但是non-const函数有可能改变类的状态。这么做需要使用const_cast将<code>*this</code>的const解掉，这是大难临头的前兆。</p>
+<p>如果反过来用 const 调用 non-const 是违反 const 成员函数的宗旨的。你承诺过不改变类的状态，但是 non-const 函数有可能改变类的状态。这么做需要使用 const_cast 将<code>*this</code>的 const 解掉，这是大难临头的前兆。</p>
 <blockquote>
 <p>请记住：</p>
 <ul>
-<li><p>将某些东西声明为const可以帮助编译器侦测出错误用法。const可被施加于任何作用域内的对象、函数参数、函数返回类型、成员函数本体。</p>
-</li>
-<li><p>编译器强制实施bitwise constness，但你编写程序时应该使用“概念上的常量性”（conceptual constness）</p>
-</li>
-<li><p>当const 和non-const 成员函数有着实质等价的实现时，令non-const版本调用const版本可以避免代码重复。</p>
-</li>
+<li>将某些东西声明为 const 可以帮助编译器侦测出错误用法。const 可被施加于任何作用域内的对象、函数参数、函数返回类型、成员函数本体。</li>
+<li>编译器强制实施 bitwise constness，但你编写程序时应该使用“概念上的常量性”（conceptual constness）</li>
+<li>当 const 和 non-const 成员函数有着实质等价的实现时，令 non-const 版本调用 const 版本可以避免代码重复。</li>
 </ul>
 </blockquote>
-<h2 id="条款04-确定变量在被使用前已先被初始化"><a href="#条款04-确定变量在被使用前已先被初始化" class="headerlink" title="条款04 确定变量在被使用前已先被初始化"></a>条款04 确定变量在被使用前已先被初始化</h2><p>对于内置类型（int, char，pointer等），<strong>全局、静态变量</strong>会默认初始化内存为0，当然也可以进行显式初始化。如果声明在堆、栈空间，就需要手动初始化。</p>
+<h2 id="条款-04-确定变量在被使用前已先被初始化"><a href="#条款-04-确定变量在被使用前已先被初始化" class="headerlink" title="条款 04 确定变量在被使用前已先被初始化"></a>条款 04 确定变量在被使用前已先被初始化</h2><p>对于内置类型（int, char，pointer 等），<strong>全局、静态变量</strong>会默认初始化内存为 0，当然也可以进行显式初始化。如果声明在堆、栈空间，就需要手动初始化。</p>
 <p>对于其他类型，由构造进行初始化，确保将每一个成员都初始化。</p>
 <p>不要混淆<strong>赋值（assignment）<strong>和</strong>初始化（initialization）</strong>。在构造函数主体里面进行的是赋值，而非初始化。这种情况下非内置类型成员（如：string）会先执行自己的<strong>默认（default）构造函数</strong>进行初始化，再进行赋值。应对非内置类型成员使用<strong>列表初始化</strong>（<strong>member initialization list</strong>），效率更高，根本原因就是直接调用了成员的<strong>有参构造函数</strong>。当然，对于内置类型区别不大（两种方式成本相当），为了一致性，我们也将它写在列表中初始化。最好的做法就是在初值列中列出所有成员。</p>
 <p><strong>const</strong> 和 <strong>references</strong> 一定需要初值，不能赋值。</p>
-<p>对于多份构造函数，都写列表初始化会显得冗长，可以将“赋值表现得像初始化一样好”的成员变量移到一个private函数中，供所有构造函数调用，但最好不要这么做。</p>
+<p>对于多份构造函数，都写列表初始化会显得冗长，可以将“赋值表现得像初始化一样好”的成员变量移到一个 private 函数中，供所有构造函数调用，但最好不要这么做。</p>
 <p>列表初始化是按照声明顺序进行的，与列表顺序无关！最好写成一样的顺序。小心有成员变量使用未赋初值的成员进行初始化。</p>
-<p>对于static对象，其寿命从构造开始到程序结束（main()结束）为止。函数内的叫<strong>local-static对象</strong>，其他叫<strong>non-local static对象</strong>（global, namespace, class, file）。**编译单元 （translation unit）**是指产出单一目标文件（single object file）的源码。</p>
-<p>如果一个non-local static对象的初始化操作使用了另一个不同编译单元中的non-local static对象，后者可能还未初始化！！C++对此无明确定义。</p>
-<p>普通的多文件全局变量就是如此（extern声明的变量）。</p>
+<p>对于 static 对象，其寿命从构造开始到程序结束（main()结束）为止。函数内的叫<strong>local-static 对象</strong>，其他叫<strong>non-local static 对象</strong>（global, namespace, class, file）。**编译单元（translation unit）**是指产出单一目标文件（single object file）的源码。</p>
+<p>如果一个 non-local static 对象的初始化操作使用了另一个不同编译单元中的 non-local static 对象，后者可能还未初始化！！C++对此无明确定义。</p>
+<p>普通的多文件全局变量就是如此（extern 声明的变量）。</p>
 <p>当然 static 和 extern 是冲突的！hhhh</p>
-<p>一个好的解决办法就是使用<strong>单例（Singleton）模式</strong>，将变量用函数包起来，转化成local static对象，函数返回其引用。</p>
-<p>local static对象会在第一次遇到函数定义式（调用函数）时初始化。如果不调用就不构造！性能极佳！</p>
+<p>一个好的解决办法就是使用<strong>单例（Singleton）模式</strong>，将变量用函数包起来，转化成 local static 对象，函数返回其引用。</p>
+<p>local static 对象会在第一次遇到函数定义式（调用函数）时初始化。如果不调用就不构造！性能极佳！</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">classA&amp; <span class="title">StaticA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">static</span> classA cA;</span><br><span class="line">    <span class="keyword">return</span> cA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这样的函数是inline的绝佳模板。当然inline不会使static对象拷贝多份，代码拷贝不⼀定是c代码的拷贝，可以是编译后的汇编代码的拷贝。而函数在代码段，变量则在数据段。拷贝的只是函数部分。静态变量在函数部分保存的仅仅是该变量的地址。static变量不是放在栈⾥的,是放在静态数据区.和全局变量存放在⼀起.不能将它和局部变量混为⼀谈。——取自网络回答</p>
-<p>这样的简单的单例方法是<strong>线程不安全</strong>的。任何一种non-const static在多线程环境下“等待某事发生”都是不安全的，可能发生初始化的<strong>竞速形势（race conditions）</strong>。可以在程序**单线程启动阶段（single_threaded started portion）**手动把所有单例函数调用一遍。（注意：这个问题在C++11中解决了）</p>
-<p>当然这种方法也解决不了AB相互初始化的问题，但这种坏情况也只能说是自作自受。hhh</p>
+<p>这样的函数是 inline 的绝佳模板。当然 inline 不会使 static 对象拷贝多份，代码拷贝不⼀定是 c 代码的拷贝，可以是编译后的汇编代码的拷贝。而函数在代码段，变量则在数据段。拷贝的只是函数部分。静态变量在函数部分保存的仅仅是该变量的地址。static 变量不是放在栈⾥的,是放在静态数据区.和全局变量存放在⼀起.不能将它和局部变量混为⼀谈。——取自网络回答</p>
+<p>这样的简单的单例方法是<strong>线程不安全</strong>的。任何一种 non-const static 在多线程环境下“等待某事发生”都是不安全的，可能发生初始化的<strong>竞速形势（race conditions）</strong>。可以在程序**单线程启动阶段（single_threaded started portion）**手动把所有单例函数调用一遍。（注意：这个问题在 C++11 中解决了）</p>
+<p>当然这种方法也解决不了 AB 相互初始化的问题，但这种坏情况也只能说是自作自受。hhh</p>
 <blockquote>
 <p>请记住：</p>
 <ul>
-<li>为内置对象进行手工初始化，因为C++不保证初始化它们。</li>
+<li>为内置对象进行手工初始化，因为 C++不保证初始化它们。</li>
 <li>构造函数最好使用成员初值列（member initializatiion list），而不要在构造函数本体中使用赋值操作，初值列列出的成员变量，其排列顺序应该和声明顺序一致。</li>
-<li>为免除“跨编译单元之初始化次序”问题，请以local static对象替代non-static对象。</li>
+<li>为免除“跨编译单元之初始化次序”问题，请以 local static 对象替代 non-static 对象。</li>
 </ul>
 </blockquote>
 
@@ -450,20 +452,6 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Lolia</span>
   </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">33k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">1:58</span>
-  </span>
-</div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
@@ -482,7 +470,7 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
 
     </div>

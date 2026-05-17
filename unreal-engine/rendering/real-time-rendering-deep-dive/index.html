@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":true,"height":300},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="文本为深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)课程的笔记。 先点出实时渲染4大性能热点：  几何体渲染的Drawcall次数 Pixel Shader的性能 半透明物体的渲染 动态阴影  学习完本课程之后也能对上面这几项有所理解。 1 对象剔除剔除计算发生在CPU中，对CPU产生开销。一般来说，处理超过10-15k的物体，就会对性能造成影响了。 但若剔除做的不好，导致">
+    <meta name="description" content="文本为深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)课程的笔记。 先点出实时渲染 4 大性能热点：  几何体渲染的 Drawcall 次数 Pixel Shader 的性能 半透明物体的渲染 动态阴影  学习完本课程之后也能对上面这几项有所理解。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实时渲染深入探究-课程笔记">
 <meta property="og:url" content="https://epiclolia.github.io/unreal-engine/rendering/real-time-rendering-deep-dive/index.html">
 <meta property="og:site_name" content="Lolia&#39;s blogs">
-<meta property="og:description" content="文本为深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)课程的笔记。 先点出实时渲染4大性能热点：  几何体渲染的Drawcall次数 Pixel Shader的性能 半透明物体的渲染 动态阴影  学习完本课程之后也能对上面这几项有所理解。 1 对象剔除剔除计算发生在CPU中，对CPU产生开销。一般来说，处理超过10-15k的物体，就会对性能造成影响了。 但若剔除做的不好，导致">
+<meta property="og:description" content="文本为深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)课程的笔记。 先点出实时渲染 4 大性能热点：  几何体渲染的 Drawcall 次数 Pixel Shader 的性能 半透明物体的渲染 动态阴影  学习完本课程之后也能对上面这几项有所理解。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://epiclolia.github.io/unreal-engine/rendering/real-time-rendering-deep-dive/statistics_window.png">
 <meta property="og:image" content="https://epiclolia.github.io/unreal-engine/rendering/real-time-rendering-deep-dive/quad_over_draw.png">
@@ -182,7 +182,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AF%B9%E8%B1%A1%E5%89%94%E9%99%A4"><span class="nav-number">1.</span> <span class="nav-text">1 对象剔除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Distance-Culling%EF%BC%88%E8%B7%9D%E7%A6%BB%E5%89%94%E9%99%A4%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">Distance Culling（距离剔除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Frustum-Culling%EF%BC%88%E8%A7%86%E9%94%A5%E5%89%94%E9%99%A4%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Frustum Culling（视锥剔除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precomputed-Visibility%EF%BC%88%E9%A2%84%E8%AE%A1%E7%AE%97%E5%8F%AF%E8%A7%86%E6%80%A7%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">Precomputed Visibility（预计算可视性）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Occlusion-Culling%EF%BC%88%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">Occlusion Culling（遮挡剔除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">相关调试方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%87%A0%E4%BD%95%E4%BD%93%E6%B8%B2%E6%9F%93"><span class="nav-number">2.</span> <span class="nav-text">2 几何体渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-pass-Early-Z-Pass"><span class="nav-number">2.1.</span> <span class="nav-text">Pre-pass &#x2F; Early Z Pass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Drawcall"><span class="nav-number">2.2.</span> <span class="nav-text">Primitive Drawcall</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">相关调试方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertex-Shader"><span class="nav-number">2.3.</span> <span class="nav-text">Vertex Shader</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Rasterization-to-GBuffer"><span class="nav-number">3.</span> <span class="nav-text">3 Rasterization to GBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">调试方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%BA%B9%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">4 纹理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Pixel-Shader%E5%92%8C%E6%9D%90%E8%B4%A8"><span class="nav-number">5.</span> <span class="nav-text">5 Pixel Shader和材质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95-1"><span class="nav-number">5.1.</span> <span class="nav-text">调试方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%8F%8D%E5%B0%84"><span class="nav-number">6.</span> <span class="nav-text">6 反射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reflection-Captures"><span class="nav-number">6.1.</span> <span class="nav-text">Reflection Captures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Planar-Reflection"><span class="nav-number">6.2.</span> <span class="nav-text">Planar Reflection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen-Space-Reflction%EF%BC%88SSR%EF%BC%89"><span class="nav-number">6.3.</span> <span class="nav-text">Screen Space Reflction（SSR）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Skylight"><span class="nav-number">6.4.</span> <span class="nav-text">Skylight</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%85%89%E7%85%A7%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="nav-number">7.</span> <span class="nav-text">7 光照与阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%EF%BC%88Pre-Rendered%EF%BC%89"><span class="nav-number">7.1.</span> <span class="nav-text">静态（Pre-Rendered）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95-2"><span class="nav-number">7.1.1.</span> <span class="nav-text">调试方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%EF%BC%88Real-Time%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">动态（Real Time）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%98%B4%E5%BD%B1"><span class="nav-number">7.2.1.</span> <span class="nav-text">动态阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%85%89%E7%85%A7"><span class="nav-number">7.2.2.</span> <span class="nav-text">动态光照</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81-%E9%9D%99%E6%80%81%E5%85%89%E5%BD%B1"><span class="nav-number">7.3.</span> <span class="nav-text">混合使用动态&#x2F;静态光影</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E8%B7%9D%E7%A6%BB%E9%9B%BE%E5%92%8C%E9%80%8F%E6%98%8E%E7%89%A9%E4%BD%93"><span class="nav-number">8.</span> <span class="nav-text">8 距离雾和透明物体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">9 后处理</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AF%B9%E8%B1%A1%E5%89%94%E9%99%A4"><span class="nav-number">1.</span> <span class="nav-text">1 对象剔除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Distance-Culling%EF%BC%88%E8%B7%9D%E7%A6%BB%E5%89%94%E9%99%A4%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">Distance Culling（距离剔除）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Frustum-Culling%EF%BC%88%E8%A7%86%E9%94%A5%E5%89%94%E9%99%A4%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Frustum Culling（视锥剔除）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precomputed-Visibility%EF%BC%88%E9%A2%84%E8%AE%A1%E7%AE%97%E5%8F%AF%E8%A7%86%E6%80%A7%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">Precomputed Visibility（预计算可视性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Occlusion-Culling%EF%BC%88%E9%81%AE%E6%8C%A1%E5%89%94%E9%99%A4%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">Occlusion Culling（遮挡剔除）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">相关调试方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%87%A0%E4%BD%95%E4%BD%93%E6%B8%B2%E6%9F%93"><span class="nav-number">2.</span> <span class="nav-text">2 几何体渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-pass-Early-Z-Pass"><span class="nav-number">2.1.</span> <span class="nav-text">Pre-pass &#x2F; Early Z Pass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Primitive-Drawcall"><span class="nav-number">2.2.</span> <span class="nav-text">Primitive Drawcall</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">相关调试方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vertex-Shader"><span class="nav-number">2.3.</span> <span class="nav-text">Vertex Shader</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Rasterization-to-GBuffer"><span class="nav-number">3.</span> <span class="nav-text">3 Rasterization to GBuffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">调试方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%BA%B9%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">4 纹理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Pixel-Shader-%E5%92%8C%E6%9D%90%E8%B4%A8"><span class="nav-number">5.</span> <span class="nav-text">5 Pixel Shader 和材质</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95-1"><span class="nav-number">5.1.</span> <span class="nav-text">调试方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%8F%8D%E5%B0%84"><span class="nav-number">6.</span> <span class="nav-text">6 反射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflection-Captures"><span class="nav-number">6.1.</span> <span class="nav-text">Reflection Captures</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Planar-Reflection"><span class="nav-number">6.2.</span> <span class="nav-text">Planar Reflection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen-Space-Reflction%EF%BC%88SSR%EF%BC%89"><span class="nav-number">6.3.</span> <span class="nav-text">Screen Space Reflction（SSR）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skylight"><span class="nav-number">6.4.</span> <span class="nav-text">Skylight</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%85%89%E7%85%A7%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="nav-number">7.</span> <span class="nav-text">7 光照与阴影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%EF%BC%88Pre-Rendered%EF%BC%89"><span class="nav-number">7.1.</span> <span class="nav-text">静态（Pre-Rendered）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95-2"><span class="nav-number">7.1.1.</span> <span class="nav-text">调试方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%EF%BC%88Real-Time%EF%BC%89"><span class="nav-number">7.2.</span> <span class="nav-text">动态（Real Time）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E9%98%B4%E5%BD%B1"><span class="nav-number">7.2.1.</span> <span class="nav-text">动态阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%85%89%E7%85%A7"><span class="nav-number">7.2.2.</span> <span class="nav-text">动态光照</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81-%E9%9D%99%E6%80%81%E5%85%89%E5%BD%B1"><span class="nav-number">7.3.</span> <span class="nav-text">混合使用动态&#x2F;静态光影</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E8%B7%9D%E7%A6%BB%E9%9B%BE%E5%92%8C%E9%80%8F%E6%98%8E%E7%89%A9%E4%BD%93"><span class="nav-number">8.</span> <span class="nav-text">8 距离雾和透明物体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%90%8E%E5%A4%84%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">9 后处理</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -206,11 +206,16 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VwaWNMb2xpYQ==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;EpicLolia"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -309,164 +314,166 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>文本为<a target="_blank" rel="noopener" href="https://dev.epicgames.com/community/learning/courses/ML7/unreal-engine-31657f/bLyn/unreal-engine-822b4d">深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)</a>课程的笔记。</p>
-<p>先点出实时渲染4大性能热点：</p>
+    <div class="post-body" itemprop="articleBody"><p>文本为<span class="exturl" data-url="aHR0cHM6Ly9kZXYuZXBpY2dhbWVzLmNvbS9jb21tdW5pdHkvbGVhcm5pbmcvY291cnNlcy9NTDcvdW5yZWFsLWVuZ2luZS0zMTY1N2YvYkx5bi91bnJlYWwtZW5naW5lLTgyMmI0ZA==">深入探索实时渲染 - 实时渲染深入探究 (epicgames.com)<i class="fa fa-external-link-alt"></i></span>课程的笔记。</p>
+<p>先点出实时渲染 4 大性能热点：</p>
 <ol>
-<li>几何体渲染的Drawcall次数</li>
-<li>Pixel Shader的性能</li>
+<li>几何体渲染的 Drawcall 次数</li>
+<li>Pixel Shader 的性能</li>
 <li>半透明物体的渲染</li>
 <li>动态阴影</li>
 </ol>
 <p>学习完本课程之后也能对上面这几项有所理解。</p>
-<h1 id="1-对象剔除"><a href="#1-对象剔除" class="headerlink" title="1 对象剔除"></a>1 对象剔除</h1><p>剔除计算发生在CPU中，对CPU产生开销。一般来说，处理超过10-15k的物体，就会对性能造成影响了。</p>
-<p>但若剔除做的不好，导致过多物体参与渲染，就会影响GPU性能。</p>
-<h2 id="Distance-Culling（距离剔除）"><a href="#Distance-Culling（距离剔除）" class="headerlink" title="Distance Culling（距离剔除）"></a>Distance Culling（距离剔除）</h2><p>这个功能UE并没有自动启用，但我们很有必要将其打开，因为其对于性能的提升十分的简单粗暴。</p>
-<p>在场景中可以放置Distance Culling Volume，对于每一个Mesh可以对自己的Cull Distance进行相关设置。</p>
-<h2 id="Frustum-Culling（视锥剔除）"><a href="#Frustum-Culling（视锥剔除）" class="headerlink" title="Frustum Culling（视锥剔除）"></a>Frustum Culling（视锥剔除）</h2><p>这一步是渲染必要的步骤，我们无法对其进行太多的设置。</p>
-<h2 id="Precomputed-Visibility（预计算可视性）"><a href="#Precomputed-Visibility（预计算可视性）" class="headerlink" title="Precomputed Visibility（预计算可视性）"></a>Precomputed Visibility（预计算可视性）</h2><p>我们需要在场景中放置Precomputed Visibility Volume，之后UE会将场景体素化，在每个Voxel中保存静态物体的遮挡关系。</p>
-<h2 id="Occlusion-Culling（遮挡剔除）"><a href="#Occlusion-Culling（遮挡剔除）" class="headerlink" title="Occlusion Culling（遮挡剔除）"></a>Occlusion Culling（遮挡剔除）</h2><p>针对上述流程中无法剔除的物体，UE还会逐物体进行遮挡剔除，这一步的开销要比上面的三步都要大，所以请合理配置上面的三个步骤，剔除掉尽可能多的物体。</p>
-<p>小型物体很容易因为遮挡关系而剔除，即便是特效粒子，Occlusion Culling也可以根据遮挡关系将其剔除，但相反的，大型物体往往就难以通过遮挡关系来剔除了。因此，大型物体会节省CPU的开销，但增加GPU的开销，而小型物体会增加CPU的开销，而减少GPU的开销，这是一种权衡。</p>
-<p>此外，在户外开放场景中，Occlusion Culling不一定能够起到很好的效果，这一点需要注意。</p>
-<h2 id="相关调试方法"><a href="#相关调试方法" class="headerlink" title="相关调试方法"></a>相关调试方法</h2><p>在命令行中输入<code>stat initviews</code>可以看到相关的剔除数据。</p>
+<span id="more"></span>
+
+<h2 id="1-对象剔除"><a href="#1-对象剔除" class="headerlink" title="1 对象剔除"></a>1 对象剔除</h2><p>剔除计算发生在 CPU 中，对 CPU 产生开销。一般来说，处理超过 10-15k 的物体，就会对性能造成影响了。</p>
+<p>但若剔除做的不好，导致过多物体参与渲染，就会影响 GPU 性能。</p>
+<h3 id="Distance-Culling（距离剔除）"><a href="#Distance-Culling（距离剔除）" class="headerlink" title="Distance Culling（距离剔除）"></a>Distance Culling（距离剔除）</h3><p>这个功能 UE 并没有自动启用，但我们很有必要将其打开，因为其对于性能的提升十分的简单粗暴。</p>
+<p>在场景中可以放置 Distance Culling Volume，对于每一个 Mesh 可以对自己的 Cull Distance 进行相关设置。</p>
+<h3 id="Frustum-Culling（视锥剔除）"><a href="#Frustum-Culling（视锥剔除）" class="headerlink" title="Frustum Culling（视锥剔除）"></a>Frustum Culling（视锥剔除）</h3><p>这一步是渲染必要的步骤，我们无法对其进行太多的设置。</p>
+<h3 id="Precomputed-Visibility（预计算可视性）"><a href="#Precomputed-Visibility（预计算可视性）" class="headerlink" title="Precomputed Visibility（预计算可视性）"></a>Precomputed Visibility（预计算可视性）</h3><p>我们需要在场景中放置 Precomputed Visibility Volume，之后 UE 会将场景体素化，在每个 Voxel 中保存静态物体的遮挡关系。</p>
+<h3 id="Occlusion-Culling（遮挡剔除）"><a href="#Occlusion-Culling（遮挡剔除）" class="headerlink" title="Occlusion Culling（遮挡剔除）"></a>Occlusion Culling（遮挡剔除）</h3><p>针对上述流程中无法剔除的物体，UE 还会逐物体进行遮挡剔除，这一步的开销要比上面的三步都要大，所以请合理配置上面的三个步骤，剔除掉尽可能多的物体。</p>
+<p>小型物体很容易因为遮挡关系而剔除，即便是特效粒子，Occlusion Culling 也可以根据遮挡关系将其剔除，但相反的，大型物体往往就难以通过遮挡关系来剔除了。因此，大型物体会节省 CPU 的开销，但增加 GPU 的开销，而小型物体会增加 CPU 的开销，而减少 GPU 的开销，这是一种权衡。</p>
+<p>此外，在户外开放场景中，Occlusion Culling 不一定能够起到很好的效果，这一点需要注意。</p>
+<h3 id="相关调试方法"><a href="#相关调试方法" class="headerlink" title="相关调试方法"></a>相关调试方法</h3><p>在命令行中输入<code>stat initviews</code>可以看到相关的剔除数据。</p>
 <p>在命令行中输入<code>FreezeRendering</code>可以冻结剔除结果。</p>
-<h1 id="2-几何体渲染"><a href="#2-几何体渲染" class="headerlink" title="2 几何体渲染"></a>2 几何体渲染</h1><h2 id="Pre-pass-Early-Z-Pass"><a href="#Pre-pass-Early-Z-Pass" class="headerlink" title="Pre-pass &#x2F; Early Z Pass"></a>Pre-pass &#x2F; Early Z Pass</h2><p>先将所有物体在屏幕内的深度拿到，避免冗余Shading。</p>
-<h2 id="Primitive-Drawcall"><a href="#Primitive-Drawcall" class="headerlink" title="Primitive Drawcall"></a>Primitive Drawcall</h2><p>一般而言，每一个Primitive之间的Drawcall相互独立，而每个Primitive中不同的材质，也都会分别进行Drawcall。实际渲染时一般会按照材质的顺序，对不同的Mesh依次进行Drawcall，避免材质的切换。</p>
-<p>将不同的Mesh组织到同一个Actor中并不能优化性能，因为遮挡剔除，以及Drawcall都是在Primitive Component的层面上进行的。</p>
-<p>一般来说，2000-3000的Drawcall是比较合适的，超过5000就比较高了，而超过10000则可能出现一些问题。对于移动平台，Drawcall的次数限制比较高，一般只允许数百次。当然，我们也要结合实际Drawcall的复杂程度进行考虑。</p>
-<p>对于目前的GPU性能来说，三角形的面数，即网格体的复杂程度往往不是性能的主要问题了，Drawcall的次数才是。Drawcall本身会有一定的基础开销，对于面数比较低的模型，继续优化其面数往往并不能起效果。</p>
-<p>使用少量大型模型，相比使用大量小型模型，往往能够减少Drawcall。但大模型也有自己的问题，比如遮挡剔除效果差、光照贴图精度低、碰撞计算更复杂、内存占用更多等问题。</p>
-<p>实际工作中，建议使用模块化的场景搭建流程，并在最后的环节（因为合并操作不能撤销），根据实际性能分析的结果，对必要的（开销较大的）Mesh进行合并。</p>
-<p>如果你要进行Mesh合并，最好遵守以下几条原则：</p>
+<h2 id="2-几何体渲染"><a href="#2-几何体渲染" class="headerlink" title="2 几何体渲染"></a>2 几何体渲染</h2><h3 id="Pre-pass-Early-Z-Pass"><a href="#Pre-pass-Early-Z-Pass" class="headerlink" title="Pre-pass &#x2F; Early Z Pass"></a>Pre-pass &#x2F; Early Z Pass</h3><p>先将所有物体在屏幕内的深度拿到，避免冗余 Shading。</p>
+<h3 id="Primitive-Drawcall"><a href="#Primitive-Drawcall" class="headerlink" title="Primitive Drawcall"></a>Primitive Drawcall</h3><p>一般而言，每一个 Primitive 之间的 Drawcall 相互独立，而每个 Primitive 中不同的材质，也都会分别进行 Drawcall。实际渲染时一般会按照材质的顺序，对不同的 Mesh 依次进行 Drawcall，避免材质的切换。</p>
+<p>将不同的 Mesh 组织到同一个 Actor 中并不能优化性能，因为遮挡剔除，以及 Drawcall 都是在 Primitive Component 的层面上进行的。</p>
+<p>一般来说，2000-3000 的 Drawcall 是比较合适的，超过 5000 就比较高了，而超过 10000 则可能出现一些问题。对于移动平台，Drawcall 的次数限制比较高，一般只允许数百次。当然，我们也要结合实际 Drawcall 的复杂程度进行考虑。</p>
+<p>对于目前的 GPU 性能来说，三角形的面数，即网格体的复杂程度往往不是性能的主要问题了，Drawcall 的次数才是。Drawcall 本身会有一定的基础开销，对于面数比较低的模型，继续优化其面数往往并不能起效果。</p>
+<p>使用少量大型模型，相比使用大量小型模型，往往能够减少 Drawcall。但大模型也有自己的问题，比如遮挡剔除效果差、光照贴图精度低、碰撞计算更复杂、内存占用更多等问题。</p>
+<p>实际工作中，建议使用模块化的场景搭建流程，并在最后的环节（因为合并操作不能撤销），根据实际性能分析的结果，对必要的（开销较大的）Mesh 进行合并。</p>
+<p>如果你要进行 Mesh 合并，最好遵守以下几条原则：</p>
 <ol>
-<li>越常用的Mesh，其面数越低越好，这样Merge之后面数也不会太多</li>
-<li>只Merge邻近的Mesh</li>
-<li>只Merge拥有相同材质的Mesh</li>
-<li>没有或只有简单碰撞信息的Mesh更适合Merge</li>
-<li>小物体或只接受动态光照的物体更适合Merge，可以不需要担心光照贴图</li>
-<li>远处的物体往往更适合Merge</li>
+<li>越常用的 Mesh，其面数越低越好，这样 Merge 之后面数也不会太多</li>
+<li>只 Merge 邻近的 Mesh</li>
+<li>只 Merge 拥有相同材质的 Mesh</li>
+<li>没有或只有简单碰撞信息的 Mesh 更适合 Merge</li>
+<li>小物体或只接受动态光照的物体更适合 Merge，可以不需要担心光照贴图</li>
+<li>远处的物体往往更适合 Merge</li>
 </ol>
-<p>需要强调的是，Mesh的合并是一种性能优化的方法，而<strong>过早优化是万恶之源</strong>，我们只应在必要的时候进行优化。实际场景中，我们可能并不需要合并Mesh，场景就可以流畅运行了。</p>
-<p>此外，对于海量（几百上千）重复物体的渲染，我们可以使用<strong>Instanced Rendering</strong>，将他们组织到一次Drawcall当中，比如地上的草。而对于少量重复的物体，这样的优化往往是没有必要的，Instanced Rendering本身也有一定开销，不一定能够取得更好的性能。</p>
-<p>LOD（Level Of Detail）也是一项常用的优化技巧。LOD实际上就是按照距离的远近，将模型替换成面数更低的简单模型的方法。一般而言，每一级的面数最好都要比上一级少一半，这样才能弥补掉LOD本身的开销。HLOD（Hierarchical LOD）是一种更加进阶的方案，它可以根据距离，把若干模型组织起来，减少Drawcall。</p>
-<h3 id="相关调试方法-1"><a href="#相关调试方法-1" class="headerlink" title="相关调试方法"></a>相关调试方法</h3><ol>
-<li>使用<code>stat RHI</code>可以看到Drawcall次数。</li>
-<li>在<code>Tools-&gt;Audit-&gt;Statistics</code>窗口（UE5）中，可以看到场景各Mesh的相关统计数据。</li>
+<p>需要强调的是，Mesh 的合并是一种性能优化的方法，而<strong>过早优化是万恶之源</strong>，我们只应在必要的时候进行优化。实际场景中，我们可能并不需要合并 Mesh，场景就可以流畅运行了。</p>
+<p>此外，对于海量（几百上千）重复物体的渲染，我们可以使用<strong>Instanced Rendering</strong>，将他们组织到一次 Drawcall 当中，比如地上的草。而对于少量重复的物体，这样的优化往往是没有必要的，Instanced Rendering 本身也有一定开销，不一定能够取得更好的性能。</p>
+<p>LOD（Level Of Detail）也是一项常用的优化技巧。LOD 实际上就是按照距离的远近，将模型替换成面数更低的简单模型的方法。一般而言，每一级的面数最好都要比上一级少一半，这样才能弥补掉 LOD 本身的开销。HLOD（Hierarchical LOD）是一种更加进阶的方案，它可以根据距离，把若干模型组织起来，减少 Drawcall。</p>
+<h4 id="相关调试方法-1"><a href="#相关调试方法-1" class="headerlink" title="相关调试方法"></a>相关调试方法</h4><ol>
+<li>使用<code>stat RHI</code>可以看到 Drawcall 次数。</li>
+<li>在<code>Tools-&gt;Audit-&gt;Statistics</code>窗口（UE5）中，可以看到场景各 Mesh 的相关统计数据。</li>
 </ol>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/statistics_window.png" alt="Statistics"></p>
-<h2 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h2><p>Vertex Shader负责对输入的顶点进行坐标的变换，我们也可以通过Vertex Shader实现顶点动画，比如旗帜飘动、水面波纹、草叶摇动等等。在UE中，这一功能在材质里表示为World Position Offset输入。</p>
-<p>Vertex Shader是逐顶点执行的，所以我们有以下几点需要：</p>
+<h3 id="Vertex-Shader"><a href="#Vertex-Shader" class="headerlink" title="Vertex Shader"></a>Vertex Shader</h3><p>Vertex Shader 负责对输入的顶点进行坐标的变换，我们也可以通过 Vertex Shader 实现顶点动画，比如旗帜飘动、水面波纹、草叶摇动等等。在 UE 中，这一功能在材质里表示为 World Position Offset 输入。</p>
+<p>Vertex Shader 是逐顶点执行的，所以我们有以下几点需要：</p>
 <ol>
 <li>越复杂的顶点动画，开销越大</li>
-<li>模型顶点越多，开销越大。因此越复杂的模型，我们应该使用越简单的Vertex Shader</li>
-<li>对于远处的物体，我们应该禁用复杂的Vertex Shader的功能（顶点动画）</li>
+<li>模型顶点越多，开销越大。因此越复杂的模型，我们应该使用越简单的 Vertex Shader</li>
+<li>对于远处的物体，我们应该禁用复杂的 Vertex Shader 的功能（顶点动画）</li>
 </ol>
-<h1 id="3-Rasterization-to-GBuffer"><a href="#3-Rasterization-to-GBuffer" class="headerlink" title="3 Rasterization to GBuffer"></a>3 Rasterization to GBuffer</h1><blockquote>
-<p> 标题的这里的Rasterization，应该宏观理解成把场景转换成GBuffer的一个过程，而不是GPU中的光栅化。</p>
+<h2 id="3-Rasterization-to-GBuffer"><a href="#3-Rasterization-to-GBuffer" class="headerlink" title="3 Rasterization to GBuffer"></a>3 Rasterization to GBuffer</h2><blockquote>
+<p>标题的这里的 Rasterization，应该宏观理解成把场景转换成 GBuffer 的一个过程，而不是 GPU 中的光栅化。</p>
 </blockquote>
-<p>在GPU上，Rasterization是一个固定的流程，他将Mesh信息转换成一定分辨率的2D的像素信息。</p>
-<p>一个像素最多只能表示一个三角面（Polygon），如果一个像素所对应的3D空间中覆盖了多个面，它也只会精确地表示其中一个，而不是它们的平均。</p>
-<p>Rasterization判断哪些像素需要参与Shading，是以2*2的Quad为单位的，即便是三角形只与Quad中一个像素相交，我们也仍然需要其他3个像素作为辅助像素参与Shading，具体原理可以参考RTR4的Chapter23。</p>
-<p>这样的机制也很容易造成Quad Overdraw（Over Shading），即一个像素被Shading多次的情况。最糟糕的情况下，一个Quad的4个像素分别属于不同的三角，那么每个像素需要Shading4次（不考虑透明物体）。</p>
-<p>因此，三角面的密度也会影响性能，密度越大越容易Overdraw。在模型中要尽量使用分布均匀的三角面，避免使用细长的三角形。随着物体远离屏幕，其密度也会逐渐增大，为了避免这种情况导致的Overdraw，我们应当使用LOD或者Distance Culling。</p>
-<p>在Deferred Rendering中，Quad Overdraw往往不会对性能造成太大影响。而在Forward Rendering中，其Initial Pixel Shader较为复杂，这时候我们就要注意其性能了。</p>
-<p>将场景的所有信息都保存到GBuffer后，后续我们就只依赖于GBuffer来进行渲染了。</p>
-<p>GBuffer分配可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/568775542">Customize GBuffer In UE5 - 知乎 (zhihu.com)</a></p>
-<h2 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h2><p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/quad_over_draw.png" alt="Quad Over Draw in UE5"></p>
-<p>可以在View Mode中可视化Quad Overdraw。</p>
-<p>通过Render Doc可以清楚地看到GBuffer中的信息。</p>
-<p>当然，UE中内置了可视化Buffer的模式。</p>
+<p>在 GPU 上，Rasterization 是一个固定的流程，他将 Mesh 信息转换成一定分辨率的 2D 的像素信息。</p>
+<p>一个像素最多只能表示一个三角面（Polygon），如果一个像素所对应的 3D 空间中覆盖了多个面，它也只会精确地表示其中一个，而不是它们的平均。</p>
+<p>Rasterization 判断哪些像素需要参与 Shading，是以 2*2 的 Quad 为单位的，即便是三角形只与 Quad 中一个像素相交，我们也仍然需要其他 3 个像素作为辅助像素参与 Shading，具体原理可以参考 RTR4 的 Chapter23。</p>
+<p>这样的机制也很容易造成 Quad Overdraw（Over Shading），即一个像素被 Shading 多次的情况。最糟糕的情况下，一个 Quad 的 4 个像素分别属于不同的三角，那么每个像素需要 Shading4 次（不考虑透明物体）。</p>
+<p>因此，三角面的密度也会影响性能，密度越大越容易 Overdraw。在模型中要尽量使用分布均匀的三角面，避免使用细长的三角形。随着物体远离屏幕，其密度也会逐渐增大，为了避免这种情况导致的 Overdraw，我们应当使用 LOD 或者 Distance Culling。</p>
+<p>在 Deferred Rendering 中，Quad Overdraw 往往不会对性能造成太大影响。而在 Forward Rendering 中，其 Initial Pixel Shader 较为复杂，这时候我们就要注意其性能了。</p>
+<p>将场景的所有信息都保存到 GBuffer 后，后续我们就只依赖于 GBuffer 来进行渲染了。</p>
+<p>GBuffer 分配可以参考<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC81Njg3NzU1NDI=">Customize GBuffer In UE5 - 知乎 (zhihu.com)<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h3><p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/quad_over_draw.png" alt="Quad Over Draw in UE5"></p>
+<p>可以在 View Mode 中可视化 Quad Overdraw。</p>
+<p>通过 Render Doc 可以清楚地看到 GBuffer 中的信息。</p>
+<p>当然，UE 中内置了可视化 Buffer 的模式。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/buffer_visualization.png" alt="Buffer Visualization"></p>
-<h1 id="4-纹理"><a href="#4-纹理" class="headerlink" title="4 纹理"></a>4 纹理</h1><p>纹理资产导入后都会进行压缩，PC平台按照BC（Block Compression）格式进行压缩，BC与DXTC（DirectX Texture Compression，DXT）都指的是同一个概念。</p>
-<p>UE中使用的是简化的BC方法，我们并不能对其做太多设置。常用的BC方法及使用场景如下：</p>
+<h2 id="4-纹理"><a href="#4-纹理" class="headerlink" title="4 纹理"></a>4 纹理</h2><p>纹理资产导入后都会进行压缩，PC 平台按照 BC（Block Compression）格式进行压缩，BC 与 DXTC（DirectX Texture Compression，DXT）都指的是同一个概念。</p>
+<p>UE 中使用的是简化的 BC 方法，我们并不能对其做太多设置。常用的 BC 方法及使用场景如下：</p>
 <ol>
-<li>BC3（DXTC5）：有A通道的纹理</li>
-<li>BC1（DXTC1）：无A通道的纹理</li>
-<li>BC5：只保存RG通道，如法线贴图</li>
+<li>BC3（DXTC5）：有 A 通道的纹理</li>
+<li>BC1（DXTC1）：无 A 通道的纹理</li>
+<li>BC5：只保存 RG 通道，如法线贴图</li>
 </ol>
-<p>Shader（Material）中输入纹理的数量有上限，一般是16张，在UE的材质系统中默认会占用3张，我们只能用剩下的13张。纹理的太大会占用内存和带宽，但一般不会影响渲染的性能（帧率），而是会造成延迟或卡顿。</p>
-<p>纹理可以进行Mipmap，UE会自动为纹理生成Mipmap，并且在实际使用时进行<strong>纹理流送</strong>。但这要求纹理的边长必须是2的幂次（长宽可以不等）。不规则的分辨率不可以进行Mipmap，但也并非所有纹理都需要Mipmap，比如永远不会从远处观察的物体的纹理，此时我们可以使用任意分辨率的纹理。</p>
-<p>UI中使用的纹理也不需要Mipmap和纹理流送，我们应该主动禁用这项功能，在UE中需要将纹理的Group标记为UI。<strong>纹理的Group很重要，请正确设置Texture Group</strong>！</p>
-<p>纹理流送的内存空间可以通过<code>r.Streaming.PoolSize</code>进行设置。如果空间不足，那么UE会倾向于加载更低级的Mipmap纹理进行渲染。</p>
-<h1 id="5-Pixel-Shader和材质"><a href="#5-Pixel-Shader和材质" class="headerlink" title="5 Pixel Shader和材质"></a>5 Pixel Shader和材质</h1><p>Pixel Shader是逐像素执行的Shader，屏幕分辨率越高，Pixel Shader执行的次数也就越多。当然我们也可以按照一定规则，选择性地对一些像素进行Shading，比如使用Mask。</p>
-<p>在UE的材质系统中，材质会为其每一种用途都单独编译出一份Shader。材质系统实际上做的是根据不同的HLSL模板，生成不同Pass中用到的Shader。</p>
-<p>UE的材质系统默认的着色模型用的是PBR模型，一般来说，使用Metallic和Roughness这两个参数就可以调出我们想要的大部分效果了。</p>
-<p>Pixel Shader往往会成为性能的热点，因为所有光照、反射、大气雾等效果都在Pixel Shader中实现。屏幕分辨率和材质复杂度都会影响Pixel Shader运行的性能，使用复杂材质的物体，在画面中占据的像素越多，开销也就越大。</p>
-<h2 id="调试方法-1"><a href="#调试方法-1" class="headerlink" title="调试方法"></a>调试方法</h2><p>在材质系统的Stats栏可以看到一些Shader信息</p>
+<p>Shader（Material）中输入纹理的数量有上限，一般是 16 张，在 UE 的材质系统中默认会占用 3 张，我们只能用剩下的 13 张。纹理的太大会占用内存和带宽，但一般不会影响渲染的性能（帧率），而是会造成延迟或卡顿。</p>
+<p>纹理可以进行 Mipmap，UE 会自动为纹理生成 Mipmap，并且在实际使用时进行<strong>纹理流送</strong>。但这要求纹理的边长必须是 2 的幂次（长宽可以不等）。不规则的分辨率不可以进行 Mipmap，但也并非所有纹理都需要 Mipmap，比如永远不会从远处观察的物体的纹理，此时我们可以使用任意分辨率的纹理。</p>
+<p>UI 中使用的纹理也不需要 Mipmap 和纹理流送，我们应该主动禁用这项功能，在 UE 中需要将纹理的 Group 标记为 UI。<strong>纹理的 Group 很重要，请正确设置 Texture Group</strong>！</p>
+<p>纹理流送的内存空间可以通过<code>r.Streaming.PoolSize</code>进行设置。如果空间不足，那么 UE 会倾向于加载更低级的 Mipmap 纹理进行渲染。</p>
+<h2 id="5-Pixel-Shader-和材质"><a href="#5-Pixel-Shader-和材质" class="headerlink" title="5 Pixel Shader 和材质"></a>5 Pixel Shader 和材质</h2><p>Pixel Shader 是逐像素执行的 Shader，屏幕分辨率越高，Pixel Shader 执行的次数也就越多。当然我们也可以按照一定规则，选择性地对一些像素进行 Shading，比如使用 Mask。</p>
+<p>在 UE 的材质系统中，材质会为其每一种用途都单独编译出一份 Shader。材质系统实际上做的是根据不同的 HLSL 模板，生成不同 Pass 中用到的 Shader。</p>
+<p>UE 的材质系统默认的着色模型用的是 PBR 模型，一般来说，使用 Metallic 和 Roughness 这两个参数就可以调出我们想要的大部分效果了。</p>
+<p>Pixel Shader 往往会成为性能的热点，因为所有光照、反射、大气雾等效果都在 Pixel Shader 中实现。屏幕分辨率和材质复杂度都会影响 Pixel Shader 运行的性能，使用复杂材质的物体，在画面中占据的像素越多，开销也就越大。</p>
+<h3 id="调试方法-1"><a href="#调试方法-1" class="headerlink" title="调试方法"></a>调试方法</h3><p>在材质系统的 Stats 栏可以看到一些 Shader 信息</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/material_shader_info.png" alt="Shader Info of Material"></p>
-<p>一般来说，Base pass shader的指令数在100到200之间是比较合适的，我们可以在View Mode中选择Shader Complexity进行调试。（注意，如果开启Shader Debug的相关设置，会导致Shader指令数大幅增加，上图就是如此，请关闭后再测试性能）</p>
+<p>一般来说，Base pass shader 的指令数在 100 到 200 之间是比较合适的，我们可以在 View Mode 中选择 Shader Complexity 进行调试。（注意，如果开启 Shader Debug 的相关设置，会导致 Shader 指令数大幅增加，上图就是如此，请关闭后再测试性能）</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/shader_complexity.png" alt="Shader Complexity"></p>
-<h1 id="6-反射"><a href="#6-反射" class="headerlink" title="6 反射"></a>6 反射</h1><p>UE中混合使用3种方法来实现反射效果</p>
-<h2 id="Reflection-Captures"><a href="#Reflection-Captures" class="headerlink" title="Reflection Captures"></a>Reflection Captures</h2><p>Reflection Captures是通过预计算，在指定位置生成Cubemap的方法。这种方法运行时性能优秀，但只能反射静态物体，并且只能对局部的Shading Point起作用（即Volume内的Shading Point）。</p>
-<p>在UE中可以在场景中放置Reflection Captures Volume，当渲染体积内的物体时，就会向Reflection Captures查询其Cubemap，辅助渲染。我们只在Volume中心的位置生成了Cubemap，当相机离中心越近，反射的效果越准确，反之，反射效果会产生一定的位置偏差。</p>
-<p>Cubemap的分辨率可以在项目设置中修改，越大的分辨率，可以得到越锐利的结果。</p>
+<h2 id="6-反射"><a href="#6-反射" class="headerlink" title="6 反射"></a>6 反射</h2><p>UE 中混合使用 3 种方法来实现反射效果</p>
+<h3 id="Reflection-Captures"><a href="#Reflection-Captures" class="headerlink" title="Reflection Captures"></a>Reflection Captures</h3><p>Reflection Captures 是通过预计算，在指定位置生成 Cubemap 的方法。这种方法运行时性能优秀，但只能反射静态物体，并且只能对局部的 Shading Point 起作用（即 Volume 内的 Shading Point）。</p>
+<p>在 UE 中可以在场景中放置 Reflection Captures Volume，当渲染体积内的物体时，就会向 Reflection Captures 查询其 Cubemap，辅助渲染。我们只在 Volume 中心的位置生成了 Cubemap，当相机离中心越近，反射的效果越准确，反之，反射效果会产生一定的位置偏差。</p>
+<p>Cubemap 的分辨率可以在项目设置中修改，越大的分辨率，可以得到越锐利的结果。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/reflection_capture_resolution.png" alt="Reflection Capture Resolution"></p>
-<p>我们最好不场景中使用过多的Reflection Capture，同时Reflection Capture之间最好也不要重叠，这会造成更大的性能开销，因为重叠区域的Shading Point需要融合所有Reflection Capture的Cubemap的结果，因此建议Reflection Capture重叠的数量最多不超过8个。</p>
-<p>此外，在没有Cook场景时，Reflection Capture会在每次加载场景时捕获一次，这会增加场景加载的时间，需要格外注意。</p>
-<h2 id="Planar-Reflection"><a href="#Planar-Reflection" class="headerlink" title="Planar Reflection"></a>Planar Reflection</h2><p>Planar Reflection平面或类平面（水面）的实时反射效果。其本质就是在指定位置对场景进行额外的一次渲染，可以反射出视野外的物体。但是其性能开销的也非常大，我们要谨慎使用。</p>
-<p><a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/planar-reflections-in-unreal-engine/">虚幻引擎中的平面反射 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
-<h2 id="Screen-Space-Reflction（SSR）"><a href="#Screen-Space-Reflction（SSR）" class="headerlink" title="Screen Space Reflction（SSR）"></a>Screen Space Reflction（SSR）</h2><p>这是UE默认开启的反射功能，优点不再赘述。SSR也有一些缺点，比如反射效果会有一些噪声（因为它是基于采样的），并且只有平面内的信息。</p>
-<p>需要注意的是，虽然SRR的开销不大，但在一些性能吃紧的设备上，我们仍然需要考虑将其关闭。反过来说，如果性能过剩，也可以通过<code>r.SSR.Quality 4</code>（默认是3）来提高SSR质量，减轻噪声。</p>
-<p>实际构建场景时，我们可能会同时使用上面提到的三种反射效果，但UE在实际渲染某个Shading Point时，只会选择其中一个方案进行反射的渲染，此时SSR优先级高于Planar Reflection，Planar Reflection高于Reflection Captures。</p>
-<h2 id="Skylight"><a href="#Skylight" class="headerlink" title="Skylight"></a>Skylight</h2><p>除了以上三种反射方案，Skylight也可以视为一个开销较小的全局Reflection Capture方案，它也可以捕获场景自动生成Cubemap（可以按距离剔除较近物体，只捕获远处的物体，如天空盒）。</p>
-<p>Skylight对于户外大场景十分重要，可以避免防止过多的Reflection Capture Actor。实际渲染时，如果Shading Point没有检测到前面三种反射方案，就会使用Skylight。</p>
-<h1 id="7-光照与阴影"><a href="#7-光照与阴影" class="headerlink" title="7 光照与阴影"></a>7 光照与阴影</h1><p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lighting_and_shadows.png" alt="Lighting And Shadows"></p>
-<h2 id="静态（Pre-Rendered）"><a href="#静态（Pre-Rendered）" class="headerlink" title="静态（Pre-Rendered）"></a>静态（Pre-Rendered）</h2><p>静态光影会在编辑器中预计算光影效果，并将它们保存到Lightmap中。这样做可以获得极佳的渲染性能，但会增加内存和带宽的负担。</p>
-<p>就质量而言，静态光影可以计算出准确的光影效果及全局光照，也可以生成正确的阴影（软阴影），但这些结果最终需要保存到Lightmap中供运行时使用，所以实际质量与Lightmap的分辨率直接相关，需要注意Lightmap分辨率也有上限。Lightmap的分辨率会影响文件大小和运行时内存占用，一般不会影响帧率。</p>
-<p>场景中的每一个受静态光照影响的物体都需要有Lightmap UVs。静态光影的质量也与物体的UV布局有关。非常大的物体可能会用光Lightmap的UV空间，此时UE会使用更低分辨率的Lightmap，导致质量下降。</p>
-<p>对于每个物体分配的LightMap的精度，我们也可以根据场景Lightmap密度手动调整。当然，一般情况下，我们并不需要调整这些属性。</p>
+<p>我们最好不场景中使用过多的 Reflection Capture，同时 Reflection Capture 之间最好也不要重叠，这会造成更大的性能开销，因为重叠区域的 Shading Point 需要融合所有 Reflection Capture 的 Cubemap 的结果，因此建议 Reflection Capture 重叠的数量最多不超过 8 个。</p>
+<p>此外，在没有 Cook 场景时，Reflection Capture 会在每次加载场景时捕获一次，这会增加场景加载的时间，需要格外注意。</p>
+<h3 id="Planar-Reflection"><a href="#Planar-Reflection" class="headerlink" title="Planar Reflection"></a>Planar Reflection</h3><p>Planar Reflection 平面或类平面（水面）的实时反射效果。其本质就是在指定位置对场景进行额外的一次渲染，可以反射出视野外的物体。但是其性能开销的也非常大，我们要谨慎使用。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVucmVhbGVuZ2luZS5jb20vNS4zL3poLUNOL3BsYW5hci1yZWZsZWN0aW9ucy1pbi11bnJlYWwtZW5naW5lLw==">虚幻引擎中的平面反射 | 虚幻引擎 5.3 文档 (unrealengine.com)<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="Screen-Space-Reflction（SSR）"><a href="#Screen-Space-Reflction（SSR）" class="headerlink" title="Screen Space Reflction（SSR）"></a>Screen Space Reflction（SSR）</h3><p>这是 UE 默认开启的反射功能，优点不再赘述。SSR 也有一些缺点，比如反射效果会有一些噪声（因为它是基于采样的），并且只有平面内的信息。</p>
+<p>需要注意的是，虽然 SRR 的开销不大，但在一些性能吃紧的设备上，我们仍然需要考虑将其关闭。反过来说，如果性能过剩，也可以通过<code>r.SSR.Quality 4</code>（默认是 3）来提高 SSR 质量，减轻噪声。</p>
+<p>实际构建场景时，我们可能会同时使用上面提到的三种反射效果，但 UE 在实际渲染某个 Shading Point 时，只会选择其中一个方案进行反射的渲染，此时 SSR 优先级高于 Planar Reflection，Planar Reflection 高于 Reflection Captures。</p>
+<h3 id="Skylight"><a href="#Skylight" class="headerlink" title="Skylight"></a>Skylight</h3><p>除了以上三种反射方案，Skylight 也可以视为一个开销较小的全局 Reflection Capture 方案，它也可以捕获场景自动生成 Cubemap（可以按距离剔除较近物体，只捕获远处的物体，如天空盒）。</p>
+<p>Skylight 对于户外大场景十分重要，可以避免防止过多的 Reflection Capture Actor。实际渲染时，如果 Shading Point 没有检测到前面三种反射方案，就会使用 Skylight。</p>
+<h2 id="7-光照与阴影"><a href="#7-光照与阴影" class="headerlink" title="7 光照与阴影"></a>7 光照与阴影</h2><p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lighting_and_shadows.png" alt="Lighting And Shadows"></p>
+<h3 id="静态（Pre-Rendered）"><a href="#静态（Pre-Rendered）" class="headerlink" title="静态（Pre-Rendered）"></a>静态（Pre-Rendered）</h3><p>静态光影会在编辑器中预计算光影效果，并将它们保存到 Lightmap 中。这样做可以获得极佳的渲染性能，但会增加内存和带宽的负担。</p>
+<p>就质量而言，静态光影可以计算出准确的光影效果及全局光照，也可以生成正确的阴影（软阴影），但这些结果最终需要保存到 Lightmap 中供运行时使用，所以实际质量与 Lightmap 的分辨率直接相关，需要注意 Lightmap 分辨率也有上限。Lightmap 的分辨率会影响文件大小和运行时内存占用，一般不会影响帧率。</p>
+<p>场景中的每一个受静态光照影响的物体都需要有 Lightmap UVs。静态光影的质量也与物体的 UV 布局有关。非常大的物体可能会用光 Lightmap 的 UV 空间，此时 UE 会使用更低分辨率的 Lightmap，导致质量下降。</p>
+<p>对于每个物体分配的 LightMap 的精度，我们也可以根据场景 Lightmap 密度手动调整。当然，一般情况下，我们并不需要调整这些属性。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/overridden_lightmap_res.png" alt="Overridden Lightmap Res"></p>
-<p>详情可以参考官方文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/static-light-mobility-in-unreal-engine/">虚幻引擎中静态光源的移动性 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
-<p>实际渲染时，会将Base Color与Lightmap相乘，使阴影处更暗，光照处更亮。</p>
-<p>UE中使用Lightmass来生成Lightmap，它会将很多Lightmaps打包成一个图集，你可以在World Settings中看到他们。</p>
+<p>详情可以参考官方文档<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVucmVhbGVuZ2luZS5jb20vNS4zL3poLUNOL3N0YXRpYy1saWdodC1tb2JpbGl0eS1pbi11bnJlYWwtZW5naW5lLw==">虚幻引擎中静态光源的移动性 | 虚幻引擎 5.3 文档 (unrealengine.com)<i class="fa fa-external-link-alt"></i></span></p>
+<p>实际渲染时，会将 Base Color 与 Lightmap 相乘，使阴影处更暗，光照处更亮。</p>
+<p>UE 中使用 Lightmass 来生成 Lightmap，它会将很多 Lightmaps 打包成一个图集，你可以在 World Settings 中看到他们。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmaps.png" alt="Lightmaps"></p>
-<p>Lightmass烘焙是一个独立的程序，因此它可以支持分布式烘焙。Lightmass烘焙的质量由Light Build Quality和World Settings中的Lightmass设置决定。</p>
+<p>Lightmass 烘焙是一个独立的程序，因此它可以支持分布式烘焙。Lightmass 烘焙的质量由 Light Build Quality 和 World Settings 中的 Lightmass 设置决定。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmass_settings.png" alt="Lightmass Settings"></p>
-<p>静态光影的预计算可能有比较长的时间开销，并且每次修改场景都要重新预计算。Lightmap烘焙时间，会受到Lightmap分辨率、模型与光源的数量和烘焙质量相关设置的直接影响。此外，光源的半径也会影响烘焙时间，半径越大，烘焙时间越长。</p>
-<p>运行时，我们可以根据相机视角判断需要重点渲染的区域，但在离线的场景下，我们并不知道相机会出现在哪里。因此在烘焙Lightmass时，我们也需要在场景中摄像机可能出现的位置都放置好<strong>Lightmass Importance Volume</strong>。</p>
-<p>Lightmap中只保存了静态的场景的光影信息，对于运行时动态的物体，我们可以查询间接光照缓存（Indirect Lighting Cache，ILC）进行混合，辅助动态物体在运行时的光影渲染。</p>
-<p>要开启ILC，需要在Lightmass的Volume Lighting Method中选择Sparse Volume Lighting Samples。</p>
+<p>静态光影的预计算可能有比较长的时间开销，并且每次修改场景都要重新预计算。Lightmap 烘焙时间，会受到 Lightmap 分辨率、模型与光源的数量和烘焙质量相关设置的直接影响。此外，光源的半径也会影响烘焙时间，半径越大，烘焙时间越长。</p>
+<p>运行时，我们可以根据相机视角判断需要重点渲染的区域，但在离线的场景下，我们并不知道相机会出现在哪里。因此在烘焙 Lightmass 时，我们也需要在场景中摄像机可能出现的位置都放置好<strong>Lightmass Importance Volume</strong>。</p>
+<p>Lightmap 中只保存了静态的场景的光影信息，对于运行时动态的物体，我们可以查询间接光照缓存（Indirect Lighting Cache，ILC）进行混合，辅助动态物体在运行时的光影渲染。</p>
+<p>要开启 ILC，需要在 Lightmass 的 Volume Lighting Method 中选择 Sparse Volume Lighting Samples。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/enable_ILC.png" alt="Enable ILC"></p>
-<p>同时动态物体怎么使用ILC信息，也可以在Mesh的Lighting栏进行设置，甚至是直接关闭。</p>
+<p>同时动态物体怎么使用 ILC 信息，也可以在 Mesh 的 Lighting 栏进行设置，甚至是直接关闭。</p>
 <p><img src="/unreal-engine/rendering/real-time-rendering-deep-dive/use_ILC.png" alt="Use ILC"></p>
-<p>一般ILC会倾向于分布在Lightmass Importance Volume中的地面上，我们也可以通过放置<strong>Lightmass Character Indirect Detail Volume</strong>来手动指定那些动态物体可能移动到的地方。</p>
-<p>目前UE默认的方案不是ILC，而是VLM。详情参考<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/volumetric-lightmaps-in-unreal-engine/">虚幻引擎中的体积光照贴图 | 虚幻引擎5.3文档 (unrealengine.com)</a></p>
-<h3 id="调试方法-2"><a href="#调试方法-2" class="headerlink" title="调试方法"></a>调试方法</h3><ol>
-<li>可视化Lightmap密度。颜色越红，密度越高。 <img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmap_density.png" alt="Lightmap Density"></li>
-<li>可视化ILC辅助调试<img src="/unreal-engine/rendering/real-time-rendering-deep-dive/indirect_lighting_cache.png" alt="Indirect Lighting Cache"></li>
+<p>一般 ILC 会倾向于分布在 Lightmass Importance Volume 中的地面上，我们也可以通过放置<strong>Lightmass Character Indirect Detail Volume</strong>来手动指定那些动态物体可能移动到的地方。</p>
+<p>目前 UE 默认的方案不是 ILC，而是 VLM。详情参考<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVucmVhbGVuZ2luZS5jb20vNS4zL3poLUNOL3ZvbHVtZXRyaWMtbGlnaHRtYXBzLWluLXVucmVhbC1lbmdpbmUv">虚幻引擎中的体积光照贴图 | 虚幻引擎 5.3 文档 (unrealengine.com)<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="调试方法-2"><a href="#调试方法-2" class="headerlink" title="调试方法"></a>调试方法</h4><ol>
+<li>可视化 Lightmap 密度。颜色越红，密度越高。<img src="/unreal-engine/rendering/real-time-rendering-deep-dive/lightmap_density.png" alt="Lightmap Density"></li>
+<li>可视化 ILC 辅助调试<img src="/unreal-engine/rendering/real-time-rendering-deep-dive/indirect_lighting_cache.png" alt="Indirect Lighting Cache"></li>
 </ol>
-<h2 id="动态（Real-Time）"><a href="#动态（Real-Time）" class="headerlink" title="动态（Real Time）"></a>动态（Real Time）</h2><p>相比起静态阴影，动态光影在运行时实时计算，不受Lightmap大小限制，不关心物体的大小。</p>
-<p>在讲动态光影之前，建议阅读UE官方关于光源移动性的相关文档<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/light-types-and-their-mobility-in-unreal-engine/">虚幻引擎中的光源类型及其移动性</a>和<a target="_blank" rel="noopener" href="https://docs.unrealengine.com/5.3/zh-CN/actor-mobility-in-unreal-engine/">虚幻引擎中的Actor移动性</a></p>
-<h3 id="动态阴影"><a href="#动态阴影" class="headerlink" title="动态阴影"></a>动态阴影</h3><p>相比起静态阴影，动态阴影不考虑全局光照，只能够生成硬阴影。</p>
-<p>UE中使用了很多种阴影方案，一般根据光源及物体的移动性选用不同的阴影方案。可以参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/367517074">UE4中的可移动性细谈 —— Mobility in UE4 - 知乎 (zhihu.com)</a></p>
-<p>对于可以产生动态阴影（Movable或Stationary）的Directional Light，UE会使用CSM。</p>
-<p>基于距离场（Directional Field，DF）的阴影的性能往往更好，但需要将DF保存到体积纹理（实际上是若干的2D纹理，其中平面精度远高于Z轴的精度）中，纹理精度直接影响了阴影质量。对于远距离的物体，阴影精度往往不是太大的问题，因此使用DF来渲染阴影也是一个不错的选择。受DF保存方式的影响，DF对棱角分明的物体的表征更加准确。</p>
-<p>此外，还有其他几种不常用的动态阴影类型，比如Inset Shadows、Contact Shadows和CapsuleShadows等，这里不再展开。</p>
-<p>动态阴影的开销十分巨大，因为它需要单独的Drawcall，从光源处计算Shadow Map，对于点光源还需要生成Cubemap类型的Shadow Map。因此我们应该谨慎开启动态光源的阴影投射功能，或者舍弃一些质量来降低开销。在实际项目中，我们也可以在运行时通过代码来控制是否投射阴影，以优化性能。</p>
-<p>Shadow map的生成可以理解为是在光源位置进行的Pre-pass，这是逐Vertex的过程。因此动态阴影会受到场景中物体面数（顶点数）的影响，如果场景需要用到大量的动态阴影，那么请降低场景的面数。不过比起使用Shadow Map，这种场景下DF往往是更优的选择。</p>
-<h3 id="动态光照"><a href="#动态光照" class="headerlink" title="动态光照"></a>动态光照</h3><p>动态光照一般不会计算全局光照，而仅表现简单直接光照的效果。</p>
-<p>对于Deferred Renderer（以及现代的Forward Rendering）来说，动态光照的渲染往往不会产生太大的性能开销，动态的阴影才是性能杀手。</p>
-<p>需要注意的是，判断哪些像素与<strong>屏幕空间</strong>中，光源半径覆盖的面积有关，而光源距离相机越近，覆盖的面积就越大，需要Shading的像素就越多。</p>
+<h3 id="动态（Real-Time）"><a href="#动态（Real-Time）" class="headerlink" title="动态（Real Time）"></a>动态（Real Time）</h3><p>相比起静态阴影，动态光影在运行时实时计算，不受 Lightmap 大小限制，不关心物体的大小。</p>
+<p>在讲动态光影之前，建议阅读 UE 官方关于光源移动性的相关文档<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVucmVhbGVuZ2luZS5jb20vNS4zL3poLUNOL2xpZ2h0LXR5cGVzLWFuZC10aGVpci1tb2JpbGl0eS1pbi11bnJlYWwtZW5naW5lLw==">虚幻引擎中的光源类型及其移动性<i class="fa fa-external-link-alt"></i></span>和<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnVucmVhbGVuZ2luZS5jb20vNS4zL3poLUNOL2FjdG9yLW1vYmlsaXR5LWluLXVucmVhbC1lbmdpbmUv">虚幻引擎中的 Actor 移动性<i class="fa fa-external-link-alt"></i></span></p>
+<h4 id="动态阴影"><a href="#动态阴影" class="headerlink" title="动态阴影"></a>动态阴影</h4><p>相比起静态阴影，动态阴影不考虑全局光照，只能够生成硬阴影。</p>
+<p>UE 中使用了很多种阴影方案，一般根据光源及物体的移动性选用不同的阴影方案。可以参考<span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8zNjc1MTcwNzQ=">UE4 中的可移动性细谈——Mobility in UE4 - 知乎 (zhihu.com)<i class="fa fa-external-link-alt"></i></span></p>
+<p>对于可以产生动态阴影（Movable 或 Stationary）的 Directional Light，UE 会使用 CSM。</p>
+<p>基于距离场（Directional Field，DF）的阴影的性能往往更好，但需要将 DF 保存到体积纹理（实际上是若干的 2D 纹理，其中平面精度远高于 Z 轴的精度）中，纹理精度直接影响了阴影质量。对于远距离的物体，阴影精度往往不是太大的问题，因此使用 DF 来渲染阴影也是一个不错的选择。受 DF 保存方式的影响，DF 对棱角分明的物体的表征更加准确。</p>
+<p>此外，还有其他几种不常用的动态阴影类型，比如 Inset Shadows、Contact Shadows 和 CapsuleShadows 等，这里不再展开。</p>
+<p>动态阴影的开销十分巨大，因为它需要单独的 Drawcall，从光源处计算 Shadow Map，对于点光源还需要生成 Cubemap 类型的 Shadow Map。因此我们应该谨慎开启动态光源的阴影投射功能，或者舍弃一些质量来降低开销。在实际项目中，我们也可以在运行时通过代码来控制是否投射阴影，以优化性能。</p>
+<p>Shadow map 的生成可以理解为是在光源位置进行的 Pre-pass，这是逐 Vertex 的过程。因此动态阴影会受到场景中物体面数（顶点数）的影响，如果场景需要用到大量的动态阴影，那么请降低场景的面数。不过比起使用 Shadow Map，这种场景下 DF 往往是更优的选择。</p>
+<h4 id="动态光照"><a href="#动态光照" class="headerlink" title="动态光照"></a>动态光照</h4><p>动态光照一般不会计算全局光照，而仅表现简单直接光照的效果。</p>
+<p>对于 Deferred Renderer（以及现代的 Forward Rendering）来说，动态光照的渲染往往不会产生太大的性能开销，动态的阴影才是性能杀手。</p>
+<p>需要注意的是，判断哪些像素与<strong>屏幕空间</strong>中，光源半径覆盖的面积有关，而光源距离相机越近，覆盖的面积就越大，需要 Shading 的像素就越多。</p>
 <p>实际场景中，我们应该尽可能的减小光源的半径，以优化性能，这对于动态阴影同样适用。</p>
-<h2 id="混合使用动态-静态光影"><a href="#混合使用动态-静态光影" class="headerlink" title="混合使用动态&#x2F;静态光影"></a>混合使用动态&#x2F;静态光影</h2><p>将两者混合使用往往可以得到一个不错的渲染效果，我们可以按照如下方案进行使用：</p>
+<h3 id="混合使用动态-静态光影"><a href="#混合使用动态-静态光影" class="headerlink" title="混合使用动态&#x2F;静态光影"></a>混合使用动态&#x2F;静态光影</h3><p>将两者混合使用往往可以得到一个不错的渲染效果，我们可以按照如下方案进行使用：</p>
 <ol>
 <li>对于远距离的微弱的光照，使用静态光照</li>
 <li>对于近处的光照，我们先使用静态光照来渲染间接光，然后在其基础上，使用动态光照来突出着色和阴影。</li>
 <li>如果需要极致的性能，请使用静态光照，如果需要运行时修改光照效果，请使用动态光照。</li>
 </ol>
-<h1 id="8-距离雾和透明物体"><a href="#8-距离雾和透明物体" class="headerlink" title="8 距离雾和透明物体"></a>8 距离雾和透明物体</h1><p>UE中有两种距离雾，分别是大气雾和指数雾。距离雾意味着雾会随着距离（接近相机）而消退，同时它也是高度雾，会在接近天空时消退。大气雾和指数雾两者差别并不大，前者性能好一些，后者可以混合更丰富的颜色种类，效果更好。</p>
-<p>UE中雾的效果在Pixel Shader中处理，通过GBuffer及屏幕深度等信息，将雾的颜色按照一定规则混合即可。</p>
-<p>UE中还有一种局部体积的雾，这里不展开。</p>
-<p>半透明物体的渲染是Deferred Renderer的弱项，也是其性能热点之一。也有将半透明物体在Forward Renderer中渲染后，和Deferred Renderer混合的做法，但这样你需要同时运行两套渲染框架。</p>
-<p>在Deferred Renderer中， 一般将半透明物体的渲染推迟到不透明物体渲染之后，同时你需要对同一个Pixel进行多次Shading。</p>
-<p>实际使用Translucent材质时，应当遵循以下几条原则：</p>
+<h2 id="8-距离雾和透明物体"><a href="#8-距离雾和透明物体" class="headerlink" title="8 距离雾和透明物体"></a>8 距离雾和透明物体</h2><p>UE 中有两种距离雾，分别是大气雾和指数雾。距离雾意味着雾会随着距离（接近相机）而消退，同时它也是高度雾，会在接近天空时消退。大气雾和指数雾两者差别并不大，前者性能好一些，后者可以混合更丰富的颜色种类，效果更好。</p>
+<p>UE 中雾的效果在 Pixel Shader 中处理，通过 GBuffer 及屏幕深度等信息，将雾的颜色按照一定规则混合即可。</p>
+<p>UE 中还有一种局部体积的雾，这里不展开。</p>
+<p>半透明物体的渲染是 Deferred Renderer 的弱项，也是其性能热点之一。也有将半透明物体在 Forward Renderer 中渲染后，和 Deferred Renderer 混合的做法，但这样你需要同时运行两套渲染框架。</p>
+<p>在 Deferred Renderer 中，一般将半透明物体的渲染推迟到不透明物体渲染之后，同时你需要对同一个 Pixel 进行多次 Shading。</p>
+<p>实际使用 Translucent 材质时，应当遵循以下几条原则：</p>
 <ol>
-<li>可以用Masked，就不要用Translucent</li>
-<li>使用Translucent时，可以用Unlit模型达到期望的效果，就不要用DefaultLit</li>
-<li>如果Translucent物体一定要响应光照，那么请正确配置相关的Translucent设置。</li>
+<li>可以用 Masked，就不要用 Translucent</li>
+<li>使用 Translucent 时，可以用 Unlit 模型达到期望的效果，就不要用 DefaultLit</li>
+<li>如果 Translucent 物体一定要响应光照，那么请正确配置相关的 Translucent 设置。</li>
 <li>透明材质覆盖的像素越多，其材质就应该越简单。举例来说，远处的烟雾粒子复杂一些没有关系，但近处的烟雾粒子必须非常简单。</li>
 </ol>
-<h1 id="9-后处理"><a href="#9-后处理" class="headerlink" title="9 后处理"></a>9 后处理</h1><p>后处理也是基于GBuffer实现的效果。</p>
-<p>常见的后处理效果有Light Bloom、Depth of Field、Lensflare、Light Shaft（GodRay）、Vignette、Tonemapping、Exposure、Motion Blur等。</p>
+<h2 id="9-后处理"><a href="#9-后处理" class="headerlink" title="9 后处理"></a>9 后处理</h2><p>后处理也是基于 GBuffer 实现的效果。</p>
+<p>常见的后处理效果有 Light Bloom、Depth of Field、Lensflare、Light Shaft（GodRay）、Vignette、Tonemapping、Exposure、Motion Blur 等。</p>
 
     </div>
 
@@ -484,13 +491,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/game-dev/graphics/games202-notes/" rel="prev" title="GAMES202笔记">
-                  <i class="fa fa-angle-left"></i> GAMES202笔记
+                <a href="/unreal-engine/rendering/toon-rendering/" rel="prev" title="UE5 卡通渲染：描边、自定义光照模型与材质实现">
+                  <i class="fa fa-angle-left"></i> UE5 卡通渲染：描边、自定义光照模型与材质实现
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/misc/hexo-guide/" rel="next" title="Hexo 中的常用特性">
-                  Hexo 中的常用特性 <i class="fa fa-angle-right"></i>
+                <a href="/game-dev/graphics/games202-notes/" rel="next" title="GAMES202 实时渲染课程笔记">
+                  GAMES202 实时渲染课程笔记 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -517,20 +524,6 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Lolia</span>
   </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">33k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">1:58</span>
-  </span>
-</div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
@@ -549,7 +542,7 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
 
     </div>

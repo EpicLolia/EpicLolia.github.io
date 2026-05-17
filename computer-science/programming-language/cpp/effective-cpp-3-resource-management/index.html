@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -18,14 +18,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"epiclolia.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":true,"height":300},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="条款13 以对象管理资源智能指针默认只会delete一个元素（而非delete[]），如果用来管理数组的话就需要自行定义删除器。  请记住  为防止资源泄露，请使用RAII对象，他们在构造函数中获得资源并在析构函数中释放资源。 两个常常被用的RAII class是shared_ptr和auto_ptr .前者通常是较佳的选择，因为其copy行为比较直观。若选择auto_ptr，复制动作会使它（被复">
+    <meta name="description" content="条款 13 以对象管理资源智能指针默认只会 delete 一个元素（而非 delete[]），如果用来管理数组的话就需要自行定义删除器。  请记住  为防止资源泄露，请使用 RAII 对象，他们在构造函数中获得资源并在析构函数中释放资源。 两个常常被用的 RAII class 是 shared_ptr 和 auto_ptr .前者通常是较佳的选择，因为其 copy 行为比较直观。若选择 auto_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Effective C++】3 资源管理">
 <meta property="og:url" content="https://epiclolia.github.io/computer-science/programming-language/cpp/effective-cpp-3-resource-management/index.html">
 <meta property="og:site_name" content="Lolia&#39;s blogs">
-<meta property="og:description" content="条款13 以对象管理资源智能指针默认只会delete一个元素（而非delete[]），如果用来管理数组的话就需要自行定义删除器。  请记住  为防止资源泄露，请使用RAII对象，他们在构造函数中获得资源并在析构函数中释放资源。 两个常常被用的RAII class是shared_ptr和auto_ptr .前者通常是较佳的选择，因为其copy行为比较直观。若选择auto_ptr，复制动作会使它（被复">
+<meta property="og:description" content="条款 13 以对象管理资源智能指针默认只会 delete 一个元素（而非 delete[]），如果用来管理数组的话就需要自行定义删除器。  请记住  为防止资源泄露，请使用 RAII 对象，他们在构造函数中获得资源并在析构函数中释放资源。 两个常常被用的 RAII class 是 shared_ptr 和 auto_ptr .前者通常是较佳的选择，因为其 copy 行为比较直观。若选择 auto_">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-20T04:20:03.000Z">
 <meta property="article:modified_time" content="2022-10-20T04:20:03.000Z">
@@ -168,7 +168,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE13-%E4%BB%A5%E5%AF%B9%E8%B1%A1%E7%AE%A1%E7%90%86%E8%B5%84%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">条款13 以对象管理资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE14-%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E7%B1%BB%E4%B8%AD%E5%B0%8F%E5%BF%83copying%E8%A1%8C%E4%B8%BA"><span class="nav-number">2.</span> <span class="nav-text">条款14 在资源管理类中小心copying行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE15-%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E7%B1%BB%E4%B8%AD%E6%8F%90%E4%BE%9B%E5%AF%B9%E5%8E%9F%E5%A7%8B%E8%B5%84%E6%BA%90%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-number">3.</span> <span class="nav-text">条款15 在资源管理类中提供对原始资源的访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE16-%E6%88%90%E5%AF%B9%E4%BD%BF%E7%94%A8new%E5%92%8Cdelete%E6%97%B6%E8%A6%81%E9%87%87%E5%8F%96%E7%9B%B8%E5%90%8C%E5%BD%A2%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">条款16 成对使用new和delete时要采取相同形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE17-%E4%BB%A5%E7%8B%AC%E7%AB%8B%E8%AF%AD%E5%8F%A5%E5%B0%86newed%E5%AF%B9%E8%B1%A1%E7%BD%AE%E5%85%A5%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">5.</span> <span class="nav-text">条款17 以独立语句将newed对象置入智能指针</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-13-%E4%BB%A5%E5%AF%B9%E8%B1%A1%E7%AE%A1%E7%90%86%E8%B5%84%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">条款 13 以对象管理资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-14-%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E7%B1%BB%E4%B8%AD%E5%B0%8F%E5%BF%83-copying-%E8%A1%8C%E4%B8%BA"><span class="nav-number">2.</span> <span class="nav-text">条款 14 在资源管理类中小心 copying 行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-15-%E5%9C%A8%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E7%B1%BB%E4%B8%AD%E6%8F%90%E4%BE%9B%E5%AF%B9%E5%8E%9F%E5%A7%8B%E8%B5%84%E6%BA%90%E7%9A%84%E8%AE%BF%E9%97%AE"><span class="nav-number">3.</span> <span class="nav-text">条款 15 在资源管理类中提供对原始资源的访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-16-%E6%88%90%E5%AF%B9%E4%BD%BF%E7%94%A8-new-%E5%92%8C-delete-%E6%97%B6%E8%A6%81%E9%87%87%E5%8F%96%E7%9B%B8%E5%90%8C%E5%BD%A2%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">条款 16 成对使用 new 和 delete 时要采取相同形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E6%AC%BE-17-%E4%BB%A5%E7%8B%AC%E7%AB%8B%E8%AF%AD%E5%8F%A5%E5%B0%86-newed-%E5%AF%B9%E8%B1%A1%E7%BD%AE%E5%85%A5%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">5.</span> <span class="nav-text">条款 17 以独立语句将 newed 对象置入智能指针</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,11 +192,16 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0VwaWNMb2xpYQ==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;EpicLolia"><i class="fab fa-github fa-fw"></i>GitHub</span>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -282,7 +287,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>651</span>
+      <span>652</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -299,44 +304,46 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="条款13-以对象管理资源"><a href="#条款13-以对象管理资源" class="headerlink" title="条款13 以对象管理资源"></a>条款13 以对象管理资源</h2><p>智能指针默认只会delete一个元素（而非delete[]），如果用来管理数组的话就需要自行定义删除器。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="条款-13-以对象管理资源"><a href="#条款-13-以对象管理资源" class="headerlink" title="条款 13 以对象管理资源"></a>条款 13 以对象管理资源</h2><p>智能指针默认只会 delete 一个元素（而非 delete[]），如果用来管理数组的话就需要自行定义删除器。</p>
 <blockquote>
 <p>请记住</p>
 <ul>
-<li>为防止资源泄露，请使用RAII对象，他们在构造函数中获得资源并在析构函数中释放资源。</li>
-<li>两个常常被用的RAII class是shared_ptr和auto_ptr .前者通常是较佳的选择，因为其copy行为比较直观。若选择auto_ptr，复制动作会使它（被复制物）指向null。</li>
-<li>PS: C++11 推出了shared_ptr, unique_ptr, weak_ptr，请不要再使用auto_ptr。</li>
+<li>为防止资源泄露，请使用 RAII 对象，他们在构造函数中获得资源并在析构函数中释放资源。</li>
+<li>两个常常被用的 RAII class 是 shared_ptr 和 auto_ptr .前者通常是较佳的选择，因为其 copy 行为比较直观。若选择 auto_ptr，复制动作会使它（被复制物）指向 null。</li>
+<li>PS: C++11 推出了 shared_ptr, unique_ptr, weak_ptr，请不要再使用 auto_ptr。</li>
 </ul>
 </blockquote>
-<h2 id="条款14-在资源管理类中小心copying行为"><a href="#条款14-在资源管理类中小心copying行为" class="headerlink" title="条款14 在资源管理类中小心copying行为"></a>条款14 在资源管理类中小心copying行为</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Lock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Lock</span><span class="params">(Mutex* pm)</span></span></span><br><span class="line"><span class="function">        : mutexPtr(pm)</span></span><br><span class="line"><span class="function">    &#123;</span> <span class="built_in">lock</span>(mutexPtr);&#125;</span><br><span class="line">    ~<span class="built_in">Lock</span>() &#123; <span class="built_in">unlock</span>(mutexPtr);&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Mutex *mutexPtr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lock</span>: <span class="keyword">private</span> Uncopyable &#123;  <span class="comment">// 见条款6</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lock</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Lock</span><span class="params">(Mutex *pm)</span></span></span><br><span class="line"><span class="function">        :mutexPtr(pm, unlock)  // 指定unlock为删除器，而不是默认的delete</span></span><br><span class="line"><span class="function">    &#123;</span> <span class="built_in">lock</span>(mutexPtr.<span class="built_in">get</span>()); &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::shared_ptr&lt;Mutex&gt; mutexPtr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h2 id="条款-14-在资源管理类中小心-copying-行为"><a href="#条款-14-在资源管理类中小心-copying-行为" class="headerlink" title="条款 14 在资源管理类中小心 copying 行为"></a>条款 14 在资源管理类中小心 copying 行为</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Lock</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Lock</span><span class="params">(Mutex* pm)</span></span></span><br><span class="line"><span class="function">        : mutexPtr(pm)</span></span><br><span class="line"><span class="function">    &#123;</span> <span class="built_in">lock</span>(mutexPtr);&#125;</span><br><span class="line">    ~<span class="built_in">Lock</span>() &#123; <span class="built_in">unlock</span>(mutexPtr);&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Mutex *mutexPtr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lock</span>: <span class="keyword">private</span> Uncopyable &#123;  <span class="comment">// 见条款6</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Lock</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Lock</span><span class="params">(Mutex *pm)</span></span></span><br><span class="line"><span class="function">        :mutexPtr(pm, unlock)  // 指定unlock为删除器，而不是默认的delete</span></span><br><span class="line"><span class="function">    &#123;</span> <span class="built_in">lock</span>(mutexPtr.<span class="built_in">get</span>()); &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::shared_ptr&lt;Mutex&gt; mutexPtr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>请记住</p>
 <ul>
-<li>复制RAII 对象必须一并复制它所管理的资源，所以资源的copying行为决定RAII 对象的copying行为。</li>
-<li>普遍而常见的RAII class copying 行为是：抑制copying、实行引用计数法。不过其他的行为也都有可能被实现。</li>
+<li>复制 RAII 对象必须一并复制它所管理的资源，所以资源的 copying 行为决定 RAII 对象的 copying 行为。</li>
+<li>普遍而常见的 RAII class copying 行为是：抑制 copying、实行引用计数法。不过其他的行为也都有可能被实现。</li>
 </ul>
 </blockquote>
-<h2 id="条款15-在资源管理类中提供对原始资源的访问"><a href="#条款15-在资源管理类中提供对原始资源的访问" class="headerlink" title="条款15 在资源管理类中提供对原始资源的访问"></a>条款15 在资源管理类中提供对原始资源的访问</h2><p>operator 隐式转换</p>
+<h2 id="条款-15-在资源管理类中提供对原始资源的访问"><a href="#条款-15-在资源管理类中提供对原始资源的访问" class="headerlink" title="条款 15 在资源管理类中提供对原始资源的访问"></a>条款 15 在资源管理类中提供对原始资源的访问</h2><p>operator 隐式转换</p>
 <blockquote>
 <p>请记住</p>
 <ul>
-<li>APIs 往往要求访问原始资源（raw resources），所以每一个RAII class 应该提供一个“取得其所管理之资源”的方法　　　　　　　　　　　　　　　　　</li>
+<li>APIs 往往要求访问原始资源（raw resources），所以每一个 RAII class 应该提供一个“取得其所管理之资源”的方法　　　　　　　　　　　　　　　　　</li>
 <li>对原始资源的访问可能经由显示转换或隐式转换。一般而言显式转换比较安全，但隐式转换对客户比较方便。</li>
 </ul>
 </blockquote>
-<h2 id="条款16-成对使用new和delete时要采取相同形式"><a href="#条款16-成对使用new和delete时要采取相同形式" class="headerlink" title="条款16 成对使用new和delete时要采取相同形式"></a>条款16 成对使用new和delete时要采取相同形式</h2><blockquote>
+<h2 id="条款-16-成对使用-new-和-delete-时要采取相同形式"><a href="#条款-16-成对使用-new-和-delete-时要采取相同形式" class="headerlink" title="条款 16 成对使用 new 和 delete 时要采取相同形式"></a>条款 16 成对使用 new 和 delete 时要采取相同形式</h2><blockquote>
 <p>请记住</p>
 <ul>
-<li>如果你在new表达式中使用 [ ] ，必须在相应的delete表达式中也使用 [ ] 。如果你在new表达式中不使用 [ ] ，一定不要在相应的delete表达式中使用 [ ]。</li>
+<li>如果你在 new 表达式中使用 <code>[ ]</code>，必须在相应的 delete 表达式中也使用 <code>[ ]</code>。如果你在 new 表达式中不使用 <code>[ ]</code>，一定不要在相应的 delete 表达式中使用 <code>[ ]</code>。</li>
 </ul>
 </blockquote>
-<h2 id="条款17-以独立语句将newed对象置入智能指针"><a href="#条款17-以独立语句将newed对象置入智能指针" class="headerlink" title="条款17 以独立语句将newed对象置入智能指针"></a>条款17 以独立语句将newed对象置入智能指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">priority</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">processWidget</span><span class="params">(std::shared_ptr&lt;Widget&gt; pw, <span class="type">int</span> priority)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误，shared_ptr的构造需要一个原始指针且无法隐式转换</span></span><br><span class="line"><span class="built_in">processWidget</span>(<span class="keyword">new</span> Widget, <span class="built_in">priority</span>());  </span><br><span class="line"><span class="comment">// 有可能出现内存泄漏</span></span><br><span class="line"><span class="built_in">processWidget</span>(std::<span class="built_in">shared_ptr</span>&lt;Widget&gt;(<span class="keyword">new</span> Widget), <span class="built_in">priority</span>());  </span><br><span class="line"><span class="comment">// 三个步骤的顺序是未定义的，如果</span></span><br><span class="line"><span class="comment">// new Widget</span></span><br><span class="line"><span class="comment">// priority()</span></span><br><span class="line"><span class="comment">// shared_ptr cast</span></span><br><span class="line"><span class="comment">// 这样的顺序，priority()抛出异常，new Widget 就泄露了，应该拆开写</span></span><br><span class="line"><span class="function">std::shared_ptr&lt;Widget&gt; <span class="title">pw</span><span class="params">(<span class="keyword">new</span> Widget)</span></span>;</span><br><span class="line"><span class="built_in">processWidget</span>(pw, <span class="built_in">priority</span>());</span><br></pre></td></tr></table></figure>
+<h2 id="条款-17-以独立语句将-newed-对象置入智能指针"><a href="#条款-17-以独立语句将-newed-对象置入智能指针" class="headerlink" title="条款 17 以独立语句将 newed 对象置入智能指针"></a>条款 17 以独立语句将 newed 对象置入智能指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">priority</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">processWidget</span><span class="params">(std::shared_ptr&lt;Widget&gt; pw, <span class="type">int</span> priority)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误，shared_ptr的构造需要一个原始指针且无法隐式转换</span></span><br><span class="line"><span class="built_in">processWidget</span>(<span class="keyword">new</span> Widget, <span class="built_in">priority</span>());</span><br><span class="line"><span class="comment">// 有可能出现内存泄漏</span></span><br><span class="line"><span class="built_in">processWidget</span>(std::<span class="built_in">shared_ptr</span>&lt;Widget&gt;(<span class="keyword">new</span> Widget), <span class="built_in">priority</span>());</span><br><span class="line"><span class="comment">// 三个步骤的顺序是未定义的，如果</span></span><br><span class="line"><span class="comment">// new Widget</span></span><br><span class="line"><span class="comment">// priority()</span></span><br><span class="line"><span class="comment">// shared_ptr cast</span></span><br><span class="line"><span class="comment">// 这样的顺序，priority()抛出异常，new Widget 就泄露了，应该拆开写</span></span><br><span class="line"><span class="function">std::shared_ptr&lt;Widget&gt; <span class="title">pw</span><span class="params">(<span class="keyword">new</span> Widget)</span></span>;</span><br><span class="line"><span class="built_in">processWidget</span>(pw, <span class="built_in">priority</span>());</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>请记住</p>
 <ul>
-<li>以独立语句将newed对象储存于（置入）智能指针内。如果不这样做，一旦异常抛出，有可能导致难以察觉的资源泄露。</li>
+<li>以独立语句将 newed 对象储存于（置入）智能指针内。如果不这样做，一旦异常抛出，有可能导致难以察觉的资源泄露。</li>
 </ul>
 </blockquote>
 
@@ -390,20 +397,6 @@
     </span>
     <span class="author" itemprop="copyrightHolder">Lolia</span>
   </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="站点总字数">33k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="站点阅读时长">1:58</span>
-  </span>
-</div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
@@ -422,7 +415,7 @@
       </span>
     </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="powered-by">由 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZw==">NexT.Gemini</span> 强力驱动
   </div>
 
     </div>
